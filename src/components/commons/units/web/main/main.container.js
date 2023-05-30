@@ -1,7 +1,10 @@
+//Main Veiw 로직 부분
 import axios from 'axios'
-import React, {useState} from 'react';
+import {useState} from 'react'
+import MainViewUI from './main.presenter'
 
-export default function TestApi() {
+export default function MainView() {
+
     const [data, setData] = useState(null);
 
     const onClickGetList = () => {
@@ -78,21 +81,13 @@ export default function TestApi() {
       });
     }
     
-
     return (
-        <div>
-            <div>
-                <div>
-                <button onClick={onClickGetList}>getList</button><br />
-                <button onClick={onClickGet}>get</button><br />
-                <button onClick={onClickPost}>post</button><br />
-                <button onClick={onClickPut}>put</button><br />
-                <button onClick={onClickDelete}>delete</button>
-                </div>
-                {data && <textarea rows={7} value={JSON.stringify(data, null, 2)} readOnly={true} />}
-          </div>
-        </div>
+       <MainViewUI
+        list={onClickGetList}
+        get={onClickGet}
+        post={onClickPost}
+        put={onClickPut}
+        delete={onClickDelete}
+       />
     )
-
-
 }
