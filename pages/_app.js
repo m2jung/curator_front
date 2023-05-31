@@ -1,18 +1,16 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import Layout from "../src/components/commons/layout";
+import { Global } from "@emotion/react";
+import { globalStyles} from "../src/commons/styles/globalStyles"
 
+//최종적으로 Component들이 모여서 보여지는 곳 
 export default function App({ Component, pageProps }) {
-
-//  // graphql 셋팅 
-//  const client = new ApolloClient({
-//   uri:"http://practice.codebootcamp.co.kr/graphql",
-//   cache: new InMemoryCache() 
-// })
-
   return (
     <div>
-      <div>==== _app.js 컴포넌트 Header ==== </div>
+      <Global styles={globalStyles}/>
+        <Layout>
           <Component {...pageProps} />
-        <div>==== _app.js 컴포넌트 Footer ==== </div>
+        </Layout>
     </div>
 )
 }
