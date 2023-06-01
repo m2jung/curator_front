@@ -13,5 +13,4 @@ export const ContentStyle = styled.div`
     color: '#fff',
     lineHeight: '160px',
     textAlign: 'center',
-    background: '#364d79',
 `

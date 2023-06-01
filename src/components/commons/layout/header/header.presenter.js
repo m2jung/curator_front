@@ -5,7 +5,7 @@ export default function LayoutHeader(props){
 
     return (
         <C.HeaderWrapper>
-        <C.MainTitle><Link href="../">Title</Link></C.MainTitle>
+        <C.MainTitle><Link href="#">Title</Link></C.MainTitle>
         <C.MyProfile>
           <Link href="../login/sign-in">
             <C.SignInMenu>로그인</C.SignInMenu>

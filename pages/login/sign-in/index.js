@@ -7,6 +7,7 @@ export default function SignInView() {
   return (
       <C.Wrapper>
         <C.SignInForm>
+          <C.SignInTitle>Login</C.SignInTitle>
           <C.InputWrapper>
            <C.Email type="text" placeholder="이메일"></C.Email>
            <C.Password type="password" placeholder="비밀번호"></C.Password>
