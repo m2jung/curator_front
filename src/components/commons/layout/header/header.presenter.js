@@ -5,7 +5,7 @@ export default function LayoutHeader(props){
 
     return (
         <C.HeaderWrapper>
-        <C.MainTitle><Link href="#">Title</Link></C.MainTitle>
+        <C.MainTitle><Link href="/">Title</Link></C.MainTitle>
         <C.MyProfile>
           <Link href="../login/sign-in">
             <C.SignInMenu>로그인</C.SignInMenu>
@@ -13,8 +13,9 @@ export default function LayoutHeader(props){
           <Link href="../login/sign-up">
             <C.SignupMenu>회원가입</C.SignupMenu>
           </Link>
-           {/* <C.MyName>안녕하세요.<span>OOO</span> 님</C.MyName>
-           <C.MyImage></C.MyImage> */}
+          <Link href="../login/user/user-info">
+            <C.SignupMenu>회원정보</C.SignupMenu>
+          </Link>
         </C.MyProfile>
         <C.Navigator>
           <Link href="#"><C.Menu onClick={props.artist}>작가</C.Menu></Link>

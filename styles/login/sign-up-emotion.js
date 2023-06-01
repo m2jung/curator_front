@@ -43,6 +43,7 @@ export const SectionRow = styled.div`
 export const Label = styled.div`
     font-size: 15px;
     margin: 5px 0 10px 0;
+    opacity: 70%;
 `    
 export const Email = styled.input`
     width: 200px;
