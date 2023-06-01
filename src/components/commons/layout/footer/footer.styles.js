@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const FooterWrapper = styled.div`
     width: 100%;
-    height: 100px;
+    height: 80px;
     display: flex;
     border: 1px solid black;
 `

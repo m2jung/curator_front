@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
     width: 100%;
-    height: 700px;
+    height: 750px;
     display: flex;
     flex-direction: row;
 `
@@ -37,7 +37,7 @@ export const SectionRow = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 15px 0;
+    margin: 15px 0 5px;
 `
 
 export const Label = styled.div`
@@ -66,18 +66,23 @@ export const Button = styled.button `
 export const EmailCheck = styled.div`
     display: flex;
     flex-direction: row;
+    margin: 10px 0;
 `
-export const ButtonToken = styled.button`
+export const BtnToken = styled.button`
     width: 100px;
+    height: 20px;
     font-size: 12px;
     background-color: #364D79;
     color: white;
     border: 1px solid black;
     border-radius: 5px;
 `
-
-export const Number = styled.div``
-export const Timer = styled.div``
+export const BtnComplete = styled.button`
+    width: 65px;
+    font-size: 12px;
+    border: 1px solid black;
+    margin-left: 10px;
+`
 
 
 export const Name = styled.input`

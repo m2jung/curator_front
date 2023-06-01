@@ -17,11 +17,11 @@ export default function LayoutHeader(props){
            <C.MyImage></C.MyImage> */}
         </C.MyProfile>
         <C.Navigator>
-          <Link href="#"><C.Menu>작가</C.Menu></Link>
-          <Link href="#"><C.Menu>장르</C.Menu></Link>
-          <Link href="#"><C.Menu>작품의뢰</C.Menu></Link>
-          <Link href="#"><C.Menu>전시회</C.Menu></Link>
-          <Link href="#"><C.Menu>고객센터</C.Menu></Link>
+          <Link href="#"><C.Menu onClick={props.artist}>작가</C.Menu></Link>
+          <Link href="#"><C.Menu onClick={props.genre}>장르</C.Menu></Link>
+          <Link href="#"><C.Menu onClick={props.commission}>작품의뢰</C.Menu></Link>
+          <Link href="#"><C.Menu onClick={props.exhibition}>전시회</C.Menu></Link>
+          <Link href="#"><C.Menu onClick={props.service}>고객센터</C.Menu></Link>
         </C.Navigator>
       </C.HeaderWrapper> 
     )
