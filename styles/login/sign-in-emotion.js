@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
 `
-
 // Login SignIn
 export const SignInForm = styled.div`
     width: 400px;
@@ -19,6 +18,10 @@ export const SignInForm = styled.div`
     margin: auto;
 `
 
+export const SignInTitle = styled.div`
+    font-size: 23px;
+`
+
 export const InputWrapper = styled.div`
     width: 350px;
     border: 1px solid white;
@@ -29,25 +32,29 @@ export const InputWrapper = styled.div`
 export const Email = styled.input`
     width: 100%;
     height: 30px;
-    margin-bottom: 10px;
-    background-color: white;
+    margin-bottom: 25px;
+    border: none;
+    border-bottom: 1px solid gray;
 `
 
 export const Password = styled.input`
     width: 100%;
     height: 30px;
-    margin-bottom: 30px;
-    background-color: white;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid gray;
 `
 export const LoginCheck = styled.input`
 `
 export const InputSpan = styled.span`
+    font-size: 12px;
+    margin: 10px;
 `
-
 export const SignInBtn = styled.button`
     width: 100%;
     height: 40px;
-    background-color: white;
+    border: none;
+    margin: 5px;
 
 `
 export const SignUpLogin = styled.span`
@@ -59,5 +66,7 @@ export const InputLink = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
+    margin: 20px;
+    font-size: 15px;
 `
 

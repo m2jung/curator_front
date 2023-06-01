@@ -1,4 +1,3 @@
-//Main Veiw 로직 부분
 import axios from 'axios'
 import {useState} from 'react'
 import MainViewUI from './main.presenter'
