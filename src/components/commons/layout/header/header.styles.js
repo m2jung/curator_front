@@ -35,11 +35,10 @@ export const SignInMenu = styled.a`
     margin: 0 10px;
 `
 export const SignupMenu = styled.a`
+    margin: 0 10px;
 `
+export const MyName = styled.div``
 
-export const MyName = styled.div`
-
-`
 export const MyImage = styled.div`
     width: 40px;
     height: 40px;

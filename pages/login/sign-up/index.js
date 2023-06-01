@@ -6,6 +6,7 @@ export default function SignUpView(){
   
   const [email, setEmail] = useState("")
   const [emailCheck, setEmailCheck] = useState("")
+  const [emailToken, setEmailToken] = useState(false)
 
   const onClickEmailCheck = () => {
     alert('사용가능한 이메일 입니다.')
@@ -16,11 +17,13 @@ export default function SignUpView(){
       console.log(email);
   }
 
-  const onClickTimerStart = () => {
-
-
+  const onClickEmailToken = () => {
+      setEmailToken(true)
   }
 
+  const onClickEmailComplete = () => {
+
+  }
 
   return (
     <>
@@ -39,16 +42,10 @@ export default function SignUpView(){
               </C.Domain>
               <C.Button onClick={onClickEmailCheck}>중복확인</C.Button>
               <C.EmailCheck>
-                
-                <C.Timer>3:00</C.Timer>
-                <C.ButtonToken onClick={onClickTimerStart}>이메일 인증하기</C.ButtonToken>
-                <C.Button id="finish" disabled="false"> 인증완료 </C.Button>
-        
+                <C.BtnToken onClick={onClickEmailToken}>이메일 인증하기</C.BtnToken>
+                <C.BtnComplete onClick={onClickEmailComplete}>인증완료</C.BtnComplete>   
               </C.EmailCheck>
               
-
-
-
             </C.SectionColumn>
             <C.SectionRow>
               <C.Label>* 이름</C.Label>

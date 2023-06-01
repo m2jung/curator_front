@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const BodyWrapper = styled.div`
     width: 100%;
-    height: 700px;
+    height: 800px;
     display: flex;
     flex-direction: row;
 `
