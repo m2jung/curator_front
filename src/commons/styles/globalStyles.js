@@ -5,9 +5,7 @@ import { css } from '@emotion/react';
         padding: 0;
     }
 
-    @font-face {
-        font-family:"font";
-        src: url('../../../public/fonts/') format('ttf');
-    }
+
+
     
 `

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 
+
 export const Wrapper = styled.div`
     width: 100%;
     height: 700px;
@@ -27,6 +28,7 @@ export const InputWrapper = styled.div`
     border: 1px solid white;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 `
 
 export const Email = styled.input`
@@ -36,7 +38,6 @@ export const Email = styled.input`
     border: none;
     border-bottom: 1px solid gray;
 `
-
 export const Password = styled.input`
     width: 100%;
     height: 30px;

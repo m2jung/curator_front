@@ -1,7 +1,26 @@
 
+import { useState } from 'react'
 import * as C from '../../../styles/login/sign-up-emotion'
 // 회원가입 페이지 
 export default function SignUpView(){
+  
+  const [email, setEmail] = useState("")
+  const [emailCheck, setEmailCheck] = useState("")
+
+  const onClickEmailCheck = () => {
+    alert('사용가능한 이메일 입니다.')
+  } 
+  
+  const onChangeEmail = (event) => {
+      setEmail(event.target.value)
+      console.log(email);
+  }
+
+  const onClickTimerStart = () => {
+
+
+  }
+
 
   return (
     <>
@@ -11,14 +30,25 @@ export default function SignUpView(){
           <C.SignUpTitle>회원정보 입력</C.SignUpTitle>
             <C.SectionColumn>
               <C.Label>* 아이디(이메일)</C.Label>
-              <C.Email type="text"/> @
+              <C.Email type="text" onChange={onChangeEmail}/> @
               <C.Domain>
-                <option disabled="true" selected="true"> 이메일을 선택하세요</option>
+                {/* <option disabled="true" selected="true"> 이메일을 선택하세요</option>
                 <option>naver.com</option>
                 <option>hanmail.net</option>
-                <option>gmail.com</option>
+                <option>gmail.com</option> */}
               </C.Domain>
-              <C.Button>중복확인</C.Button>
+              <C.Button onClick={onClickEmailCheck}>중복확인</C.Button>
+              <C.EmailCheck>
+                
+                <C.Timer>3:00</C.Timer>
+                <C.ButtonToken onClick={onClickTimerStart}>이메일 인증하기</C.ButtonToken>
+                <C.Button id="finish" disabled="false"> 인증완료 </C.Button>
+        
+              </C.EmailCheck>
+              
+
+
+
             </C.SectionColumn>
             <C.SectionRow>
               <C.Label>* 이름</C.Label>

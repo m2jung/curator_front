@@ -63,6 +63,23 @@ export const Button = styled.button `
     margin-left: 5px;
 `
 
+export const EmailCheck = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+export const ButtonToken = styled.button`
+    width: 100px;
+    font-size: 12px;
+    background-color: #364D79;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+`
+
+export const Number = styled.div``
+export const Timer = styled.div``
+
+
 export const Name = styled.input`
     width: 150px;
     height: 30px;
