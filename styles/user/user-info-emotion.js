@@ -1,12 +1,21 @@
 import styled from "@emotion/styled";
 
+//회원정보 전체 Wrapper
+export const Wrapper = styled.div`
+    width: 1300px;
+    height: 1600px;
+    display: flex;
+    margin: 30px;
+    padding: 20px;
+    margin : auto;
+`
+
 export const InfoWrapper= styled.div`
-    width: 950px;
+    width: 900px;
     height: 1500px;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
     padding: 50px;
-    margin-left: 15px;
 `
 
 export const InfoTitle = styled.div`

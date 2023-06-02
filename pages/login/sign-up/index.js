@@ -35,10 +35,10 @@ export default function SignUpView(){
               <C.Label>* 아이디(이메일)</C.Label>
               <C.Email type="text" onChange={onChangeEmail}/> @
               <C.Domain>
-                {/* <option disabled="true" selected="true"> 이메일을 선택하세요</option>
+                <option disabled="true" selected="true"> 이메일을 선택하세요</option>
                 <option>naver.com</option>
                 <option>hanmail.net</option>
-                <option>gmail.com</option> */}
+                <option>gmail.com</option>
               </C.Domain>
               <C.Button onClick={onClickEmailCheck}>중복확인</C.Button>
               <C.EmailCheck>

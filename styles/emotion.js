@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
 
-//BoardMain
+//Main WebSize
 export const Wrapper = styled.div`
     width: 100vw;
     height: 700px;
+    margin: auto;
     display: flex;
     flex-direction: row;
 `

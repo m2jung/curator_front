@@ -1,11 +1,11 @@
 import * as C from './side-nav.styles' 
-import Link from 'next/link'
+
 
 export default function LayoutSideNav(props) {
-
+ 
   return (
-    <>
-       <C.Wrapper>
+    <>  
+        <C.Wrapper>
          <C.InfoWrapper>
             <C.InfoMenu>
                 <C.InfoProfile>
@@ -14,17 +14,17 @@ export default function LayoutSideNav(props) {
                     <C.UserEmail>119755@naver.com</C.UserEmail>
                 </C.InfoProfile>
                 <C.InfoList>
-                    <Link href="/user/user-info"><C.List>회원정보</C.List></Link>
-                    <Link href="/user/user-pur"><C.List>구매내역</C.List></Link>
-                    <Link href="/user/user-mark"><C.List>즐겨찾기</C.List></Link>
-                    <Link href="/user/user-help"><C.List>나의문의</C.List></Link>
+                    <C.List onClick={props.ScrollInfo}>회원정보</C.List>
+                    <C.List onClick={props.ScrollPur}>구매내역</C.List>
+                    <C.List onClick={props.ScrollMark}>즐겨찾기</C.List>
+                    <C.List onClick={props.ScrollService}>나의문의</C.List>
                 </C.InfoList>
             </C.InfoMenu>
             <C.InfoContent>
             <div>{props.children}</div>
             </C.InfoContent> 
          </C.InfoWrapper>
-        </C.Wrapper>  
+         </C.Wrapper>
     </>
   )
 
