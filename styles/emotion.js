@@ -1,6 +1,9 @@
 import styled from "@emotion/styled";
 
 //Main WebSize
+// export const Body = styled.body`
+//     width: 100vw;
+// `
 export const Wrapper = styled.div`
     width: 100vw;
     height: 700px;
@@ -30,7 +33,7 @@ export const Section = styled.div`
 `
 
 export const Article = styled.div`
-    width: 80%;
+    width: 1200px;
     height: 500px;
     background-color: white;
     display: flex;
@@ -46,7 +49,7 @@ export const ArticleImage = styled.div`
     background-color: yellow;
 `
 export const Exhibition = styled.div `
-    width: 80%;
+    width: 1200px;
     height: 400px;
     border: 1px solid red;
 `

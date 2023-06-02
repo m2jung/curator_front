@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 
 export const Wrapper = styled.div`
-    width: 80%;
+    width: 1200px;
     height: 1700px;
     margin: auto;
     padding: 40px;   
@@ -33,13 +33,12 @@ export const BannerSubTitle = styled.div`
     font-size: 40px;
 `
 export const GenreSelect = styled.div`
-    width: 1200px;
+    width: 1150px;
     height: 20px;
     display: flex;
     align-items: center;
     margin: auto;
-    padding: 20px;
-    border: 1px solid black;
+    padding: 30px;
 `
 export const Select = styled.select`
     width: 110px;
@@ -50,6 +49,10 @@ export const Select = styled.select`
 `
 
 export const Genre = styled.div`
+    &:active {
+        color: white;
+        background-color: black;
+    }
     width: 70px;
     height: 25px;
     display: flex;
@@ -57,15 +60,10 @@ export const Genre = styled.div`
     align-items: center;
     margin-right: 10px;
     border: 1px solid black;
+    border-radius: 20px;
+    padding: 2px;
     
 `
-
-
-
-
-
-
-
 
 // =================
 export const GenreWrapper = styled.div`

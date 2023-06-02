@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 
 export const BodyWrapper = styled.div`
-    width: 100%;
+    width: 1200px;
     height: 800px;
     display: flex;
     flex-direction: row;
 `
 export const AsideContent = styled.div`
-    width: 50%;
+    width: 1200px;
     height: 100%;
     border: 1px solid blue;
 `
@@ -17,7 +17,7 @@ export const ArticleTitle = styled.div`
 `
 
 export const Section = styled.div`
-    width: 100%;
+    width: 1200px;
     height: 100%;
     border: 1px solid blue;
 `
