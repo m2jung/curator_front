@@ -2,11 +2,13 @@ import LayoutSideNav from "../../../../src/components/commons/layout/side-nav/si
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import * as C from "../../../../styles/user/user-info-emotion"
+import SideNavContainer from "../../../../src/components/commons/layout/side-nav/side-nav.container"
 
 export default function UserInfoView() {
     return (
        <>
-        <LayoutSideNav>
+       <C.Wrapper>
+        <SideNavContainer/>
             <C.InfoWrapper>
              <C.InfoTitle>회원정보</C.InfoTitle>
              <C.Profile>
@@ -65,7 +67,7 @@ export default function UserInfoView() {
                 </C.PaymentTable>
              </C.Profile>
              </C.InfoWrapper>
-        </LayoutSideNav>   
+         </C.Wrapper>
        </>
     ) 
 }

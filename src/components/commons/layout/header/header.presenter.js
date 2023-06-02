@@ -16,7 +16,7 @@ export default function LayoutHeader(props){
             <C.SignupMenu>회원가입</C.SignupMenu>
           </Link>
           <Link href="login/user/user-info">
-            <C.SignupMenu>회원정보</C.SignupMenu>
+            <C.InfoMenu>회원정보</C.InfoMenu>
           </Link>
         </C.MyProfile>
         <C.Navigator>

@@ -2,10 +2,11 @@ import styled from "@emotion/styled";
 
 
 export const HeaderWrapper = styled.div`
-    width: 100%;
-    height: 350px;
+    width: 1800px;
+    height: 380px;
     display: flex;
     flex-direction: column;
+    margin: auto;
 `
 export const HeaderContent = styled.div`
     display: flex;
@@ -32,21 +33,35 @@ export const MainTitle = styled.div`
 export const SubTitle = styled.div`
     font-size: 37px;
     font-family: serif;
-    text-shadow: 5px 3px #6BADEB;
+    text-shadow: 5px 3px beige;
     margin: auto;
 `
 export const MyProfile = styled.div`
     display: flex;
     align-items: center;
     margin-left: auto;
+    margin-right: 340px;
 `
 export const SignInMenu = styled.a`
+    &:hover{
+    font-weight: bold;
+    }
     margin: 0 10px;
 `
 export const SignupMenu = styled.a`
+    &:hover{
+    font-weight: bold;
+    }
     margin: 0 10px;
     
 `
+export const InfoMenu = styled.a`
+    &:hover{
+    font-weight: bold;
+    }
+   margin: 0 10px;
+`
+
 export const MyName = styled.div``
 
 export const MyImage = styled.div`
@@ -60,16 +75,17 @@ export const Navigator = styled.div`
     border: 1px white solid;
     display: flex;
     justify-content: center;
+    margin: 15px;
 `
 export const Menu = styled.div`
     &:hover{
         font-weight: bold;
     }
     font-size: 19px;
-    margin: 10px 15px;
+    margin: 20px 25px;
 `
 export const Line = styled.div`
-    width: 70%;
+    width: 1200px;
     border: 1px solid rgba(0,0,0,0.2);
     margin: 10px auto ;
 `
