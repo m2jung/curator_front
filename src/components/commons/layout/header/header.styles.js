@@ -16,8 +16,8 @@ export const HeaderContent = styled.div`
 `
 
 export const MainTitle = styled.div`
-    width: 80px;
-    height: 100px;
+    width: 70px;
+    height: 90px;
     margin: 30px auto;
     border: 11px whitesmoke;
     border-style: outset;
@@ -62,7 +62,10 @@ export const Navigator = styled.div`
     justify-content: center;
 `
 export const Menu = styled.div`
-    font-size: 20px;
+    &:hover{
+        font-weight: bold;
+    }
+    font-size: 19px;
     margin: 10px 15px;
 `
 export const Line = styled.div`

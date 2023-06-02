@@ -15,7 +15,7 @@ export default function SignInView() {
             <C.LoginCheck type="checkbox" id="login" name="login"/> 자동 로그인
            </C.InputSpan>
            <C.SignInBtn type="submit">로그인</C.SignInBtn>
-           <C.SignInBtn type="submit">비회원 로그인</C.SignInBtn>
+           <C.SignInBtn type="submit">비회원 주문확인</C.SignInBtn>
            <C.InputLink>
             <Link href="../login/sign-up">
               <C.SignUpLogin>회원가입</C.SignUpLogin>

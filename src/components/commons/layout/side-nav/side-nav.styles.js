@@ -53,6 +53,9 @@ export const ProfileImage = styled.div`
     border-radius: 50px;
     background-color: gray;
     margin: 30px;
+    background-image: url('/images/imageiu.jpg');
+    background-position: center;
+    background-size: cover;
 `
 export const UserName = styled.div``
 export const UserEmail = styled.div``

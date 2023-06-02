@@ -23,8 +23,10 @@ export const Profile= styled.div`
 export const MyImage = styled.div`
     width: 60px;
     height: 60px;
-    border: 1px solid black;
     border-radius: 30px;
+    background-image: url('/images/imageiu.jpg');
+    background-position: center;
+    background-size: cover;
 `
 
 // 회원정보 수정 
