@@ -1,25 +1,32 @@
 import styled from "@emotion/styled";
 
+//회원정보 전체 Wrapper
 export const Wrapper = styled.div`
-    width: 100vw;
-    height: 800px;
+    width: 100%;
+    height: 1500px;
+    display: flex;
+    margin: 30px;
+    padding: 20px;
 `
+
 export const InfoWrapper = styled.div`
-    width: 100%:
+    width: 200px:
     height: 100%;
-    border: 1px solid black;
     margin: auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: row; 
 `
+
 export const InfoMenu = styled.div`
-    width: 15%;
-    height: 100%;
+    width: 200px;
+    height: 500px;
     padding: 80px 60px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
 `
 export const InfoProfile = styled.div`
     display: flex;
@@ -30,10 +37,13 @@ export const InfoProfile = styled.div`
 `
 
 export const InfoList = styled.ul`
-    font-size: 18px;
+    font-size: 17px;
     list-style: none;
 `
 export const List = styled.li`
+    &:hover{
+        font-weight: bold;
+    }
     padding: 20px;
 `
 
@@ -50,9 +60,6 @@ export const UserEmail = styled.div``
 export const InfoContent = styled.div`
     width: 80%;
     height: 100%;
-    margin: auto;
+
 `
-export const MyPassword = styled.input`
-    width: 100px;
-    height: 30px;
-`
+export const MyPassword = styled.div``

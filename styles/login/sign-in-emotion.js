@@ -52,6 +52,11 @@ export const InputSpan = styled.span`
     margin: 10px;
 `
 export const SignInBtn = styled.button`
+    &:hover {
+        color: white;
+        background-color: #364D79;;
+    }
+    
     width: 100%;
     height: 40px;
     border: none;

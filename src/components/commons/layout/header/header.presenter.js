@@ -5,15 +5,16 @@ export default function LayoutHeader(props){
 
     return (
         <C.HeaderWrapper>
-        <C.MainTitle><Link href="/">Title</Link></C.MainTitle>
+        <Link href="/"><C.MainTitle></C.MainTitle></Link>
+        <C.SubTitle>Artist Website</C.SubTitle>
         <C.MyProfile>
-          <Link href="../login/sign-in">
+          <Link href="/login/sign-in">
             <C.SignInMenu>로그인</C.SignInMenu>
           </Link>
-          <Link href="../login/sign-up">
+          <Link href="/login//sign-up">
             <C.SignupMenu>회원가입</C.SignupMenu>
           </Link>
-          <Link href="../login/user/user-info">
+          <Link href="login/user/user-info">
             <C.SignupMenu>회원정보</C.SignupMenu>
           </Link>
         </C.MyProfile>
@@ -24,6 +25,7 @@ export default function LayoutHeader(props){
           <Link href="#"><C.Menu onClick={props.exhibition}>전시회</C.Menu></Link>
           <Link href="#"><C.Menu onClick={props.service}>고객센터</C.Menu></Link>
         </C.Navigator>
+        <C.Line></C.Line>
       </C.HeaderWrapper> 
     )
 }

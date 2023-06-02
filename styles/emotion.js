@@ -45,7 +45,6 @@ export const ArticleImage = styled.div`
 export const Exhibition = styled.div `
     width: 80%;
     height: 400px;
-    border: 1px solid white;
 `
 
 
