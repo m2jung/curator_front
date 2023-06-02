@@ -2,14 +2,15 @@ import styled from "@emotion/styled";
 
 //BoardMain
 export const Wrapper = styled.div`
-    width: 100%;
+    width: 100vw;
     height: 700px;
     display: flex;
     flex-direction: row;
 `
 export const Content = styled.div`
-    width: 100%;
+    width: 1600px;
     height: 100%;
+    margin: auto;
     border: 1px solid blue;
     display: flex;
     flex-direction: column;
@@ -35,17 +36,18 @@ export const Article = styled.div`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    border: 1px solid red;
 
 `
 export const ArticleImage = styled.div`
     width: 230px;
     height: 300px;
-
+    background-color: yellow;
 `
 export const Exhibition = styled.div `
     width: 80%;
     height: 400px;
-    border: 1px solid white;
+    border: 1px solid red;
 `
 
 

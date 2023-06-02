@@ -52,6 +52,11 @@ export const InputSpan = styled.span`
     margin: 10px;
 `
 export const SignInBtn = styled.button`
+    &:hover {
+        color: white;
+        background-color: #364D79;;
+    }
+    
     width: 100%;
     height: 40px;
     border: none;
@@ -67,7 +72,7 @@ export const InputLink = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
-    margin: 20px;
+    margin: 10px;
     font-size: 15px;
 `
 

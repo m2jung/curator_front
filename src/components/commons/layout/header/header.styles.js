@@ -3,10 +3,9 @@ import styled from "@emotion/styled";
 
 export const HeaderWrapper = styled.div`
     width: 100%;
-    height: 180px;
+    height: 350px;
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
 `
 export const HeaderContent = styled.div`
     display: flex;
@@ -17,16 +16,26 @@ export const HeaderContent = styled.div`
 `
 
 export const MainTitle = styled.div`
-    border: 1px solid black;
+    width: 70px;
+    height: 90px;
+    margin: 30px auto;
+    border: 11px whitesmoke;
+    border-style: outset;
+    background-image: url('/images/art2.jpeg');
+    background-position: center;
+    background-size: cover;
     display: flex;
     justify-content:center;
-    algin-items:center;
-    font-size: 55px;
+    align-items:center;
     padding: 20px;
 `
-
+export const SubTitle = styled.div`
+    font-size: 37px;
+    font-family: serif;
+    text-shadow: 5px 3px #6BADEB;
+    margin: auto;
+`
 export const MyProfile = styled.div`
-    border: 1px solid red;
     display: flex;
     align-items: center;
     margin-left: auto;
@@ -36,6 +45,7 @@ export const SignInMenu = styled.a`
 `
 export const SignupMenu = styled.a`
     margin: 0 10px;
+    
 `
 export const MyName = styled.div``
 
@@ -52,7 +62,14 @@ export const Navigator = styled.div`
     justify-content: center;
 `
 export const Menu = styled.div`
-    border: 1px solid red;
-    font-size: 20px;
+    &:hover{
+        font-weight: bold;
+    }
+    font-size: 19px;
     margin: 10px 15px;
+`
+export const Line = styled.div`
+    width: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    margin: 10px auto ;
 `
