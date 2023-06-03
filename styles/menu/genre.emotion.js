@@ -13,7 +13,7 @@ export const GenreBanner = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-bottom: 2px solid rgba(0,0,0,0.2);
+    border-bottom: 2px solid rgba(0,0,0,0.1);
     padding: 20px;
     margin: auto;
    
@@ -31,6 +31,7 @@ export const BannerTitle = styled.div`
 export const BannerSubTitle = styled.div`
     font-family: serif;
     font-size: 40px;
+    margin-bottom: 30px;
 `
 export const GenreSelect = styled.div`
     width: 1150px;
@@ -38,14 +39,14 @@ export const GenreSelect = styled.div`
     display: flex;
     align-items: center;
     margin: auto;
-    padding: 30px;
+    padding: 35px;
 `
 export const Select = styled.select`
     width: 110px;
-    height: 15px;
-    padding: 20px;  
-    border-radius: 20px;
+    height: 30px;
     margin-left: auto;
+    font-size: 15px;
+
 `
 
 export const Genre = styled.div`
