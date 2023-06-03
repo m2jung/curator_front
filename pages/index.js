@@ -13,7 +13,7 @@ export default class SimpleSlider extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
     };
   return (
   <>
@@ -21,7 +21,7 @@ export default class SimpleSlider extends Component {
         <C.Content>
           <C.ContentTitle>BestArtist</C.ContentTitle>
           <C.Article>
-          <Slider {...settings}>
+          {/* <Slider {...settings}>
           <div>
             <h3>1</h3>
           </div>
@@ -40,7 +40,7 @@ export default class SimpleSlider extends Component {
           <div>
             <h3>6</h3>
           </div>
-            </Slider>
+            </Slider> */}
             <C.ArticleImage></C.ArticleImage>
             <C.ArticleImage></C.ArticleImage>
             <C.ArticleImage></C.ArticleImage>

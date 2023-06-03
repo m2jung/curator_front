@@ -2,6 +2,8 @@ import * as C from '../../../styles/menu/genre.emotion'
 
 export default function GenreView() {
 
+   // Genre 장르 onClick 배경색상 black
+
     return (
         <>
         <C.Wrapper>
@@ -10,9 +12,9 @@ export default function GenreView() {
             <C.BannerSubTitle>Buy Original Paintings</C.BannerSubTitle>
          </C.GenreBanner>
             <C.GenreSelect>
-               <C.Genre>동양화</C.Genre>
-               <C.Genre>서양화</C.Genre>
-               <C.Genre>ddd</C.Genre>
+               <C.Genre>장르1</C.Genre>
+               <C.Genre>장르2</C.Genre>
+               <C.Genre>장르3</C.Genre>
                <C.Select>
                   <option disabled="true" selected="true">추천순</option>
                   <option>인기순</option>
@@ -24,7 +26,6 @@ export default function GenreView() {
             </C.GenreSelect>
          <C.GenreWrapper>
             <C.GenreColumn>
-
             </C.GenreColumn>
             <C.GenreColumn></C.GenreColumn>
             <C.GenreColumn></C.GenreColumn>

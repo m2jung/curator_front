@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 
 export const HeaderWrapper = styled.div`
-    width: 1800px;
+    width: 1200px;
     height: 380px;
     display: flex;
     flex-direction: column;
@@ -37,10 +37,10 @@ export const SubTitle = styled.div`
     margin: auto;
 `
 export const MyProfile = styled.div`
+    width: 1200px;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    margin-left: auto;
-    margin-right: 340px;
 `
 export const SignInMenu = styled.a`
     &:hover{

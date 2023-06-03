@@ -8,16 +8,9 @@ export default function LayoutHeader(props){
         <Link href="/"><C.MainTitle></C.MainTitle></Link>
         <C.SubTitle>Artist Website</C.SubTitle>
         <C.MyProfile>
-          <Link href="/login/sign-in">
-            <C.SignInMenu>로그인</C.SignInMenu>
-          </Link>
-          /
-          <Link href="/login/sign-up">
-            <C.SignupMenu>회원가입</C.SignupMenu>
-          </Link>
-          <Link href="/login/user/user-info">
-            <C.InfoMenu>회원정보</C.InfoMenu>
-          </Link>
+          <Link href="/login/sign-in"><C.SignInMenu>로그인</C.SignInMenu></Link>
+          /<Link href="/login/sign-up"><C.SignupMenu>회원가입</C.SignupMenu></Link>
+          <Link href="/login/user/user-info"><C.InfoMenu>회원정보</C.InfoMenu></Link>
         </C.MyProfile>
         <C.Navigator>
           <Link href="menu/artist"><C.Menu onClick={props.artist}>작가</C.Menu></Link>

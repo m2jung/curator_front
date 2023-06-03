@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 
 export const Wrapper = styled.div`
-    width: 80%;
+    width: 1200px;
     height: 1700px;
     margin: auto;
     padding: 40px;   
@@ -13,7 +13,7 @@ export const GenreBanner = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-bottom: 2px solid rgba(0,0,0,0.2);
+    border-bottom: 2px solid rgba(0,0,0,0.1);
     padding: 20px;
     margin: auto;
    
@@ -31,25 +31,29 @@ export const BannerTitle = styled.div`
 export const BannerSubTitle = styled.div`
     font-family: serif;
     font-size: 40px;
+    margin-bottom: 30px;
 `
 export const GenreSelect = styled.div`
-    width: 1200px;
+    width: 1150px;
     height: 20px;
     display: flex;
     align-items: center;
     margin: auto;
-    padding: 20px;
-    border: 1px solid black;
+    padding: 35px;
 `
 export const Select = styled.select`
     width: 110px;
-    height: 15px;
-    padding: 20px;  
-    border-radius: 20px;
+    height: 30px;
     margin-left: auto;
+    font-size: 15px;
+
 `
 
 export const Genre = styled.div`
+    &:active {
+        color: white;
+        background-color: black;
+    }
     width: 70px;
     height: 25px;
     display: flex;
@@ -57,15 +61,10 @@ export const Genre = styled.div`
     align-items: center;
     margin-right: 10px;
     border: 1px solid black;
+    border-radius: 20px;
+    padding: 2px;
     
 `
-
-
-
-
-
-
-
 
 // =================
 export const GenreWrapper = styled.div`
