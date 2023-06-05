@@ -28,7 +28,7 @@ export default function HeaderContainer() {
         <LayoutHeader
         artist={onClickMenuArtist}
         type={onClickMenuType}
-        ask={onClickMenuAsk}
+        ask={onClickMenuCommission}
         exhibition={onClickMenuExhibition}
         service={onClickMenuService}
         />
