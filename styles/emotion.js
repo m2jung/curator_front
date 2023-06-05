@@ -5,53 +5,65 @@ import styled from "@emotion/styled";
 //     width: 100vw;
 // `
 export const Wrapper = styled.div`
-    width: 100vw;
-    height: 700px;
+    width: 1550px;
+    height: 3000px;
     margin: auto;
-    display: flex;
-    flex-direction: row;
-`
-export const Content = styled.div`
-    width: 1600px;
-    height: 100%;
-    margin: auto;
-    border: 1px solid blue;
     display: flex;
     flex-direction: column;
     align-items: center;
 `
-
-export const ContentTitle = styled.div`
-    font-size: 30px;
-    padding: 15px;
+export const HeaderWrapper = styled.div`
+    width: 1500px;
+    height: 700px;
+    background-color: yellow;
+    display: flex;
+    margin-top : 50px;
 `
 
-export const Section = styled.div`
-    width: 100%;
-    height: 100%;
+// export const HeaderTitle = styled.div`
+//     margin: 40px auto 20px 10px;
+//     font-size: 40px;
+    
+// `
+
+export const WrapperBoxLeft = styled.div`
+    width: 750px;
+    height: 750px;
+    display: flex;
+    background-image: url('/images/art07.jpeg');
+    background-position: center;
+    background-size: cover;
     border: 1px solid blue;
 `
-
-export const Article = styled.div`
-    width: 1200px;
-    height: 500px;
-    background-color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    border: 1px solid red;
+export const WrapperBoxRight = styled.div`
+    display: grid;
+    grid-template-columns: 375px 375px; 
+    grid-template-rows: 375px 375px; 
+`
+export const ContentBox1 = styled.div`
+    background-color: #FBFBFB; 
+`
+export const ContentBox2 = styled.div`
+    background-image: url('/images/art05.jpg');
+    background-position: center;
+    background-size: cover;
+    border: 1px solid black;
+`
+export const ContentBox3 = styled.div`
+        background-image: url('/images/art06.jpg');
+    background-position: center;
+    background-size: cover;
+    border: 1px solid black;
+`
+export const ContentBox4 = styled.div`
 
 `
-export const ArticleImage = styled.div`
-    width: 230px;
-    height: 300px;
-    background-color: yellow;
-`
-export const Exhibition = styled.div `
-    width: 1200px;
-    height: 400px;
-    border: 1px solid red;
-`
 
 
+
+
+export const FooterWrapper = styled.div`
+    width: 1500px;
+    height: 700px;
+    background-color: blue;
+`

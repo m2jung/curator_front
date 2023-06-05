@@ -4,14 +4,14 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
     width: 100%;
-    height: 750px;
+    height: 850px;
     display: flex;
     flex-direction: row;
 `
-export const SignUpForm = styled.div`
+export const SignUpForm = styled.form`
     width: 450px;
     height: 550px;
-    padding: 100px;
+    padding: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,7 +46,7 @@ export const Label = styled.div`
     opacity: 70%;
 `    
 export const Email = styled.input`
-    width: 200px;
+    width: 195px;
     height: 30px;
     margin-bottom: 10px;
     
@@ -54,35 +54,45 @@ export const Email = styled.input`
     border-bottom: 1px solid gray;
 `
 export const Domain = styled.select`
-    width: 150px;
+    width: 155px;
     height: 25px;
     margin-left: 10px;
 `
 export const Button = styled.button `
-    width: 60px;
+    width: 63px;
     height: 25px;
     margin-left: 5px;
+    border: 1px solid black;
 `
 
 export const EmailCheck = styled.div`
     display: flex;
     flex-direction: row;
-    margin: 10px 0;
+    margin: 7px 0;
 `
-export const BtnToken = styled.button`
-    width: 100px;
+
+// export const Timer = styled.span`
+//     text-align: center;
+//     font-size: 14px;
+//     margin-left: auto;
+//     padding: 4px;
+
+// `
+export const EmailToken = styled.input`
+    width: 110px;
     height: 20px;
     font-size: 12px;
-    background-color: #364D79;
-    color: white;
-    border: 1px solid black;
-    border-radius: 5px;
 `
-export const BtnComplete = styled.button`
+
+export const BtnToken = styled.button`
     width: 65px;
+    height: 25px;
     font-size: 12px;
     border: 1px solid black;
-    margin-left: 10px;
+    border-radius: 5px;
+    margin-left: 5px;
+    background-color: #364D79;
+    color: white;
 `
 
 
@@ -100,6 +110,15 @@ export const NicName = styled.input`
     border: none;
     border-bottom: 1px solid gray;
 `
+export const Tel = styled.input `
+    width: 100px;
+    height: 30px;       
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid gray;
+    text-align: center;
+`
+
 export const Password = styled.input`
     width: 100%;
     height: 30px;
@@ -128,6 +147,11 @@ export const SignUpCheck = styled.div`
     margin: 5px;
 `
 export const SignUpBtn = styled.button`
+    &:hover {
+        color: white;
+        background-color: #364D79;;
+
+    }
     width: 200px;
     height: 40px;
     margin: 20px auto;

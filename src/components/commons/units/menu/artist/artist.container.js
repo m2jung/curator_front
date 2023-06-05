@@ -1,10 +1,10 @@
-import ArtistView from './artist.presenter'
+import ArtWorkView from "../../art/work/work.presenter"
 
-export default function ArtistContainer() {
+export default function ArtWorkContainer() {
 
     return (
         <>
-          <ArtistView/>
+          <ArtWorkView/>
         </>
     )
 }

@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
 `
-export const SignInForm = styled.div`
+export const SignInForm = styled.form`
     width: 400px;
     height: 380px;
     border: 1px solid white;

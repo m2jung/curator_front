@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 1700px;
+    height: 1500px;
     margin: auto;
     padding: 40px;   
 `
@@ -72,17 +72,91 @@ export const Genre = styled.div`
 export const GenreWrapper = styled.div`
     display: flex;
     justify-content: center;
+    margin-top: 30px;
 `
 
-export const GenreColumn = styled.div`
+export const GenreColumn = styled.a`
     width: 270px;
-    height: 350px;
+    height: 390px;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    margin: 18px;
+    text-decoration: none;
+    color: black;
+`
+export const ColumnImage = styled.image`
+    &:hover {
+        opacity: 0.7;
+        transition: 0.2s ease-in-out; 
+    }
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/art03.jpeg');
+    background-position: center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+`
+
+
+export const ColumnInfo = styled.div`
+    &:hover {
+        z-index: 1;
+        opacity: 1;
+        transition: 0.2s ease-in-out;
+    }
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+`
+export const ColumnTitle = styled.div`
+    font-weight: 500;
+    margin-bottom: 5px;
+`
+
+export const ColumnContent = styled.div`
+    font-size: 15px;
+`
+export const ColumnProfile = styled.div`
+    width: 20px;
+    height: 20px;
     border-radius: 10px;
-    margin: 23px;
+    background-image: url('/images/imageiu.jpg');
+    background-position: center;
+    background-size: cover;
+    margin-right: 5px;
+`
+
+export const ColumnArtist = styled.span`
+    display: flex;
+    font-size: 14px;
+    margin:10px;
+`
+
+export const ColumnIcon = styled.div`
+    color: #FF4B87;
+    margin-left: auto;
+`
+
+export const ColumnName = styled.span``
+
+export const ColumnPrice = styled.div``
+
+export const PageNumber = styled.div`
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 40px;
+    padding: 3px;
+`
+
+export const Page = styled.div`
+    
 `

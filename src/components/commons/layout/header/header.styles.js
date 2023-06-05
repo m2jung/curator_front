@@ -22,7 +22,7 @@ export const MainTitle = styled.div`
     margin: 30px auto;
     border: 11px whitesmoke;
     border-style: outset;
-    background-image: url('/images/art2.jpeg');
+    background-image: url('/images/art02.jpeg');
     background-position: center;
     background-size: cover;
     display: flex;
