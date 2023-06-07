@@ -52,12 +52,15 @@ export const ExhibitionTitle = styled.div`
 `
 export const ExhibitionSubTitle = styled.div`
     font-size: 45px;
-    color: white;
-    text-shadow: 2px 2px 1px black;
+    font-weight: 500;
+    color: black;
+    text-shadow: 1px 1px 1px white;
     padding-bottom: 30px;
 `
 
 export const ExhibitionDate = styled.div`
+    color: #FFD000;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
     margin-bottom: 10px;
 `
 

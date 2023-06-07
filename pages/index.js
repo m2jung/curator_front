@@ -11,16 +11,14 @@ export default function Main() {
       <C.Wrapper>
         {/* <C.HeaderTitle>이달의 베스트 작가</C.HeaderTitle> */}
          <C.HeaderWrapper>
-          <C.WrapperBoxLeft>박스 1</C.WrapperBoxLeft>
+          <C.WrapperBoxLeft></C.WrapperBoxLeft>
           <C.WrapperBoxRight>
-            <C.ContentBox1>박스 1-1</C.ContentBox1>
-            <C.ContentBox2>박스 1-2 </C.ContentBox2>
-            <C.ContentBox3>박스 1-3</C.ContentBox3>
-            <C.ContentBox4>박스 1-4 </C.ContentBox4>
+            <C.ContentBox1></C.ContentBox1>
+            <C.ContentBox2></C.ContentBox2>
+            <C.ContentBox3></C.ContentBox3>
+            <C.ContentBox4></C.ContentBox4>
           </C.WrapperBoxRight>
         </C.HeaderWrapper>
-
-
         <C.FooterWrapper></C.FooterWrapper>
         {/* <C.Content>
           <C.ContentTitle>이달의 베스트 작가</C.ContentTitle>
