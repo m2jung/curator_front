@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 
 `
 export const ExhibitionBanner = styled.div`
-    width: 1200px;
+    width: 1150px;
     height: 230px;
     display: flex;
     flex-direction: column;
@@ -45,16 +45,17 @@ export const ExhibitionMenu = styled.div`
 
 `
 export const ExhibitionTitle = styled.div`
-    font-size: 35px;
+    font-size: 27px;
     color: white;
     text-shadow: 2px 2px 1px black;
     margin: 25px 0 ;
 `
 export const ExhibitionSubTitle = styled.div`
-    font-size: 45px;
+    font-size: 38px;
     font-weight: 500;
     color: black;
     text-shadow: 1px 1px 1px white;
+    margin-top:10px;
     padding-bottom: 30px;
 `
 

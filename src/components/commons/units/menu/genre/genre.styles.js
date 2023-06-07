@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 `
 
 export const GenreBanner = styled.div`
-    width: 1200px;
+    width: 1150px;
     height: 230px;
     display: flex;
     flex-direction: column;
