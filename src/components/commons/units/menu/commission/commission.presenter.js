@@ -10,7 +10,7 @@ export default function CommissionView(props){
         <C.CommissionBanner>
           <C.CommissionTitle>작품 의뢰</C.CommissionTitle>
           <C.CommissionSubTitle>Commission</C.CommissionSubTitle>
-           <C.WriteBtn>게시글 작성하기</C.WriteBtn>
+           <C.Link href="/board/comm-board">게시글 작성하기</C.Link>
         </C.CommissionBanner>
 
         <C.CommissionTableBanner>

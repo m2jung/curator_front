@@ -14,7 +14,7 @@ export const BoardWrapper = styled.div`
 `
 
 export const BoardBanner = styled.div`
-    width: 1150px;
+    width: 1200px;
     height: 290px;
     display: flex;
     flex-direction: column;
@@ -38,7 +38,7 @@ export const BoardFormTitle = styled.div`
 
 export const BoardSubTitle = styled.div`
     font-family: serif;
-    font-size: 35px;
+    font-size: 20px;
 `
 
 export const Select = styled.select`
@@ -48,8 +48,8 @@ export const Select = styled.select`
 `
 
 export const BoardForm = styled.form`
-    width: 1000px;
-    height: 500px;
+    width: 900px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,6 +66,7 @@ export const BoardFormWrapper = styled.form`
     padding: 40px;
     margin: 30px auto;
 `
+
 export const InputWrapper = styled.div`
     width: 900px;
     height: 65px;
@@ -103,6 +104,7 @@ export const WriterPassword = styled.div`
 export const WriterEmail = styled.div`
     width: 485px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 `
 
@@ -129,24 +131,20 @@ export const EmailSelect = styled.select`
     width: 155px;
 `
 
-export const EmailCheckBox = styled.input``
-
 export const Line = styled.div`
-    width:  900px;
+    width: 900px;
     margin: 20px 0;
     border: 1px dotted rgba(0,0,0,0.1);
 `
 
 
-
-
-// HelpWrapper
-export const HelpDiv = styled.select`
-    width: 150px;
+// CommissionWrapper
+export const CommissionDiv = styled.select`
+    width: 160px;
     height: 22px;   
 `
-export const HelpSelect = styled.div``
-export const HelpTitle = styled.input`
+
+export const CommissionTitle = styled.input`
     height: 23px; 
     background-color: #F4F4F4;
     border: none;
@@ -158,12 +156,18 @@ export const ContentWrapper = styled.div`
     flex-direction: column;
 `
 
-export const HelpContent = styled.textarea`
+export const CommissionContent = styled.textarea`
     resize: none;
-    height: 200px;
-    margin-bottom: 25px; 
+    height: 120px;
     background-color: #F4F4F4;
     border: none;
+    margin-bottom: 15px;
+`
+
+export const CommissionFile = styled.input`
+    width: 800px;
+    height: 30px;
+    margin-bottom: 15px;
 `
 
 export const BtnWrapper = styled.div`

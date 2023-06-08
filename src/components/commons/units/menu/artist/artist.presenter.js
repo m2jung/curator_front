@@ -2,10 +2,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import * as C from './artist.styles'
+import { useState } from 'react'
 
 
 export default function ArtistView(props) {
- 
+
+  const [work, setWork] = useState();
+
+
+
+
   return (
     <>  
       <C.Wrapper>
@@ -62,7 +68,7 @@ export default function ArtistView(props) {
               ZeZe (2016)<br/>
               </C.Record>
             </C.History>
-            <C.ProfileBtn>작가 상세보기</C.ProfileBtn>
+            <C.ProfileBtn onClick={props.open}>작가 상세보기</C.ProfileBtn>
            </C.ProfileSection>
           {/* ====== 상세보기 클릭시 나오는 이력 ====== */}
           {/* 그림 클릭시 등록된 작품 판매 게시글로 이동 */}

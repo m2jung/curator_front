@@ -1,22 +1,25 @@
 import LayoutServiceCenter from '../../../../layout/service-center/service-center.presenter'
 import * as C from './board.styles'
 
-export default function ServiceBoardView(props) {
+export default function CommissionBoardView(props) {
 
   return (
     <>  
       <C.Wrapper>
        <C.BoardWrapper>
+        
        <C.BoardBanner>
-          <C.BoardTitle>1:1 문의하기</C.BoardTitle>
+          <C.BoardTitle>작품 의뢰 글쓰기</C.BoardTitle>
           <C.BoardSubTitle>
-            <LayoutServiceCenter/>
+
+          <LayoutServiceCenter/>
+          
           </C.BoardSubTitle>
-       </C.BoardBanner>
+        </C.BoardBanner>
 
        <C.BoardFormWrapper>
         <C.BoardForm>
-          <C.BoardFormTitle>1:1 문의게시판 글쓰기</C.BoardFormTitle>
+          <C.BoardFormTitle>작품 의뢰 글쓰기</C.BoardFormTitle>
           <C.WriterWrapper>
             <C.WriterName>
              <C.Label>* 이름</C.Label>
@@ -41,24 +44,26 @@ export default function ServiceBoardView(props) {
           <C.Line/>
 
           <C.InputWrapper>
-            <C.Label>문의 유형</C.Label>
-            <C.HelpDiv>
+            <C.Label>작품 유형</C.Label>
+            <C.CommissionDiv>
               <option disabled="true" selected="true">전체</option>
-              <option>결제/구매</option>
-              <option>판매/등록</option>
-              <option>경매</option>
-              <option>상품/배송</option>
-              <option>기타</option>
-            </C.HelpDiv>
+              <option>회화</option>
+              <option>조소</option>
+              <option>건축/공예</option>
+              <option>조각/판화</option>
+            </C.CommissionDiv>
           </C.InputWrapper>
           <C.InputWrapper>
-            <C.Label>문의 제목</C.Label>
-            <C.HelpTitle placeholder='문의할 내용의 제목을 입력하세요.'></C.HelpTitle>
+            <C.Label>작품 의뢰 제목</C.Label>
+            <C.CommissionTitle value='작품 의뢰 합니다.'></C.CommissionTitle>
           </C.InputWrapper>
           <C.ContentWrapper>
-            <C.Label>문의 내용</C.Label>
-            <C.HelpContent placeholder='문의할 내용을 입력하세요.'></C.HelpContent>
+            <C.Label>작품 의뢰 내용</C.Label>
+            <C.CommissionContent placeholder='작품 의뢰 내용을 입력하세요.'></C.CommissionContent>
+            <C.Label>파일 첨부</C.Label>
+            <C.CommissionFile type="file"></C.CommissionFile>
           </C.ContentWrapper>
+
 
           <C.BtnWrapper>
             <C.CancelBtn>취소</C.CancelBtn>
@@ -67,6 +72,8 @@ export default function ServiceBoardView(props) {
 
         </C.BoardForm>
        </C.BoardFormWrapper>
+
+
 
        </C.BoardWrapper>
       </C.Wrapper>
