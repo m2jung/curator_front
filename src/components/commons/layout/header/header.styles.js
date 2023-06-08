@@ -3,11 +3,10 @@ import styled from "@emotion/styled";
 
 export const HeaderWrapper = styled.div`
     width: 1200px;
-    height: 300px;
+    height: 310px;
     display: flex;
     flex-direction: column;
     margin: auto;
-    border: 1px solid red;
 `
 export const HeaderContent = styled.div`
     display: flex;
@@ -18,12 +17,11 @@ export const HeaderContent = styled.div`
 `
 
 export const MainTitle = styled.div`
-    width: 10px;
-    height: 50px;
+    width: 20px;
+    height: 60px;
     margin: 30px auto;
-    
     border-style: outset;
-    background-image: url('/images/art02.jpeg');
+    background-image: url('/images/pop06.png');
     background-position: center;
     background-size: cover;
     display: flex;
@@ -32,9 +30,9 @@ export const MainTitle = styled.div`
     padding: 20px;
 `
 export const SubTitle = styled.div`
-    font-size: 37px;
-    font-family: serif;
-    text-shadow: 5px 3px beige;
+    font-size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 3px 3px 1px lightgray;
     margin: auto;
 `
 export const MyProfile = styled.div`

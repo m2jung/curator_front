@@ -33,7 +33,7 @@ export default function Main() {
           </C.HeaderWorkBanner>
  */}
 
-        <C.FooterWrapper></C.FooterWrapper>
+ 
 
 
 
