@@ -7,6 +7,7 @@ const [menu, setMenu] = useState(FontFaceSetLoadEvent)
 // 메뉴 클릭시 서브 카테고리 리스트 구현 
 export default function HeaderContainer() {
 
+    //
     const onClickMenuArtist = () => {
         
     }
@@ -31,6 +32,7 @@ export default function HeaderContainer() {
         ask={onClickMenuCommission}
         exhibition={onClickMenuExhibition}
         service={onClickMenuService}
+        loginStatue={loginStatue}
         />
     )
 }
