@@ -1,8 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons"
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
-import { Link } from "@material-ui/core"
+import LayoutPageNumber from '../../../layout/page-number/page-number.presenter'
 import * as C from './genre.styles'
 
 
@@ -135,13 +131,7 @@ export default function GenreView(props) {
             </C.GenreColumn>  
          </C.GenreWrapper>
 
-         <C.PageNumber>
-            <C.Page><FontAwesomeIcon icon={faChevronLeft}/></C.Page>
-            <C.Page>1</C.Page>
-            <C.Page>2</C.Page>
-            <C.Page>3</C.Page>
-            <C.Page><FontAwesomeIcon icon={faChevronRight}/></C.Page>
-          </C.PageNumber>
+         <LayoutPageNumber/>
 
         </C.Wrapper>
     </>
