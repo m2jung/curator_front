@@ -109,7 +109,6 @@ export const WorkContent = styled.div`
     justify-content: center;
     align-items: center;
 
-    border: 1px solid red;
 `
 export const WorkContentImage = styled.div`
     width: 250px;
