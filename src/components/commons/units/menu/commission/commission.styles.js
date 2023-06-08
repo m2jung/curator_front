@@ -35,17 +35,19 @@ export const CommissionWrapper = styled.div`
     height: 600px;
 `
 
-export const WriteBtn = styled.button`
-    width: 145px;
-    height: 40px;
+export const Link= styled.a`
+    width: 140px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 16px;
-    padding: 10px;    
     color: white;
     background-color: black;
+    text-decoration: none;
 `
 
 // 배너2
-
 export const CommissionTableBanner = styled.div`
     width: 1150px;
     height: 230px;
@@ -68,9 +70,7 @@ export const Message = styled.div`
     font-size: 23px;
     font-family: 'Times New Roman', Times, serif;
     line-height: 35px;
-    background-color: #FFFFF8;
-    border-radius: 100px;
-
+    
     span{
         font-size: 26px;
         font-weight: 700;

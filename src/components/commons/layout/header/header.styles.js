@@ -3,10 +3,11 @@ import styled from "@emotion/styled";
 
 export const HeaderWrapper = styled.div`
     width: 1200px;
-    height: 380px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     margin: auto;
+    border: 1px solid red;
 `
 export const HeaderContent = styled.div`
     display: flex;
@@ -17,10 +18,10 @@ export const HeaderContent = styled.div`
 `
 
 export const MainTitle = styled.div`
-    width: 70px;
-    height: 90px;
+    width: 10px;
+    height: 50px;
     margin: 30px auto;
-    border: 11px whitesmoke;
+    
     border-style: outset;
     background-image: url('/images/art02.jpeg');
     background-position: center;

@@ -29,8 +29,10 @@ export default function SideNavContainer() {
         });
       }
 
+
+      // 반응 안함
     return (
-        <>
+        <> 
         <LayoutSideNav
             ScrollInfo={onClickScrollInfo}
             ScrollPur={onClickScrollPur}

@@ -11,30 +11,37 @@ export default function Main() {
       <C.Wrapper>
         {/* <C.HeaderTitle>이달의 베스트 작가</C.HeaderTitle> */}
          <C.HeaderWrapper>
-          <C.WrapperBoxLeft></C.WrapperBoxLeft>
-          <C.WrapperBoxRight>
-            <C.ContentBox1></C.ContentBox1>
-            <C.ContentBox2></C.ContentBox2>
-            <C.ContentBox3></C.ContentBox3>
-            <C.ContentBox4></C.ContentBox4>
-          </C.WrapperBoxRight>
-        </C.HeaderWrapper>
+          <C.LeftWrapper></C.LeftWrapper>
+          <C.RightWrapper>
+            <C.Column>
+              <C.Image1></C.Image1>
+              <C.Image2></C.Image2>
+            </C.Column>
+            <C.Column>
+              <C.Image3></C.Image3>
+              <C.Image4></C.Image4>
+            </C.Column>
+          </C.RightWrapper>
+         </C.HeaderWrapper>
+          
+{/* 
+          <C.HeaderWorkBanner>
+            <C.HeaderWorkImage1></C.HeaderWorkImage1>
+            <C.HeaderWorkImage2></C.HeaderWorkImage2>
+            <C.HeaderWorkImage3></C.HeaderWorkImage3>
+            <C.HeaderWorkImage4></C.HeaderWorkImage4>
+          </C.HeaderWorkBanner>
+ */}
+
         <C.FooterWrapper></C.FooterWrapper>
-        {/* <C.Content>
-          <C.ContentTitle>이달의 베스트 작가</C.ContentTitle>
-          <C.Article>
-            <C.ArticleImage></C.ArticleImage>
-            <C.ArticleImage></C.ArticleImage>
-            <C.ArticleImage></C.ArticleImage>
-            <C.ArticleImage></C.ArticleImage> 
-          </C.Article>
-        </C.Content>
-      </C.Wrapper>
-     <C.Wrapper>
-      <C.Content>
-      <C.ContentTitle>Exhibition</C.ContentTitle>
-        <C.Exhibition></C.Exhibition>
-      </C.Content> */}
+
+
+
+
+
+
+        
+      
      </C.Wrapper>
   </>
 
