@@ -63,6 +63,11 @@ export const WorkType = styled.div``
 export const WorkPrice = styled.div`
     font-size: 17px;
 `
+export const WorkBuy = styled.span`
+    width: 45px;
+    height: 20px;
+`
+
 export const WorkDate = styled.div`
     font-size: 14px;
 `
@@ -109,7 +114,6 @@ export const WorkContent = styled.div`
     justify-content: center;
     align-items: center;
 
-    border: 1px solid red;
 `
 export const WorkContentImage = styled.div`
     width: 250px;

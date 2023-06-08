@@ -24,7 +24,7 @@ export default function LayoutSideNav(props) {
             <div>{props.children}</div>
             </C.InfoContent> 
          </C.InfoWrapper>
-         </C.Wrapper>
+        </C.Wrapper>
     </>
   )
 
