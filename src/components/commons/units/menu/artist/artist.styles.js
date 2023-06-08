@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 2700px;
+    height: 1700px;
     margin: auto;
     padding: 40px;   
 
@@ -34,17 +34,41 @@ export const ArtistWrapper = styled.div`
     width: 1200px;
     height: 800px;
 `
+
+// 작가 검색 
+export const ArtistSearch = styled.div`
+    width: 240px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 55px 20px auto;
+`
+export const SearchTitle = styled.div`
+    width: 200px;
+    color: rgba(0,0,0,0.8);
+`
+export const SearchInput = styled.input`
+    height: 20px;
+    border: 2px solid navy;
+    border-radius: 10px; 
+`
+export const Icon = styled.div`
+    padding: 7px;
+    color: navy;
+`
+
+// 프로필 칼럼
 export const ArtistColumn = styled.div`
     width: 1100px;
-    height: 430px;
+    height: 840px;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
-    margin: 40px auto;
-    padding: 30px;
+    margin: auto;
+    padding: 30px 0 ;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 `
 
 export const ProfileSection = styled.div`
@@ -75,7 +99,6 @@ export const Profile = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    
 `
 
 export const Name = styled.div`
@@ -128,7 +151,7 @@ export const Sales = styled.span`
 `
     
 export const Intro = styled.p`
-    font-size: 17px;
+    font-size: 16px;
     line-height: 24px;
     color: rgba(0,0,0,0.8);
     padding: 10px 0;
@@ -161,13 +184,50 @@ export const ProfileBtn = styled.button`
     font-weight: 600;
     color: rgba(0,0,0,0.8);
     margin: auto 0 5px;
-    border: 3px solid #1E7847;
-    border-radius: 10px;;
-    background-color: white;
-    
-    &:hover{
-        background-color: #1E7847;
-        color: white;
-
-    }   
+    border: none;
+    border-radius: 10px;
+    background-color: #FF7932;
+    color: white;
+    cursor: pointer;
 `
+
+// 상세보기 클릭시 
+
+export const Work = styled.div`
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    margin: 45px 0;
+`
+
+export const WorkImage = styled.div`
+    width: 220px;
+    height: 270px;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    background-image: url('/images/art07.jpeg');
+    background-position: center;
+    background-size: cover;
+`
+
+export const WorkTitle = styled.div`
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+`
+
+export const WorkBtn = styled.button`
+    width: 135px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.8);
+    margin: auto 50px 5px  auto; 
+    border: none;
+    border-radius: 10px;
+    background-color: #FF7932;
+    color: white;
+    
+    cursor: pointer;
+`
+

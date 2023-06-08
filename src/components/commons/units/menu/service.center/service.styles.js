@@ -31,13 +31,14 @@ export const ServiceTitle = styled.div`
 
 export const ServiceSubTitle = styled.div`
     font-family: serif;
-    font-size: 17px;
+
     margin-bottom: 16px;
 `
 
 export const Link = styled.a`
     text-decoration: none;
-    padding: 10px;
+    font-size: 17px;
+    padding: 12px;
     color: white;
     background-color: black;
 `

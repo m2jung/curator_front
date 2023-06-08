@@ -8,7 +8,7 @@ export default function GenreView(props) {
     <>  
         <C.Wrapper>
          <C.GenreBanner>
-            <C.BannerTitle>작품판매 </C.BannerTitle>
+            <C.BannerTitle>작품 판매 </C.BannerTitle>
             <C.BannerSubTitle>Buy Original Paintings</C.BannerSubTitle>
          </C.GenreBanner>
             <C.GenreSelect>

@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInstagram } from '@fortawesome/fontawesome-svg-core'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link'
 import * as C from './artist.styles'
 
 
@@ -12,8 +13,17 @@ export default function ArtistView(props) {
          <C.ArtistTitle>작가 정보</C.ArtistTitle>
          <C.ArtistSubTitle>Artist Profile</C.ArtistSubTitle>
         </C.ArtistBanner>
-
+ 
+          {/* 기능 구현 안할꺼임 */}
         <C.ArtistWrapper>
+          
+          <C.ArtistSearch>
+            <C.SearchTitle>작가 검색</C.SearchTitle>
+            <C.SearchInput type="input"></C.SearchInput>
+            <C.Icon><FontAwesomeIcon icon={faMagnifyingGlass}/></C.Icon>
+          </C.ArtistSearch>
+
+
           <C.ArtistColumn>
            <C.ProfileSection>
             <C.ProfileImage></C.ProfileImage>
@@ -54,20 +64,28 @@ export default function ArtistView(props) {
             </C.History>
             <C.ProfileBtn>작가 상세보기</C.ProfileBtn>
            </C.ProfileSection>
+          {/* ====== 상세보기 클릭시 나오는 이력 ====== */}
+          {/* 그림 클릭시 등록된 작품 판매 게시글로 이동 */}
+            <C.Work>
+              <C.WorkImage>
+                <C.WorkTitle>Modern Times</C.WorkTitle>
+              </C.WorkImage>
+              <C.WorkImage>
+                <C.WorkTitle>너의 의미</C.WorkTitle>
+              </C.WorkImage>
+              <C.WorkImage>
+                <C.WorkTitle>나의 옛날 이야기</C.WorkTitle>
+              </C.WorkImage>
+              <C.WorkImage>
+                <C.WorkTitle>ZeZe</C.WorkTitle>
+              </C.WorkImage>  
+            </C.Work>
+
+            <C.WorkBtn>작품 더보기</C.WorkBtn>
           </C.ArtistColumn>
 
-          <C.ArtistColumn>
-           <C.ProfileSection>
-          
-           </C.ProfileSection>
-          </C.ArtistColumn>
         </C.ArtistWrapper>
-
-
       </C.Wrapper>
-
-
     </>
   )
-
 }

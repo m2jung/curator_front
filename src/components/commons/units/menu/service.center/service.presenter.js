@@ -33,6 +33,7 @@ export default function ServiceView(props) {
         </C.Select>
 
           {/* Icon 클릭시 밑으로 상세 문의 내용 창이 주르륵 내려옴  */}
+          {/* tabel,tr,td..사용으로 콘솔에 에러창 뜸 수정하기 */}
         <C.ServiceTable>
           <C.Table>
             <C.Tr>
