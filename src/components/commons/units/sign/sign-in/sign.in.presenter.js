@@ -121,12 +121,14 @@ export default function SignInView(props) {
           <C.SignInTitle>Login</C.SignInTitle>
           <C.InputWrapper>
             <C.Email type="text" onChange={onChangeEmail} placeholder="이메일"></C.Email>
-           <p>{emailMsg}</p>
-           <C.Password type="password" onChange={onChangePwd} placeholder="비밀번호"></C.Password>
-           <p>{pwdMsg}</p>
+            <C.EmailError>{emailMsg}</C.EmailError>
+            <C.Password type="password" onChange={onChangePwd} placeholder="비밀번호"></C.Password>
+            <C.PasswordError>{pwdMsg}</C.PasswordError>
+        
            <C.InputSpan>
             <C.LoginCheck type="checkbox" id="login" name="login"/> 자동 로그인
            </C.InputSpan>
+           
            <C.SignInBtn type="button" onClick={onClickSubmit}>로그인</C.SignInBtn>
            <C.SignInBtn type="submit">비회원 주문확인</C.SignInBtn>
            <C.InputLink>

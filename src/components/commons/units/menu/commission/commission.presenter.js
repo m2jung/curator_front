@@ -10,7 +10,6 @@ export default function CommissionView(props){
         <C.CommissionBanner>
           <C.CommissionTitle>작품 의뢰</C.CommissionTitle>
           <C.CommissionSubTitle>Commission</C.CommissionSubTitle>
-           <C.Link href="/board/comm-board">게시글 작성하기</C.Link>
         </C.CommissionBanner>
 
         <C.CommissionTableBanner>
@@ -44,8 +43,8 @@ export default function CommissionView(props){
                 <C.No>20</C.No><C.Title>작품의뢰 합니다.</C.Title><C.Writer>정연호</C.Writer><C.Date>2023-06-08</C.Date>
               </C.Tr>
             </C.Table>
-
-            <LayoutPageNumber/>
+            <LayoutPageNumber/><C.Link href="/board/comm-board">게시글 작성하기</C.Link>
+          
         </C.CommissionTable>
 
       </C.Wrapper>

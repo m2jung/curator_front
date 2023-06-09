@@ -10,8 +10,6 @@ export default function ArtistView(props) {
   const [work, setWork] = useState();
 
 
-
-
   return (
     <>  
       <C.Wrapper>
