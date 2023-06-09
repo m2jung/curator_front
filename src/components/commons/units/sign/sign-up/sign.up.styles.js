@@ -3,25 +3,25 @@ import styled from "@emotion/styled";
 // Login SignUp
 
 export const Wrapper = styled.div`
-    width: 100%;
-    height: 850px;
-    display: flex;
-    flex-direction: row;
-`
-export const SignUpForm = styled.form`
-    width: 450px;
-    height: 550px;
-    padding: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 1400px;
+    height: 900px;
     margin: auto;
 `
+export const SignUpForm = styled.form`
+    width: 460px;
+    height: 650px;
+    padding: 110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+`
 export const SignUpTitle = styled.span`
-    font-size: 22px;    
-    border-bottom: 2px solid gray;
-    padding: 20px;
-    margin-bottom: 25px;
+    width: 120px;
+    height: 70px;
+    font-size: 22px;        
+    margin: auto;
 `
 
 export const SignUpInput = styled.div`
@@ -31,7 +31,9 @@ export const SignUpInput = styled.div`
     justify-content: space-between;
     border: 1px solid white;
 `
-export const SectionColumn = styled.div``
+export const SectionColumn = styled.div`
+    height: 105px;
+`
 
 export const SectionRow = styled.div`
     display: flex;
@@ -59,33 +61,24 @@ export const Domain = styled.select`
     margin-left: 10px;
 `
 export const Button = styled.button `
-    width: 63px;
+    width: 73px;
     height: 25px;
-    margin-left: 5px;
-    border: 1px solid black;
+    margin-left: 6px;
+    border: 2px solid rgba(0,0,0,0.5);
+    background-color: white;
 `
-
 export const EmailCheck = styled.div`
+    width: 235px;
     display: flex;
-    flex-direction: row;
-    margin: 7px 0;
+    margin-left: auto;
 `
-
-// export const Timer = styled.span`
-//     text-align: center;
-//     font-size: 14px;
-//     margin-left: auto;
-//     padding: 4px;
-
-// `
 export const EmailToken = styled.input`
-    width: 110px;
+    width: 152px;
     height: 20px;
     font-size: 12px;
 `
-
 export const BtnToken = styled.button`
-    width: 65px;
+    width: 73px;
     height: 25px;
     font-size: 12px;
     border: 1px solid black;
@@ -134,15 +127,20 @@ export const RePassword = styled.input`
     border-bottom: 1px solid gray;
 ` 
 export const Addr = styled.input`
-    width: 100%;
+    width: 70%;
     height: 30px;
-    margin-bottom: 30px;
+    margin: 0 10px 20px 0;
     border: none;
     border-bottom: 1px solid gray;
 ` 
+
+export const button = styled.button`
+ 
+`
 export const LoginCheck = styled.input`
 `
 export const SignUpCheck = styled.div`
+    display: flex;
     font-size: 13px;
     margin: 5px;
 `

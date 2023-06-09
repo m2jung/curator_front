@@ -15,6 +15,7 @@ export const ArtistBanner = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-top: 2px solid rgba(0,0,0,0.1);
     border-bottom: 2px solid rgba(0,0,0,0.1);
     padding: 20px;
     margin: auto;
@@ -22,7 +23,7 @@ export const ArtistBanner = styled.div`
 export const ArtistTitle = styled.div`
     font-family: serif;
     font-size: 35px;
-    margin-bottom: 20px;
+    margin: 20px 0;
 `
 export const ArtistSubTitle = styled.div`
     font-family: serif;

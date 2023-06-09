@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 
 
 export const HeaderWrapper = styled.div`
-    width: 1200px;
-    height: 310px;
+    width: 1400px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -36,7 +36,7 @@ export const SubTitle = styled.div`
     margin: auto;
 `
 export const MyProfile = styled.div`
-    width: 1200px;
+    width: 1400px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -83,8 +83,5 @@ export const Menu = styled.div`
     font-size: 19px;
     margin: 20px 25px;
 `
-export const Line = styled.div`
-    width: 1200px;
-    border: 1px solid rgba(0,0,0,0.2);
-    margin: 10px auto ;
-`
+
+

@@ -283,7 +283,7 @@ const onChangeTel3 = useCallback((e) => {
             <C.RePassword type="password" maxLength="10" onChange={onChangePasswordCheck} required></C.RePassword>
             <div className="address_search" >
                 <C.Label>* 주소</C.Label>
-                <C.Addr className="user_enroll_text" placeholder="주소"  type="text" required={true} name="address" onChange={handleInput} value={address.address}></C.Addr>
+                <C.Addr className="user_enroll_text" type="text" required={true} name="address" onChange={handleInput} value={address.address}></C.Addr>
                 <button onClick={handleComplete}>우편번호 찾기</button>
                 {popup && <Post company={address} setcompany={setAddress}></Post>}
             </div>

@@ -2,10 +2,10 @@ import styled from "@emotion/styled";
 
 // 메뉴 - 작품의뢰 
 export const Wrapper = styled.div`
-width: 1200px;
-height: 1200px;
-margin: auto;
-    padding: 40px;   
+    width: 1200px;
+    height: 1200px;
+    margin: auto;
+    padding: 30px;   
 
 `
 export const CommissionBanner = styled.div`
@@ -14,15 +14,17 @@ export const CommissionBanner = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-top: 2px solid rgba(0,0,0,0.1);
     border-bottom: 2px solid rgba(0,0,0,0.1);
-    padding: 20px;
+    padding: 30px;
     margin: auto;
 `
 
 export const CommissionTitle = styled.div`
     font-family: serif;
     font-size: 35px;
-    margin-bottom: 20px;
+    margin: 20px 0;
+
 `
 export const CommissionSubTitle = styled.div`
     font-family: serif;
@@ -33,18 +35,6 @@ export const CommissionSubTitle = styled.div`
 export const CommissionWrapper = styled.div`
     width: 1200px;
     height: 600px;
-`
-
-export const Link= styled.a`
-    width: 140px;
-    height: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    color: white;
-    background-color: black;
-    text-decoration: none;
 `
 
 // 배너2
@@ -84,7 +74,7 @@ export const Message = styled.div`
 // 게시판 
 export const CommissionTable = styled.div`
     width: 1100px;
-    height: 300px;
+    height: 320px;
     margin-top: 20px;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
@@ -125,4 +115,10 @@ export const Date = styled.td `
     border-bottom: 1px solid rgba(0,0,0,0.1);
 `
 
+export const Link= styled.a`
+    padding: 10px;
+    background-color: black;
+    text-decoration: none;
+    color: white; 
+`
 
