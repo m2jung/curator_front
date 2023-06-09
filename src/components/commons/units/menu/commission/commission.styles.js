@@ -19,12 +19,10 @@ export const CommissionBanner = styled.div`
     padding: 30px;
     margin: auto;
 `
-
 export const CommissionTitle = styled.div`
     font-family: serif;
     font-size: 35px;
     margin: 20px 0;
-
 `
 export const CommissionSubTitle = styled.div`
     font-family: serif;
@@ -73,15 +71,15 @@ export const Message = styled.div`
 
 // 게시판 
 export const CommissionTable = styled.div`
-    width: 1100px;
-    height: 320px;
+    width: 1200px;
+    height: 310px;
     margin-top: 20px;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
-    padding: 40px;
+    padding: 35px;
 `
 export const Table = styled.table`
-    width: 1100px;
+    width: 1200px;
     height: 230px;
 `
 
@@ -92,32 +90,40 @@ export const Tr = styled.tr`
         color: brown;
         font-weight: 600;
     }
-    
 `
 export const Th = styled.th `
     height: 36px;
     background-color: rgba(0,0,0,0.1);
-    border-radius: 3px;
-    
+    border-radius: 3px;  
 `
-
 export const No = styled.td`
    border-bottom: 1px solid rgba(0,0,0,0.1);
-    
+    width: 60px;
 `
 export const Title = styled.td `
     border-bottom: 1px solid rgba(0,0,0,0.1);
 `
 export const Writer = styled.td`
     border-bottom: 1px solid rgba(0,0,0,0.1);
+    width: 90px;
 `
 export const Date = styled.td `
     border-bottom: 1px solid rgba(0,0,0,0.1);
+    width: 120px;
 `
-
+export const CommissionBtn = styled.div`
+    
+`
 export const Link= styled.a`
-    padding: 10px;
+    width: 140px;
+    height: 37px;
+    margin: 50px 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
     background-color: black;
+    text-align: center;
     text-decoration: none;
     color: white; 
 `

@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 // 문의하기 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 1100px;
+    height: 1200px;
     margin: auto;
     padding: 40px;   
 `
@@ -125,13 +125,13 @@ export const SubmitBtn = styled.button`
     background-color: black;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
 `
 export const CancelBtn = styled.button`
     width: 105px;
     margin-right: 10px;
-    border: 2px solid orange;
+    border: 3px solid navy;
     background-color:  white;
-    border-radius: 5px;
+    border-radius: 8px;
 `
 

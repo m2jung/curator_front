@@ -63,6 +63,7 @@ export const InfoMenu = styled.a`
 
 export const MyName = styled.div``
 
+
 export const MyImage = styled.div`
     width: 40px;
     height: 40px;
@@ -79,9 +80,8 @@ export const Navigator = styled.div`
 export const Menu = styled.div`
     &:hover{
         font-weight: bold;
-    }
+    } 
     font-size: 19px;
     margin: 20px 25px;
 `
-
 
