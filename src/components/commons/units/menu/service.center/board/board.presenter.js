@@ -17,26 +17,6 @@ export default function ServiceBoardView(props) {
        <C.BoardFormWrapper>
         <C.BoardForm>
           <C.BoardFormTitle>1:1 문의게시판 글쓰기</C.BoardFormTitle>
-          <C.WriterWrapper>
-            <C.WriterName>
-             <C.Label>* 이름</C.Label>
-             <C.Name type="text"/>
-            </C.WriterName>
-            <C.WriterPassword>
-             <C.Label>* 비밀번호</C.Label>
-             <C.Password type="password"></C.Password>
-            </C.WriterPassword>
-            <C.WriterEmail>
-             <C.Label>* 이메일</C.Label>
-             <C.Email></C.Email>&nbsp;@&nbsp;
-             <C.EmailSelect>
-              <option disabled="true" selected="true">이메일을 선택하세요.</option>
-              <option>naver.com</option>
-              <option>hanmail.net</option>
-              <option>gmail.com</option>
-            </C.EmailSelect>
-            </C.WriterEmail>
-          </C.WriterWrapper>
 
           <C.Line/>
 

@@ -19,6 +19,7 @@ export const ServiceBanner = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    border-top: 2px solid rgba(0,0,0,0.1);
     border-bottom: 2px solid rgba(0,0,0,0.1);
     padding: 20px;
     margin: auto;
@@ -27,6 +28,7 @@ export const ServiceBanner = styled.div`
 export const ServiceTitle = styled.div`
     font-family: serif;
     font-size: 35px;
+    margin: 20px 0;
 `
 
 export const ServiceSubTitle = styled.div`
@@ -37,7 +39,7 @@ export const ServiceSubTitle = styled.div`
 
 export const Link = styled.a`
     text-decoration: none;
-    font-size: 17px;
+    font-size: 16px;
     padding: 12px;
     color: white;
     background-color: black;

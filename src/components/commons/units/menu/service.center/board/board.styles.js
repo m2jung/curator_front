@@ -4,30 +4,31 @@ import styled from "@emotion/styled";
 // 문의하기 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 1200px;
+    height: 1100px;
     margin: auto;
     padding: 40px;   
 `
 export const BoardWrapper = styled.div`
     width: 1200px;
-    height: 1200px;
+    height: 1100px;
 `
 
 export const BoardBanner = styled.div`
     width: 1150px;
-    height: 290px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-top: 2px solid rgba(0,0,0,0.1);
     border-bottom: 2px solid rgba(0,0,0,0.1);
     margin: auto;
-    padding: 0 35px;
+    padding: 30px;
 `
 
 export const BoardTitle = styled.div`
     font-family: serif;
     font-size: 35px;
-    margin-bottom: 60px;
+    margin: 40px 0;
 `
 
 export const BoardFormTitle = styled.div`
@@ -72,14 +73,6 @@ export const InputWrapper = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 12px;
-`
-export const WriterWrapper = styled.div`
-    width: 500px;
-    height: 110px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 `
 
 export const Label = styled.label`
@@ -160,31 +153,31 @@ export const ContentWrapper = styled.div`
 
 export const HelpContent = styled.textarea`
     resize: none;
-    height: 200px;
+    height: 300px;
     margin-bottom: 25px; 
     background-color: #F4F4F4;
     border: none;
 `
 
 export const BtnWrapper = styled.div`
+    width: 230px;
     display: flex;
-    justify-content: center;
-    margin: auto; 
+    justify-content: space-between;
+    margin: 30px auto;
 `
 export const SubmitBtn = styled.button`
     cursor: pointer;
-    width: 100px;
-    height: 32px;
+    width: 105px;
+    height: 37px;
     background-color: black;
     color: white;
     border: none;
     border-radius: 5px;
 `
 export const CancelBtn = styled.button`
-    width: 100px;
+    width: 105px;
     margin-right: 10px;
     border: 2px solid orange;
     background-color:  white;
     border-radius: 5px;
 `
-

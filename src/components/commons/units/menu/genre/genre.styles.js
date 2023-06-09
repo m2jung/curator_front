@@ -15,6 +15,7 @@ export const GenreBanner = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-top: 2px solid rgba(0,0,0,0.1);
     border-bottom: 2px solid rgba(0,0,0,0.1);
     padding: 20px;
     margin: auto;
@@ -27,9 +28,8 @@ export const GenreBanner = styled.div`
 export const BannerTitle = styled.div`
     font-family: serif;
     font-size: 35px;
-    margin-bottom: 20px;
+    margin: 20px 0;
 `
-
 export const BannerSubTitle = styled.div`
     font-family: serif;
     font-size: 40px;

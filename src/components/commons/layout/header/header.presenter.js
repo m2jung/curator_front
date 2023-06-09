@@ -29,7 +29,8 @@ export default function LayoutHeader(props){
           <Link href="/menu/commission"><C.Menu onClick={props.commission}>작품의뢰</C.Menu></Link>
           <Link href="/menu/service.center"><C.Menu onClick={props.service}>고객센터</C.Menu></Link>
         </C.Navigator>
-        <C.Line></C.Line>
+        
+
       </C.HeaderWrapper> 
     )
 }
