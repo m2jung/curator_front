@@ -10,8 +10,8 @@ export default function LayoutSideNav(props) {
             <C.InfoMenu>
                 <C.InfoProfile>
                     <C.ProfileImage></C.ProfileImage>
-                    <C.UserName>유미정</C.UserName>
-                    <C.UserEmail>119755@naver.com</C.UserEmail>
+                    <C.UserName>{sessionStorage.getItem('userNickname')}</C.UserName>
+                    <C.UserEmail>{sessionStorage.getItem('userId')}</C.UserEmail>
                 </C.InfoProfile>
                 <C.InfoList>
                     <C.List onClick={props.ScrollInfo}>회원정보</C.List>

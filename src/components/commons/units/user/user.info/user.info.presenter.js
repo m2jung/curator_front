@@ -14,8 +14,8 @@ export default function UserInfoView(props) {
             <C.Profile>
                 <C.MyImage></C.MyImage>
                 <C.MyProfile>
-                <C.MyName>유미정</C.MyName>
-                <C.MyEmail><FontAwesomeIcon icon={faEnvelope}/> 119755@naver.com</C.MyEmail>                 
+                <C.MyName>{sessionStorage.getItem('userNickname')}</C.MyName>
+                <C.MyEmail><FontAwesomeIcon icon={faEnvelope}/> {sessionStorage.getItem('userId')}</C.MyEmail>                 
                 </C.MyProfile>    
                 <C.BtnModify>수정</C.BtnModify>
             </C.Profile>
@@ -33,7 +33,7 @@ export default function UserInfoView(props) {
                 <C.MembershipTable>
                 <C.MembershipInfo>혜택정보</C.MembershipInfo>
                 <C.MembershipLevel>
-                    <C.Level>유미정님은 [일반회원] 입니다. </C.Level>
+                    <C.Level>{sessionStorage.getItem('userNickname')}님은 [일반회원] 입니다. </C.Level>
                     <C.DottedLine></C.DottedLine>
                     <C.Coupon>적립금 0원&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 예치금 0원</C.Coupon>
                     </C.MembershipLevel>
