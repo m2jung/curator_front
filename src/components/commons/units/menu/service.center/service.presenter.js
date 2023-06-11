@@ -22,7 +22,7 @@ export default function ServiceView(props) {
         <C.ServiceBtn>
         {/* 구현예정..? */}
         <C.Select>
-            <option disabled="true" selected="true">전체</option>
+            <option value={true}>전체</option>
             <option>결제/구매</option>
             <option>판매/등록</option>
             <option>경매</option>

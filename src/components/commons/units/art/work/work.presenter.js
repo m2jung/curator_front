@@ -8,25 +8,58 @@ export default function WorkView(props) {
     <>  
       <C.Wrapper>
         <C.WorkWrapper>
+
           <C.WorkSection>
             <C.WorkImage/>
           </C.WorkSection>
-          <C.WorkSection>
+
+          <C.WorkSection>  
             <C.WorkInfo>
               <C.WorkNo>No.1234</C.WorkNo>
-              <C.WorkTitle>[속초 바다]</C.WorkTitle>  
+              <C.WorkColumn>
+              <C.WorkTitle>속초 바다 (2023)</C.WorkTitle>  
               <C.WorkSummary>혼자 속초 바다를 보러 갔다가 영감을 얻어서 그린 그림이다.</C.WorkSummary>
               <C.WorkMemo>
-                <C.WorkSize>90.8 X 112.8cm</C.WorkSize>
-                <C.WorkType>Acrylic</C.WorkType>
+                <C.WorkSize>크기 : 90.8 X 112.8cm</C.WorkSize>
+                <C.WorkType>종류 : Acrylic</C.WorkType>
               </C.WorkMemo>
-              <C.WorkPrice>130,000,000 ₩</C.WorkPrice>
-              <C.WorkDate>등록일자 2023.06.05</C.WorkDate>
-            <C.WorkBtn>
-              <C.BuyBtn>구매하기</C.BuyBtn>
-              <C.WishBtn>찜하기</C.WishBtn>
-              <C.FavoritBtn><FontAwesomeIcon icon={faHeart}/></C.FavoritBtn>
-            </C.WorkBtn>
+
+              <C.WorkPrice>
+                <C.Price>추정가 : 130,000,000 ₩</C.Price>
+              </C.WorkPrice>
+            
+            </C.WorkColumn>
+            <C.WorkColumn>
+              <C.Table>
+                <thead>
+                  <C.Tr>
+                    <C.ThNumber>순위</C.ThNumber><C.Th>닉네임</C.Th><C.Th>입찰가</C.Th>
+                  </C.Tr>
+                </thead>
+                <tbody>
+                  <C.Tr>
+                    <C.Number>1</C.Number><C.Td></C.Td><C.Td></C.Td>
+                  </C.Tr>
+                  <C.Tr>
+                    <C.Number>2</C.Number><C.Td></C.Td><C.Td></C.Td>
+                  </C.Tr>
+                  <C.Tr>
+                    <C.Number>3</C.Number><C.Td></C.Td><C.Td></C.Td>
+                  </C.Tr>
+                </tbody>
+              </C.Table>
+            </C.WorkColumn>
+            
+             
+              <C.FavoritBtn>
+                <C.WorkDate>등록일자 2023.06.05</C.WorkDate>
+                <FontAwesomeIcon  color='pink' icon={faHeart}/>
+              </C.FavoritBtn>
+            
+              <C.WorkBtn>
+                <C.Btn>구매하기</C.Btn>
+                <C.Btn>입찰하기</C.Btn>
+             </C.WorkBtn>
             </C.WorkInfo>  
           </C.WorkSection>
         </C.WorkWrapper>
@@ -34,7 +67,7 @@ export default function WorkView(props) {
         <C.WorkContent>
          <C.WorkContentBox>" 모든 작품에 대하여 <b>Art WebSite 가 책임지고 보증합니다.</b> 구매시 작품보증서가 함께 첨부됩니다. "</C.WorkContentBox>
          <C.WorkContentImage/>
-         </C.WorkContent>
+        </C.WorkContent>
          
          <C.WorkContent>
          <C.WorkArticle>
@@ -46,11 +79,7 @@ export default function WorkView(props) {
          </C.WorkArticle>
         </C.WorkContent>
 
-        <C.WorkContent>
-          <C.WorkProfile>
-              
-          </C.WorkProfile>
-        </C.WorkContent>
+        
 
 
       </C.Wrapper>

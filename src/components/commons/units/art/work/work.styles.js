@@ -1,67 +1,126 @@
 import styled from "@emotion/styled";
 
+export const Table = styled.table `
+    width: 380px;
+    height: 180px;
+    margin: 10px auto;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+`
+export const Tr = styled.tr`
+`
+export const Th = styled.th``
+export const ThNumber = styled.th`
+    width: 30px;
+`
+export const Td = styled.td``
+export const Number = styled.td`
+`
 // 상세 페이지 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 3000px;
-    margin: 30px auto;
+    height: 2000px;
+    margin: 50px auto;
 `
 
 export const WorkWrapper = styled.div`
-    width: 1200px;
-    height: 700px;
+    width: 1150px;
+    height: 600px;
     margin: auto;
     padding: 40px;  
+    border-top : 2px solid rgba(0,0,0,0.1);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 `
 
 export const WorkSection = styled.div`
-    width: 570px;
-    height: 570px;
+    width: 530px;
+    height: 580px;
+    margin-top: 5햣0px;
     display: flex;
     justify-content: center;
+    align-items: flex-end;
 `
 
 export const WorkImage = styled.div`
-    width: 500px;
-    height: 570px;
+    width: 510px;
+    height: 580px;
+    align-content: flex-end;
     background-image: url('/images/art03.jpeg');
     background-position: center;
     background-size: cover;
 `
 
 export const WorkInfo = styled.div`
-    border-top: 3px solid rgba(0,0,0,0.6);
-    width: 100%;
-    height: 100%;
+    width: 400px;
+    height: 600px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     font-size: 18px;
-    padding: 20px;
+    padding: 30px;
 `
+
+export const WorkColumn = styled.div`
+    height: 300px;    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+`
+
 export const WorkTitle = styled.div`
-    font-size: 23px;
+    font-size: 25px;
     font-weight: 600;
+    padding: 10px;
 `
 export const WorkNo = styled.div`
     width: 100px;
-    text-align: center;
+    padding: 5px 0;
+    margin: 0 0 25px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
-    background-color: black;
+    background-color: #364D79;
 `
-export const No = styled.span``
-export const WorkSummary = styled.div``
+export const WorkSummary = styled.div`
+    width: 100%;
+    color: rgba(0,0,0,0.8);
+    font-size: 18px;    
+    padding: 25px 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+`
 
-export const WorkMemo = styled.div``
+export const WorkMemo = styled.div`
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 17px;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+`
+
+export const WorkPrice = styled.div`
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+`
+
+
 export const WorkSize = styled.div`
     margin-bottom: 10px;
 `
 export const WorkType = styled.div``
 
-export const WorkPrice = styled.div`
+export const Price = styled.div`
     font-size: 17px;
+    font-weight: 600;
 `
 export const WorkBuy = styled.span`
     width: 45px;
@@ -78,7 +137,7 @@ export const WorkBtn = styled.div`
     align-items: center;
     justify-content: space-around;
 `
-export const BuyBtn = styled.button`
+export const Btn = styled.button`
     &:hover{
         color: white;
         background-color: black;
@@ -87,28 +146,16 @@ export const BuyBtn = styled.button`
     height: 47px;
     font-size: 17px;
     background-color: white;
-    margin-right: 15px;
-`
-export const WishBtn = styled.button`
-    &:hover{
-        color: white;
-        background-color: black;
-    }
-    width: 170px;
-    height: 47px;
-    font-size: 17px;
-    background-color: white;
+    
 `
 export const FavoritBtn = styled.div`
-    font-size: 25px;
-    color: pink;
-    margin-left: auto;
-    padding: 5px;
+    display: flex;
+    padding: 15px;
+    justify-content: space-between;   
 `
 export const WorkContent = styled.div`
     width: 1200px;
     height: 600px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;

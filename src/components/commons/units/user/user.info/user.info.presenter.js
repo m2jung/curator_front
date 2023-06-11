@@ -16,16 +16,16 @@ export default function UserInfoView(props) {
             <C.Profile>
                 <C.MyProfile>
                 <C.MyName>유미정</C.MyName>
-                <C.MyEmail><FontAwesomeIcon icon={faEnvelope}/>mee607@hanmail.net</C.MyEmail>
-                <C.MySns><Instagram fill='gray' width={19} height={19}/>M2jung2</C.MySns>
+                <C.MyEmail><FontAwesomeIcon icon={faEnvelope}/>&nbsp;mee607@hanmail.net</C.MyEmail>
+                <C.MySns><Instagram fill='gray' width={19} height={19}/>&nbsp;M2jung2</C.MySns>
                 </C.MyProfile>    
                 <C.BtnModify>수정하기</C.BtnModify>
             </C.Profile>
                 <C.InfoTitle>비밀번호 설정</C.InfoTitle>
             <C.Profile>
-                <C.Label>현재 비밀번호</C.Label>
+                <C.Label>현재 비밀번호 : </C.Label>
                 <C.MyPassword type="password"/>
-                <C.Label>새 비밀번호 </C.Label>
+                <C.Label>새 비밀번호 : </C.Label>
                 <C.MyPassword type="password"/>  
                 <C.BtnModify>수정하기</C.BtnModify>
             </C.Profile>

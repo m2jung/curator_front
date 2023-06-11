@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 //회원정보 전체 Wrapper
 export const Wrapper = styled.div`
     width: 1300px;
-    height: 2200px;
+    height: 2050px;
     display: flex;
     margin: 30px;
     padding: 20px;
@@ -20,7 +20,7 @@ export const InfoTitle = styled.div`
     font-size: 17px;
     padding: 20px;
 `
-export const Profile= styled.div`
+export const Profile = styled.div`
     display: flex;
     padding: 25px 40px 45px;
     border-bottom: 1px solid rgba(0,0,0,0.1);
@@ -45,7 +45,7 @@ export const MyEmail = styled.div`
     align-items: center;
     color: gray;
     font-size: 15px;
-    margin-right: 13px;
+    padding:  2px;
 `
 export const MySns = styled.div`
     display: flex;
@@ -81,7 +81,7 @@ export const MyPassword = styled.input`
     height: 15px;
     border: none;
     border-bottom: 1px solid gray;
-    margin: 0 10px;
+    margin: 0 40px 0 10px;
 `
 
 
