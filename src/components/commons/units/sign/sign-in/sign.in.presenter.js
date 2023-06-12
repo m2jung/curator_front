@@ -49,7 +49,7 @@ export default function SignInView(props) {
        setPassword(currPwd);
      
        if (!validatePwd(currPwd)) {
-         setPwdMsg("영문, 숫자, 특수기호 조합으로 10자리 이상 입력해주세요.")
+         setPwdMsg("영문, 숫자, 특수기호 조합으로 8자리 이상 입력해주세요.")
        } else {
          setPwdMsg("")
        }
@@ -114,7 +114,7 @@ export default function SignInView(props) {
    }
    // onClickSubmit method end
 
-  return (
+  return (            
     <>
       <C.Wrapper>
         <C.SignInForm>
