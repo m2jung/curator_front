@@ -39,7 +39,7 @@ export default function LayoutSideNav(props) {
         behavior: 'smooth',
     });
   }
-
+  
   return (
     <>  
         <C.Wrapper>

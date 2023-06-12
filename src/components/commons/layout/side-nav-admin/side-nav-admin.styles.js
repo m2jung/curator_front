@@ -2,40 +2,31 @@ import styled from "@emotion/styled";
 
 //회원정보 전체 Wrapper
 export const Wrapper = styled.div`
-    width: 1300px;
-    height: 900px;
-`
-export const InfoWrapper = styled.div`
-`
-
-export const InfoWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 415px;
+    height: 600px;
 `
 
 export const InfoMenu = styled.div`
     width: 280px;
-    height: 750px;
+    height: 500px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
 `
 export const InfoProfile = styled.div`
     width: 250px;
-    height: 390px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 `
 export const InfoList = styled.ul`
+    text-align: center;
     font-size: 17px;
     list-style: none;
-    text-align: center;
 `
 export const List = styled.li`
     &:hover{
