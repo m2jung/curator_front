@@ -21,8 +21,6 @@ export const SignInForm = styled.form`
     width: 480px;
     height: 470px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
-    
-    
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

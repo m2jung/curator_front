@@ -16,22 +16,24 @@ export default function ServiceView(props) {
        <C.ServiceWrapper>
         <C.ServiceBanner>
           <C.ServiceTitle>고객센터</C.ServiceTitle>
-          <C.ServiceSubTitle>
-            <C.Link href="#">자주 묻는 질문</C.Link> &nbsp;
-            <C.Link href="/board/service-board">1:1 문의하기</C.Link>
-          </C.ServiceSubTitle>
+          <C.ServiceSubTitle>Service Center</C.ServiceSubTitle>
         </C.ServiceBanner>
 
+        <C.ServiceBtn>
         {/* 구현예정..? */}
         <C.Select>
-            <option disabled="true" selected="true">전체</option>
+            <option value={true}>전체</option>
             <option>결제/구매</option>
             <option>판매/등록</option>
             <option>경매</option>
             <option>상품/배송</option>
             <option>기타</option>
         </C.Select>
-
+          <C.Btn>
+            <C.Link href="#">자주 묻는 질문</C.Link>
+            <C.Link href="/menu/service.center/board/new">1:1 문의하기</C.Link>
+          </C.Btn>
+        </C.ServiceBtn>
           {/* Icon 클릭시 밑으로 상세 문의 내용 창이 주르륵 내려옴  */}
           {/* tabel,tr,td..사용으로 콘솔에 에러창 뜸 수정하기 */}
         <C.ServiceTable>
@@ -53,12 +55,10 @@ export default function ServiceView(props) {
             </C.Tr>
           </C.Table>
         </C.ServiceTable>
-
         <LayoutPageNumber/>
 
        </C.ServiceWrapper>
       </C.Wrapper>
     </>
   )
-
 }

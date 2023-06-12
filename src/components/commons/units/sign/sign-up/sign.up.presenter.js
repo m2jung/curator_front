@@ -75,7 +75,7 @@ export default function SignUpView(props) {
     console.log(insertEmail)
     setFullEmail(insertEmail)
     
-    axios.get(`http://localhost:8080/root/emailCheck?insertEmail=${insertEmail}`)
+    axios.get(`https://git.walpie.com/curator_back/emailCheck?insertEmail=${insertEmail}`)
     .then(function(res) {
       // 토큰값 헤더 저장
       console.log(res.data)
@@ -84,7 +84,7 @@ export default function SignUpView(props) {
       } else if (res.data == 0){
         setEmailMsg("사용 가능한 이메일 주소입니다.")
         setEmailCheck("check");
-        axios.get(`http://localhost:8080/root/registerCode?insertEmail=${insertEmail}`)
+        axios.get(`https://git.walpie.com/curator_back/registerCode?insertEmail=${insertEmail}`)
           .then(function(res) {
             console.log(res.data)
             setCookie('emailCheckToken', res.data, {
@@ -220,7 +220,7 @@ const onChangeTel3 = useCallback((e) => {
               memberPhone: tel1 + tel2 + tel3,
               memberGrade: 1
             };
-            axios.post('http://localhost:8080/root/register', dto)
+            axios.post('https://git.walpie.com/curator_back/register', dto)
             .then(function(res) {
               console.log(dto)
               console.log(res.data);
@@ -278,21 +278,21 @@ const onChangeTel3 = useCallback((e) => {
               <C.Tel value="010" maxLength={3} onChange={onChangeTel1} required/> - <C.Tel maxLength={4} onChange={onChangeTel2} required /> - <C.Tel maxLength={4} onChange={onChangeTel3} required/>
             </C.SectionRow>
             <C.Label>* 비밀번호 </C.Label>
-            <C.Password type="password" maxLength="10" placeholder="0 ~ 10자 이내로 입력" onChange={onChangePassword} required></C.Password>
+            <C.Password type="password" maxLength="10" placeholder="비밀번호 10자 이내로 입력" onChange={onChangePassword} required></C.Password>
             <C.Label>* 비밀번호 확인</C.Label>
-            <C.RePassword type="password" maxLength="10" onChange={onChangePasswordCheck} required></C.RePassword>
+            <C.RePassword type="password" maxLength="10" placeholder="비밀번호 10자 이내로 입력" onChange={onChangePasswordCheck} required></C.RePassword>
             <div className="address_search" >
                 <C.Label>* 주소</C.Label>
                 <C.Addr className="user_enroll_text" type="text" required={true} name="address" onChange={handleInput} value={address.address}></C.Addr>
-                <button onClick={handleComplete}>우편번호 찾기</button>
+                <C.AddrBtn onClick={handleComplete}>우편번호 찾기</C.AddrBtn>
                 {popup && <Post company={address} setcompany={setAddress}></Post>}
             </div>
             <p>{addrMsg}</p>
             <C.SignUpCheck>
-              <C.LoginCheck type="checkbox" id="login" name="login"/> [필수] 개인정보 및 수집 이용 동의
+              <C.LoginCheck type="checkbox" id="login" name="login"/> &nbsp; [필수] 개인정보 및 수집 이용 동의
             </C.SignUpCheck>
             <C.SignUpCheck>
-              <C.LoginCheck type="checkbox" id="login" name="login"/> [선택] 마케팅 이용 수신 및 정보 동의
+              <C.LoginCheck type="checkbox" id="login" name="login"/> &nbsp; [선택] 마케팅 이용 수신 및 정보 동의
             </C.SignUpCheck>
             <C.SignUpBtn type="button" onClick={onClickSubmit}>회원가입</C.SignUpBtn>
           </C.SignUpInput>

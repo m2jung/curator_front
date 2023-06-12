@@ -1,7 +1,6 @@
-import LayoutServiceCenter from '../../../../layout/service-center/service-center.presenter'
-import * as C from './board.styles'
+import * as C from './board.new.styles'
 
-export default function ServiceBoardView(props) {
+export default function ServiceBoardNewView(props) {
 
   return (
     <>  
@@ -9,9 +8,6 @@ export default function ServiceBoardView(props) {
        <C.BoardWrapper>
        <C.BoardBanner>
           <C.BoardTitle>1:1 문의하기</C.BoardTitle>
-          <C.BoardSubTitle>
-            <LayoutServiceCenter/>
-          </C.BoardSubTitle>
        </C.BoardBanner>
 
        <C.BoardFormWrapper>
