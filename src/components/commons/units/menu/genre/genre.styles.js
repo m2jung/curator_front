@@ -51,7 +51,7 @@ export const Select = styled.select`
 
 `
 
-export const Genre = styled.div`
+export const Genre = styled.button`
     &:active {
         color: white;
         background-color: black;
@@ -90,7 +90,6 @@ export const ColumnImage = styled.image`
     }
     width: 100%;
     height: 100%;
-    background-image: url('/images/art03.jpeg');
     background-position: center;
     background-size: cover;
     display: flex;

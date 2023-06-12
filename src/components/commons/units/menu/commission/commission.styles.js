@@ -92,10 +92,11 @@ export const Table = styled.table`
 export const Tr = styled.tr`
     text-align: center;
 
-    &:nth-child(2) {
+    /* &:nth-child(2) {
         color: brown;
         font-weight: 600;
-    }
+    } */
+    
 `
 export const Th = styled.th `
     height: 36px;
