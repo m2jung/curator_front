@@ -1,11 +1,20 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
-import LayoutSideNav from "../../../layout/side-nav/side-nav.presenter"
+import LayoutSideNav from '../../../layout/side-nav/side-nav.presenter'
 import Instagram from '../../../../../../public/icons/instagram.svg'
 import * as C from './user.info.styles'
 import Link from "next/link"
+import { useState, useEffect } from "react"
 
 export default function UserInfoView(props) {
+
+    const [nickName, setNickName] = useState();
+    const [id, setId] = useState();
+
+    useEffect(() => {
+        setNickName(sessionStorage.getItem('userNickname'))
+        setId(sessionStorage.getItem('userId'))
+    }, [])
 
     return (
         <>
@@ -15,8 +24,8 @@ export default function UserInfoView(props) {
             <C.InfoTitle>회원정보</C.InfoTitle>
             <C.Profile>
                 <C.MyProfile>
-                <C.MyName>{sessionStorage.getItem('userNickname')}</C.MyName>
-                <C.MyEmail><FontAwesomeIcon icon={faEnvelope}/> {sessionStorage.getItem('userId')}</C.MyEmail>                 
+                <C.MyName>{nickName}</C.MyName>
+                <C.MyEmail><FontAwesomeIcon icon={faEnvelope}/> {id}</C.MyEmail>                 
                 <C.MySns><Instagram fill='gray' width={19} height={19}/>&nbsp;M2jung2</C.MySns>
                 </C.MyProfile>    
                 <C.BtnModify>수정하기</C.BtnModify>
@@ -35,19 +44,39 @@ export default function UserInfoView(props) {
                 <C.MembershipTable>
                 <C.MembershipInfo>혜택정보</C.MembershipInfo>
                 <C.MembershipLevel>
-                    <C.Level>{sessionStorage.getItem('userNickname')}님은 [일반회원] 입니다. </C.Level>
+                    <C.Level>{nickName}님은 [일반회원] 입니다. </C.Level>
                     <C.DottedLine></C.DottedLine>
                     <C.Coupon>적립금 0원&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 예치금 0원</C.Coupon>
                     </C.MembershipLevel>
                 </C.MembershipTable>
+
+                <C.MyPayTable>
+                    <C.MyPayColumn1>
+                        <C.ProductProfile>
+                         <C.ProductDelivery>배송전</C.ProductDelivery>
+                         <C.Image/>
+                        </C.ProductProfile>
+                        <C.ProductInfo>
+                            <C.ProductTitle> 텔레토비 </C.ProductTitle>
+                            <C.ProductContent>작가 김세동</C.ProductContent>
+                            <C.ProductPrice>200,000,000 원</C.ProductPrice>
+                        </C.ProductInfo>
+                    </C.MyPayColumn1>
+
+                    <C.MyPayColumn2>
+                        <C.ProductBtn>배송조회</C.ProductBtn>
+                        <C.ProductBtn>교환,반품 신청</C.ProductBtn>
+                        <C.ProductBtn>판매자 문의 </C.ProductBtn>
+                    </C.MyPayColumn2>
+                </C.MyPayTable>
 
                 <C.PaymentTable>
                     <C.PaymentColumn>
                         <C.PaymentMessage>장바구니가 비어있습니다.</C.PaymentMessage>
                     </C.PaymentColumn>
                     <C.PaymentColumn>
-                        <C.Link>전체상품 주문</C.Link>
-                        <C.Link>선택상품 주문</C.Link>
+                        <C.Link href="#">전체상품 주문</C.Link>
+                        <C.Link href="#">선택상품 주문</C.Link>
                     </C.PaymentColumn>
                 </C.PaymentTable>
                 </C.PaymentWrapper>
@@ -74,7 +103,7 @@ export default function UserInfoView(props) {
                     <C.PaymentMessage>등록된 문의가 없습니다.</C.PaymentMessage>    
                 </C.PaymentColumn>
                 <C.PaymentColumn>
-                    <C.Link href='/board/service-board'>1:1 문의하기</C.Link>
+                    <C.Link href='menu/service.center/board/new'>1:1 문의하기</C.Link>
                 </C.PaymentColumn>
             </C.ServiceTable>
             </C.Profile>

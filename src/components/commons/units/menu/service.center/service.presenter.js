@@ -1,4 +1,4 @@
-import * as C from './service.styles'
+import * as C from './service.styles.js'
 import Link from 'next/link'
 import LayoutPageNumber from '../../../layout/page-number/page-number.presenter'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -89,8 +89,11 @@ console.log(serviceArray)
         <C.ServiceTable>
           <C.Table>
             <C.Tr>
+            <thead>
               <C.Div>기타</C.Div><C.Title>무슨 웹사이트인가요?</C.Title><C.Icon><FontAwesomeIcon icon={faCaretDown} size="lg"/></C.Icon>
+            </thead>
             </C.Tr>
+            <tbody>
             <C.Tr>
               <C.Div>결제/구매</C.Div><C.Title>작품 구매는 어떻게 하나요?</C.Title><C.Icon><FontAwesomeIcon icon={faCaretDown} size="lg"/></C.Icon>
             </C.Tr>
@@ -108,6 +111,7 @@ console.log(serviceArray)
               <C.Div>경매</C.Div><C.Title>{serviceList[i].helpTitle}</C.Title><C.Icon><FontAwesomeIcon icon={faCaretDown} size="lg"/></C.Icon>
             </C.Tr>
             ))}
+            </tbody>
           </C.Table>
         </C.ServiceTable>
         <LayoutPageNumber/>
