@@ -1,9 +1,66 @@
+import { useState, useEffect } from 'react'
+import axios from 'axios';
 import LayoutPageNumber from '../../../layout/page-number/page-number.presenter'
 import * as C from './genre.styles'
 
-
 export default function GenreView(props) {
- 
+
+   const [genreList, setGenreList] = useState();
+   const [postList, setPostList] = useState();
+   var imageArray = [];
+   var array;
+
+    // 장르명 get
+  useEffect(() => {
+   axios.get('http://localhost:8080/root/genreList')
+     .then((res) => {
+       setGenreList(res.data);
+     })
+   }, [])
+
+   const onClickWhole = async () => {
+      const post = await axios.get('http://localhost:8080/root/postList')
+      console.log(post)
+      setPostList(post.data);
+   }
+   
+   const onClickGenre = async (genreSeq) => {
+      const genre = await axios.get(`http://localhost:8080/root/genreView?genreSeq=${genreSeq}`)
+      console.log(genre)
+      for (let i = 0; i < genre.data.length; i++) {
+         axios.post<Blob>(`http://localhost:8080/root/down`, {"value9": res.data[i].value9}, { headers: { "Content-type": "application/json; charset=UTF-8" }, responseType: 'blob' })
+         .then((response) => {
+             // console.log(res.data)
+             const myFile = new File([response.data], dataArr[i].value9);
+             const reader = new FileReader();
+             reader.readAsDataURL(myFile);
+             
+             reader.onloadend = () => {
+                 // console.log(reader.result)
+                setBase(reader.result);
+             array = {
+                 value1: dataArr[i].value1,
+                 value2: dataArr[i].value2,
+                 value3: dataArr[i].value3,
+                 value4: dataArr[i].value4,
+                 value5: dataArr[i].value5,
+                 value6: dataArr[i].value6,
+                 value7: dataArr[i].value7,
+                 value8: dataArr[i].value8,
+                 value9: reader.result
+             }
+             
+             imageArray.push(array);
+             setPostList(genre.data);
+             // console.log(base64)
+         }
+             
+
+         })
+      }
+   }
+   
+
   return (
     <>  
         <C.Wrapper>
@@ -12,9 +69,10 @@ export default function GenreView(props) {
             <C.BannerSubTitle>Buy Original Paintings</C.BannerSubTitle>
          </C.GenreBanner>
             <C.GenreSelect>
-               <C.Genre>장르1</C.Genre>
-               <C.Genre>장르2</C.Genre>
-               <C.Genre>장르3</C.Genre>
+               <C.Genre onClick={onClickWhole} >전체보기</C.Genre>
+               {genreList?.map((el, i) => (
+               <C.Genre onClick={() => onClickGenre(genreList[i].genreSeq)} >{genreList[i].genreName}</C.Genre>
+               ))}
                <C.Select>
                   <option disabled="true" selected="true">추천순</option>
                   <option>인기순</option>
@@ -25,13 +83,14 @@ export default function GenreView(props) {
                </C.Select>
             </C.GenreSelect>
          <C.GenreWrapper>
+         {postList?.map((el, i) => (
             <C.GenreColumn href="/art/work">
-               <C.ColumnImage>
+               <C.ColumnImage src={'./image/art01.jpg'}>
                   <C.ColumnInfo>
-                     <C.ColumnTitle>속초 앞바다</C.ColumnTitle>
-                     <C.ColumnContent>그림 설명 샬라샬라샬라샬라 </C.ColumnContent>
+                     <C.ColumnTitle>{postList[i].postTitle}</C.ColumnTitle>
+                     <C.ColumnContent>{postList[i].postSummary}</C.ColumnContent>
                      <C.ColumnArtist>
-                        <C.ColumnPrice>130,000,000 ₩</C.ColumnPrice>
+                        <C.ColumnPrice>{postList[i].postPrice} 원</C.ColumnPrice>
                      </C.ColumnArtist>
                      <C.ColumnArtist>
                         <C.ColumnProfile></C.ColumnProfile>
@@ -40,97 +99,8 @@ export default function GenreView(props) {
                   </C.ColumnInfo>
                </C.ColumnImage>
             </C.GenreColumn>
-            <C.GenreColumn>
-               <C.ColumnImage>
-                     <C.ColumnInfo>
-                        <C.ColumnTitle></C.ColumnTitle>
-                        <C.ColumnContent>그림 설명 샬라샬라샬라샬라 </C.ColumnContent>
-                        <C.ColumnArtist>
-                           <C.ColumnProfile></C.ColumnProfile>
-                           <C.ColumnName>유미정</C.ColumnName>
-                        </C.ColumnArtist>
-                     </C.ColumnInfo>
-                  </C.ColumnImage>
-            </C.GenreColumn>
-            <C.GenreColumn>
-               <C.ColumnImage>
-                     <C.ColumnInfo>
-                        <C.ColumnTitle></C.ColumnTitle>
-                        <C.ColumnContent>그림 설명 샬라샬라샬라샬라 </C.ColumnContent>
-                        <C.ColumnArtist>
-                           <C.ColumnProfile></C.ColumnProfile>
-                           <C.ColumnName>유미정</C.ColumnName>
-                        </C.ColumnArtist>
-                     </C.ColumnInfo>
-                  </C.ColumnImage>
-            </C.GenreColumn>
-            <C.GenreColumn>
-               <C.ColumnImage>
-                     <C.ColumnInfo>
-                        <C.ColumnTitle></C.ColumnTitle>
-                        <C.ColumnContent>그림 설명 샬라샬라샬라샬라 </C.ColumnContent>
-                        <C.ColumnArtist>
-                           <C.ColumnProfile></C.ColumnProfile>
-                           <C.ColumnName>유미정</C.ColumnName>
-                        </C.ColumnArtist>
-                     </C.ColumnInfo>
-                  </C.ColumnImage>
-            </C.GenreColumn>
-            </C.GenreWrapper>
-         <C.GenreWrapper>
-         <C.GenreColumn>
-               <C.ColumnImage>
-                  <C.ColumnInfo>
-                     <C.ColumnTitle>속초 앞바다</C.ColumnTitle>
-                     <C.ColumnContent>그림 설명 샬라샬라샬라샬라 </C.ColumnContent>
-                     <C.ColumnArtist>
-                        <C.ColumnPrice>130,000,000 </C.ColumnPrice>
-                     </C.ColumnArtist>
-                     <C.ColumnArtist>
-                        <C.ColumnProfile></C.ColumnProfile>
-                        <C.ColumnName>유미정</C.ColumnName>
-                     </C.ColumnArtist>
-                  </C.ColumnInfo>
-               </C.ColumnImage>
-            </C.GenreColumn>
-            <C.GenreColumn>
-               <C.ColumnImage>
-                     <C.ColumnInfo>
-                        <C.ColumnTitle></C.ColumnTitle>
-                        <C.ColumnContent>그림 설명 샬라샬라샬라샬라 </C.ColumnContent>
-                        <C.ColumnArtist>
-                           <C.ColumnProfile></C.ColumnProfile>
-                           <C.ColumnName>유미정</C.ColumnName>
-                        </C.ColumnArtist>
-                     </C.ColumnInfo>
-                  </C.ColumnImage>
-            </C.GenreColumn>
-            <C.GenreColumn>
-               <C.ColumnImage>
-                     <C.ColumnInfo>
-                        <C.ColumnTitle></C.ColumnTitle>
-                        <C.ColumnContent>그림 설명 샬라샬라샬라샬라 </C.ColumnContent>
-                        <C.ColumnArtist>
-                           <C.ColumnProfile></C.ColumnProfile>
-                           <C.ColumnName>유미정</C.ColumnName>
-                        </C.ColumnArtist>
-                     </C.ColumnInfo>
-                  </C.ColumnImage>
-            </C.GenreColumn>
-            <C.GenreColumn>
-               <C.ColumnImage>
-                     <C.ColumnInfo>
-                        <C.ColumnTitle></C.ColumnTitle>
-                        <C.ColumnContent>그림 설명 샬라샬라샬라샬라 </C.ColumnContent>
-                        <C.ColumnArtist>
-                           <C.ColumnProfile></C.ColumnProfile>
-                           <C.ColumnName>유미정</C.ColumnName>
-                        </C.ColumnArtist>
-                     </C.ColumnInfo>
-                  </C.ColumnImage>
-            </C.GenreColumn>  
+         ))}
          </C.GenreWrapper>
-
          <LayoutPageNumber/>
 
         </C.Wrapper>

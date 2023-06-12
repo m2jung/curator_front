@@ -2,11 +2,14 @@ import * as C from './header.styles'
 import Link from 'next/link'
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
+import { useCookies } from 'react-cookie'
 
 export default function LayoutHeader(props){
 
   // login 판별
   const [loginStatue, setLoginStatus] = useState();
+  const [cookies, setCookie, removeCookie] = useCookies();
+
   useEffect(() => {
     setLoginStatus(localStorage.getItem('loginStatus'));
   })

@@ -1,7 +1,61 @@
 import LayoutServiceCenter from '../../../../layout/service-center/service-center.presenter'
 import * as C from './board.styles'
+import axios from 'axios'
+import React, {useCallback, useState, useEffect} from 'react';
+import { useRouter } from 'next/router';
 
 export default function CommissionBoardView(props) {
+  
+  const router = useRouter();
+
+  const [artistList, setArtistList] = useState();
+  const [commContent, setCommContent] = useState();
+  const [artistSeq, setArtistSeq] = useState();
+
+  // 작가명 get
+  useEffect(() => {
+    axios.get('http://localhost:8080/root/artistAllList')
+      .then((res) => {
+        setArtistList(res.data);
+      })
+  }, [])
+
+  // onChange
+  const onChangeContent = useCallback((e) =>{
+    const currContent = e.target.value;
+    setCommContent(currContent);
+  }, [])
+
+  // onSelect
+  const onSelectArtist = (e) => {
+    const currArtist = e.target.value;
+    setArtistSeq(currArtist);
+    console.log(artistSeq)
+  }
+
+  // 취소
+  const onClickCancel = () => {
+    router.push('http://localhost:3000/menu/commission')
+  }
+
+  // 전송
+  const onClickSubmit = () => {
+    const commData = {
+      memberSeq: sessionStorage.getItem('userSeq'),
+      commTitle: '작품 의뢰 합니다.',
+      commContent: commContent,
+      artistSeq: artistSeq,
+    }
+
+    axios.post('http://localhost:8080/root/commissionWrite', commData)
+      .then((res) => {
+        if(res.data == 1) {
+          alert('게시글 등록이 완료되었습니다.')
+          router.push('http://localhost:3000/menu/commission')
+        } else alert('게시물 등록에 실패하였습니다.')
+      })
+
+  }
 
   return (
     <>  
@@ -24,13 +78,11 @@ export default function CommissionBoardView(props) {
 
           <C.InputWrapper>
             <C.Label>작가 선택</C.Label>
-            <C.CommissionDiv>
-              {/* 옵션은 Map으로 구성 예장 */}
-              <option disabled="true" selected="true">전체</option>
-              <option>회화</option>
-              <option>조소</option>
-              <option>건축/공예</option>
-              <option>조각/판화</option>
+            <C.CommissionDiv onChange={onSelectArtist} >
+              <option value={true}>전체</option> 
+              {artistList?.map((el, i) => (
+                <option value={artistList[i].artistSeq}>{artistList[i].artistName}</option>
+              ))}
             </C.CommissionDiv>
           </C.InputWrapper>
           <C.InputWrapper>
@@ -39,13 +91,13 @@ export default function CommissionBoardView(props) {
           </C.InputWrapper>
           <C.ContentWrapper>
             <C.Label>작품 의뢰 내용</C.Label>
-            <C.CommissionContent placeholder='작품 의뢰 내용을 입력하세요.'></C.CommissionContent>
+            <C.CommissionContent onChange={onChangeContent} placeholder='작품 의뢰 내용을 입력하세요.'></C.CommissionContent>
           </C.ContentWrapper>
 
 
           <C.BtnWrapper>
-            <C.CancelBtn>취소</C.CancelBtn>
-            <C.SubmitBtn>작성하기</C.SubmitBtn>
+            <C.CancelBtn type='button' onClick={onClickCancel}>취소</C.CancelBtn>
+            <C.SubmitBtn type='button' onClick={onClickSubmit}>작성하기</C.SubmitBtn>
           </C.BtnWrapper>
 
         </C.BoardForm>

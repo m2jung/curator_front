@@ -1,8 +1,56 @@
 import LayoutPageNumber from '../../../layout/page-number/page-number.presenter'
-
+import axios from 'axios'
+import React, {useCallback, useState, useEffect, useLayoutEffect} from 'react';
+import { useRouter } from 'next/router';
 import * as C from './commission.styles' 
 
 export default function CommissionView(props){
+
+  const router = useRouter();
+
+  const [commissionList, setCommissionList] = useState();
+  let commArray = []
+  let firData = []
+
+  // 작가명 get
+  const CommissionList = async () => {
+    const res = await axios.get('http://localhost:8080/root/commAllList')
+        let list;
+        console.log(res.data)
+        firData = res.data;
+        for(let i = 0; i < res.data.length; i++) {
+           const response = await axios.get(`http://localhost:8080/root/getName?seq=${res.data[i].memberSeq}`)
+              list = { 
+                commSeq: res.data[i].commSeq,
+                commName: response.data,
+                commTitle: res.data[i].commTitle,
+                commDate: getToday(res.data[i].commDate),
+              }
+              commArray.push(list);
+            }
+            setCommissionList(commArray);
+  
+        // .catch((error) => {
+        //   console.log(error) 
+        // })
+
+  }
+
+  useEffect(async () => {
+    CommissionList();
+  }, [])
+
+  function getToday(day){
+    var date = new Date(day);
+    var year = date.getFullYear();
+    var month = ("0" + (1 + date.getMonth())).slice(-2);
+    var day = ("0" + date.getDate()).slice(-2);
+
+    return year + "-" + month + "-" + day;
+}
+
+console.log(commissionList)
+console.log(commArray)
 
   return (
     <>  
@@ -21,27 +69,21 @@ export default function CommissionView(props){
 
         <C.CommissionTable>
           <C.Table>
+            <thead>
               <C.Tr>
                 <C.Th>No</C.Th><C.Th>제목</C.Th><C.Th>작성자</C.Th><C.Th>날짜</C.Th>
               </C.Tr>
+            </thead>
+            <tbody>
               <C.Tr>
                 <C.No>1</C.No><C.Title> &lt;&lt; 공지사항 &gt;&gt; 작품의뢰 게시글 양식에 맞게 작성 부탁드립니다. 글제목은 '작품의뢰 합니다.' 로 수정하지 말아주세요.</C.Title><C.Writer>관리자</C.Writer><C.Date>2023-06-07</C.Date>
               </C.Tr>
-              <C.Tr>
-                <C.No>24</C.No><C.Title>작품의뢰 합니다.</C.Title><C.Writer>유미정</C.Writer><C.Date>2023-06-08</C.Date>
-              </C.Tr>
-              <C.Tr>
-                <C.No>23</C.No><C.Title>작품의뢰 합니다.</C.Title><C.Writer>이범석</C.Writer><C.Date>2023-06-08</C.Date>
-              </C.Tr>
-              <C.Tr>
-                <C.No>22</C.No><C.Title>작품의뢰 합니다.</C.Title><C.Writer>이준삼</C.Writer><C.Date>2023-06-08</C.Date>
-              </C.Tr>
-              <C.Tr>
-                <C.No>21</C.No><C.Title>작품의뢰 합니다.</C.Title><C.Writer>이주호</C.Writer><C.Date>2023-06-08</C.Date>
-              </C.Tr>
-              <C.Tr>
-                <C.No>20</C.No><C.Title>작품의뢰 합니다.</C.Title><C.Writer>정연호</C.Writer><C.Date>2023-06-08</C.Date>
-              </C.Tr>
+            {commissionList?.map((el, i) => (
+              <C.Tr key={el.commSeq}>
+                <C.No>{el.commSeq}</C.No><C.Title>{el.commTitle}</C.Title><C.Writer>{el.commName}</C.Writer><C.Date>{el.commDate}</C.Date>
+              </C.Tr>    
+              ))} 
+              </tbody>
             </C.Table>
             <LayoutPageNumber/><C.Link href="/board/comm-board">게시글 작성하기</C.Link>
           

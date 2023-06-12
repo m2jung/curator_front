@@ -74,7 +74,8 @@ export default function SignInView(props) {
        
        axios.post('http://localhost:8080/root/login', data, { withCredentials: true })
            .then(function(res) {
-            if(res.data != null) {
+            console.log(res.data)
+            if(res.data.accessToken != undefined) {
               // 토큰값 헤더 저장
               const { accessToken, refreshToken } = res.data;
               if(refreshToken) {
@@ -87,7 +88,7 @@ export default function SignInView(props) {
               axios.defaults.headers.common['Authorization'] = `Bearer + ${accessToken}`;
               console.log(axios.defaults.headers.common.Authorization);
               
-              // 토큰값 localstorage에 저장
+              // 토큰값 localStorage에 저장
               localStorage.setItem("accessToken", accessToken);
               localStorage.setItem("loginStatus", "login");
   
@@ -101,10 +102,13 @@ export default function SignInView(props) {
               sessionStorage.setItem("userSeq", data.seq);
       
               //홈화면 라우팅
-              router.push("/");
+              router.push("http://localhost:3000/");
               
               // accessToken 만료하기 1분 전에 로그인 연장
               setTimeout(onSilentRefresh, JWT_EXPIRY_TIME - 60000);
+            } else {
+              alert('잘못된 로그인 정보입니다.')
+              router.reload();
             } 
            })
            .catch(function (error) {
