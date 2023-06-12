@@ -1,27 +1,26 @@
-import * as C from './admin.info.styles'
-import LayoutSideNavAdmin from '../../../layout/side-nav-admin/side-nav-admin.presenter'
-import { useState, useEffect } from "react"
+import * as C from './help.admin.styles'
+import LayoutSideNavAdmin from '../../../../layout/side-nav-admin/side-nav-admin.presenter'
 
-export default function AdminInfoView(props) {
+export default function AdminHelpView(props) {
 
     return (
         <>
         <C.Wrapper>
         <LayoutSideNavAdmin/>
             <C.MemberWrapper>
-            <C.MemberTitle>회원관리</C.MemberTitle>
+            <C.MemberTitle>문의내역</C.MemberTitle>
             <C.MemberTable>
                 <thead>
                 <C.Tr>
-                    <C.Th>회원번호</C.Th><C.Th>이메일</C.Th><C.Th>비밀번호</C.Th><C.Th>닉네임</C.Th><C.Th>이름</C.Th><C.Th>번호</C.Th><C.Th>주소</C.Th><C.Th>회원등급</C.Th><C.Th>가입일자</C.Th>
+                    <C.Th>문의제목</C.Th><C.Th>문의내용</C.Th><C.Th>작성날짜</C.Th>
                 </C.Tr>
                 </thead>
                 <tbody>
                 <C.Tr>
-                    <C.Td>1</C.Td><C.Td>119755@naver.com</C.Td><C.Td>123</C.Td><C.Td>딱지찡</C.Td><C.Td>유미정</C.Td><C.Td>1</C.Td><C.Td>경기도 고양시</C.Td><C.Td>일반등급</C.Td><C.Td>2023-06-12</C.Td>
+                    <C.Td>작품을 어떻게 구매하나요???</C.Td><C.Td>제가 작품을 사고싶은데...어떻게 사야될 지 몰라서용..</C.Td><C.Td>2023-06-20</C.Td>
                 </C.Tr>
                 <C.Tr>
-                    <C.Td>2</C.Td><C.Td>adsajd@naver.com</C.Td><C.Td>234</C.Td><C.Td>테스트</C.Td><C.Td>정미유</C.Td><C.Td>2</C.Td><C.Td>서울시</C.Td><C.Td>일반등급</C.Td><C.Td>2023-06-12</C.Td>
+                    <C.Td>작품을 어떻게 구매하나요???</C.Td><C.Td>제가 작품을 사고싶은데...어떻게 사야될 지 몰라서용..</C.Td><C.Td>2023-06-20</C.Td>
                 </C.Tr>
                 </tbody>
             </C.MemberTable>

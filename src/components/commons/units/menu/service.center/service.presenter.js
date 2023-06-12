@@ -90,24 +90,7 @@ console.log(serviceArray)
           {/* tabel,tr,td..사용으로 콘솔에 에러창 뜸 수정하기 */}
         <C.ServiceTable>
           <C.Table>
-            <C.Tr>
-            <thead>
-              <C.Div>기타</C.Div><C.Title>무슨 웹사이트인가요?</C.Title><C.Icon><FontAwesomeIcon icon={faCaretDown} size="lg"/></C.Icon>
-            </thead>
-            </C.Tr>
             <tbody>
-            <C.Tr>
-              <C.Div>결제/구매</C.Div><C.Title>작품 구매는 어떻게 하나요?</C.Title><C.Icon><FontAwesomeIcon icon={faCaretDown} size="lg"/></C.Icon>
-            </C.Tr>
-            <C.Tr>
-              <C.Div>판매/등록</C.Div><C.Title>작품 판매는 어떻게 하나요?</C.Title><C.Icon><FontAwesomeIcon icon={faCaretDown} size="lg"/></C.Icon>
-            </C.Tr>
-            <C.Tr>
-              <C.Div>판매/등록</C.Div><C.Title>작가, 작품 등록은 어떻게 하나요?</C.Title><C.Icon><FontAwesomeIcon icon={faCaretDown} size="lg"/></C.Icon>
-            </C.Tr>
-            <C.Tr>
-              <C.Div>경매</C.Div><C.Title>경매는 어떻게 진행되나요?</C.Title><C.Icon><FontAwesomeIcon icon={faCaretDown} size="lg"/></C.Icon>
-            </C.Tr>
             {serviceList?.map((el, i) => (
             <C.Tr>
               <C.Div>경매</C.Div><C.Title>{serviceList[i].helpTitle}</C.Title><C.Icon><FontAwesomeIcon icon={faCaretDown} size="lg"/></C.Icon>

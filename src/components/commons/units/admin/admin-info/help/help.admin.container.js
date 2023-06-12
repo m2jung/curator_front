@@ -1,9 +1,9 @@
-import AdminInfoView from "./admin.info.presenter"
+import AdminHelpView from "./help.admin.presenter"
 
-export default function AdminInfoContainer() {
+export default function AdminHelpContainer() {
     return (
         <>
-        <AdminInfoView/>
+        <AdminHelpView/>
         </>
     )
 }

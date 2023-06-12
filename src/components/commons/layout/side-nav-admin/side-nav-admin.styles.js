@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 //회원정보 전체 Wrapper
 export const Wrapper = styled.div`
-    width: 415px;
+    width: 410px;
     height: 600px;
 `
 
