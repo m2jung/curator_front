@@ -1,5 +1,11 @@
 import styled from "@emotion/styled";
 
+export const Link = styled.a `
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+`
 
 // 문의하기 
 export const Wrapper = styled.div`
@@ -22,7 +28,7 @@ export const BoardBanner = styled.div`
     border-top: 2px solid rgba(0,0,0,0.1);
     border-bottom: 2px solid rgba(0,0,0,0.1);
     margin: auto;
-    padding: 30px;
+    padding: 0 30px;
 `
 
 export const BoardTitle = styled.div`
@@ -38,8 +44,14 @@ export const BoardFormTitle = styled.div`
 `
 
 export const BoardSubTitle = styled.div`
-    font-family: serif;
-    font-size: 35px;
+    font-size: 60px;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+`
+export const Span = styled.span`
+    font-size: 20px;
+    margin-left: 15px;
 `
 
 export const Select = styled.select`

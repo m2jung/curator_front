@@ -1,5 +1,11 @@
 import styled from "@emotion/styled";
 
+export const Link = styled.a `
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+`
 
 // 문의하기 
 export const Wrapper = styled.div`

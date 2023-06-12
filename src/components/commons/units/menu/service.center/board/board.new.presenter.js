@@ -1,3 +1,8 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft} from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link'
+import * as C from './board.new.styles'
+import { CKEditor } from 'ckeditor4-react'
 import { useState } from 'react'
 import axios from 'axios';
 import LayoutServiceCenter from '../../../../layout/service-center/service-center.presenter'
@@ -56,6 +61,11 @@ export default function ServiceBoardNewView(props) {
        <C.BoardWrapper>
        <C.BoardBanner>
           <C.BoardTitle>1:1 문의하기</C.BoardTitle>
+          <C.BoardSubTitle>
+              <C.Link href={'/menu/service.center'}>
+              <FontAwesomeIcon icon={faArrowLeft}/><C.Span>뒤로가기</C.Span>
+              </C.Link> 
+          </C.BoardSubTitle>
        </C.BoardBanner>
 
        <C.BoardFormWrapper>
@@ -81,7 +91,12 @@ export default function ServiceBoardNewView(props) {
           </C.InputWrapper>
           <C.ContentWrapper>
             <C.Label>문의 내용</C.Label>
-            <C.HelpContent onChange={onChangeContent} placeholder='문의할 내용을 입력하세요.'></C.HelpContent>
+
+            <CKEditor
+                initData=""
+                onInstanceReady={ () => {
+                } }
+            />
           </C.ContentWrapper>
 
           <C.BtnWrapper>
