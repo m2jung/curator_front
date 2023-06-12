@@ -1,5 +1,11 @@
 import styled from "@emotion/styled";
 
+export const LinkBoard = styled.a`
+    text-decoration: none;
+    color: black;
+`
+
+
 // 메뉴 - 작품의뢰 
 export const Wrapper = styled.div`
     width: 1200px;

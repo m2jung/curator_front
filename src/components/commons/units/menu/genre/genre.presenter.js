@@ -76,7 +76,7 @@ export default function GenreView(props) {
                      </C.ColumnInfo>
                   </C.ColumnImage>
             </C.GenreColumn>
-            </C.GenreWrapper>
+         </C.GenreWrapper>
          <C.GenreWrapper>
          <C.GenreColumn>
                <C.ColumnImage>

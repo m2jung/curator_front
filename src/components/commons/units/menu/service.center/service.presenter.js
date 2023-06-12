@@ -31,7 +31,7 @@ export default function ServiceView(props) {
         </C.Select>
           <C.Btn>
             <C.Link href="#">자주 묻는 질문</C.Link>
-            <C.Link href="/board/service-board">1:1 문의하기</C.Link>
+            <C.Link href="/menu/service.center/board/new">1:1 문의하기</C.Link>
           </C.Btn>
         </C.ServiceBtn>
           {/* Icon 클릭시 밑으로 상세 문의 내용 창이 주르륵 내려옴  */}

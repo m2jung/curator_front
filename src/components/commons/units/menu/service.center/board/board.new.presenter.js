@@ -1,7 +1,6 @@
-import LayoutServiceCenter from '../../../../layout/service-center/service-center.presenter'
-import * as C from './board.styles'
+import * as C from './board.new.styles'
 
-export default function ServiceBoardView(props) {
+export default function ServiceBoardNewView(props) {
 
   return (
     <>  

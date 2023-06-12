@@ -1,30 +1,51 @@
 import styled from "@emotion/styled";
 
+// 상품 테이블
 export const Table = styled.table `
     width: 380px;
     height: 180px;
     margin: 10px auto;
-    border: 1px solid rgba(0,0,0,0.2);
     border-radius: 10px;
+    box-shadow: 1px 1px 3px gray;
     text-align: center;
     font-size: 16px;
 `
 export const Tr = styled.tr`
+    &:nth-child(2){
+        color: silver;
+        font-weight: 700;
+    }
+
+    &:nth-child(3){
+        color: brown;
+        font-weight: 700;
+    }
 `
-export const Th = styled.th``
+export const Number1 = styled.td`
+    font-weight: 700;
+    color: orange;
+`
 export const ThNumber = styled.th`
     width: 30px;
+    padding: 15px 23px;   
 `
+export const Th = styled.th``
+export const Number2 = styled.td``
+export const Number3 = styled.td``
 export const Td = styled.td``
-export const Number = styled.td`
+export const NickName = styled.td``
+
+export const Line = styled.div`
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+    margin: 70px 20px 0 ;
 `
+
 // 상세 페이지 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 2000px;
+    height: 3200px;
     margin: 50px auto;
 `
-
 export const WorkWrapper = styled.div`
     width: 1150px;
     height: 600px;
@@ -38,7 +59,7 @@ export const WorkWrapper = styled.div`
 export const WorkSection = styled.div`
     width: 530px;
     height: 580px;
-    margin-top: 5햣0px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -67,8 +88,7 @@ export const WorkColumn = styled.div`
     height: 300px;    
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    
+    justify-content: space-between;   
 `
 
 export const WorkTitle = styled.div`
@@ -137,6 +157,13 @@ export const WorkBtn = styled.div`
     align-items: center;
     justify-content: space-around;
 `
+
+export const PriceBtn = styled.input `
+    width: 165px;
+    height: 25px;
+`
+
+
 export const Btn = styled.button`
     &:hover{
         color: white;
@@ -155,12 +182,11 @@ export const FavoritBtn = styled.div`
 `
 export const WorkContent = styled.div`
     width: 1200px;
-    height: 600px;
+    height: 560px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 `
 export const WorkContentImage = styled.div`
     width: 250px;
@@ -177,39 +203,98 @@ export const WorkContentBox = styled.div`
     margin: 20px;
 `
 
+
+// 그림 상세 내용 정보
 export const WorkArticle = styled.div`
     width:  900px;
-    height: 600px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 200px auto;
+    height: 420px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+
 `
 
-export const Article = styled.div`
-    width: 320px;
-    height: 450px;
-    border: 2px solid rgba(0,0,0,0.1);
-    border-radius: 20px;
-    box-shadow: 1px 1px 5px white;
+export const WorkArticleTitle = styled.div`
+    width: 100%;
+    height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    font-size: 18px;
+    background-color: rgba(0,0,0,0.1);
+`
+export const Quality = styled.div `
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
     line-height: 30px;
-    padding: 30px;
+`
+export const Content = styled.div`
+    padding: 15px 10px;
+    line-height: 26px;
+
 `
 
-export const ArticleImage = styled.div`
-    width: 400px;
-    height: 500px;
+//작가 작품 더보기 
+export const ArtistContent = styled.div`
+    width: 1200px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+`
+export const ArtistTitle = styled.h1`
+    font-weight: 500;
+    padding: 80px 0 50px;
+`
+export const TitleSpan = styled.span`
+    font-size: 14px;
+    padding: 0 5px;
+    border-radius: 10px;
+    background-color: orange;
+    color: white;
+`
+
+export const ArtistArticle = styled.div`
+    width: 1200px;
+    height: 600px;
+    display: flex;
+`
+
+export const ArticleImage = styled.a`
+    width: 270px;
+    height: 350px;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
     background-image: url('/images/art03.jpeg');
     background-position: center;
     background-size: cover;
+    margin: 18px;
+    text-decoration: none;
+    color: black;
 `
 
-export const WorkProfile = styled.div`
-    width: 1000px;
-    height: 100px;
-    border: thick double gray;
+
+// 작가 전시회 더보기 
+export const ExhibitionContent = styled.div`
+    width: 1200px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
 `
+
+export const ExhibitionTitle = styled.h1`
+    font-weight: 500;
+    padding: 80px 0 50px;
+`
+export const ExhibitionArticle = styled.div`
+    width: 1200px;
+    height: 400px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    align-items: center;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    border-radius: 20px;
+
+`
+
+
+
