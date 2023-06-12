@@ -23,6 +23,9 @@ export default function LayoutHeader(props){
             loginStatue ?
             <><Link href="/sign/sign-out"><C.SignInMenu>로그아웃</C.SignInMenu></Link><Link href="/user/user-info"><C.InfoMenu>회원정보</C.InfoMenu></Link></> 
             : <><Link href="/sign/sign-in"><C.SignInMenu>로그인</C.SignInMenu></Link><Link href="/sign/sign-up"><C.SignupMenu>회원가입</C.SignupMenu></Link></>
+            
+          
+          
           }
         </C.MyProfile>
         <C.Navigator>

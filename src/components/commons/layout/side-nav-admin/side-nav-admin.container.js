@@ -1,4 +1,4 @@
-import LayoutSideNav from './side-nav.presenter'
+import LayoutSideNavAdmin from './side-nav-admin.presenter'
 
 export default function SideNavAdminContainer() {
 
@@ -32,7 +32,7 @@ export default function SideNavAdminContainer() {
 
     return (
         <> 
-        <LayoutSideNav/>
+        <LayoutSideNavAdmin/>
         </>
     )
 }
