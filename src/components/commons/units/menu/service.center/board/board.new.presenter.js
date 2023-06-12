@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios';
 import LayoutServiceCenter from '../../../../layout/service-center/service-center.presenter'
-import * as C from './board.styles'
+import * as C from './board.new.styles'
 import { useRouter } from 'next/router';
 
 export default function ServiceBoardNewView(props) {
