@@ -1,6 +1,6 @@
-import AdminInfoView from "./commission.admin.presenter"
+import AdminCommissionView from "./commission.admin.presenter"
 
-export default function AdminInfoContainer() {
+export default function AdminCommissionContainer() {
     return (
         <>
         <AdminInfoView/>

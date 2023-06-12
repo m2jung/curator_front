@@ -4,7 +4,7 @@ export default function AdminArtist(){
 
     return (
         <>
-         <AdminArtistView/>
+         <AdminArtistView/>   
         </>
     )
 }

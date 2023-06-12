@@ -9,24 +9,26 @@ export const Wrapper = styled.div`
     padding: 20px;
     margin : auto;
 `
-export const MemberWrapper= styled.div`
+export const ArtistWrapper= styled.div`
     width: 100%;
     height: 620px;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
     padding: 40px;
 `
-export const MemberTitle = styled.div`
+export const ArtistTitle = styled.div`
     font-size: 22px;
     padding: 26px;
     color: #1355BD;
     font-weight: bold;
 `
 
-export const MemberBtn = styled.div`
-    width: 100px;
+export const ArtistBtn = styled.div`
+    width: 190px;
     height: 30px;
-    margin: 10px 0 0 auto ;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 50px 0  auto ;
 `
 
 export const Btn = styled.button`
@@ -44,10 +46,9 @@ export const Btn = styled.button`
     color: white;
 `
 
-
 // 회원관리 테이블 
-export const MemberTable = styled.table`
-    width: 910px;
+export const ArtistTable = styled.table`
+    width: 820px;
     height: 50px;
     margin: auto;
     box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
@@ -55,16 +56,18 @@ export const MemberTable = styled.table`
     padding: 10px;
     text-align: center;
 `
+
 export const Th = styled.th`
     padding: 15px;
 `
+
 export const Tr = styled.tr``
 export const Td = styled.td`
     padding: 10px;
     border-bottom: 1px solid rgba(0,0,0,0.2);
 `
 
-
+export const CheckBox = styled.input``
 
 // export const MyProfile = styled.div`
 //     width: 300px;

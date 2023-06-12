@@ -2,7 +2,7 @@ import * as C from './commission.admin.styles'
 import LayoutSideNavAdmin from '../../../layout/side-nav-admin/side-nav-admin.presenter'
 import { useState, useEffect } from "react"
 
-export default function AdminInfoView(props) {
+export default function AdminCommissionView(props) {
 
     return (
         <>
