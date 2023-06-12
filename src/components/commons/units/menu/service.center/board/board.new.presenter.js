@@ -15,6 +15,8 @@ export default function ServiceBoardNewView(props) {
 
   const router = useRouter();
 
+  const back = process.env.NEXT_PUBLIC_URI_NAS
+
   const onChangeCat = (event) => {
     setCat(event.target.value)
     console.log(cat);
@@ -43,7 +45,7 @@ export default function ServiceBoardNewView(props) {
         helpContent: content,
       }
   
-      axios.post('http://localhost:8080/root/helpWrite', serviceData)
+      axios.post(`${back}helpWrite`, serviceData)
         .then((res) => {
           if(res.data == 1) {
             alert('게시글 등록이 완료되었습니다.')

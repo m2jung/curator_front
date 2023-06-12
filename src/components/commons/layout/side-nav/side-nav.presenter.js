@@ -12,7 +12,6 @@ export default function LayoutSideNav(props) {
       setNickName(sessionStorage.getItem('userNickname'))
       setId(sessionStorage.getItem('userId'))
   }, [])
-
  
   const onClickScrollInfo = () => {
     window.scrollTo({
@@ -45,7 +44,7 @@ export default function LayoutSideNav(props) {
     <>  
         <C.Wrapper>
          <C.InfoWrapper>
-         <C.InfoMenu>
+            <C.InfoMenu>
               <C.InfoProfile>
                   <C.ProfileImage></C.ProfileImage>
                   <C.Icon><FontAwesomeIcon icon={faEdit} /> 프로필 변경</C.Icon>

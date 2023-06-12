@@ -16,14 +16,16 @@ export default function ServiceView(props) {
   let serviceArray = []
   let firData = []
 
+  const back = process.env.NEXT_PUBLIC_URI_NAS
+
   // 작가명 get
   const ServiceList = async () => {
-    const res = await axios.get('http://localhost:8080/root/helpAllList')
+    const res = await axios.get(`${back}helpAllList`)
         let list;
         console.log(res.data)
         firData = res.data;
         for(let i = 0; i < res.data.length; i++) {
-           const response = await axios.get(`http://localhost:8080/root/getName?seq=${res.data[i].memberSeq}`)
+           const response = await axios.get(`${back}getName?seq=${res.data[i].memberSeq}`)
               list = { 
                 helpSeq: res.data[i].helpSeq,
                 helpTitle: res.data[i].helpTitle,
@@ -81,7 +83,7 @@ console.log(serviceArray)
         </C.Select>
           <C.Btn>
             <C.Link href="#">자주 묻는 질문</C.Link>
-            <C.Link href="/menu/service.center/board/new">1:1 문의하기</C.Link>
+            <C.Link href="/menu/service.center/new">1:1 문의하기</C.Link>
           </C.Btn>
         </C.ServiceBtn>
           {/* Icon 클릭시 밑으로 상세 문의 내용 창이 주르륵 내려옴  */}

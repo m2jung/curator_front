@@ -71,8 +71,10 @@ export default function SignInView(props) {
                memberEmail: email,
                memberPw: password,
        };
+
+       const back = process.env.NEXT_PUBLIC_URI_NAS
        
-       axios.post('https://git.walpie.com/curator_back/login', data, { withCredentials: true })
+       axios.post(`${back}login`, data, { withCredentials: true })
            .then(function(res) {
             console.log(res.data)
             if(res.data.accessToken != undefined) {

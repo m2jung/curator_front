@@ -87,6 +87,7 @@ export default function SignUpView(props) {
   //email
   const onClickEmailCheck = (e) => {
     
+    const back = process.env.NEXT_PUBLIC_URI_NAS
     const currEmail = e.target.value;
     // setEmailMsg("이메일을 중복 확인해주세요") 
     console.log(email + domain)
@@ -95,7 +96,7 @@ export default function SignUpView(props) {
     setFullEmail(insertEmail)
     console.log(fullEmail)
     
-    axios.get(`http://localhost:8080/root/emailCheck?insertEmail=${insertEmail}`)
+    axios.get(`${back}emailCheck?insertEmail=${insertEmail}`)
         .then(function(res) {
           // 토큰값 헤더 저장
           console.log(res.data)
@@ -104,7 +105,7 @@ export default function SignUpView(props) {
           } else if (res.data == 0){
             setEmailMsg("사용 가능한 이메일 주소입니다.")
             setEmailCheck("check");
-            axios.get(`http://localhost:8080/root/registerCode?insertEmail=${insertEmail}`)
+            axios.get(`${back}registerCode?insertEmail=${insertEmail}`)
               .then(function(res) {
                 console.log(res.data)
                 setCookie('checkTime', true, {
@@ -126,7 +127,7 @@ export default function SignUpView(props) {
 
 // token 확인
 const onClickTokenCheck = useCallback((e) => {
-  axios.post(`http://localhost:8080/root/registerCodeResult`, {'token': token}, { headers: { "Content-type": "application/json; charset=UTF-8" }})
+  axios.post(`${back}registerCodeResult`, {'token': token}, { headers: { "Content-type": "application/json; charset=UTF-8" }})
     .then((res) => {
       if(res.data == 1) {
         removeCookie('checkTime')
@@ -245,7 +246,7 @@ const onChangeTel3 = useCallback((e) => {
               memberPhone: tel1 + tel2 + tel3,
               memberGrade: 1
             };
-            axios.post('https://git.walpie.com/curator_back/register', dto)
+            axios.post(`${back}register`, dto)
             .then(function(res) {
               console.log(dto)
               console.log(res.data);
