@@ -1,7 +1,9 @@
-import LayoutServiceCenter from '../../../../layout/service-center/service-center.presenter'
-import * as C from './board.styles'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons'
 
-export default function CommissionBoardView(props) {
+import * as C from './board.view.styles'
+
+export default function ServiceBoardView(props) {
 
   return (
     <>  
@@ -10,12 +12,8 @@ export default function CommissionBoardView(props) {
         
        <C.BoardBanner>
           <C.BoardTitle>작품 의뢰 글쓰기</C.BoardTitle>
-          <C.BoardSubTitle>
-
-          <LayoutServiceCenter/>
-          
-          </C.BoardSubTitle>
-        </C.BoardBanner>
+          <FontAwesomeIcon icon={faChevronCircleLeft}/>
+       </C.BoardBanner>
 
        <C.BoardFormWrapper>
         <C.BoardForm>
@@ -41,7 +39,6 @@ export default function CommissionBoardView(props) {
             <C.Label>작품 의뢰 내용</C.Label>
             <C.CommissionContent placeholder='작품 의뢰 내용을 입력하세요.'></C.CommissionContent>
           </C.ContentWrapper>
-
 
           <C.BtnWrapper>
             <C.CancelBtn>취소</C.CancelBtn>

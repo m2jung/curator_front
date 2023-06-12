@@ -9,17 +9,17 @@ export const Wrapper = styled.div`
 `
 export const SignUpForm = styled.form`
     width: 460px;
-    height: 650px;
+    height: 660px;
     padding: 110px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: auto;
+    margin: 30px auto;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 `
 export const SignUpTitle = styled.span`
     width: 120px;
-    height: 70px;
+    height: 82px;
     font-size: 22px;        
     margin: auto;
 `
@@ -32,7 +32,7 @@ export const SignUpInput = styled.div`
     border: 1px solid white;
 `
 export const SectionColumn = styled.div`
-    height: 105px;
+    height: 110px;
 `
 
 export const SectionRow = styled.div`
@@ -63,6 +63,7 @@ export const Domain = styled.select`
 export const Button = styled.button `
     width: 73px;
     height: 25px;
+    font-size: 14px;
     margin-left: 6px;
     border: 2px solid rgba(0,0,0,0.5);
     background-color: white;
@@ -75,19 +76,19 @@ export const EmailCheck = styled.div`
 export const EmailToken = styled.input`
     width: 152px;
     height: 20px;
-    font-size: 12px;
+    padding-left: 4px;
+    font-size: 14px;
 `
 export const BtnToken = styled.button`
     width: 73px;
     height: 25px;
-    font-size: 12px;
+    font-size: 14px;
     border: 1px solid black;
     border-radius: 5px;
     margin-left: 5px;
     background-color: #364D79;
     color: white;
 `
-
 
 export const Name = styled.input`
     width: 150px;
@@ -127,20 +128,27 @@ export const RePassword = styled.input`
     border-bottom: 1px solid gray;
 ` 
 export const Addr = styled.input`
-    width: 70%;
+    width: 74%;
     height: 30px;
     margin: 0 10px 20px 0;
     border: none;
     border-bottom: 1px solid gray;
 ` 
-
-export const button = styled.button`
- 
+export const AddrBtn = styled.button`
+    width: 100px;
+    height: 28px;
+    font-size: 14px;
+    margin-left: 6px;
+    border: 2px solid rgba(0,0,0,0.5);
+    background-color: white;
 `
+
 export const LoginCheck = styled.input`
+    
 `
 export const SignUpCheck = styled.div`
     display: flex;
+    align-items: center;
     font-size: 13px;
     margin: 5px;
 `
@@ -148,10 +156,10 @@ export const SignUpBtn = styled.button`
     &:hover {
         color: white;
         background-color: #364D79;;
-
     }
+    font-size: 16px;
     width: 200px;
-    height: 40px;
-    margin: 20px auto;
+    height: 47px;
+    margin: 25px auto 0;
     border: none;
 `

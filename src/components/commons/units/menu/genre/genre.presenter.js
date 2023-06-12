@@ -16,7 +16,7 @@ export default function GenreView(props) {
                <C.Genre>장르2</C.Genre>
                <C.Genre>장르3</C.Genre>
                <C.Select>
-                  <option disabled="true" selected="true">추천순</option>
+                  <option value={true}>추천순</option>
                   <option>인기순</option>
                   <option>최신순</option>
                   <option>리뷰 많은순</option>
@@ -76,7 +76,7 @@ export default function GenreView(props) {
                      </C.ColumnInfo>
                   </C.ColumnImage>
             </C.GenreColumn>
-            </C.GenreWrapper>
+         </C.GenreWrapper>
          <C.GenreWrapper>
          <C.GenreColumn>
                <C.ColumnImage>

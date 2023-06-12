@@ -72,7 +72,7 @@ export default function SignInView(props) {
                memberPw: password,
        };
        
-       axios.post('http://localhost:8080/root/login', data, { withCredentials: true })
+       axios.post('https://git.walpie.com/curator_back/login', data, { withCredentials: true })
            .then(function(res) {
             if(res.data != null) {
               // 토큰값 헤더 저장
