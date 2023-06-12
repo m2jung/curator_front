@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft} from '@fortawesome/free-solid-svg-icons'
+import { Link } from '@material-ui/core'
 import * as C from './board.new.styles'
 import { CKEditor } from 'ckeditor4-react'
-import { noAuto } from '@fortawesome/fontawesome-svg-core'
 
 
 export default function CommissionBoardNewView(props) {
@@ -14,7 +14,11 @@ export default function CommissionBoardNewView(props) {
         
        <C.BoardBanner>
           <C.BoardTitle>작품 의뢰 글쓰기</C.BoardTitle>
-          <C.BoardSubTitle><FontAwesomeIcon icon={faArrowLeft}/><C.Span>뒤로가기</C.Span></C.BoardSubTitle>
+          <C.BoardSubTitle>
+              <C.Link href={'/menu/commission'}>
+              <FontAwesomeIcon icon={faArrowLeft}/><C.Span>뒤로가기</C.Span>
+              </C.Link> 
+          </C.BoardSubTitle>
        </C.BoardBanner>
        <C.BoardFormWrapper>
         <C.BoardForm>
