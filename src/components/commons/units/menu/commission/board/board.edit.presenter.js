@@ -64,12 +64,7 @@ export default function CommissionBoardView(props) {
         
        <C.BoardBanner>
           <C.BoardTitle>작품 의뢰 글쓰기</C.BoardTitle>
-          <C.BoardSubTitle>
-
-          <LayoutServiceCenter/>
-          
-          </C.BoardSubTitle>
-        </C.BoardBanner>
+       </C.BoardBanner>
 
        <C.BoardFormWrapper>
         <C.BoardForm>

@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 // 문의하기 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 1100px;
+    height: 1200px;
     margin: auto;
     padding: 40px;   
 `
@@ -22,7 +22,7 @@ export const BoardBanner = styled.div`
     border-top: 2px solid rgba(0,0,0,0.1);
     border-bottom: 2px solid rgba(0,0,0,0.1);
     margin: auto;
-    padding: 30px;
+    padding: 0 30px;
 `
 
 export const BoardTitle = styled.div`
@@ -36,8 +36,14 @@ export const BoardFormTitle = styled.div`
     margin: 50px;
 `
 export const BoardSubTitle = styled.div`
-    font-family: serif;
+    font-size: 60px;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+`
+export const Span = styled.span`
     font-size: 20px;
+    margin-left: 15px;
 `
 
 export const Select = styled.select`
@@ -57,7 +63,7 @@ export const BoardForm = styled.form`
 
 export const BoardFormWrapper = styled.form`
     width: 900px;
-    height: 670px;
+    height: 710px;
     display: flex;
     font-size: 18px;
     color: rgba(0,0,0,0.9);
@@ -99,7 +105,7 @@ export const CommissionTitle = styled.input`
 `
 export const ContentWrapper = styled.div`
     width: 900px;
-    height: 300px;
+    height: 700px;
     display: flex;
     flex-direction: column;
 `
@@ -110,6 +116,7 @@ export const CommissionContent = styled.textarea`
     border: none;
     margin-bottom: 15px;
 `
+
 
 export const BtnWrapper = styled.div`
     width: 230px;
@@ -125,13 +132,13 @@ export const SubmitBtn = styled.button`
     background-color: black;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
 `
 export const CancelBtn = styled.button`
     width: 105px;
     margin-right: 10px;
-    border: 2px solid orange;
+    border: 3px solid navy;
     background-color:  white;
-    border-radius: 5px;
+    border-radius: 8px;
 `
 

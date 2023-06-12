@@ -245,7 +245,7 @@ const onChangeTel3 = useCallback((e) => {
               memberPhone: tel1 + tel2 + tel3,
               memberGrade: 1
             };
-            axios.post('http://localhost:8080/root/register', dto)
+            axios.post('https://git.walpie.com/curator_back/register', dto)
             .then(function(res) {
               console.log(dto)
               console.log(res.data);
@@ -303,13 +303,13 @@ const onChangeTel3 = useCallback((e) => {
               <C.Tel value="010" maxLength={3} onChange={onChangeTel1} required/> - <C.Tel maxLength={4} onChange={onChangeTel2} required /> - <C.Tel maxLength={4} onChange={onChangeTel3} required/>
             </C.SectionRow>
             <C.Label>* 비밀번호 </C.Label>
-            <C.Password type="password" maxLength="10" placeholder="0 ~ 10자 이내로 입력" onChange={onChangePassword} required></C.Password>
+            <C.Password type="password" maxLength="10" placeholder="비밀번호 10자 이내로 입력" onChange={onChangePassword} required></C.Password>
             <C.Label>* 비밀번호 확인</C.Label>
-            <C.RePassword type="password" maxLength="10" onChange={onChangePasswordCheck} required></C.RePassword>
+            <C.RePassword type="password" maxLength="10" placeholder="비밀번호 10자 이내로 입력" onChange={onChangePasswordCheck} required></C.RePassword>
             <div className="address_search" >
                 <C.Label>* 주소</C.Label>
                 <C.Addr className="user_enroll_text" type="text" required={true} name="address" onChange={handleInput} value={address.address}></C.Addr>
-                <button onClick={handleComplete}>우편번호 찾기</button>
+                <C.AddrBtn onClick={handleComplete}>우편번호 찾기</C.AddrBtn>
                 {popup && <Post company={address} setcompany={setAddress}></Post>}
             </div>
             <p>{addrMsg}</p>

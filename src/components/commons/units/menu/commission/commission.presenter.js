@@ -76,7 +76,7 @@ console.log(commArray)
             </thead>
             <tbody>
               <C.Tr>
-                <C.No>1</C.No><C.Title> &lt;&lt; 공지사항 &gt;&gt; 작품의뢰 게시글 양식에 맞게 작성 부탁드립니다. 글제목은 '작품의뢰 합니다.' 로 수정하지 말아주세요.</C.Title><C.Writer>관리자</C.Writer><C.Date>2023-06-07</C.Date>
+                <C.No>1</C.No><C.Title> &lt;&lt; 공지사항 &gt;&gt; 작품의뢰 게시글 양식에 맞게 작성 부탁드립니다. 글제목은 '작품의뢰 합니다.' 작성해주세요.</C.Title><C.Writer>관리자</C.Writer><C.Date>2023-06-07</C.Date>
               </C.Tr>
             {commissionList?.map((el, i) => (
               <C.Tr key={el.commSeq}>
@@ -85,11 +85,11 @@ console.log(commArray)
               ))} 
               </tbody>
             </C.Table>
-            <LayoutPageNumber/><C.Link href="/board/comm-board">게시글 작성하기</C.Link>
-          
+          <C.Link href="commission/board/new">게시글 작성하기</C.Link>
         </C.CommissionTable>
-
       </C.Wrapper>
+
+      <LayoutPageNumber/>
     </>
   )
 }

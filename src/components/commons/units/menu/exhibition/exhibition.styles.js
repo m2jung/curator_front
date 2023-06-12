@@ -39,9 +39,9 @@ export const ExhibitionWrapper = styled.div`
     margin: 50px auto 120px;
 `
 export const ExhibitionMenu = styled.div`
-    font-size: 22px;
+    font-size: 27px;
     font-weight: bold;
-    padding: 10px;
+    padding: 7px;
     color: #1355BD;
 
 `
@@ -145,3 +145,4 @@ export const PageNumber = styled.div`
 export const Page = styled.div`
     
 `
+

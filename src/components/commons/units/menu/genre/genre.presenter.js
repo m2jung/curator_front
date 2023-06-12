@@ -74,7 +74,7 @@ export default function GenreView(props) {
                <C.Genre onClick={() => onClickGenre(genreList[i].genreSeq)} >{genreList[i].genreName}</C.Genre>
                ))}
                <C.Select>
-                  <option disabled="true" selected="true">추천순</option>
+                  <option value={true}>추천순</option>
                   <option>인기순</option>
                   <option>최신순</option>
                   <option>리뷰 많은순</option>

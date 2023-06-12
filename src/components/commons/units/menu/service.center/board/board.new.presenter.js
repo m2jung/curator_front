@@ -4,7 +4,7 @@ import LayoutServiceCenter from '../../../../layout/service-center/service-cente
 import * as C from './board.styles'
 import { useRouter } from 'next/router';
 
-export default function ServiceBoardView(props) {
+export default function ServiceBoardNewView(props) {
 
   const [cat, setCat] = useState("");
   const [title, setTitle] = useState("");
@@ -56,9 +56,6 @@ export default function ServiceBoardView(props) {
        <C.BoardWrapper>
        <C.BoardBanner>
           <C.BoardTitle>1:1 문의하기</C.BoardTitle>
-          <C.BoardSubTitle>
-            <LayoutServiceCenter/>
-          </C.BoardSubTitle>
        </C.BoardBanner>
 
        <C.BoardFormWrapper>

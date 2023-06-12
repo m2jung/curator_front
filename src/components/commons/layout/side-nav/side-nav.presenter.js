@@ -1,8 +1,36 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import * as C from './side-nav.styles' 
-
 
 export default function LayoutSideNav(props) {
  
+  const onClickScrollInfo = () => {
+    window.scrollTo({
+         top: 200,
+         behavior: 'smooth',
+    });
+  }
+    const onClickScrollPur = () => {
+      window.scrollTo({
+           top: 500,
+           behavior: 'smooth',
+      });
+    }
+
+  const onClickScrollMark = () => {
+    window.scrollTo({
+         top: 1200,
+         behavior: 'smooth',
+    });
+  }
+
+  const onClickScrollService = () => {
+    window.scrollTo({
+        top: 1450,
+        behavior: 'smooth',
+    });
+  }
+
   return (
     <>  
         <C.Wrapper>
