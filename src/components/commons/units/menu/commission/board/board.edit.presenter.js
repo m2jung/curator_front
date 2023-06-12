@@ -12,9 +12,11 @@ export default function CommissionBoardView(props) {
   const [commContent, setCommContent] = useState();
   const [artistSeq, setArtistSeq] = useState();
 
+  const back = process.env.NEXT_PUBLIC_URI_NAS
+
   // 작가명 get
   useEffect(() => {
-    axios.get('http://localhost:8080/root/artistAllList')
+    axios.get(`${back}artistAllList`)
       .then((res) => {
         setArtistList(res.data);
       })
@@ -47,7 +49,7 @@ export default function CommissionBoardView(props) {
       artistSeq: artistSeq,
     }
 
-    axios.post('http://localhost:8080/root/commissionWrite', commData)
+    axios.post(`${back}commissionWrite`, commData)
       .then((res) => {
         if(res.data == 1) {
           alert('게시글 등록이 완료되었습니다.')

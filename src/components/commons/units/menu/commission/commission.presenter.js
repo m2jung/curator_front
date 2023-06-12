@@ -7,19 +7,20 @@ import * as C from './commission.styles'
 export default function CommissionView(props){
 
   const router = useRouter();
-
+  const back = process.env.NEXT_PUBLIC_URI_NAS
+  console.log(back)
   const [commissionList, setCommissionList] = useState();
   let commArray = []
   let firData = []
 
   // 작가명 get
   const CommissionList = async () => {
-    const res = await axios.get('http://localhost:8080/root/commAllList')
+    const res = await axios.get(`${back}commAllList`)
         let list;
         console.log(res.data)
         firData = res.data;
         for(let i = 0; i < res.data.length; i++) {
-           const response = await axios.get(`http://localhost:8080/root/getName?seq=${res.data[i].memberSeq}`)
+           const response = await axios.get(`${back}getName?seq=${res.data[i].memberSeq}`)
               list = { 
                 commSeq: res.data[i].commSeq,
                 commName: response.data,

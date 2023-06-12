@@ -5,6 +5,8 @@ import * as C from './genre.styles'
 
 export default function GenreView(props) {
 
+   const back = process.env.NEXT_PUBLIC_URI_NAS
+
    const [genreList, setGenreList] = useState();
    const [postList, setPostList] = useState();
    var imageArray = [];
@@ -12,23 +14,23 @@ export default function GenreView(props) {
 
     // 장르명 get
   useEffect(() => {
-   axios.get('http://localhost:8080/root/genreList')
+   axios.get(`${back}genreList`)
      .then((res) => {
        setGenreList(res.data);
      })
    }, [])
 
    const onClickWhole = async () => {
-      const post = await axios.get('http://localhost:8080/root/postList')
+      const post = await axios.get(`${back}postList`)
       console.log(post)
       setPostList(post.data);
    }
    
    const onClickGenre = async (genreSeq) => {
-      const genre = await axios.get(`http://localhost:8080/root/genreView?genreSeq=${genreSeq}`)
+      const genre = await axios.get(`${back}genreView?genreSeq=${genreSeq}`)
       console.log(genre)
       for (let i = 0; i < genre.data.length; i++) {
-         axios.post<Blob>(`http://localhost:8080/root/down`, {"value9": res.data[i].value9}, { headers: { "Content-type": "application/json; charset=UTF-8" }, responseType: 'blob' })
+         axios.post<Blob>(`${back}down`, {"value9": res.data[i].value9}, { headers: { "Content-type": "application/json; charset=UTF-8" }, responseType: 'blob' })
          .then((response) => {
              // console.log(res.data)
              const myFile = new File([response.data], dataArr[i].value9);

@@ -5,8 +5,6 @@ import * as C from './board.new.styles'
 import { CKEditor } from 'ckeditor4-react'
 import { useState } from 'react'
 import axios from 'axios';
-import LayoutServiceCenter from '../../../../layout/service-center/service-center.presenter'
-import * as C from './board.new.styles'
 import { useRouter } from 'next/router';
 
 export default function ServiceBoardNewView(props) {
@@ -16,6 +14,8 @@ export default function ServiceBoardNewView(props) {
   const [content, setContent] = useState("");
 
   const router = useRouter();
+
+  const back = process.env.NEXT_PUBLIC_URI_NAS
 
   const onChangeCat = (event) => {
     setCat(event.target.value)
@@ -45,7 +45,7 @@ export default function ServiceBoardNewView(props) {
         helpContent: content,
       }
   
-      axios.post('http://localhost:8080/root/helpWrite', serviceData)
+      axios.post(`${back}helpWrite`, serviceData)
         .then((res) => {
           if(res.data == 1) {
             alert('게시글 등록이 완료되었습니다.')
