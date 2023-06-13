@@ -208,19 +208,21 @@ export const WorkContentBox = styled.div`
 export const WorkArticle = styled.div`
     width:  900px;
     height: 420px;
-    border: 1px solid rgba(0,0,0,0.2);
-    border-radius: 5px;
-
+    box-shadow: 1px 1px 5px gray;
+    border-radius: 10px;
 `
 
 export const WorkArticleTitle = styled.div`
-    width: 100%;
-    height: 35px;
+    width: 900px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 18px;
-    background-color: rgba(0,0,0,0.1);
+    background-color: #364D79;
+    border-radius: 20px;
+    color: white;
+ 
 `
 export const Quality = styled.div `
     padding: 10px;
