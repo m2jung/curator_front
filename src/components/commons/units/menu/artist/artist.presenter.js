@@ -8,8 +8,12 @@ import { useState } from 'react'
 
 export default function ArtistView(props) {
 
-  const [work, setWork] = useState();
+  const [isOpen , setIsOpen] = useState(false); //초기값 false
+  
+  const toggleColumn = () => {
+    setIsOpen(isOpen => !isOpen); // on,off 개념 boolean
 
+  }
 
   return (
     <>  
@@ -29,24 +33,26 @@ export default function ArtistView(props) {
           </C.ArtistSearch>
 
 
-          <C.ArtistColumn>
+          <C.ArtistColumn className={isOpen ? "show-menu" : "hide-menu"}>
            <C.ProfileSection>
             <C.ProfileImage></C.ProfileImage>
             <C.Profile>
               <C.Name>이지은</C.Name> 
               <C.Email>119755@naver.com</C.Email>
               <C.Sns><C.Image/>M2jung2</C.Sns>
-            </C.Profile>
+              {/* icon color: #E44C7E; */}
+              <C.Heart><FontAwesomeIcon icon={faHeart} color='gray'/></C.Heart>
+            </C.Profile> 
             <C.ProfileInfo>
               <C.Following>Following <span>2844</span></C.Following>
               <C.Sales>Total Sales <span>29</span></C.Sales>
               <C.Intro>
-                현대인의 심리적 불안상태를 색과 공간적 조형언어로 표현하는 작가 이지은은 판타지하고 생동감 넘치는 에너지와 감성적 이야기를 보여준다. 기억을 기반으로 공간을 창조하며 감성과 생각을 효과적으로 전달한다. 현대사회를 살아가는 누구나 순간순간 느낄 수 있는 생존과 생계에 대한 위협, 트라우마적 기억, 길을 잃은 감각 등의 다양한 감정들이 복합적으로 작용한다. 작가는 붉은색으로 표식을 해두는 등 행위를 통해 안정감을 얻곤 했다.
+                현대인의 심리적 불안상태를 색과 공간적 조형언어로 표현하는 작가 이지은은 판타지하고 생동감 넘치는 에너지와 감성적 이야기를 보여준다. 기억을 기반으로 공간을 창조하며 감성과 생각을 효과적으로 전달한다. 현대사회를 살아가는 누구나 순간순간 느낄 수 있는 생존과 생계에 대한 위협, 트라우마적 기억, 길을 잃은 감각 등의 다양한 감정들이 복합적으로 작용한다. 
+              <C.ProfileBtn onClick={()=>toggleColumn()}>작가 상세보기</C.ProfileBtn>
               </C.Intro>
-              <C.Heart><FontAwesomeIcon icon={faHeart}/></C.Heart>
+              
             </C.ProfileInfo>
            </C.ProfileSection>
-           
            <C.Line/> 
 
            <C.ProfileSection>
@@ -68,7 +74,6 @@ export default function ArtistView(props) {
               ZeZe (2016)<br/>
               </C.Record>
             </C.History>
-            <C.ProfileBtn onClick={props.open}>작가 상세보기</C.ProfileBtn>
            </C.ProfileSection>
           {/* ====== 상세보기 클릭시 나오는 이력 ====== */}
           {/* 그림 클릭시 등록된 작품 판매 게시글로 이동 */}
@@ -86,7 +91,6 @@ export default function ArtistView(props) {
                 <C.WorkTitle>ZeZe</C.WorkTitle>
               </C.WorkImage>  
             </C.Work>
-
             <C.WorkBtn>작품 더보기</C.WorkBtn>
           </C.ArtistColumn>
 

@@ -1,8 +1,8 @@
-import CommissionBoardEdit from "../../../../src/components/commons/units/menu/commission/board/board.edit.presenter"
+import CommissionBoardView from "../../../../src/components/commons/units/menu/commission/board/board.edit.presenter"
 export default function CommissionBoard() {
     return (
         <>
-         <CommissionBoardEdit/>
+         <CommissionBoardView/>
         </>
     )
 }

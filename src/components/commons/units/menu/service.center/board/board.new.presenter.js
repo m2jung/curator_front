@@ -70,8 +70,7 @@ export default function ServiceBoardNewView(props) {
 
        <C.BoardFormWrapper>
         <C.BoardForm>
-          <C.BoardFormTitle>1:1 문의게시판 글쓰기</C.BoardFormTitle>
-
+          <C.BoardFormTitle>게시글 작성하기</C.BoardFormTitle>
           <C.Line/>
 
           <C.InputWrapper>

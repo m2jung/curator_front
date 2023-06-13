@@ -8,7 +8,7 @@ export const Link = styled.a `
     align-items: center;
 `
 
-// 문의하기 
+// 문의한 게시글 보기 
 export const Wrapper = styled.div`
     width: 1200px;
     height: 1200px;
@@ -37,11 +37,7 @@ export const BoardTitle = styled.div`
     font-size: 35px;
     margin: 60px 0;
 `
-// export const BoardFormTitle = styled.div`
-//     font-size: 23px;
-//     font-weight: 600;
-//     margin: 50px;
-// `
+
 export const BoardSubTitle = styled.div`
     font-size: 60px;
     display: flex;
@@ -65,10 +61,15 @@ export const BoardForm = styled.form`
     flex-direction: column;
     align-items: center;
 `
+export const BoardFormTitle = styled.div`
+    font-size: 23px;
+    font-weight: 600;
+    margin: 50px;
+`
 
 export const BoardFormWrapper = styled.form`
     width: 900px;
-    height: 510px;
+    height: 660px;
     display: flex;
     font-size: 18px;
     color: rgba(0,0,0,0.9);

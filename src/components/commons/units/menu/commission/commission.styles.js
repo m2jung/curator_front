@@ -91,6 +91,7 @@ export const Table = styled.table`
 
 export const Tr = styled.tr`
     text-align: center;
+    border: 1px solid rgba(0,0,0,0.1);
 
     /* &:nth-child(2) {
         color: brown;
@@ -100,8 +101,10 @@ export const Tr = styled.tr`
 `
 export const Th = styled.th `
     height: 36px;
-    background-color: rgba(0,0,0,0.1);
+    background-color: #FF7932;
+    color: white;
     border-radius: 3px;  
+    
 `
 export const No = styled.td`
    border-bottom: 1px solid rgba(0,0,0,0.1);

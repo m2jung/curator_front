@@ -64,7 +64,7 @@ export const BoardForm = styled.form`
 
 export const BoardFormWrapper = styled.form`
     width: 900px;
-    height: 510px;
+    height: 660px;
     display: flex;
     font-size: 18px;
     color: rgba(0,0,0,0.9);
