@@ -9,10 +9,18 @@ export default function LayoutHeader(props){
   // login 판별
   const [loginStatue, setLoginStatus] = useState();
   const [cookies, setCookie, removeCookie] = useCookies();
+  const [userGrade, setUserGrade] = useState();
+  var info;
 
   useEffect(() => {
     setLoginStatus(localStorage.getItem('loginStatus'));
+    setUserGrade(sessionStorage.getItem('userGrade'));
   })
+
+  if(userGrade == 1) {
+    info = "/user/user-info";
+  } else info = "/admin/admin-info";
+
 
     return (
         <C.HeaderWrapper>
@@ -21,7 +29,7 @@ export default function LayoutHeader(props){
         <C.MyProfile>
           {
             loginStatue ?
-            <><Link href="/sign/sign-out"><C.SignInMenu>로그아웃</C.SignInMenu></Link><Link href="/user/user-info"><C.InfoMenu>회원정보</C.InfoMenu></Link></> 
+            <><Link href="/sign/sign-out"><C.SignInMenu>로그아웃</C.SignInMenu></Link><Link href={`${info}`}><C.InfoMenu>회원정보</C.InfoMenu></Link></> 
             : <><Link href="/sign/sign-in"><C.SignInMenu>로그인</C.SignInMenu></Link><Link href="/sign/sign-up"><C.SignupMenu>회원가입</C.SignupMenu></Link></>
             
           

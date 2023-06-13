@@ -5,12 +5,13 @@ import * as C from './genre.styles'
 
 export default function GenreView(props) {
 
-   const back = process.env.NEXT_PUBLIC_URI_NAS
+   const back = process.env.NEXT_PUBLIC_URI
 
    const [genreList, setGenreList] = useState();
    const [postList, setPostList] = useState();
    var imageArray = [];
    var array;
+   var dataArr;
 
     // 장르명 get
   useEffect(() => {
@@ -21,19 +22,15 @@ export default function GenreView(props) {
    }, [])
 
    const onClickWhole = async () => {
-      const post = await axios.get(`${back}postList`)
-      console.log(post)
-      setPostList(post.data);
-   }
-   
-   const onClickGenre = async (genreSeq) => {
-      const genre = await axios.get(`${back}genreView?genreSeq=${genreSeq}`)
-      console.log(genre)
-      for (let i = 0; i < genre.data.length; i++) {
-         axios.post<Blob>(`${back}down`, {"value9": res.data[i].value9}, { headers: { "Content-type": "application/json; charset=UTF-8" }, responseType: 'blob' })
+      const res = await axios.get(`${back}postList`)
+      let resArr = res.data;
+      dataArr = res.data;
+      console.log(dataArr)
+      for (let i = 0; i < res.data.length; i++) {
+         axios.post(`${back}postImageName`, {"postImageName": res.data[i].postImageName}, { headers: { "Content-type": "application/json; charset=UTF-8" }, responseType: 'blob' })
          .then((response) => {
              // console.log(res.data)
-             const myFile = new File([response.data], dataArr[i].value9);
+             const myFile = new File([response.data], dataArr[i].postImageName);
              const reader = new FileReader();
              reader.readAsDataURL(myFile);
              
@@ -41,26 +38,64 @@ export default function GenreView(props) {
                  // console.log(reader.result)
                 setBase(reader.result);
              array = {
-                 value1: dataArr[i].value1,
-                 value2: dataArr[i].value2,
-                 value3: dataArr[i].value3,
-                 value4: dataArr[i].value4,
-                 value5: dataArr[i].value5,
-                 value6: dataArr[i].value6,
-                 value7: dataArr[i].value7,
-                 value8: dataArr[i].value8,
-                 value9: reader.result
+               postSeq: dataArr[i].value1,
+               artistSeq: dataArr[i].value2,
+               genreSeq: dataArr[i].value3,
+               postTitle: dataArr[i].value4,
+               postContent: dataArr[i].value5,
+               postSummary: dataArr[i].value6,
+               postPrice: dataArr[i].value7,
+               postImageName: reader.result,
+               postDate:  dataArr[i].value8,
              }
              
              imageArray.push(array);
-             setPostList(genre.data);
+             setPostList(imageArray);
+            
+         }
+      
+         })
+      }
+   }
+      
+   const onClickGenre = async (genreSeq) => {
+      const genre = await axios.get(`${back}genreView?genreSeq=${genreSeq}`)
+      console.log(genre)
+      setPostList(genre.data);
+      dataArr = res.data;
+      for (let i = 0; i < genre.data.length; i++) {
+         axios.post(`${back}postImageName`, {"postImageName": res.data[i].postImageName}, { headers: { "Content-type": "application/json; charset=UTF-8" }, responseType: 'blob' })
+         .then((response) => {
+             // console.log(res.data)
+             const myFile = new File([response.data], dataArr[i].postImageName);
+             const reader = new FileReader();
+             reader.readAsDataURL(myFile);
+             
+             reader.onloadend = () => {
+                 // console.log(reader.result)
+                setBase(reader.result);
+             array = {
+               postSeq: dataArr[i].value1,
+               artistSeq: dataArr[i].value2,
+               genreSeq: dataArr[i].value3,
+               postTitle: dataArr[i].value4,
+               postContent: dataArr[i].value5,
+               postSummary: dataArr[i].value6,
+               postPrice: dataArr[i].value7,
+               postImageName: reader.result,
+               postDate:  dataArr[i].value8,
+             }
+             
+             imageArray.push(array);
+             setPostList(imageArray);
              // console.log(base64)
          }
              
 
          })
-      }
+      
    }
+}
    
 
   return (
@@ -87,7 +122,7 @@ export default function GenreView(props) {
          <C.GenreWrapper>
          {postList?.map((el, i) => (
             <C.GenreColumn href="/art/work">
-               <C.ColumnImage src={'./image/art01.jpg'}>
+               <C.ColumnImage src={postList[i].postImageName}>
                   <C.ColumnInfo>
                      <C.ColumnTitle>{postList[i].postTitle}</C.ColumnTitle>
                      <C.ColumnContent>{postList[i].postSummary}</C.ColumnContent>
@@ -99,7 +134,7 @@ export default function GenreView(props) {
                         <C.ColumnName>유미정</C.ColumnName>
                      </C.ColumnArtist>
                   </C.ColumnInfo>
-               </C.ColumnImage>
+               </C.ColumnImage >
             </C.GenreColumn>
          ))}
          </C.GenreWrapper>

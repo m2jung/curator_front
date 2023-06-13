@@ -83,7 +83,7 @@ export const GenreColumn = styled.a`
     text-decoration: none;
     color: black;
 `
-export const ColumnImage = styled.image`
+export const ColumnImage = styled.img`
     &:hover {
         opacity: 0.7;
         transition: 0.2s ease-in-out; 

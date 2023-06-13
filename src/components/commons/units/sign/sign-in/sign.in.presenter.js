@@ -9,6 +9,8 @@ import Router, { useRouter } from 'next/router'
 // 로그인 페이지 
 export default function SignInView(props) {
 
+  const back = process.env.NEXT_PUBLIC_URI
+  
    // router, cookie 객체
    const router = useRouter();
    const [cookies, setCookie] = useCookies();
@@ -72,7 +74,7 @@ export default function SignInView(props) {
                memberPw: password,
        };
 
-       const back = process.env.NEXT_PUBLIC_URI_NAS
+       
        
        axios.post(`${back}login`, data, { withCredentials: true })
            .then(function(res) {

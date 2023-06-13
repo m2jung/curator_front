@@ -16,14 +16,14 @@ export default function ExhibitionView(props) {
   var imageArray = [];
  
   useEffect(() => {
-    axios.get(`${back}exhibitionBannerList`)
+    axios.get(`${back}exhibitionList`)
           .then((res) => {
             let img;
             let array
             console.log(res.data)
             dataArr = res.data
               for (let i = 0; i < res.data.length; i++) {
-                axios.post<Blob>(`${back}exhibitionimage`, {"exhibitionBanner": res.data[i].exhibitionBanner}, { headers: { "Content-type": "application/json; charset=UTF-8" }, responseType: 'blob' })
+                axios.post(`${back}exhibitionImage`, {"exhibitionBanner": res.data[i].exhibitionBanner}, { headers: { "Content-type": "application/json; charset=UTF-8" }, responseType: 'blob' })
                 .then((response) => {
                     // console.log(res.data)
                     const myFile = new File([response.data], dataArr[i].exhibitionBanner);
@@ -56,6 +56,8 @@ export default function ExhibitionView(props) {
         })
     }, []) 
 
+    console.log(mapping)
+
   return (
     <>  
         <C.Wrapper>
@@ -69,11 +71,10 @@ export default function ExhibitionView(props) {
             <C.ExhibitionTitle>[ 코리아 IT 아카데미 ]
             {mapping?.map((el, i) => (
               <>
-                <C.ExhibitionSubTitle>{el[0].exhibitionName} </C.ExhibitionSubTitle>
-                <C.ExhibitionDate>{el[0].exhibitionDate}</C.ExhibitionDate>
-                <C.ExhibitionBtn>신청하기</C.ExhibitionBtn>
-                <C.ExhibitionBtn>자세히 보기</C.ExhibitionBtn>
-                <C.ExhibitionImage  />
+                <C.ExhibitionSubTitle>{mapping[i].exhibitionName} </C.ExhibitionSubTitle>
+                <C.ExhibitionDate>{mapping[i].exhibitionDate}</C.ExhibitionDate>
+                <p>{mapping[i].exhibitionExplain}</p>
+                <C.ExhibitionImage src={mapping[i].exhibitionBanner} />
               </>
             ))}
             </C.ExhibitionTitle>            
