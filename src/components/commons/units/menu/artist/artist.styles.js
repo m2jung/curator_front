@@ -58,6 +58,23 @@ export const Icon = styled.div`
     padding: 7px;
     color: navy;
 `
+export const Heart = styled.div`
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
+    color: #E44C7E;
+    margin: 0 10px 0 auto;
+
+    &:hover {
+        font-size: 28px;
+        color: red;
+        transition: 0.1s ease-out; 
+    }
+`
+
 
 // 프로필 칼럼
 export const ArtistColumn = styled.div`
@@ -82,7 +99,7 @@ export const ProfileSection = styled.div`
 
 export const Line = styled.div`
     width: 1000px;
-    margin: 20px 0;
+    margin: 30px 0 10px;
     border-bottom: 1px dotted rgba(0,0,0,0.2);
 `
 export const ProfileImage = styled.div`

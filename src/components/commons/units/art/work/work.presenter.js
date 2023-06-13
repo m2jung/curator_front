@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import * as C from './work.styles'
 
 export default function WorkView(props) {
@@ -17,43 +17,27 @@ export default function WorkView(props) {
               <C.WorkColumn>
               <C.WorkTitle>속초 바다 (2023)</C.WorkTitle>  
               <C.WorkSummary>혼자 속초 바다를 보러 갔다가 영감을 얻어서 그린 그림이다.</C.WorkSummary>
+              <C.Div>
               <C.WorkMemo>
                 <C.WorkSize>크기 : 90.8 X 112.8cm</C.WorkSize>
                 <C.WorkType>종류 : Acrylic</C.WorkType>
               </C.WorkMemo>
-              <C.WorkPrice>
-                <C.Price>추정가 : 130,000,000 ₩</C.Price>
-              </C.WorkPrice>
+              <C.WorkMemo>
+                <C.WorkType>작가 : 유미정</C.WorkType>
+              </C.WorkMemo>       
+              </C.Div>              
+
             </C.WorkColumn>
-            <C.WorkColumn>
-              <C.Table>
-                <thead>
-                  <C.Tr>
-                    <C.ThNumber>순위</C.ThNumber><C.Th>닉네임</C.Th><C.Th>입찰가</C.Th>
-                  </C.Tr>
-                </thead>
-                <tbody>
-                  <C.Tr>
-                    <C.Number1>1</C.Number1><C.Td></C.Td><C.Td></C.Td>
-                  </C.Tr>
-                  <C.Tr>
-                    <C.Td>2</C.Td><C.Td></C.Td><C.Td></C.Td>
-                  </C.Tr>
-                  <C.Tr>
-                    <C.Td>3</C.Td><C.Td></C.Td><C.Td></C.Td>
-                  </C.Tr>
-                </tbody>
-              </C.Table>
-            </C.WorkColumn>           
-              <C.FavoritBtn>
-                <C.WorkDate>등록일자 2023.06.05</C.WorkDate>
-                <FontAwesomeIcon  color='pink' icon={faHeart}/>
-              </C.FavoritBtn>
+            <C.WorkPrice>
+              <C.Price>금액 130,000,000 ₩</C.Price>
+              <C.WorkDate>등록일자 2023.06.05</C.WorkDate>
+            </C.WorkPrice>    
               <C.WorkBtn>
-                <C.PriceBtn placeholder='입찰가를 입력하세요.'/>
-                <C.Btn>입찰하기</C.Btn>
+              <C.Btn>장바구니 <FontAwesomeIcon icon={faCartShopping} /></C.Btn>
+              <C.Btn>구매하기</C.Btn>
              </C.WorkBtn>
-            </C.WorkInfo>  
+            </C.WorkInfo> 
+
           </C.WorkSection>
         </C.WorkWrapper>
 
