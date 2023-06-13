@@ -1,10 +1,9 @@
-import LayoutServiceCenter from '../../../../layout/service-center/service-center.presenter'
-import * as C from './board.styles'
+import * as C from './board.edit.styles'
 import axios from 'axios'
 import React, {useCallback, useState, useEffect} from 'react';
 import { useRouter } from 'next/router';
 
-export default function CommissionBoardView(props) {
+export default function CommissionBoardEdit(props) {
   
   const router = useRouter();
 
@@ -65,7 +64,7 @@ export default function CommissionBoardView(props) {
        <C.BoardWrapper>
         
        <C.BoardBanner>
-          <C.BoardTitle>작품 의뢰 글쓰기</C.BoardTitle>
+          <C.BoardTitle>작품 의뢰 수정하기</C.BoardTitle>
        </C.BoardBanner>
 
        <C.BoardFormWrapper>
