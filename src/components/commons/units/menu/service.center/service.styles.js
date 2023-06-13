@@ -68,6 +68,7 @@ export const Select = styled.select`
     height: 30px;
     margin: 15px;
     font-size: 15px;
+
 `
 export const ServiceTable = styled.table`
     width: 1200px;
@@ -87,10 +88,12 @@ export const Tr = styled.tr `
 `
 export const Div = styled.td `
     font-size: 16px;
+    font-weight: bold;
     width: 130px;
+    color:  #FF7932;
 `
 export const Title = styled.td `
-    font-weight: 600;
+    font-weight: 500;
     width: 1200px;
 `
 export const Icon = styled.td`

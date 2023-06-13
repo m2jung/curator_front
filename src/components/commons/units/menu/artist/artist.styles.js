@@ -58,26 +58,22 @@ export const Icon = styled.div`
     padding: 7px;
     color: navy;
 `
-export const Heart = styled.div`
-    width: 35px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 23px;
-    color: #E44C7E;
-    margin: 0 10px 0 auto;
-
-    &:hover {
-        font-size: 28px;
-        color: red;
-        transition: 0.1s ease-out; 
-    }
-`
-
 
 // 프로필 칼럼
 export const ArtistColumn = styled.div`
+    width: 1100px;
+    height: 225px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+    margin: auto;
+    padding: 30px 0 ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid red;
+    box-sizing: border-box;
+
+    .show-menu {
     width: 1100px;
     height: 840px;
     border-radius: 20px;
@@ -87,11 +83,13 @@ export const ArtistColumn = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid red;
+    }
 `
 
 export const ProfileSection = styled.div`
     width: 1000px;
-    height: 185px;
+    height: 285px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -99,7 +97,7 @@ export const ProfileSection = styled.div`
 
 export const Line = styled.div`
     width: 1000px;
-    margin: 30px 0 10px;
+    margin: 40px 0 10px;
     border-bottom: 1px dotted rgba(0,0,0,0.2);
 `
 export const ProfileImage = styled.div`
@@ -109,6 +107,32 @@ export const ProfileImage = styled.div`
     background-position: center;
     background-size: cover;
     border-radius: 80px;
+
+`
+
+export const Heart = styled.div`
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+    color: #E44C7E;
+    margin: 0 10px 0 auto;
+    position: absolute;
+    top: 90px;
+    bottom: 10px;
+    left: -20px;
+    right: 200px;
+
+    &:hover {
+        font-size: 25px;
+        color: #F30940;
+        transition: 0.1s ease-out ; 
+    }
 `
 
 export const Profile = styled.div`
@@ -117,6 +141,7 @@ export const Profile = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    position: relative;
 `
 
 export const Name = styled.div`
@@ -165,14 +190,31 @@ export const Sales = styled.span`
     
     span{
         color: rgba(0,0,0,0.7);
-    }
+    }    
 `
     
 export const Intro = styled.p`
+    width: 675px;
+    display: flex;
+    flex-direction: column;
     font-size: 16px;
     line-height: 24px;
     color: rgba(0,0,0,0.8);
-    padding: 10px 0;
+    padding: 16px 0;
+    
+`
+export const ProfileBtn = styled.button`
+    width: 125px;
+    height: 40px;
+    margin-left: 550px;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.8);
+    border: none;
+    border-radius: 10px;
+    background-color: #FF7932;
+    color: white;
+    cursor: pointer;
 `
 export const History = styled.div`
     padding: 10px;
@@ -195,27 +237,12 @@ export const Record = styled.div`
     line-height: 23px;
     color: rgba(0,0,0,0.7);
 `
-export const ProfileBtn = styled.button`
-    width: 135px;
-    height: 45px;
-    font-size: 15px;
-    font-weight: 600;
-    color: rgba(0,0,0,0.8);
-    margin: auto 0 5px;
-    border: none;
-    border-radius: 10px;
-    background-color: #FF7932;
-    color: white;
-    cursor: pointer;
-`
-
 // 상세보기 클릭시 
-
 export const Work = styled.div`
     width: 1000px;
     display: flex;
     justify-content: space-between;
-    margin: 45px 0;
+    margin: 30px 0;
 `
 
 export const WorkImage = styled.div`
@@ -235,8 +262,8 @@ export const WorkTitle = styled.div`
 `
 
 export const WorkBtn = styled.button`
-    width: 135px;
-    height: 45px;
+    width: 125px;
+    height: 140px;
     font-size: 15px;
     font-weight: 600;
     color: rgba(0,0,0,0.8);

@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
 
 export const FootTitle = styled.h1`
-    margin: 70px  0 0;
+    margin: 230px  auto 0  10px;
     font-size: 40px;
-    border-bottom: 2px solid rgba(0,0,0,0.7);
+    border-bottom: 2px solid rgba(0,0,0,0.6);
+    padding: 5px 10px;
 `
-
 export const FootWrapper = styled.div`
     width: 1400px;
     height: 520px;
@@ -14,11 +14,42 @@ export const FootWrapper = styled.div`
     align-items: center;
     margin-top : 30px;  
     padding: 30px;
-    background-color: #193E62;
+    /* background-image: url('./images/back.png');
+    background-position: center; */
+`
+export const ExhibitionTitle = styled.h1 `
+    color: white;
+    font-size: 50px;
+    text-shadow: 2px 3px black;
+    padding: 20px;
 `
 export const ExhibitionImage = styled.div`
-    width: 660px;
+    width: 860px;
     height: 500px;
-    border: 1px solid red;
+    background-image: url('./images/exhibition03.png');
+    background-position: center;
+    background-size: cover;
+    
+`
+export const ExhibitionColumn = styled.div`
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.04);
+    opacity: 0.8;
 `
 
+export const ExhibitionInfo = styled.p`
+    padding: 40px;
+    font-size: 18px;
+`
+export const InfoTitle = styled.span`
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 20px;
+`
+export const Info = styled.p`
+    padding: 10px 0 23px;
+`

@@ -16,7 +16,6 @@ export default function ServiceBoardView(props) {
   const onClickList = () => {
     router.push('http://localhost:3000/menu/service.center');
   }
-  
 
   return (
     <>  
@@ -31,9 +30,11 @@ export default function ServiceBoardView(props) {
               </C.Link> 
           </C.BoardSubTitle>
        </C.BoardBanner>
-
        <C.BoardFormWrapper>
+
         <C.BoardForm>
+          <C.BoardFormTitle>게시글 확인하기</C.BoardFormTitle>
+          <C.Line/>
           <C.InputWrapper>
             <C.Label>문의 유형</C.Label>
             <C.CommissionDiv>
@@ -53,12 +54,10 @@ export default function ServiceBoardView(props) {
             <C.Label>문의한 내용</C.Label>
             <C.CommissionContent placeholder='작품 의뢰 내용을 입력하세요.'></C.CommissionContent>
           </C.ContentWrapper>
-
           <C.BtnWrapper>
             <C.ListBtn onClick={onClickList}>목록보기</C.ListBtn>
             <C.EditBtn onClick={onClickEdit}>수정하기</C.EditBtn>
           </C.BtnWrapper>
-
         </C.BoardForm>
        </C.BoardFormWrapper>
 
