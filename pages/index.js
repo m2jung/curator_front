@@ -13,8 +13,8 @@ export default function Main() {
   <>
     <C.Wrapper>
       <LayoutBodyHeader/>
-      <LayoutBodyMain/>
       <LayoutBodyFooter/>
+      <LayoutBodyMain/>
     </C.Wrapper>
   </>
 

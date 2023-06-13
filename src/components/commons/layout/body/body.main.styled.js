@@ -10,9 +10,10 @@ export const BodyWrapper = styled.div`
     margin-top : 30px;   
 `
 export const BodyTitle = styled.h1`
-    margin: 70px  0 0;
+    margin: 230px  auto 0  10px;
     font-size: 40px;
-    border-bottom: 2px solid rgba(0,0,0,0.7);
+    border-bottom: 2px solid rgba(0,0,0,0.6);
+    padding: 5px 10px;
 `
 export const LeftWrapper = styled.div`
     width: 550px;
@@ -22,8 +23,10 @@ export const LeftWrapper = styled.div`
     align-items: center;
 `
 export const BestArt = styled.img`
-    width: 490px;
-    height: 625px;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
     
 `
 export const RightWrapper = styled.div`
@@ -49,4 +52,10 @@ export const ArtColumn = styled.img`
 
 `
 
-
+export const Div = styled.div`
+    width: 550px;
+    height: 670px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`

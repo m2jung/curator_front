@@ -10,9 +10,14 @@ export default function CommissionBoardView(props) {
        <C.BoardWrapper>
         
        <C.BoardBanner>
-          <C.BoardTitle>작품 의뢰 글확인</C.BoardTitle>
+          <C.BoardTitle>작품 의뢰</C.BoardTitle>
           <C.BoardSubTitle><FontAwesomeIcon icon={faArrowLeft}/><C.Span>뒤로가기</C.Span></C.BoardSubTitle>
        </C.BoardBanner>
+
+       <C.BoardFormWrapper>
+        <C.BoardForm>
+          <C.BoardFormTitle>게시글 확인하기</C.BoardFormTitle>
+          <C.Line/>
 
        <C.BoardFormWrapper>
         <C.BoardForm>

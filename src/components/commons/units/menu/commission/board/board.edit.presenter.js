@@ -64,12 +64,12 @@ export default function CommissionBoardEdit(props) {
        <C.BoardWrapper>
         
        <C.BoardBanner>
-          <C.BoardTitle>작품 의뢰 수정하기</C.BoardTitle>
+          <C.BoardTitle>작품 의뢰</C.BoardTitle>
        </C.BoardBanner>
 
        <C.BoardFormWrapper>
         <C.BoardForm>
-          <C.BoardFormTitle>작품 의뢰 글쓰기</C.BoardFormTitle>
+          <C.BoardFormTitle>게시글 수정하기</C.BoardFormTitle>
           <C.Line/>
 
           <C.InputWrapper>

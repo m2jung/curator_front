@@ -94,9 +94,9 @@ console.log(commArray)
             </C.Table>
           <C.Link onClick={onClickNew}>게시글 작성하기</C.Link>
         </C.CommissionTable>
+      <LayoutPageNumber/>
       </C.Wrapper>
 
-      <LayoutPageNumber/>
     </>
   )
 }

@@ -20,6 +20,9 @@ export default function ServiceBoardEditView(props) {
 
        <C.BoardFormWrapper>
         <C.BoardForm>
+          <C.BoardFormTitle>게시글 수정하기</C.BoardFormTitle>
+          <C.Line/>
+
           <C.InputWrapper>
             <C.Label>문의 유형</C.Label>
             <C.CommissionDiv>

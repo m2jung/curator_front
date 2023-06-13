@@ -13,16 +13,17 @@ export default function CommissionBoardNewView(props) {
        <C.BoardWrapper>
         
        <C.BoardBanner>
-          <C.BoardTitle>작품 의뢰 글쓰기</C.BoardTitle>
+          <C.BoardTitle>작품 의뢰</C.BoardTitle>
           <C.BoardSubTitle>
               <C.Link href={'/menu/commission'}>
               <FontAwesomeIcon icon={faArrowLeft}/><C.Span>뒤로가기</C.Span>
               </C.Link> 
           </C.BoardSubTitle>
        </C.BoardBanner>
+
        <C.BoardFormWrapper>
         <C.BoardForm>
-          <C.BoardFormTitle>작품 의뢰 글쓰기</C.BoardFormTitle>
+          <C.BoardFormTitle>게시글 작성하기</C.BoardFormTitle>
           <C.Line/>
           <C.InputWrapper>
             <C.Label>작가 선택</C.Label>

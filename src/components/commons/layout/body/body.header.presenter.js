@@ -4,6 +4,7 @@ export default function LayoutBodyHeader(props){
 
     return (
     <>
+      <C.HeadTitle>Best Artist</C.HeadTitle>
       <C.HeaderWrapper>
         <C.LeftWrapper></C.LeftWrapper>
         <C.RightWrapper>
