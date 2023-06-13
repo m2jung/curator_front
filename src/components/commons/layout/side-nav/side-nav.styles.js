@@ -5,8 +5,6 @@ export const Wrapper = styled.div`
     width: 1300px;
     height: 900px;
 `
-export const InfoWrapper = styled.div`
-`
 
 export const InfoWrapper = styled.div`
     display: flex;
