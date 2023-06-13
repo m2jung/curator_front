@@ -1,9 +1,7 @@
 import * as C from './admin.info.styles'
 import LayoutSideNavAdmin from '../../../layout/side-nav-admin/side-nav-admin.presenter'
-import { useState, useEffect } from "react"
 
 export default function AdminInfoView(props) {
-
     return (
         <>
         <C.Wrapper>

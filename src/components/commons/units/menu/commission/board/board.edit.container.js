@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import CommissionBoardView from './board.presenter'
+import CommissionBoardEdit from './board.edit.presenter'
 
 export default function CommissionBoardEditContainer() {
     
     return (
         <>
-         <CommissionBoardView/>
+         <CommissionBoardEdit/>
         </>
     )
 }

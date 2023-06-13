@@ -1,6 +1,13 @@
 import styled from "@emotion/styled";
 
 
+export const Link = styled.a `
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+`
+
 // 문의하기 
 export const Wrapper = styled.div`
     width: 1200px;
@@ -30,16 +37,17 @@ export const BoardTitle = styled.div`
     font-size: 35px;
     margin: 60px 0;
 `
-export const BoardFormTitle = styled.div`
-    font-size: 23px;
-    font-weight: 600;
-    margin: 50px;
-`
-export const BoardSubTitle = styled.div`
-    font-family: serif;
-    font-size: 20px;
-`
 
+export const BoardSubTitle = styled.div`
+    font-size: 60px;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+`
+export const Span = styled.span`
+    font-size: 20px;
+    margin-left: 15px;
+`
 export const Select = styled.select`
     width: 150px;
     height: 26px;
@@ -52,12 +60,11 @@ export const BoardForm = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
-
 `
 
 export const BoardFormWrapper = styled.form`
     width: 900px;
-    height: 670px;
+    height: 510px;
     display: flex;
     font-size: 18px;
     color: rgba(0,0,0,0.9);
@@ -67,6 +74,11 @@ export const BoardFormWrapper = styled.form`
     margin: 30px auto;
 `
 
+export const BoardFormTitle = styled.div`
+    font-size: 23px;
+    font-weight: 600;
+    margin: 50px;
+`
 export const InputWrapper = styled.div`
     width: 900px;
     height: 300px;
@@ -127,11 +139,10 @@ export const SubmitBtn = styled.button`
     border: none;
     border-radius: 8px;
 `
-export const CancelBtn = styled.button`
+export const ModifyBtn = styled.button`
     width: 105px;
     margin-right: 10px;
     border: 3px solid navy;
     background-color:  white;
     border-radius: 8px;
 `
-

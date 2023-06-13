@@ -10,15 +10,12 @@ export default function CommissionBoardView(props) {
        <C.BoardWrapper>
         
        <C.BoardBanner>
-          <C.BoardTitle>작품 의뢰 글쓰기</C.BoardTitle>
+          <C.BoardTitle>작품 의뢰 글확인</C.BoardTitle>
           <C.BoardSubTitle><FontAwesomeIcon icon={faArrowLeft}/><C.Span>뒤로가기</C.Span></C.BoardSubTitle>
        </C.BoardBanner>
 
        <C.BoardFormWrapper>
         <C.BoardForm>
-          <C.BoardFormTitle>작품 의뢰 글쓰기</C.BoardFormTitle>
-          <C.Line/>
-
           <C.InputWrapper>
             <C.Label>작가 선택</C.Label>
             <C.CommissionDiv>
@@ -36,7 +33,7 @@ export default function CommissionBoardView(props) {
           </C.InputWrapper>
           <C.ContentWrapper>
             <C.Label>작품 의뢰 내용</C.Label>
-            <C.CommissionContent placeholder='작품 의뢰 내용을 입력하세요.'></C.CommissionContent>
+            <C.CommissionContent placeholder='작품 의뢰한 내용'></C.CommissionContent>
           </C.ContentWrapper>
 
 

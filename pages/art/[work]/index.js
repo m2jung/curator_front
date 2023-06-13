@@ -1,10 +1,10 @@
-import WorkView from "../../../src/components/commons/units/art/work/work.presenter"
+import AuctionView from "../../../src/components/commons/units/art/auction/auction.presenter"
 
-export default function Work(){
+export default function Auction(){
 
     return (
         <>
-         <WorkView/>
+         <AuctionView/>
         </>
     )
 }
