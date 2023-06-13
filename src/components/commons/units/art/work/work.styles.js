@@ -1,39 +1,5 @@
 import styled from "@emotion/styled";
 
-// 상품 테이블
-export const Table = styled.table `
-    width: 380px;
-    height: 180px;
-    margin: 10px auto;
-    border-radius: 10px;
-    box-shadow: 1px 1px 3px gray;
-    text-align: center;
-    font-size: 16px;
-`
-export const Tr = styled.tr`
-    &:nth-child(2){
-        color: silver;
-        font-weight: 700;
-    }
-
-    &:nth-child(3){
-        color: brown;
-        font-weight: 700;
-    }
-`
-export const Number1 = styled.td`
-    font-weight: 700;
-    color: orange;
-`
-export const ThNumber = styled.th`
-    width: 30px;
-    padding: 15px 23px;   
-`
-export const Th = styled.th``
-export const Number2 = styled.td``
-export const Number3 = styled.td``
-export const Td = styled.td``
-export const NickName = styled.td``
 
 export const Line = styled.div`
     border-bottom: 2px solid rgba(0,0,0,0.1);
@@ -82,6 +48,7 @@ export const WorkInfo = styled.div`
     justify-content: space-between;
     font-size: 18px;
     padding: 30px;
+    
 `
 
 export const WorkColumn = styled.div`
@@ -113,15 +80,20 @@ export const WorkSummary = styled.div`
     padding: 25px 10px;
     border-bottom: 1px solid rgba(0,0,0,0.1);
 `
+export const Div = styled.div`
+    padding: 15px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+`
 
 export const WorkMemo = styled.div`
     width: 100%;
-    height: 20px;
+    height: 10px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     font-size: 17px;
     padding: 15px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    
 `
 
 export const WorkPrice = styled.div`
@@ -131,15 +103,13 @@ export const WorkPrice = styled.div`
     align-items: center;
     border-bottom: 1px solid rgba(0,0,0,0.1);
 `
-
-
 export const WorkSize = styled.div`
     margin-bottom: 10px;
 `
 export const WorkType = styled.div``
 
 export const Price = styled.div`
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 600;
 `
 export const WorkBuy = styled.span`
@@ -149,6 +119,7 @@ export const WorkBuy = styled.span`
 
 export const WorkDate = styled.div`
     font-size: 14px;
+    margin-left: 35px;
 `
 
 export const WorkBtn = styled.div`
@@ -174,11 +145,6 @@ export const Btn = styled.button`
     font-size: 17px;
     background-color: white;
     
-`
-export const FavoritBtn = styled.div`
-    display: flex;
-    padding: 15px;
-    justify-content: space-between;   
 `
 export const WorkContent = styled.div`
     width: 1200px;
@@ -220,7 +186,9 @@ export const WorkArticleTitle = styled.div`
     justify-content: center;
     align-items: center;
     font-size: 18px;
-    background-color: rgba(0,0,0,0.1);
+    background-color: #364D79;
+    border-radius: 20px;
+    color: white;
 `
 export const Quality = styled.div `
     padding: 10px;

@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import * as C from './auction.styles'
 
 export default function AuctionView(props) {
@@ -47,7 +47,7 @@ export default function AuctionView(props) {
             </C.WorkColumn>           
               <C.FavoritBtn>
                 <C.WorkDate>등록일자 2023.06.05</C.WorkDate>
-                <FontAwesomeIcon  color='pink' icon={faHeart}/>
+                <FontAwesomeIcon icon={faCartShopping} />
               </C.FavoritBtn>
               <C.WorkBtn>
                 <C.PriceBtn placeholder='입찰가를 입력하세요.'/>
@@ -56,8 +56,8 @@ export default function AuctionView(props) {
             </C.WorkInfo>  
           </C.WorkSection>
         </C.WorkWrapper>
-
         <C.Line/>
+
         {/* 품질 인증  */}
         <C.WorkContent>
          <C.WorkContentBox>" 모든 작품에 대하여 <b>Art WebSite 가 책임지고 보증합니다.</b> 구매시 작품보증서가 함께 첨부됩니다. "</C.WorkContentBox>
@@ -66,8 +66,8 @@ export default function AuctionView(props) {
          
          {/* 그림 상세 내용 */}
          <C.WorkContent>
-         <C.WorkArticle>
           <C.WorkArticleTitle> 이 작품에 대하여.. </C.WorkArticleTitle>
+         <C.WorkArticle>
           <C.Quality>
             <b>작품명 : </b>속초바다 <br/>
             <b>작가명 :</b> 유미정 <br/>

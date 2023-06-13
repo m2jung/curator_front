@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import * as C from './artist.styles'
 import { useState } from 'react'
@@ -42,6 +43,7 @@ export default function ArtistView(props) {
               <C.Intro>
                 현대인의 심리적 불안상태를 색과 공간적 조형언어로 표현하는 작가 이지은은 판타지하고 생동감 넘치는 에너지와 감성적 이야기를 보여준다. 기억을 기반으로 공간을 창조하며 감성과 생각을 효과적으로 전달한다. 현대사회를 살아가는 누구나 순간순간 느낄 수 있는 생존과 생계에 대한 위협, 트라우마적 기억, 길을 잃은 감각 등의 다양한 감정들이 복합적으로 작용한다. 작가는 붉은색으로 표식을 해두는 등 행위를 통해 안정감을 얻곤 했다.
               </C.Intro>
+              <C.Heart><FontAwesomeIcon icon={faHeart}/></C.Heart>
             </C.ProfileInfo>
            </C.ProfileSection>
            
