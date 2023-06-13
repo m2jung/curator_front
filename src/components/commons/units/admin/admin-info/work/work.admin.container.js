@@ -1,9 +1,9 @@
-import AdminInfoView from "./admin.info.presenter"
+import AdminWorkView from "./work.admin.presenter"
 
-export default function AdminInfoContainer() {
+export default function AdminWorkContainer() {
     return (
         <>
-        <AdminInfoView/>
+         <AdminWorkView/>
         </>
     )
 }

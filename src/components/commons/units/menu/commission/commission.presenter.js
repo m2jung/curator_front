@@ -1,3 +1,4 @@
+import Router from 'next/router';
 import LayoutPageNumber from '../../../layout/page-number/page-number.presenter'
 import axios from 'axios'
 import React, {useCallback, useState, useEffect, useLayoutEffect} from 'react';
@@ -12,6 +13,11 @@ export default function CommissionView(props){
   const [commissionList, setCommissionList] = useState();
   let commArray = []
   let firData = []
+
+  const onClickNew = () => {
+
+    router.push('http://localhost:3000/menu/commission/new');
+  }
 
   // 작가명 get
   const CommissionList = async () => {
@@ -90,7 +96,7 @@ console.log(commArray)
               ))} 
               </tbody>
             </C.Table>
-          <C.Link href="commission/board/new">게시글 작성하기</C.Link>
+          <C.Link onClick={onClickNew}>게시글 작성하기</C.Link>
         </C.CommissionTable>
       </C.Wrapper>
 
