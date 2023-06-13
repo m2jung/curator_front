@@ -74,7 +74,7 @@ export const ExhibitionBtn = styled.button`
     font-size: 17px;
     margin: 10px; 
 `
-export const ExhibitionImage = styled.img`
+export const ExhibitionImage = styled.div`
     width: 1180px;
     height: 660px;
     background-position: center;

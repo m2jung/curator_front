@@ -8,7 +8,7 @@ export default function LayoutBodyMain(props){
 
 
     const onClickImg = (image) => {
-        setImg({image})
+        setImg(image)
     }
     
     return (
@@ -16,10 +16,10 @@ export default function LayoutBodyMain(props){
         <C.BodyTitle>Best Art</C.BodyTitle>
         <C.BodyWrapper>
          <C.LeftWrapper>
-            <C.BestArt src={{img}}/>
+            <C.BestArt src={img}/>
          </C.LeftWrapper>
          <C.RightWrapper>
-            <C.ArtColumn onClick={()=> onClickImg('./images/artcat.png')} src={'./images/artcat.png'}></C.ArtColumn>
+            <C.ArtColumn onClick={() => onClickImg("./images/artcat.png")} src={'./images/artcat.png'}></C.ArtColumn>
             <C.ArtColumn></C.ArtColumn>
             <C.ArtColumn></C.ArtColumn>
             <C.ArtColumn></C.ArtColumn>
