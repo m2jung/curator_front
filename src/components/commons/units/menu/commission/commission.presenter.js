@@ -8,7 +8,7 @@ import * as C from './commission.styles'
 export default function CommissionView(props){
 
   const router = useRouter();
-  const back = process.env.NEXT_PUBLIC_URI_NAS
+  const back = process.env.NEXT_PUBLIC_URI
   console.log(back)
   const [commissionList, setCommissionList] = useState();
   let commArray = []
@@ -73,6 +73,10 @@ console.log(commArray)
            고객님들의 소중한 작품 의뢰를 기다립니다.
           </C.Message>
         </C.CommissionTableBanner>
+
+
+
+    
 
         <C.CommissionTable>
           <C.Table>

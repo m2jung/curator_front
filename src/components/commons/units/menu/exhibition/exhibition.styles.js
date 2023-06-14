@@ -79,7 +79,6 @@ export const ExhibitionBtn = styled.button`
 export const ExhibitionImage = styled.div`
     width: 1180px;
     height: 660px;
-    background-image: url('/images/exhibition01.jpg');
     background-position: center;
     background-size: cover;
     margin: auto;

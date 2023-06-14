@@ -2,16 +2,21 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import LayoutPageNumber from '../../../layout/page-number/page-number.presenter'
 import * as C from './genre.styles'
+import { useCallback } from 'react';
 
 export default function GenreView(props) {
 
-   const back = process.env.NEXT_PUBLIC_URI_NAS
+   const back = process.env.NEXT_PUBLIC_URI
 
    const [genreList, setGenreList] = useState();
    const [postList, setPostList] = useState();
+   const [mapping, setMapping] = useState();
+   const [file, setFile] = useState();
    var imageArray = [];
    var array;
+   var dataArr; 
 
+   
     // 장르명 get
   useEffect(() => {
    axios.get(`${back}genreList`)
@@ -20,60 +25,109 @@ export default function GenreView(props) {
      })
    }, [])
 
-   const onClickWhole = async () => {
-      const post = await axios.get(`${back}postList`)
-      console.log(post)
-      setPostList(post.data);
-   }
-   
-   const onClickGenre = async (genreSeq) => {
-      const genre = await axios.get(`${back}genreView?genreSeq=${genreSeq}`)
-      console.log(genre)
-      for (let i = 0; i < genre.data.length; i++) {
-         axios.post<Blob>(`${back}down`, {"value9": res.data[i].value9}, { headers: { "Content-type": "application/json; charset=UTF-8" }, responseType: 'blob' })
-         .then((response) => {
-             // console.log(res.data)
-             const myFile = new File([response.data], dataArr[i].value9);
-             const reader = new FileReader();
-             reader.readAsDataURL(myFile);
-             
-             reader.onloadend = () => {
-                 // console.log(reader.result)
-                setBase(reader.result);
-             array = {
-                 value1: dataArr[i].value1,
-                 value2: dataArr[i].value2,
-                 value3: dataArr[i].value3,
-                 value4: dataArr[i].value4,
-                 value5: dataArr[i].value5,
-                 value6: dataArr[i].value6,
-                 value7: dataArr[i].value7,
-                 value8: dataArr[i].value8,
-                 value9: reader.result
-             }
-             
-             imageArray.push(array);
-             setPostList(genre.data);
-             // console.log(base64)
-         }
-             
+   const onClickPostAll = async () => {
+      setMapping([])
+      axios.get(`${back}postList`) 
+      .then((res) => {
+         let img;
+         let array  
+         console.log(res.data)
+         dataArr = res.data
+            for (let i = 0; i < res.data.length; i++) {
+             axios.post(`${back}genrePostImageName`, {"postImageName": res.data[i].postImageName}, { headers: { "Content-type": "application/json; charset=UTF-8" }, responseType: 'blob' })
+            .then((response) => {
+                  // console.log(res.data)
+                  const myFile = new File([response.data], dataArr[i].postImageName);
+                  const reader = new FileReader();
+                  reader.readAsDataURL(myFile);
+                  
+                  reader.onloadend = () => {
+                  //   console.log(reader.result)
+                     array = {
+                        postSeq: dataArr[i].postSeq,
+                        artistSeq: dataArr[i].artistSeq,
+                        genreSeq: dataArr[i].genreSeq,
+                        postTitle: dataArr[i].postTitle,
+                        postContent: dataArr[i].postContent,
+                        postSummary: dataArr[i].postSummary,
+                        postPrice: dataArr[i].postPrice,
+                        postImageName: reader.result,
+                        postDate:  dataArr[i].postDate,
+                     }
+                  
+                  imageArray.push(array);
+               }
+            
+               setMapping(imageArray)   
+            
+                  
+            })
+          } 
+      
+      
 
-         })
-      }
+       })
+
+   }
+     
+
+    
+   const onClickPost = (genreSeq) => {  
+      axios.get(`${back}genreView?genreSeq=${genreSeq}`)
+      .then((res) => {
+        let img;
+        let array
+        console.log(res.data)
+        dataArr = res.data
+          for (let i = 0; i < res.data.length; i++) {
+           axios.post(`${back}genrePostImageName`, {"postImageName": res.data[i].postImageName}, { headers: { "Content-type": "application/json; charset=UTF-8" }, responseType: 'blob' })
+            .then((response) => { 
+                // console.log(res.data)
+                const myFile = new File([response.data], dataArr[i].postImageName);
+                const reader = new FileReader();
+                reader.readAsDataURL(myFile); 
+                
+                reader.onloadend = () => {
+                    // console.log(reader.result)
+                   array = {
+                     postSeq: dataArr[i].postSeq, 
+                     artistSeq: dataArr[i].artistSeq,
+                     genreSeq: dataArr[i].genreSeq,
+                     postTitle: dataArr[i].postTitle,
+                     postContent: dataArr[i].postContent,
+                     postSummary: dataArr[i].postSummary,
+                     postPrice: dataArr[i].postPrice,
+                     postImageName: reader.result,
+                     postDate:  dataArr[i].postDate,
+                   }
+               
+                imageArray.push(array);
+                setMapping(imageArray)
+               //  console.log(mapping)
+               }
+   
+            })
+         }
+   
+      })
+      .catch((error) => {    
+         
+      })
+
    }
    
 
   return (
-    <>  
+    <>   
         <C.Wrapper>
          <C.GenreBanner>
             <C.BannerTitle>작품 판매 </C.BannerTitle>
             <C.BannerSubTitle>Buy Original Paintings</C.BannerSubTitle>
          </C.GenreBanner>
             <C.GenreSelect>
-               <C.Genre onClick={onClickWhole} >전체보기</C.Genre>
+               <C.Genre onClick={onClickPostAll} >전체보기</C.Genre> 
                {genreList?.map((el, i) => (
-               <C.Genre onClick={() => onClickGenre(genreList[i].genreSeq)} >{genreList[i].genreName}</C.Genre>
+               <C.Genre onClick={() => onClickPost(genreList[i].genreSeq)} >{genreList[i].genreName}</C.Genre>
                ))}
                <C.Select>
                   <option value={true}>추천순</option>
@@ -83,23 +137,23 @@ export default function GenreView(props) {
                   <option>저가순</option>
                   <option>고가순</option>
                </C.Select>
-            </C.GenreSelect>
-         <C.GenreWrapper>
-         {postList?.map((el, i) => (
-            <C.GenreColumn href="/art/work">
-               <C.ColumnImage src={'./image/art01.jpg'}>
+            </C.GenreSelect> 
+         <C.GenreWrapper> 
+         {mapping?.map((el, i) => (
+            <C.GenreColumn key={el.postSeq} href="/art/work">
+               <C.ColumnImage style={{ backgroundImage : `url(${el.postImageName})` }}> 
                   <C.ColumnInfo>
-                     <C.ColumnTitle>{postList[i].postTitle}</C.ColumnTitle>
-                     <C.ColumnContent>{postList[i].postSummary}</C.ColumnContent>
-                     <C.ColumnArtist>
-                        <C.ColumnPrice>{postList[i].postPrice} 원</C.ColumnPrice>
+                     <C.ColumnTitle>{el.postTitle}</C.ColumnTitle>
+                     <C.ColumnContent>{el.postSummary}</C.ColumnContent>
+                     <C.ColumnArtist> 
+                        <C.ColumnPrice>{el.postPrice} 원</C.ColumnPrice>
                      </C.ColumnArtist>
                      <C.ColumnArtist>
                         <C.ColumnProfile></C.ColumnProfile>
                         <C.ColumnName>유미정</C.ColumnName>
                      </C.ColumnArtist>
                   </C.ColumnInfo>
-               </C.ColumnImage>
+               </C.ColumnImage >
             </C.GenreColumn>
          ))}
          </C.GenreWrapper>
