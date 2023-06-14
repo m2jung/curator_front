@@ -47,7 +47,7 @@ export const Btn = styled.button`
 
 // 회원관리 테이블 
 export const MemberTable = styled.table`
-    width: 910px;
+    width: 930px;
     height: 50px;
     margin: auto;
     box-shadow: 1px 1px 3px rgba(0,0,0,0.5);

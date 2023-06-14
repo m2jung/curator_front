@@ -10,7 +10,7 @@ export const BodyWrapper = styled.div`
     margin-top : 30px;   
 `
 export const BodyTitle = styled.h1`
-    margin: 230px  auto 0  10px;
+    margin: 210px  auto 0  10px;
     font-size: 40px;
     border-bottom: 2px solid rgba(0,0,0,0.6);
     padding: 5px 10px;
@@ -43,7 +43,7 @@ export const ArtColumn = styled.img`
     justify-content: center;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
     border-radius: 10px;
-    opacity: 0.3;
+    opacity: 0.6;
 
     &:hover {
         opacity: 1;

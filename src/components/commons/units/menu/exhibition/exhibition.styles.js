@@ -61,16 +61,18 @@ export const ExhibitionSubTitle = styled.div`
 `
 
 export const ExhibitionDate = styled.div`
-    color: #FFD000;
-    text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+    color: #FFDF00;
+    font-size: 28px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     margin-bottom: 10px;
 `
-
 export const ExhibitionBtn = styled.button`
     width: 140px;
     height: 42px;
     background-color: black;
+    border-radius: 3px;
     color: white;
+    border: none;
     font-size: 17px;
     margin: 10px; 
 `
@@ -119,7 +121,7 @@ export const ColumnTitle = styled.div`
 
 export const ColumnSubTitle = styled.div`
     font-size: 15px;
-    padding: 3px;
+    padding: 7px 2px;
 `
 
 export const ColumnDate = styled.div`
@@ -127,9 +129,9 @@ export const ColumnDate = styled.div`
 `
 export const Btn = styled.button`
     width: 70px;
-    height: 23px;
+    height: 25px;
     color: white;
-    background-color: black;
+    background-color:  #7117FF;
     border: none;
     margin-right: 10px;
 `

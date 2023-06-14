@@ -35,7 +35,7 @@ export default function ArtistView(props) {
             <C.Icon><FontAwesomeIcon icon={faMagnifyingGlass}/></C.Icon>
           </C.ArtistSearch>
        
-          <C.ArtistColumn id='toggle' onMouseEnter={toggleColumn} onMouseLeave={toggleLeave}style={{width:1100,height:isOpen}}>
+          <C.ArtistColumn id='toggle' onMouseEnter={toggleColumn} onMouseLeave={toggleLeave} style={{width:1100,height:isOpen}}>
            <C.ProfileSection>
             <C.ProfileImage></C.ProfileImage>
             <C.Profile>
@@ -152,11 +152,6 @@ export default function ArtistView(props) {
        
        
         </C.ArtistWrapper>
-        
-
-    
-        
-
       </C.Wrapper>
     </>
   )
