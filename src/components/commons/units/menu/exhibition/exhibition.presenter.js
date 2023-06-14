@@ -74,7 +74,7 @@ export default function ExhibitionView(props) {
                 <C.ExhibitionSubTitle>{mapping[i].exhibitionName} </C.ExhibitionSubTitle>
                 <C.ExhibitionDate>{mapping[i].exhibitionDate}</C.ExhibitionDate>
                 <p>{mapping[i].exhibitionExplain}</p>
-                <C.ExhibitionImage style={{ backgroundImage : `url(${mapping[i].exhibitionBanner})`}} />
+                <C.ExhibitionImage src={mapping[i].exhibitionBanner} />
               </>
             ))}
             </C.ExhibitionTitle>            

@@ -27,8 +27,9 @@ export default function ServiceBoardNewView(props) {
     console.log(title)
   }
 
-  const onChangeContent = (event) => {
-    setContent(event.target.value)
+  const onChangeContent = (e) => {
+    console.log(e)
+    setContent(e.target.value)
     console.log(content)
   }
 
@@ -93,6 +94,7 @@ export default function ServiceBoardNewView(props) {
 
             <CKEditor
                 initData=""
+                onChange={onChangeContent}
                 onInstanceReady={ () => {
                 } }
             />
