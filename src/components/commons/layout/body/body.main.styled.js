@@ -27,7 +27,6 @@ export const BestArt = styled.img`
     height: 80%;
     display: flex;
     flex-direction: column;
-    
 `
 export const RightWrapper = styled.div`
     width: 685px;
