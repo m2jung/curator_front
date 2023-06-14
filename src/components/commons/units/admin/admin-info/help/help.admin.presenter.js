@@ -1,7 +1,21 @@
 import * as C from './help.admin.styles'
 import LayoutSideNavAdmin from '../../../../layout/side-nav-admin/side-nav-admin.presenter'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 export default function AdminHelpView(props) {
+
+    const [helpList, setHelpList] = useState();
+
+    const back = process.env.NEXT_PUBLIC_URI_NAS
+
+    useEffect(() => {
+        axios.get(`${back}helpAllList`)
+        .then((res) => {
+            setHelpList(res.data);
+        })
+    },[])
+    
 
     return (
         <>
@@ -16,12 +30,11 @@ export default function AdminHelpView(props) {
                 </C.Tr>
                 </thead>
                 <tbody>
-                <C.Tr>
-                    <C.Td>작품을 어떻게 구매하나요???</C.Td><C.Td>제가 작품을 사고싶은데...어떻게 사야될 지 몰라서용..</C.Td><C.Td>2023-06-20</C.Td>
+                {helpList?.map((el,i) => (
+                <C.Tr key={i}>
+                    <C.Td>{el.helpTitle}</C.Td><C.Td>{el.helpContent}</C.Td><C.Td>{el.helpDate}</C.Td>
                 </C.Tr>
-                <C.Tr>
-                    <C.Td>작품을 어떻게 구매하나요???</C.Td><C.Td>제가 작품을 사고싶은데...어떻게 사야될 지 몰라서용..</C.Td><C.Td>2023-06-20</C.Td>
-                </C.Tr>
+                ))}    
                 </tbody>
             </C.HelpTable>
             <C.HelpBtn>

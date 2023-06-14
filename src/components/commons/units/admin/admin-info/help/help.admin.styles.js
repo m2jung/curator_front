@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 //관리자 정보 (회원관리)
 export const Wrapper = styled.div`
     width: 1300px;
-    height: 750px;
+    height: 850px;
     display: flex;
     margin: 30px;
     padding: 20px;
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 `
 export const HelpWrapper= styled.div`
     width: 100%;
-    height: 620px;
+    height: 700px;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
     padding: 40px;

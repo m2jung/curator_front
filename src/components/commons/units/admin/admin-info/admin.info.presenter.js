@@ -1,35 +1,49 @@
+import { useEffect, useState } from 'react';
 import * as C from './admin.info.styles'
 import LayoutSideNavAdmin from '../../../layout/side-nav-admin/side-nav-admin.presenter'
-import { useEffect, useState } from 'react'
+import axios from 'axios'
+
 
 export default function AdminInfoView(props) {
 
+    const [memberList, setMemberList] = useState();
 
+    const back = process.env.NEXT_PUBLIC_URI_NAS
 
-        return (
-            <>
-            <C.Wrapper>
-            <LayoutSideNavAdmin/>
-                <C.MemberWrapper>
-                <C.MemberTitle>회원관리</C.MemberTitle>
-                <C.MemberTable>
-                    <thead>
-                    <C.Tr>
-                        <C.Th>회원번호</C.Th><C.Th>이메일</C.Th><C.Th>비밀번호</C.Th><C.Th>닉네임</C.Th><C.Th>이름</C.Th><C.Th>번호</C.Th><C.Th>주소</C.Th><C.Th>회원등급</C.Th><C.Th>가입일자</C.Th>
-                    </C.Tr>
-                    </thead>
-                    <tbody>
-                    <C.Tr>
-                        <C.Td></C.Td><C.Td>119755@naver.com</C.Td><C.Td>123</C.Td><C.Td>딱지찡</C.Td><C.Td>유미정</C.Td><C.Td>1</C.Td><C.Td>경기도 고양시</C.Td><C.Td>일반등급</C.Td><C.Td>2023-06-12</C.Td>
-                    </C.Tr>
-                    </tbody>
-                </C.MemberTable>
-                <C.MemberBtn>
-                 <C.Btn>삭제하기</C.Btn>    
-                </C.MemberBtn>
-                </C.MemberWrapper>
-            </C.Wrapper>
-            </>
-        )
+    useEffect(() => {
+        axios.get(`${back}adminCustomerList`)
+        .then((res) => {
+            setMemberList(res.data);
+        })
+    },[])
+
     
+
+    return (
+        <>
+        <C.Wrapper>
+        <LayoutSideNavAdmin/>
+            <C.MemberWrapper>
+            <C.MemberTitle>회원관리</C.MemberTitle>
+            <C.MemberTable>
+                <thead>
+                <C.Tr>
+                    <C.Th>회원번호</C.Th><C.Th>이메일</C.Th><C.Th>비밀번호</C.Th><C.Th>닉네임</C.Th><C.Th>이름</C.Th><C.Th>번호</C.Th><C.Th>주소</C.Th><C.Th>회원등급</C.Th><C.Th>가입일자</C.Th>
+                </C.Tr>
+                </thead>
+                <tbody>
+                {memberList?.map((el,i) => (
+                <C.Tr key={i}>
+                 <C.Td>{el.memberSeq}</C.Td><C.Td>{el.memberEmail}</C.Td><C.Td>{el.memberPw}</C.Td><C.Td>{el.memberNickname}</C.Td><C.Td>{el.memberName}</C.Td><C.Td>{el.memberPhone}</C.Td><C.Td>{el.memberAddr}</C.Td><C.Td>{el.memberGrade}</C.Td><C.Td>{el.memberDate}</C.Td>
+                </C.Tr>                
+                ))}    
+                </tbody>
+            </C.MemberTable>
+            <C.MemberBtn>
+             <C.Btn>삭제하기</C.Btn>    
+            </C.MemberBtn>
+            </C.MemberWrapper>
+        </C.Wrapper>
+        </>
+    )
 }
