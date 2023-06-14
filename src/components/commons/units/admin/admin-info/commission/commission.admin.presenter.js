@@ -1,9 +1,21 @@
 import * as C from './commission.admin.styles'
 import LayoutSideNavAdmin from '../../../../layout/side-nav-admin/side-nav-admin.presenter'
 import { useState, useEffect } from "react"
+import axios from 'axios';
 
 export default function AdminCommissionView(props) {
 
+    const [commList, setCommList] = useState();
+
+    const back = process.env.NEXT_PUBLIC_URI_NAS
+    
+    useEffect(() => {
+        axios.get(`${back}commAllList`)
+        .then((res) => {
+            setCommList(res.data);
+        })
+    },[])
+    
     return (
         <>
         <C.Wrapper>
@@ -17,9 +29,11 @@ export default function AdminCommissionView(props) {
                 </C.Tr>
                 </thead>
                 <tbody>
-                <C.Tr>
-                    <C.Td>1</C.Td><C.Td>작품의뢰 합니당</C.Td><C.Td>샬라샬라</C.Td><C.Td>2023.06.13</C.Td>
+                {commList?.map((el,i) => (
+                <C.Tr key={i}>
+                    <C.Td>{el.commSeq}</C.Td><C.Td>{el.commTitle}</C.Td><C.Td>{el.commContent}</C.Td><C.Td>{el.commDate}</C.Td>
                 </C.Tr>
+                ))}
                 </tbody>
             </C.CommTable>
             <C.CommBtn>

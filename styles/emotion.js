@@ -6,7 +6,7 @@ import styled from "@emotion/styled";
 // `
 export const Wrapper = styled.div`
     width: 1400px;
-    height: 2900px;
+    height: 2780px;
     margin: auto;
     display: flex;
     flex-direction: column;

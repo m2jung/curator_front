@@ -1,7 +1,24 @@
+import { useEffect, useState } from 'react';
 import * as C from './admin.info.styles'
 import LayoutSideNavAdmin from '../../../layout/side-nav-admin/side-nav-admin.presenter'
+import axios from 'axios'
+
 
 export default function AdminInfoView(props) {
+
+    const [memberList, setMemberList] = useState();
+
+    const back = process.env.NEXT_PUBLIC_URI_NAS
+
+    useEffect(() => {
+        axios.get(`${back}adminCustomerList`)
+        .then((res) => {
+            setMemberList(res.data);
+        })
+    },[])
+
+    
+
     return (
         <>
         <C.Wrapper>
@@ -15,12 +32,11 @@ export default function AdminInfoView(props) {
                 </C.Tr>
                 </thead>
                 <tbody>
-                <C.Tr>
-                    <C.Td>1</C.Td><C.Td>119755@naver.com</C.Td><C.Td>123</C.Td><C.Td>딱지찡</C.Td><C.Td>유미정</C.Td><C.Td>1</C.Td><C.Td>경기도 고양시</C.Td><C.Td>일반등급</C.Td><C.Td>2023-06-12</C.Td>
-                </C.Tr>
-                <C.Tr>
-                    <C.Td>2</C.Td><C.Td>adsajd@naver.com</C.Td><C.Td>234</C.Td><C.Td>테스트</C.Td><C.Td>정미유</C.Td><C.Td>2</C.Td><C.Td>서울시</C.Td><C.Td>일반등급</C.Td><C.Td>2023-06-12</C.Td>
-                </C.Tr>
+                {memberList?.map((el,i) => (
+                <C.Tr key={i}>
+                 <C.Td>{el.memberSeq}</C.Td><C.Td>{el.memberEmail}</C.Td><C.Td>{el.memberPw}</C.Td><C.Td>{el.memberNickname}</C.Td><C.Td>{el.memberName}</C.Td><C.Td>{el.memberPhone}</C.Td><C.Td>{el.memberAddr}</C.Td><C.Td>{el.memberGrade}</C.Td><C.Td>{el.memberDate}</C.Td>
+                </C.Tr>                
+                ))}    
                 </tbody>
             </C.MemberTable>
             <C.MemberBtn>
