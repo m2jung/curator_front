@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
     height: 1700px;
     margin: auto;
     padding: 40px;   
-
 `
 export const ArtistBanner = styled.div`
     width: 1150px;
@@ -30,12 +29,10 @@ export const ArtistSubTitle = styled.div`
     font-size: 40px;
     margin-bottom: 30px;
 `
-
 export const ArtistWrapper = styled.div`
     width: 1200px;
     height: 800px;
 `
-
 // 작가 검색 
 export const ArtistSearch = styled.div`
     width: 240px;
@@ -51,45 +48,33 @@ export const SearchTitle = styled.div`
 `
 export const SearchInput = styled.input`
     height: 20px;
+    margin-left: auto;
     border: 2px solid navy;
     border-radius: 10px; 
+    text-align: center;
 `
 export const Icon = styled.div`
     padding: 7px;
     color: navy;
 `
-
 // 프로필 칼럼
 export const ArtistColumn = styled.div`
     width: 1100px;
-    height: 225px;
+    /* height: 225px; */
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
-    margin: auto;
+    margin: 0 auto 35px auto;
     padding: 30px 0 ;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid red;
-    box-sizing: border-box;
-
-    .show-menu {
-    width: 1100px;
-    height: 840px;
-    border-radius: 20px;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
-    margin: auto;
-    padding: 30px 0 ;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid red;
-    }
+    overflow: hidden;
+    transition: 0.5s ease-out ; 
 `
 
 export const ProfileSection = styled.div`
     width: 1000px;
-    height: 285px;
+    height: 160px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -107,7 +92,6 @@ export const ProfileImage = styled.div`
     background-position: center;
     background-size: cover;
     border-radius: 80px;
-
 `
 
 export const Heart = styled.div`
@@ -177,7 +161,7 @@ export const ProfileInfo = styled.div`
 
 export const Following = styled.span`
     font-weight: 600;
-    color: rgba(0,0,0,0.5);
+    color: #F76432;
     margin-right: 15px;
     span{
         color: rgba(0,0,0,0.7);
@@ -186,7 +170,7 @@ export const Following = styled.span`
 
 export const Sales = styled.span`
     font-weight: 600;
-    color: rgba(0,0,0,0.5);
+    color: #F76432;
     
     span{
         color: rgba(0,0,0,0.7);
@@ -194,7 +178,7 @@ export const Sales = styled.span`
 `
     
 export const Intro = styled.p`
-    width: 675px;
+    width: 650px;
     display: flex;
     flex-direction: column;
     font-size: 16px;
@@ -203,21 +187,10 @@ export const Intro = styled.p`
     padding: 16px 0;
     
 `
-export const ProfileBtn = styled.button`
-    width: 125px;
-    height: 40px;
-    margin-left: 550px;
-    font-size: 15px;
-    font-weight: 600;
-    color: rgba(0,0,0,0.8);
-    border: none;
-    border-radius: 10px;
-    background-color: #FF7932;
-    color: white;
-    cursor: pointer;
-`
+
 export const History = styled.div`
-    padding: 10px;
+    padding: 20px;
+
 `
 export const HistoryTitleLeft = styled.div`
     font-size: 19px;
@@ -236,6 +209,7 @@ export const Record = styled.div`
     font-size: 16px;
     line-height: 23px;
     color: rgba(0,0,0,0.7);
+    
 `
 // 상세보기 클릭시 
 export const Work = styled.div`
@@ -260,19 +234,31 @@ export const WorkTitle = styled.div`
     justify-content: center;
     align-items: flex-end;
 `
-
-export const WorkBtn = styled.button`
-    width: 125px;
-    height: 140px;
-    font-size: 15px;
-    font-weight: 600;
-    color: rgba(0,0,0,0.8);
-    margin: auto 50px 5px  auto; 
-    border: none;
-    border-radius: 10px;
-    background-color: #FF7932;
-    color: white;
+// export const ProfileBtn = styled.button`
+//     width: 125px;
+//     height: 40px;
+//     margin-left: 550px;
+//     font-size: 15px;
+//     font-weight: 600;
+//     color: rgba(0,0,0,0.8);
+//     border: none;
+//     border-radius: 10px;
+//     background-color: #FF7932;
+//     color: white;
+//     cursor: pointer;
+// `
+// export const WorkBtn = styled.button`
+//     width: 125px;
+//     height: 140px;
+//     font-size: 15px;
+//     font-weight: 600;
+//     color: rgba(0,0,0,0.8);
+//     margin: auto 50px 5px  auto; 
+//     border: none;
+//     border-radius: 10px;
+//     background-color: #FF7932;
+//     color: white;
     
-    cursor: pointer;
-`
+//     cursor: pointer;
+// `
 

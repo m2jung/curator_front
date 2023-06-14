@@ -101,7 +101,7 @@ export const Tr = styled.tr`
 `
 export const Th = styled.th `
     height: 36px;
-    background-color: #FF7932;
+    background-color: #F76432;
     color: white;
     border-radius: 3px;  
     
