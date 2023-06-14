@@ -3,7 +3,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import * as C from './artist.styles'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 
 export default function ArtistView(props) {
@@ -14,6 +14,10 @@ export default function ArtistView(props) {
     setIsOpen(isOpen => !isOpen); // on,off 개념 boolean
 
   }
+
+  useEffect(() => {
+    
+  }, [])
 
   return (
     <>  

@@ -16,7 +16,7 @@ export default function ServiceView(props) {
   let serviceArray = []
   let firData = []
 
-  const back = process.env.NEXT_PUBLIC_URI_NAS
+  const back = process.env.NEXT_PUBLIC_URI
 
   // 작가명 get
   const ServiceList = async () => {
