@@ -3,7 +3,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import * as C from './artist.styles'
-import { useEffect, useState, useLayoutEffect } from 'react'
+import { useEffect, useState, useLayoutEffect, useCallback } from 'react'
 import axios from 'axios'
 
 
@@ -19,27 +19,46 @@ export default function ArtistView(props) {
 
   useEffect(() => {
     const back = process.env.NEXT_PUBLIC_URI
-    const result = async() => {
-      axios.get(`${back}artistAllList`) 
-      .then((res) => {
-        setMapping(res.data);
-      })
-   
-    }
-    result();
+
+    axios.get(`${back}artistAllList`) 
+    .then((res) => {
+      setMapping(res.data);
+    })
+
   }, [])
   
+  const onLoadBookmark = useCallback((artistSeq, artistName) => {
+    const book = {
+      memberSeq: Number(sessionStorage.getItem('userSeq')),
+      artistSeq: artistSeq,
+    }
+    axios.post(`${back}artistBookmarkGet`, book)
+      .then((res) => {
+        console.log(res.data)
+        if(res.data > 0) {
+          document.getElementById(artistName).style.color = '#E44C7E'
+        }
+      })
+  }, [])
+
+  const onClickBook = async (artistSeq, artistName) => {
+    const book = {
+      memberSeq: Number(sessionStorage.getItem('userSeq')),
+      artistSeq: artistSeq,
+    }
+    setIsBookmark(book)
+    await axios.post(`${back}artistBookmarkGet`, book)
+    .then((res) => {
+      if(res.data == 0) {
+        console.log(isBookmark)
+        const book = axios.post(`${back}artistBookmark`, isBookmark)
+        if(book == 1) document.getElementById(artistName).style.color = '#E44C7E'
+      } else  document.getElementById(artistName).style.color = 'gray'
+    })
+  }
+
   
-  //   const bookmark = async() => {
-  //     const book = {
-  //       memberSeq: sessionStorage.getItem('userSeq')
-  //       artistSeq: 
-  //     }
-  //     axios.post('http://localhost:8080/artistBookmarkNum', )
-  //   }
-  // }, [])
-  
-    // const onClickIcon = () => {}
+
       
     console.log(mapping);
 
@@ -58,7 +77,7 @@ export default function ArtistView(props) {
           </C.ArtistSearch>
        
         {mapping?.map((el, i) => ( 
-          <C.ArtistColumn key={i}>
+          <C.ArtistColumn key={i} onLoad={() => onLoadBookmark(el.artistSeq, el.artistName)}>
            <C.ProfileSection>
             <C.ProfileImage src={el.artistImage}></C.ProfileImage> 
             <C.Profile>
@@ -66,11 +85,7 @@ export default function ArtistView(props) {
               {/* <C.Email>119755@naver.com</C.Email> */}
               <C.Sns onClick={`${el.artistSns}`}><C.Image/></C.Sns>
               {/* icon color: #E44C7E; */}
-              {
-              isBookmark?
-              <C.Heart><FontAwesomeIcon onClick={onClickIcon} icon={faHeart} color='gray'/></C.Heart>
-              : <C.Heart><FontAwesomeIcon onClick={onClickIcon} icon={faHeart} color='gray'/></C.Heart>
-              }
+              <C.Heart><FontAwesomeIcon id={el.artistName} onClick={() => onClickBook(el.artistSeq, el.artistName)} icon={faHeart} style={{color: "gray"}} /></C.Heart>
             </C.Profile> 
             <C.ProfileInfo>
               <C.Following>Following <span>2844</span></C.Following>

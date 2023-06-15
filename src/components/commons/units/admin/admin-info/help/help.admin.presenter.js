@@ -32,7 +32,7 @@ export default function AdminHelpView(props) {
                 <tbody>
                 {helpList?.map((el,i) => (
                 <C.Tr key={i}>
-                    <C.Td>{el.helpTitle}</C.Td><C.Td>{el.helpContent}</C.Td><C.Td>{el.helpDate}</C.Td>
+                    <C.Td>{el.helpTitle}</C.Td><C.Td>{el.helpContent}</C.Td><C.Td>{new Date(el.helpDate).toLocaleString()}</C.Td>
                 </C.Tr>
                 ))}    
                 </tbody>
