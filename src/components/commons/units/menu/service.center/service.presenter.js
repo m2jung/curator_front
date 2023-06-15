@@ -36,10 +36,6 @@ export default function ServiceView(props) {
               serviceArray.push(list);
             }
             setServiceList(serviceArray);
-  
-        // .catch((error) => {
-        //   console.log(error) 
-        // })
 
   }
 
@@ -93,7 +89,7 @@ console.log(serviceArray)
             <tbody>
             {serviceList?.map((el, i) => (
             <C.Tr>
-              <C.Div>경매</C.Div><C.Title>{serviceList[i].helpTitle}</C.Title><C.Icon><FontAwesomeIcon icon={faCaretDown} size="lg"/></C.Icon>
+              <C.Div>경매</C.Div><C.Title><Link href={`http://localhost:3000/menu/service.center/${el.helpSeq}`}>{el.helpTitle}</Link></C.Title><C.Icon><FontAwesomeIcon icon={faCaretDown} size="lg"/></C.Icon>
             </C.Tr>
             ))}
             </tbody>

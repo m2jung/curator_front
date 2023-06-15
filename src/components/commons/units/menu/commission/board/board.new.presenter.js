@@ -99,7 +99,7 @@ export default function CommissionBoardNewView(props) {
           <C.ContentWrapper>
             <C.Label>작품 의뢰 내용</C.Label>
             {/* <C.CommissionContent placeholder='작품 의뢰 내용을 입력하세요.'> */}
-                       
+              
               <CKEditor
                 initData=""
                 onChange={onChangeContent}

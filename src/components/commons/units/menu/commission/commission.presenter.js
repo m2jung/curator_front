@@ -1,4 +1,5 @@
 import Router from 'next/router';
+import Link from 'next/link';
 import LayoutPageNumber from '../../../layout/page-number/page-number.presenter'
 import axios from 'axios'
 import React, {useCallback, useState, useEffect, useLayoutEffect} from 'react';
@@ -9,13 +10,11 @@ export default function CommissionView(props){
 
   const router = useRouter();
   const back = process.env.NEXT_PUBLIC_URI
-  console.log(back)
   const [commissionList, setCommissionList] = useState();
   let commArray = []
   let firData = []
 
   const onClickNew = () => {
-
     router.push('http://localhost:3000/menu/commission/new');
   }
 
@@ -23,7 +22,6 @@ export default function CommissionView(props){
   const CommissionList = async () => {
     const res = await axios.get(`${back}commAllList`)
         let list;
-        console.log(res.data)
         firData = res.data;
         for(let i = 0; i < res.data.length; i++) {
            const response = await axios.get(`${back}getName?seq=${res.data[i].memberSeq}`)
@@ -36,10 +34,6 @@ export default function CommissionView(props){
               commArray.push(list);
             }
             setCommissionList(commArray);
-  
-        // .catch((error) => {
-        //   console.log(error) 
-        // })
 
   }
 
@@ -56,8 +50,6 @@ export default function CommissionView(props){
     return year + "-" + month + "-" + day;
 }
 
-console.log(commissionList)
-console.log(commArray)
 
   return (
     <>  
@@ -87,11 +79,11 @@ console.log(commArray)
             </thead>
             <tbody>
               <C.Tr>
-                <C.No>1</C.No><C.Title> &lt;&lt; 공지사항 &gt;&gt; 작품의뢰 게시글 양식에 맞게 작성 부탁드립니다. 글제목은 '작품의뢰 합니다.' 작성해주세요.</C.Title><C.Writer>관리자</C.Writer><C.Date>2023-06-07</C.Date>
+                <C.No>1</C.No><C.Title> &lt;&lt;공지사항&gt;&gt; 작품의뢰 게시글 양식에 맞게 작성 부탁드립니다. 글제목은 '작품의뢰 합니다.' 작성해주세요.</C.Title><C.Writer>관리자</C.Writer><C.Date>2023-06-07</C.Date>
               </C.Tr>
             {commissionList?.map((el, i) => (
               <C.Tr key={el.commSeq}>
-                <C.No>{el.commSeq}</C.No><C.Title>{el.commTitle}</C.Title><C.Writer>{el.commName}</C.Writer><C.Date>{el.commDate}</C.Date>
+                <C.No>{el.commSeq}</C.No><C.Title><Link href={`http://localhost:3000/menu/commission/${el.commSeq}`}>{el.commTitle}</Link></C.Title><C.Writer>{el.commName}</C.Writer><C.Date>{el.commDate}</C.Date>
               </C.Tr>    
               ))} 
               </tbody>
@@ -100,7 +92,6 @@ console.log(commArray)
         </C.CommissionTable>
       <LayoutPageNumber/>
       </C.Wrapper>
-
     </>
   )
 }

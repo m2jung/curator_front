@@ -7,7 +7,7 @@ export const Link = styled.a `
     align-items: center;
 `
 
-// 문의하기 
+// 작품의뢰 게시글 작성하기 
 export const Wrapper = styled.div`
     width: 1200px;
     height: 1200px;
