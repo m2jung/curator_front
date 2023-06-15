@@ -7,7 +7,7 @@ export default function AdminCommissionView(props) {
 
     const [commList, setCommList] = useState();
 
-    const back = process.env.NEXT_PUBLIC_URI_NAS
+    const back = process.env.NEXT_PUBLIC_URI
     
     useEffect(() => {
         axios.get(`${back}commAllList`)

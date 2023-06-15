@@ -11,27 +11,15 @@ export default function ServiceBoardView(props) {
   const router = useRouter();
   const [helpView, setHelpView] = useState();
   const back = process.env.NEXT_PUBLIC_URI
-  const [helpSeq, setHelpSeq] = useState(router.query.board);
+  const serviceSeq = router.query.board
 
   useEffect(() => {    
-    const back = process.env.NEXT_PUBLIC_URI;
-    if (router.query.board) {
-      axios.get(`${back}helpView?helpSeq=${helpSeq}`)
-        .then((res) => {
-          setHelpView(res.data);
-        });
-    }
-  }, []);
-  // useEffect(() => {    
-  //   const back = process.env.NEXT_PUBLIC_URI
-  //   if(router.query.board) {
-  //   axios.get(`${back}helpView?helpSeq=${helpSeq}`)
-  //   .then((res) => {
-  //     setHelpView(res.data);
-  //   })
-  // }
-
-  // },[])
+    const back = process.env.NEXT_PUBLIC_URI
+    axios.get(`${back}helpView?helpSeq=${serviceSeq}`)
+    .then((res) => {
+        setHelpView(res.data);
+    })
+  },[])
 
   const onClickEdit = () => {
     router.push(`/menu/service.center/${helpSeq}/edit`);

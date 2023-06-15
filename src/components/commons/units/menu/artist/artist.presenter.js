@@ -8,12 +8,13 @@ import axios from 'axios'
 
 
 export default function ArtistView(props) {
-
+ 
   const [option , setOption] = useState(160); //초기값 false
   var imageArray = [];
   const back = process.env.NEXT_PUBLIC_URI
   const [mapping, setMapping] = useState();
   const [name, setName] = useState();
+  const [isBookmark, setIsBookmark] = useState();
   let dataArr;
 
   useEffect(() => {
@@ -21,49 +22,25 @@ export default function ArtistView(props) {
     const result = async() => {
       axios.get(`${back}artistAllList`) 
       .then((res) => {
-          let img; 
-          let array 
-          dataArr = res.data;
-          console.log(dataArr)
-            for (let i = 0; i < res.data.length; i++) {
-              axios.post(`${back}artistImage`, {'artistImage': res.data[i].artistImage}, { headers: { "Content-type": "application/json; charset=UTF-8" }, responseType: 'blob' })
-              .then((response) => {
-                  // console.log(res.data)
-                  const myFile = new File([response.data], dataArr[i].artistImage);
-                  const reader = new FileReader();
-                  reader.readAsDataURL(myFile);
-                  
-                  reader.onloadend = () => {
-                  array = {
-                    artistSeq: dataArr[i].artistSeq,
-                    artistName: dataArr[i].artistName,
-                    artistSns: dataArr[i].artistSns,
-                    artistProfile: dataArr[i].artistProfile,
-                    artistImage: reader.result,
-                    proPainting1: dataArr[i].proPainting1,
-                    proPainting2: dataArr[i].proPainting2,
-                    proPainting3: dataArr[i].proPainting3,
-                    proPainting4: dataArr[i].proPainting4,
-                    proRecord1: dataArr[i].proRecord1, 
-                    proRecord2: dataArr[i].proRecord2,
-                    proRecord3: dataArr[i].proRecord3,
-                    proRecord4: dataArr[i].proRecord4,
-                  }
-                  
-                  imageArray.push(array);
-                  setMapping(imageArray);
-                } 
-                })
-              }
-            })
-          }
-          result();
-    }, [])
+        setMapping(res.data);
+      })
+    }
+    result();
+
+    const bookmark = async() => {
+      const book = {
+        memberSeq: sessionStorage.getItem('userSeq')
+        artistSeq: 
+      }
+      axios.post('http://localhost:8080/artistBookmarkNum', )
+    }
+  }, [])
   
+    const onClickIcon = () => {
+      
+    }
       
     console.log(mapping);
-
-    // axios.post(`${back}artistBookmarkNum`, )
 
   return (
     <>  
@@ -82,13 +59,17 @@ export default function ArtistView(props) {
         {mapping?.map((el, i) => ( 
           <C.ArtistColumn key={i}>
            <C.ProfileSection>
-            <C.ProfileImage style={{ backgroundImage : `url(${el.artistImage})` }}></C.ProfileImage> 
+            <C.ProfileImage src={el.artistImage}></C.ProfileImage> 
             <C.Profile>
               <C.Name>{el.artistName}</C.Name> 
               {/* <C.Email>119755@naver.com</C.Email> */}
               <C.Sns onClick={`${el.artistSns}`}><C.Image/></C.Sns>
               {/* icon color: #E44C7E; */}
-              <C.Heart><FontAwesomeIcon icon={faHeart} color='gray'/></C.Heart>
+              {
+              isBookmark?
+              <C.Heart><FontAwesomeIcon onClick={onClickIcon} icon={faHeart} color='gray'/></C.Heart>
+              : <C.Heart><FontAwesomeIcon onClick={onClickIcon} icon={faHeart} color='gray'/></C.Heart>
+              }
             </C.Profile> 
             <C.ProfileInfo>
               <C.Following>Following <span>2844</span></C.Following>
