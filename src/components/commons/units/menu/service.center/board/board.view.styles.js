@@ -7,11 +7,36 @@ export const Link = styled.a `
     display: flex;
     align-items: center;
 `
+// table
+export const Table = styled.table``
+
+export const Tr = styled.tr``
+
+export const TrContent = styled.tr`
+    height: 390px;
+`
+
+export const Th = styled.th`
+    width: 120px;
+    height: 35px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #002F9F;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+`
+export const Td = styled.td`
+    width: 240px;
+    border: 1px solid rgba(0,0,0,0.1);
+    padding-left: 5px;
+`
+
 
 // 문의한 게시글 보기 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 1200px;
+    height: 1150px;
     margin: auto;
     padding: 40px;   
 `
@@ -21,21 +46,27 @@ export const BoardWrapper = styled.div`
 `
 
 export const BoardBanner = styled.div`
-    width: 1200px;
-    height: 290px;
+    width: 1150px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-top: 2px solid rgba(0,0,0,0.1);
     border-bottom: 2px solid rgba(0,0,0,0.1);
     margin: auto;
-    padding: 30px;
+    padding: 0 30px;
 `
 
 export const BoardTitle = styled.div`
     font-family: serif;
     font-size: 35px;
-    margin: 60px 0;
+    margin: 40px 0;
+`
+
+export const BoardFormTitle = styled.div`
+    font-size: 23px;
+    font-weight: 600;
+    margin: 50px;
 `
 
 export const BoardSubTitle = styled.div`
@@ -48,11 +79,13 @@ export const Span = styled.span`
     font-size: 20px;
     margin-left: 15px;
 `
+
 export const Select = styled.select`
     width: 150px;
     height: 26px;
     margin: 15px;
 `
+
 
 export const BoardForm = styled.form`
     width: 900px;
@@ -61,15 +94,11 @@ export const BoardForm = styled.form`
     flex-direction: column;
     align-items: center;
 `
-export const BoardFormTitle = styled.div`
-    font-size: 23px;
-    font-weight: 600;
-    margin: 50px;
-`
+
 
 export const BoardFormWrapper = styled.form`
     width: 900px;
-    height: 660px;
+    height: 680px;
     display: flex;
     font-size: 18px;
     color: rgba(0,0,0,0.9);
@@ -78,7 +107,6 @@ export const BoardFormWrapper = styled.form`
     padding: 40px;
     margin: 30px auto;
 `
-
 export const InputWrapper = styled.div`
     width: 900px;
     height: 300px;
@@ -91,17 +119,15 @@ export const Label = styled.label`
     font-size: 15px;
     margin: 5px 10px 8px 0;
 `
-
 export const Line = styled.div`
     width: 900px;
     margin: 20px 0;
     border: 1px dotted rgba(0,0,0,0.1);
 `
 
-
 // CommissionWrapper
-export const CommissionDiv = styled.select`
-    width: 160px;
+export const CommissionDiv = styled.div`
+    width: 200px;
     height: 22px;   
 `
 export const CommissionTitle = styled.input`
@@ -122,14 +148,12 @@ export const CommissionContent = styled.textarea`
     border: none;
     margin-bottom: 15px;
 `
-
 export const BtnWrapper = styled.div`
     width: 230px;
     display: flex;
     justify-content: space-between;
-    margin: 30px auto;
+    margin: 165px auto;
 `
-
 export const ListBtn = styled.button`
     cursor: pointer;
     width: 105px;
@@ -142,7 +166,7 @@ export const ListBtn = styled.button`
 export const EditBtn = styled.button`
     width: 105px;
     margin-right: 10px;
-    border: 3px solid navy;
+    border: 3px solid black;
     background-color:  white;
     border-radius: 8px;
 `

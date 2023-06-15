@@ -1,56 +1,84 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import * as C from './board.view.styles'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function CommissionBoardView(props) {
+
+  const router = useRouter();
+  const [commissionView, setCommView] = useState();
+  const back = process.env.NEXT_PUBLIC_URI
+  const [commSeq, setCommSeq]  = useState(router.query.board);
+  
+  useEffect(async() => {
+    const back = process.env.NEXT_PUBLIC_URI
+    await axios.get(`${back}commissionView?commSeq=${commSeq}`)
+    .then((res)=>{
+      const list = {
+        commSeq : res.data.commSeq,
+        commTitle : res.data.commTitle,
+        commDate : getToday(res.data.commData),
+        commContent : res.data.commContent,
+      }
+
+      function getToday(day){
+        var date = new Date(day);
+        var year = date.getFullYear();
+        var month = ("0" + (1 + date.getMonth())).slice(-2);
+        var day = ("0" + date.getDate()).slice(-2);
+    
+        return year + "-" + month + "-" + day;
+      }
+      setCommView(res.data);
+    })
+  },[])
+
+  const onClickEdit = () => {
+    router.push('http://localhost:3000/menu/commission/board/edit');
+  }
+  const onClickList = () => {
+    router.push('http://localhost:3000/menu/commission');
+  }
 
   return (
     <>  
       <C.Wrapper>
        <C.BoardWrapper>
-        
        <C.BoardBanner>
           <C.BoardTitle>작품 의뢰</C.BoardTitle>
-          <C.BoardSubTitle><FontAwesomeIcon icon={faArrowLeft}/><C.Span>뒤로가기</C.Span></C.BoardSubTitle>
+          <C.BoardSubTitle>
+              <C.Link href={'/menu/service.center'}>
+                <FontAwesomeIcon icon={faArrowLeft}/><C.Span>뒤로가기</C.Span>
+              </C.Link> 
+          </C.BoardSubTitle>
        </C.BoardBanner>
-
        <C.BoardFormWrapper>
+
         <C.BoardForm>
           <C.BoardFormTitle>게시글 확인하기</C.BoardFormTitle>
           <C.Line/>
-
-       <C.BoardFormWrapper>
-        <C.BoardForm>
           <C.InputWrapper>
-            <C.Label>작가 선택</C.Label>
-            <C.CommissionDiv>
-              {/* 옵션은 Map으로 구성 예장 */}
-              <option disabled="true" selected="true">전체</option>
-              <option>회화</option>
-              <option>조소</option>
-              <option>건축/공예</option>
-              <option>조각/판화</option>
-            </C.CommissionDiv>
+            <C.Table>
+              <thead>
+              <C.Tr>
+                <C.Th>문의 제목</C.Th><C.Td colSpan={3}>{commissionView?.commTitle}</C.Td><C.Th>작성 날짜</C.Th><C.Td>{new Date(commissionView?.commDate).toLocaleString()}</C.Td>
+              </C.Tr>
+              </thead>
+              <tbody>
+              <C.TrContent>
+                <C.Td colSpan={6}>{commissionView?.commContent}</C.Td>
+              </C.TrContent>
+              </tbody>
+            </C.Table>
           </C.InputWrapper>
-          <C.InputWrapper>
-            <C.Label>작품 의뢰 제목</C.Label>
-            <C.CommissionTitle value='작품 의뢰 합니다.'></C.CommissionTitle>
-          </C.InputWrapper>
-          <C.ContentWrapper>
-            <C.Label>작품 의뢰 내용</C.Label>
-            <C.CommissionContent placeholder='작품 의뢰한 내용'></C.CommissionContent>
-          </C.ContentWrapper>
-
-
           <C.BtnWrapper>
-            <C.CancelBtn>취소</C.CancelBtn>
-            <C.SubmitBtn>작성하기</C.SubmitBtn>
+            <C.ListBtn onClick={onClickList}>목록보기</C.ListBtn>
+            <C.EditBtn onClick={onClickEdit}>수정하기</C.EditBtn>
           </C.BtnWrapper>
-
         </C.BoardForm>
        </C.BoardFormWrapper>
-
-
 
        </C.BoardWrapper>
       </C.Wrapper>

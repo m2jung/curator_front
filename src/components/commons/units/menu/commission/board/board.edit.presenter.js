@@ -2,6 +2,9 @@ import * as C from './board.edit.styles'
 import axios from 'axios'
 import React, {useCallback, useState, useEffect} from 'react';
 import { useRouter } from 'next/router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link';
 
 export default function CommissionBoardEdit(props) {
   
@@ -65,6 +68,11 @@ export default function CommissionBoardEdit(props) {
         
        <C.BoardBanner>
           <C.BoardTitle>작품 의뢰</C.BoardTitle>
+          <C.BoardSubTitle>
+              <C.Link href={'/menu/service.center'}>
+                <FontAwesomeIcon icon={faArrowLeft}/><C.Span>뒤로가기</C.Span>
+              </C.Link> 
+          </C.BoardSubTitle>
        </C.BoardBanner>
 
        <C.BoardFormWrapper>
@@ -93,7 +101,7 @@ export default function CommissionBoardEdit(props) {
 
           <C.BtnWrapper>
             <C.CancelBtn type='button' onClick={onClickCancel}>취소</C.CancelBtn>
-            <C.SubmitBtn type='button' onClick={onClickSubmit}>작성하기</C.SubmitBtn>
+            <C.SubmitBtn type='button' onClick={onClickSubmit}>수정완료</C.SubmitBtn>
           </C.BtnWrapper>
 
         </C.BoardForm>
