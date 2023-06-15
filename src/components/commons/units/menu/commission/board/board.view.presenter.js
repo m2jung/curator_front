@@ -60,12 +60,6 @@ export default function CommissionBoardView(props) {
           <C.BoardFormTitle>게시글 확인하기</C.BoardFormTitle>
           <C.Line/>
 
-        </C.BoardForm>
-      </C.BoardFormWrapper>
-
-       <C.BoardFormWrapper>
-        <C.BoardForm>
-
           <C.InputWrapper>
             <C.Table>
               <thead>

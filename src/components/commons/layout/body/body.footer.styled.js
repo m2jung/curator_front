@@ -25,7 +25,7 @@ export const RightBtn = styled.div `
     
 `
 export const FootTitle = styled.h1`
-    margin: 210px  auto 0  10px;
+    margin: 150px  auto 0  10px;
     font-size: 40px;
     border-bottom: 2px solid rgba(0,0,0,0.6);
     padding: 5px 10px;

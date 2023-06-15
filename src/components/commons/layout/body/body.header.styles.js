@@ -9,7 +9,7 @@ export const HeaderWrapper = styled.div`
     margin-top : 30px;   
 `
 export const HeadTitle = styled.h1`
-    margin: 100px  auto 0  10px;
+    margin: 70px  auto 0  10px;
     font-size: 40px;
     border-bottom: 2px solid rgba(0,0,0,0.6);
     padding: 5px 10px;
@@ -20,7 +20,6 @@ export const LeftWrapper = styled.div`
     background-image: url('/images/pop02.png');
     background-position: center;
     background-size: cover;
-    
 
 `
 export const RightWrapper = styled.div`

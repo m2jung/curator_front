@@ -24,21 +24,22 @@ export default function ArtistView(props) {
       .then((res) => {
         setMapping(res.data);
       })
+   
     }
     result();
-
-    const bookmark = async() => {
-      const book = {
-        memberSeq: sessionStorage.getItem('userSeq')
-        artistSeq: 
-      }
-      axios.post('http://localhost:8080/artistBookmarkNum', )
-    }
   }, [])
   
-    const onClickIcon = () => {
-      
-    }
+  
+  //   const bookmark = async() => {
+  //     const book = {
+  //       memberSeq: sessionStorage.getItem('userSeq')
+  //       artistSeq: 
+  //     }
+  //     axios.post('http://localhost:8080/artistBookmarkNum', )
+  //   }
+  // }, [])
+  
+    // const onClickIcon = () => {}
       
     console.log(mapping);
 
@@ -127,4 +128,4 @@ export default function ArtistView(props) {
       </C.Wrapper>
     </>
   )
-}
+  }
