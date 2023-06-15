@@ -6,11 +6,12 @@ import axios from 'axios';
 
 export default function AdminExhibitionView(props) {
 
-    const back = process.env.NEXT_PUBLIC_URI_NAS
+    const back = process.env.NEXT_PUBLIC_URI
     const [file, setFile] = useState(null);
     const [title, setTitle] = useState('');
+    const [date, setDate] = useState('');
     const [content, setContent] = useState('');
-    var date = [];
+    var date2 = [];
 
     //input
     const onChangeTitle = useCallback((e)=>{
@@ -19,12 +20,16 @@ export default function AdminExhibitionView(props) {
     }, [])
     const onChangeContent = useCallback((e) => {
         const curr = e.target.value;
+        console.log(curr)
         setContent(curr);
     },[])
     const onChangeDate = useCallback((e) => {
-        date.push(e.target.value);
-        setDate(date);
+        date2.push(e.target.value);
+        setDate(date2);
+        console.log(date2);
     },[])
+
+
 
     //파일
     const handleChange = useCallback((e) => { 
@@ -43,11 +48,11 @@ export default function AdminExhibitionView(props) {
         await formData.append('exhibitionBanner', file);
         const uploader = {     
             exhibitionName: title,
-            exhibitionDate: date[0]+date[1],
-            exhibitionExplain: content,
+            exhibitionDate: date[1] + date[2],
+            exhibitionExplain: content
         };
         const uploaderString = JSON.stringify(uploader);
-        await formData.append('postDTO', new Blob([uploaderString], {type: 'application/json'}));
+        await formData.append('exhibitionDTO', new Blob([uploaderString], {type: 'application/json'}));
         const res = await axios.post(
             `${back}exhibitionWrite`,
             formData,

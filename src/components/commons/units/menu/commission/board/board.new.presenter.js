@@ -3,9 +3,66 @@ import { faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import { Link } from '@material-ui/core'
 import * as C from './board.new.styles'
 import { CKEditor } from 'ckeditor4-react'
+import React, {useCallback, useState, useEffect} from 'react';
+import { useRouter } from 'next/router';
+import axios from 'axios'
 
 
 export default function CommissionBoardNewView(props) {
+
+  
+  const router = useRouter();
+
+  const [artistList, setArtistList] = useState();
+  const [commContent, setCommContent] = useState();
+  const [artistSeq, setArtistSeq] = useState();
+
+  const back = process.env.NEXT_PUBLIC_URI
+
+  // 작가명 get
+  useEffect(() => {
+    axios.get(`${back}artistAllList`)
+      .then((res) => {
+        setArtistList(res.data);
+      })
+  }, [])
+
+  onChange
+  const onChangeContent = useCallback((e) =>{
+    const currContent = e.target.value;
+    setCommContent(currContent);
+  }, [])
+
+  // onSelect
+  const onSelectArtist = (e) => {
+    const currArtist = e.target.value;
+    setArtistSeq(currArtist);
+    console.log(artistSeq)
+  }
+
+  // 취소
+  const onClickCancel = () => {
+    router.push('http://localhost:3000/menu/commission')
+  }
+
+  // 전송
+  const onClickSubmit = () => {
+    const commData = {
+      memberSeq: sessionStorage.getItem('userSeq'),
+      commTitle: '작품 의뢰 합니다.',
+      commContent: commContent,
+      artistSeq: artistSeq,
+    }
+
+    axios.post(`${back}commissionWrite`, commData)
+      .then((res) => {
+        if(res.data == 1) {
+          alert('게시글 등록이 완료되었습니다.')
+          router.push('http://localhost:3000/menu/commission')
+        } else alert('게시물 등록에 실패하였습니다.')
+      })
+
+  }
 
   return (
     <>  
@@ -19,6 +76,7 @@ export default function CommissionBoardNewView(props) {
               <FontAwesomeIcon icon={faArrowLeft}/><C.Span>뒤로가기</C.Span>
               </C.Link> 
           </C.BoardSubTitle>
+          
        </C.BoardBanner>
 
        <C.BoardFormWrapper>
@@ -27,13 +85,11 @@ export default function CommissionBoardNewView(props) {
           <C.Line/>
           <C.InputWrapper>
             <C.Label>작가 선택</C.Label>
-            <C.CommissionDiv>
-              {/* 옵션은 Map으로 구성 예장 */}
-              <option disabled="true" selected="true">전체</option>
-              <option>회화</option>
-              <option>조소</option>
-              <option>건축/공예</option>
-              <option>조각/판화</option>
+            <C.CommissionDiv onChange={onSelectArtist} >
+              <option value={true}>전체</option> 
+              {artistList?.map((el, i) => (
+                <option value={artistList[i].artistSeq}>{artistList[i].artistName}</option>
+              ))}
             </C.CommissionDiv>
           </C.InputWrapper>
           <C.InputWrapper>
@@ -46,6 +102,7 @@ export default function CommissionBoardNewView(props) {
               
               <CKEditor
                 initData=""
+                onChange={onChangeContent}
                 onInstanceReady={ () => {
                 } }
             />
@@ -54,8 +111,8 @@ export default function CommissionBoardNewView(props) {
 
 
           <C.BtnWrapper>
-            <C.CancelBtn>취소</C.CancelBtn>
-            <C.SubmitBtn>작성하기</C.SubmitBtn>
+            <C.CancelBtn onClick={onClickCancel}>취소</C.CancelBtn>
+            <C.SubmitBtn onClick={onClickSubmit}>작성하기</C.SubmitBtn>
           </C.BtnWrapper>
         </C.BoardForm>
        </C.BoardFormWrapper>

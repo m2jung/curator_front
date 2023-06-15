@@ -10,6 +10,7 @@ import Router, { useRouter } from 'next/router'
 import path from 'path'
 
 export default function SignUpView(props) {
+  const back = process.env.NEXT_PUBLIC_URI
 
   // 사용 객체 선언
   const [cookies, setCookie, removeCookie] = useCookies('emailCheckToken');
@@ -79,6 +80,7 @@ export default function SignUpView(props) {
       .match(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/);
   };
 
+  
   //function
   // useEffect = (() => {
   //   console.log('')
@@ -87,7 +89,6 @@ export default function SignUpView(props) {
   //email
   const onClickEmailCheck = (e) => {
     
-    const back = process.env.NEXT_PUBLIC_URI_NAS
     const currEmail = e.target.value;
     // setEmailMsg("이메일을 중복 확인해주세요") 
     console.log(email + domain)

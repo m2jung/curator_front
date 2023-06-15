@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 export default function AdminWorkView(props) {
     
-    const back = process.env.NEXT_PUBLIC_URI_NAS
+    const back = process.env.NEXT_PUBLIC_URI
     const [file, setFile] = useState(null);
     const [title, setTitle] = useState('');
     const [summary, setSummary] = useState('');

@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 1700px;
+    height: 2300px;
     margin: auto;
     padding: 40px;   
 `
@@ -60,7 +60,7 @@ export const Icon = styled.div`
 // 프로필 칼럼
 export const ArtistColumn = styled.div`
     width: 1100px;
-    /* height: 225px; */
+    height: 170px;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
     margin: 0 auto 35px auto;
@@ -70,6 +70,10 @@ export const ArtistColumn = styled.div`
     align-items: center;
     overflow: hidden;
     transition: 0.5s ease-out ; 
+
+    &:hover {
+         height: 700px;
+    }
 `
 
 export const ProfileSection = styled.div`
@@ -88,7 +92,6 @@ export const Line = styled.div`
 export const ProfileImage = styled.div`
     width: 165px;
     height: 165px;
-    background-image: url('/images/imageiu.jpg');
     background-position: center;
     background-size: cover;
     border-radius: 80px;

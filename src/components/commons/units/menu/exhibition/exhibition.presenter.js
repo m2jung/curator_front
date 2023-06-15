@@ -1,8 +1,63 @@
 import LayoutPageNumber from '../../../layout/page-number/page-number.presenter'
 import * as C from './exhibition.styles' 
+import axios from 'axios'
+import Image from 'next/image';
+import React, {useCallback, useState, useEffect} from 'react';
 
 export default function ExhibitionView(props) {
+
+  const back = process.env.NEXT_PUBLIC_URI
+
+  const [image, setImage] = useState();
+  const [data, setData] = useState();
+  let dataArr;
+  const [base, setBase] = useState();
+  const [mapping, setMapping] = useState();
+  var imageArray = [];
  
+  useEffect(() => {
+    axios.get(`${back}exhibitionList`)
+          .then((res) => {
+            let img;
+            let array
+            console.log(res.data)
+            dataArr = res.data
+              for (let i = 0; i < res.data.length; i++) {
+                axios.post(`${back}exhibitionImage`, {"exhibitionBanner": res.data[i].exhibitionBanner}, { headers: { "Content-type": "application/json; charset=UTF-8" }, responseType: 'blob' })
+                .then((response) => {
+                    // console.log(res.data)
+                    const myFile = new File([response.data], dataArr[i].exhibitionBanner);
+                    const reader = new FileReader();
+                    reader.readAsDataURL(myFile);
+                    
+                    reader.onloadend = () => {
+                        // console.log(reader.result)
+                       setBase(reader.result);
+                    array = {
+                      exhibitionSeq: dataArr[i].exhibitionSeq,
+                      exhibitionName: dataArr[i].exhibitionName,
+                      exhibitionDate: dataArr[i].exhibitionDate,
+                      exhibitionExplain: dataArr[i].exhibitionExplain,
+                      exhibitionBanner: reader.result,
+                    }
+                    
+                    imageArray.push(array);
+                    setMapping(imageArray)
+                    // console.log(base64)
+                }
+                    
+
+                })
+                }
+
+        })
+        .catch((error) => {    
+            
+        })
+    }, []) 
+
+    console.log(mapping)
+
   return (
     <>  
         <C.Wrapper>
@@ -14,12 +69,15 @@ export default function ExhibitionView(props) {
          <C.ExhibitionWrapper>
             <C.ExhibitionMenu>오늘의 전시회</C.ExhibitionMenu>
             <C.ExhibitionTitle>[ 코리아 IT 아카데미 ]
-            <C.ExhibitionSubTitle>[ 레플리카 전시 ] 프렌치 살롱, 빛의 화가들 </C.ExhibitionSubTitle>
-            <C.ExhibitionDate>2022.04.01 ~ 05.01</C.ExhibitionDate>
-            <C.ExhibitionBtn>신청하기</C.ExhibitionBtn>
-            <C.ExhibitionBtn>자세히 보기</C.ExhibitionBtn>
+            {mapping?.map((el, i) => (
+              <>
+                <C.ExhibitionSubTitle>{mapping[i].exhibitionName} </C.ExhibitionSubTitle>
+                <C.ExhibitionDate>{mapping[i].exhibitionDate}</C.ExhibitionDate>
+                <p>{mapping[i].exhibitionExplain}</p>
+                <C.ExhibitionImage src={mapping[i].exhibitionBanner} />
+              </>
+            ))}
             </C.ExhibitionTitle>            
-            <C.ExhibitionImage/>
          </C.ExhibitionWrapper>
 
           <C.ExhibitionWrapper>

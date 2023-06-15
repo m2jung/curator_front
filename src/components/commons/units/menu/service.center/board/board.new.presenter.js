@@ -15,7 +15,7 @@ export default function ServiceBoardNewView(props) {
 
   const router = useRouter();
 
-  const back = process.env.NEXT_PUBLIC_URI_NAS
+  const back = process.env.NEXT_PUBLIC_URI
 
   const onChangeCat = (event) => {
     setCat(event.target.value)
@@ -27,8 +27,9 @@ export default function ServiceBoardNewView(props) {
     console.log(title)
   }
 
-  const onChangeContent = (event) => {
-    setContent(event.target.value)
+  const onChangeContent = (e) => {
+    console.log(e)
+    setContent(e.target.value)
     console.log(content)
   }
 
@@ -93,6 +94,7 @@ export default function ServiceBoardNewView(props) {
 
             <CKEditor
                 initData=""
+                onChange={onChangeContent}
                 onInstanceReady={ () => {
                 } }
             />

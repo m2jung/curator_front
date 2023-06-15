@@ -66,6 +66,10 @@ export default function CommissionView(props){
           </C.Message>
         </C.CommissionTableBanner>
 
+
+
+    
+
         <C.CommissionTable>
           <C.Table>
             <thead>
