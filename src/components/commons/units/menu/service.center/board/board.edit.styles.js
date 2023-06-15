@@ -8,10 +8,10 @@ export const Link = styled.a `
     align-items: center;
 `
 
-// 문의하기 
+// 문의하기 수정 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 1200px;
+    height: 1150px;
     margin: auto;
     padding: 40px;   
 `
@@ -21,21 +21,27 @@ export const BoardWrapper = styled.div`
 `
 
 export const BoardBanner = styled.div`
-    width: 1200px;
-    height: 290px;
+    width: 1150px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-top: 2px solid rgba(0,0,0,0.1);
     border-bottom: 2px solid rgba(0,0,0,0.1);
     margin: auto;
-    padding: 30px;
+    padding: 0 30px;
 `
 
 export const BoardTitle = styled.div`
     font-family: serif;
     font-size: 35px;
-    margin: 60px 0;
+    margin: 40px 0;
+`
+
+export const BoardFormTitle = styled.div`
+    font-size: 23px;
+    font-weight: 600;
+    margin: 50px;
 `
 
 export const BoardSubTitle = styled.div`
@@ -48,6 +54,7 @@ export const Span = styled.span`
     font-size: 20px;
     margin-left: 15px;
 `
+
 export const Select = styled.select`
     width: 150px;
     height: 26px;
@@ -74,22 +81,18 @@ export const BoardFormWrapper = styled.form`
     margin: 30px auto;
 `
 
-export const BoardFormTitle = styled.div`
-    font-size: 23px;
-    font-weight: 600;
-    margin: 50px;
-`
 export const InputWrapper = styled.div`
     width: 900px;
     height: 300px;
     display: flex;
     flex-direction: column;
+    
     margin-bottom: 12px;
 `
 export const Label = styled.label`
-    width: 100px;
+    width: 40px;
     font-size: 15px;
-    margin: 5px 10px 8px 0;
+    margin: 5px 0px 8px 0;
 `
 
 export const Line = styled.div`
@@ -100,15 +103,17 @@ export const Line = styled.div`
 
 
 // CommissionWrapper
-export const CommissionDiv = styled.select`
-    width: 160px;
-    height: 22px;   
-`
-export const CommissionTitle = styled.input`
-    height: 23px; 
+export const CommissionSelect = styled.input`
+    height: 30px; 
     background-color: #F4F4F4;
     border: none;
 `
+export const CommissionTitle = styled.input`
+    height: 30px; 
+    background-color: #F4F4F4;
+    border: none;
+`
+
 export const ContentWrapper = styled.div`
     width: 900px;
     height: 300px;

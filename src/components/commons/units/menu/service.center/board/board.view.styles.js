@@ -15,11 +15,10 @@ export const Tr = styled.tr``
 export const TrContent = styled.tr`
     height: 390px;
 `
-  
 
 export const Th = styled.th`
-    width: 110px;
-    height: 27px;
+    width: 120px;
+    height: 35px;
     text-align: center;
     border-radius: 4px;
     background-color: #002F9F;
@@ -28,9 +27,11 @@ export const Th = styled.th`
     font-weight: 500;
 `
 export const Td = styled.td`
-    width: 180px;
+    width: 240px;
     border: 1px solid rgba(0,0,0,0.1);
+    padding-left: 5px;
 `
+
 
 // 문의한 게시글 보기 
 export const Wrapper = styled.div`

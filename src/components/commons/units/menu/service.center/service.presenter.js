@@ -36,10 +36,6 @@ export default function ServiceView(props) {
               serviceArray.push(list);
             }
             setServiceList(serviceArray);
-  
-        // .catch((error) => {
-        //   console.log(error) 
-        // })
 
   }
 

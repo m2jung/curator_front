@@ -22,12 +22,14 @@ export default function ServiceBoardView(props) {
   },[])
 
   const onClickEdit = () => {
-    router.push('http://localhost:3000/menu/service.center/board/edit');
+    router.push(`/menu/service.center/${helpSeq}/edit`);
   }
   const onClickList = () => {
-    router.push('http://localhost:3000/menu/service.center');
+    router.push('/menu/service.center');
   }
+  
 
+  
   return (
     <>  
       <C.Wrapper>
@@ -49,7 +51,7 @@ export default function ServiceBoardView(props) {
             <C.Table>
               <thead>
               <C.Tr>
-                <C.Th>문의 유형</C.Th><C.Td>{helpView?.helpCate}</C.Td><C.Th>작성 날짜</C.Th><C.Td>{helpView?.helpDate}</C.Td>
+                <C.Th>문의 유형</C.Th><C.Td>{helpView?.helpCate}</C.Td><C.Th>작성 날짜</C.Th><C.Td>{new Date(helpView?.helpDate).toLocaleString()}</C.Td>
               </C.Tr>
               <C.Tr>
                 <C.Th>문의 제목</C.Th><C.Td colSpan={3}>{helpView?.helpTitle}</C.Td>
@@ -61,7 +63,7 @@ export default function ServiceBoardView(props) {
               </C.TrContent>
               </tbody>
             </C.Table>
-          </C.InputWrapper>
+          </C.InputWrapper> 
           <C.BtnWrapper>
             <C.ListBtn onClick={onClickList}>목록보기</C.ListBtn>
             <C.EditBtn onClick={onClickEdit}>수정하기</C.EditBtn>
