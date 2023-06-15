@@ -27,9 +27,9 @@ export default function CommissionBoardNewView(props) {
       })
   }, [])
 
-  onChange
   const onChangeContent = useCallback((e) =>{
-    const currContent = e.target.value;
+  console.log(e.editor.getData())
+    const currContent = e.editor.getData();
     setCommContent(currContent);
   }, [])
 
@@ -56,6 +56,7 @@ export default function CommissionBoardNewView(props) {
 
     axios.post(`${back}commissionWrite`, commData)
       .then((res) => {
+        console.log(res.data)
         if(res.data == 1) {
           alert('게시글 등록이 완료되었습니다.')
           router.push('http://localhost:3000/menu/commission')
@@ -88,7 +89,7 @@ export default function CommissionBoardNewView(props) {
             <C.CommissionDiv onChange={onSelectArtist} >
               <option value={true}>전체</option> 
               {artistList?.map((el, i) => (
-                <option value={artistList[i].artistSeq}>{artistList[i].artistName}</option>
+                <option key={i} value={artistList[i].artistSeq}>{artistList[i].artistName}</option>
               ))}
             </C.CommissionDiv>
           </C.InputWrapper>
@@ -101,8 +102,7 @@ export default function CommissionBoardNewView(props) {
             {/* <C.CommissionContent placeholder='작품 의뢰 내용을 입력하세요.'> */}
                        
               <CKEditor
-                initData=""
-                onChange={onChangeContent}
+                onBlur={onChangeContent}
                 onInstanceReady={ () => {
                 } }
             />

@@ -89,7 +89,7 @@ export const Line = styled.div`
     margin: 40px 0 10px;
     border-bottom: 1px dotted rgba(0,0,0,0.2);
 `
-export const ProfileImage = styled.div`
+export const ProfileImage = styled.img`
     width: 165px;
     height: 165px;
     background-position: center;

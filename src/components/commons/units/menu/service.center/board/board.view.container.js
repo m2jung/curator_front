@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ServiceBoardView from './board.presenter'
+import ServiceBoardView from './board.view.presenter'
 
 export default function ServiceBoardViewContainer() {
     
