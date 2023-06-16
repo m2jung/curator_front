@@ -76,7 +76,7 @@ export const ExhibitionBtn = styled.button`
     font-size: 17px;
     margin: 10px; 
 `
-export const ExhibitionImage = styled.div`
+export const ExhibitionImage = styled.img`
     width: 1180px;
     height: 660px;
     background-position: center;
@@ -102,10 +102,9 @@ export const Column = styled.div`
     border-radius: 10px;
     margin: 15px;
 `
-export const ColumnImage = styled.div`
+export const ColumnImage = styled.img`
     width: 100%;
     height: 230px;
-    background-image: url('/images/art01.jpg');
     background-position: center;
     background-size: cover;
 `

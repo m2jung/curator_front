@@ -28,13 +28,13 @@ export default function AdminInfoView(props) {
             <C.MemberTable>
                 <thead>
                 <C.Tr>
-                    <C.Th>회원번호</C.Th><C.Th>이메일</C.Th><C.Th>비밀번호</C.Th><C.Th>닉네임</C.Th><C.Th>이름</C.Th><C.Th>번호</C.Th><C.Th>주소</C.Th><C.Th>회원등급</C.Th><C.Th>가입일자</C.Th>
+                    <C.Th>회원번호</C.Th><C.Th>이메일</C.Th><C.Th>닉네임</C.Th><C.Th>이름</C.Th><C.Th>번호</C.Th><C.Th>주소</C.Th><C.Th>회원등급</C.Th><C.Th>가입일자</C.Th>
                 </C.Tr>
                 </thead>
                 <tbody>
                 {memberList?.map((el,i) => (
                 <C.Tr key={i}>
-                 <C.Td>{el.memberSeq}</C.Td><C.Td>{el.memberEmail}</C.Td><C.Td>{el.memberPw}</C.Td><C.Td>{el.memberNickname}</C.Td><C.Td>{el.memberName}</C.Td><C.Td>{el.memberPhone}</C.Td><C.Td>{el.memberAddr}</C.Td><C.Td>{el.memberGrade}</C.Td><C.Td>{el.memberDate}</C.Td>
+                 <C.Td>{el.memberSeq}</C.Td><C.Td>{el.memberEmail}</C.Td><C.Td>{el.memberNickname}</C.Td><C.Td>{el.memberName}</C.Td><C.Td>{el.memberPhone}</C.Td><C.Td>{el.memberAddr}</C.Td><C.Td>{el.memberGrade}</C.Td><C.Td>{new Date(el.memberDate).toLocaleString()}</C.Td>
                 </C.Tr>                
                 ))}    
                 </tbody>

@@ -31,7 +31,7 @@ export default function AdminCommissionView(props) {
                 <tbody>
                 {commList?.map((el,i) => (
                 <C.Tr key={i}>
-                    <C.Td>{el.commSeq}</C.Td><C.Td>{el.commTitle}</C.Td><C.Td>{el.commContent}</C.Td><C.Td>{el.commDate}</C.Td>
+                    <C.Td>{el.commSeq}</C.Td><C.Td>{el.commTitle}</C.Td><C.Td>{el.commContent}</C.Td><C.Td>{new Date(el.commDate).toLocaleString()}</C.Td>
                 </C.Tr>
                 ))}
                 </tbody>
