@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+ import styled from "@emotion/styled";
 
 // 상품 테이블
 export const Table = styled.table `
@@ -15,7 +15,6 @@ export const Tr = styled.tr`
         color: silver;
         font-weight: 700;
     }
-
     &:nth-child(3){
         color: brown;
         font-weight: 700;
@@ -166,13 +165,14 @@ export const PriceBtn = styled.input `
 
 export const Btn = styled.button`
     &:hover{
-        color: white;
-        background-color: black;
+        color: black;
+        background-color: white;
     }
     width: 170px;
     height: 47px;
     font-size: 17px;
-    background-color: white;
+    color: white;
+    background-color: black;
     
 `
 export const FavoritBtn = styled.div`

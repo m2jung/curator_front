@@ -1,9 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import * as C from './auction.styles'
+import TimerPage from '../../timer'
+
 
 export default function AuctionView(props) {
- 
+
   return (
     <>  
       <C.Wrapper>
@@ -15,7 +17,7 @@ export default function AuctionView(props) {
             <C.WorkInfo>
               <C.WorkNo>No.1234</C.WorkNo>
               <C.WorkColumn>
-              <C.WorkTitle>속초 바다 (2023)</C.WorkTitle>  
+              <C.WorkTitle>속초 바다 (2023)</C.WorkTitle>
               <C.WorkSummary>혼자 속초 바다를 보러 갔다가 영감을 얻어서 그린 그림이다.</C.WorkSummary>
               <C.WorkMemo>
                 <C.WorkSize>크기 : 90.8 X 112.8cm</C.WorkSize>
@@ -46,8 +48,8 @@ export default function AuctionView(props) {
               </C.Table>
             </C.WorkColumn>           
               <C.FavoritBtn>
+                <TimerPage></TimerPage>
                 <C.WorkDate>등록일자 2023.06.05</C.WorkDate>
-                <FontAwesomeIcon icon={faCartShopping} />
               </C.FavoritBtn>
               <C.WorkBtn>
                 <C.PriceBtn placeholder='입찰가를 입력하세요.'/>
