@@ -41,20 +41,27 @@ export default function ArtistView(props) {
       })
   }, [])
 
-  const onClickBook = async (artistSeq, artistName) => {
+  const onClickBook = (artistSeq, artistName) => {
     const book = {
       memberSeq: Number(sessionStorage.getItem('userSeq')),
       artistSeq: artistSeq,
     }
-    setIsBookmark(book)
-    await axios.post(`${back}artistBookmarkGet`, book)
+    setIsBookmark(book);
+
+    bookEdit(artistSeq, artistName);
+   
+  }
+
+  const bookEdit = (artistSeq, artistName) => {
+    axios.post(`${back}artistBookmarkGet`, isBookmark)
     .then((res) => {
       if(res.data == 0) {
         console.log(isBookmark)
-        const book = axios.post(`${back}artistBookmark`, isBookmark)
-        if(book == 1) document.getElementById(artistName).style.color = '#E44C7E'
+        const bookMark = axios.post(`${back}artistBookmark`, isBookmark)
+        document.getElementById(artistName).style.color = '#E44C7E'
       } else  {
-        axios.
+        console.log(isBookmark)
+        axios.delete(`${back}bookmarkDelete`, isBookmark)
         document.getElementById(artistName).style.color = 'gray'
       }
     })
