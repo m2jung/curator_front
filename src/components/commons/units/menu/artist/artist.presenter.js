@@ -53,7 +53,10 @@ export default function ArtistView(props) {
         console.log(isBookmark)
         const book = axios.post(`${back}artistBookmark`, isBookmark)
         if(book == 1) document.getElementById(artistName).style.color = '#E44C7E'
-      } else  document.getElementById(artistName).style.color = 'gray'
+      } else  {
+        axios.
+        document.getElementById(artistName).style.color = 'gray'
+      }
     })
   }
 
