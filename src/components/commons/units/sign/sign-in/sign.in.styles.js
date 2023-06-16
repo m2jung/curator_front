@@ -1,5 +1,11 @@
 import styled from "@emotion/styled";
 
+export const Icon = styled.span`
+    color: tomato;
+    margin-right: 5px;
+`
+
+
 //에러 메세지
 export const EmailError = styled.div`
     color: gray;
@@ -12,14 +18,14 @@ export const PasswordError = styled.div`
 
 // 로그인 
 export const Wrapper = styled.div`
-    width: 100%;
+    width: 1400px;
     height: 700px;
+    margin: 0 auto;
     display: flex;
-    flex-direction: row;
 `
 export const SignInForm = styled.form`
     width: 480px;
-    height: 470px;
+    height: 480px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
     display: flex;
     flex-direction: column;

@@ -52,11 +52,6 @@ export default function ArtistView(props) {
         </C.ArtistBanner>
  
         <C.ArtistWrapper>          
-          <C.ArtistSearch>
-            <C.SearchInput type="input" placeholder='작가를 검색하세요.'></C.SearchInput> 
-            <C.Icon><FontAwesomeIcon icon={faMagnifyingGlass}/></C.Icon>
-          </C.ArtistSearch>
-       
         {mapping?.map((el, i) => ( 
           <C.ArtistColumn key={i}>
            <C.ProfileSection>

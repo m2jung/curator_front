@@ -1,10 +1,18 @@
 import styled from "@emotion/styled";
 
+export const Icon = styled.div`
+    color: green;
+    margin-right: 5px;
+`
+export const IconF = styled.span`
+    color: tomato;
+    margin-right: 5px;
+`
 // Login SignUp
 
 export const Wrapper = styled.div`
     width: 1400px;
-    height: 900px;
+    height: 980px;
     margin: auto;
 `
 export const SignUpForm = styled.form`
@@ -14,12 +22,12 @@ export const SignUpForm = styled.form`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 30px auto;
+    margin: 45px auto;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 `
 export const SignUpTitle = styled.span`
     width: 120px;
-    height: 82px;
+    height: 80px;
     font-size: 22px;        
     margin: auto;
 `
@@ -45,7 +53,7 @@ export const SectionRow = styled.div`
 export const Label = styled.div`
     font-size: 15px;
     margin: 5px 0 10px 0;
-    opacity: 70%;
+    opacity: 75%;
 `    
 export const Email = styled.input`
     width: 195px;
@@ -69,15 +77,19 @@ export const Button = styled.button `
     background-color: white;
 `
 export const EmailCheck = styled.div`
-    width: 235px;
+    width: 455px;
     display: flex;
+    align-items: center;
     margin-left: auto;
+    font-size: 14px;
 `
 export const EmailToken = styled.input`
-    width: 152px;
+    width: 149px;
     height: 20px;
+    margin-left:  auto;;
     padding-left: 4px;
     font-size: 14px;
+    
 `
 export const BtnToken = styled.button`
     width: 73px;
@@ -144,7 +156,7 @@ export const AddrBtn = styled.button`
 `
 
 export const LoginCheck = styled.input`
-    
+    margin-right: 5px;   
 `
 export const SignUpCheck = styled.div`
     display: flex;

@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons"
 import * as C from './sign.in.styles'
 import Link from 'next/link'
 import { Cookies, useCookies } from 'react-cookie'  // cookie 
@@ -10,7 +12,9 @@ import Router, { useRouter } from 'next/router'
 export default function SignInView(props) {
 
   const back = process.env.NEXT_PUBLIC_URI
-  
+  const [iconEmail, setIconEmail] = useState(false);
+  const [iconPw, setIconPw] = useState(false);
+
    // router, cookie 객체
    const router = useRouter();
    const [cookies, setCookie] = useCookies();
@@ -42,8 +46,13 @@ export default function SignInView(props) {
      setEmail(currEmail);
      
      if (!validateEmail(currEmail)) {
-       setEmailMsg("이메일 형식이 올바르지 않습니다.")} 
-     else { setEmailMsg("") }
+       setEmailMsg("이메일 형식이 올바르지 않습니다.")
+       setIconEmail(true);
+      } 
+     else { 
+      setEmailMsg("") 
+      setIconEmail(false)
+      }
      })
      
     const onChangePwd = useCallback((e) =>{
@@ -52,8 +61,10 @@ export default function SignInView(props) {
      
        if (!validatePwd(currPwd)) {
          setPwdMsg("영문, 숫자, 특수기호 조합으로 8자리 이상 입력해주세요.")
+         setIconPw(true);
        } else {
          setPwdMsg("")
+         setIconPw(false)
        }
    }, [])
    // onChange method end
@@ -126,12 +137,12 @@ export default function SignInView(props) {
     <>
       <C.Wrapper>
         <C.SignInForm>
-          <C.SignInTitle>Login</C.SignInTitle>
+          <C.SignInTitle>로그인</C.SignInTitle>
           <C.InputWrapper>
             <C.Email type="text" onChange={onChangeEmail} placeholder="이메일"></C.Email>
-            <C.EmailError>{emailMsg}</C.EmailError>
+            <C.EmailError><C.Icon>{iconEmail? <FontAwesomeIcon icon={faCircleExclamation}/>:<></>}</C.Icon>{emailMsg}</C.EmailError>
             <C.Password type="password" onChange={onChangePwd} placeholder="비밀번호"></C.Password>
-            <C.PasswordError>{pwdMsg}</C.PasswordError>
+            <C.PasswordError><C.Icon>{iconPw? <FontAwesomeIcon icon={faCircleExclamation}/>:<></>}</C.Icon>{pwdMsg}</C.PasswordError>
         
            <C.InputSpan>
             <C.LoginCheck type="checkbox" id="login" name="login"/> 자동 로그인

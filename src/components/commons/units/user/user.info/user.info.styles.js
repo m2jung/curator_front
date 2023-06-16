@@ -1,9 +1,41 @@
 import styled from "@emotion/styled";
 
+//Link
+export const Link = styled.a`
+    &:hover {
+        color: white;
+        background-color: black;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    width: 130px;
+    height: 33px;
+    color: black;
+    font-size: 14px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    background-color: white;
+    margin: 0 10px;
+` 
+
+//Table 
+export const Table = styled.table`
+    width: 770px;
+    height: 180px;
+    border: 1px solid blue;
+    margin: auto;
+`
+export const Tr = styled.tr``
+export const Th = styled.th``
+export const Td = styled.td``
+
+
+
 //회원정보 전체 Wrapper
 export const Wrapper = styled.div`
     width: 1300px;
-    height: 2050px;
+    height: 2200px;
     display: flex;
     margin: 30px;
     padding: 20px;
@@ -11,7 +43,7 @@ export const Wrapper = styled.div`
 `
 export const InfoWrapper= styled.div`
     width: 900px;
-    height: 1800px;
+    height: 2000px;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
     padding: 50px;
@@ -24,8 +56,11 @@ export const Profile = styled.div`
     display: flex;
     padding: 25px 40px 45px;
     border-bottom: 1px solid rgba(0,0,0,0.1);
-`
 
+    &:last-of-type {
+        border: none;
+    }
+`
 
 // 회원정보 수정 
 export const MyProfile = styled.div`
@@ -33,6 +68,7 @@ export const MyProfile = styled.div`
     height: 50px;
     display: flex;
     flex-direction: column;
+
     justify-content: center;
 `
 export const MyName = styled.div`
@@ -40,24 +76,18 @@ export const MyName = styled.div`
     font-size: 17px;
     margin-bottom: 7px;
 `
-export const MyEmail = styled.div`
+export const MyIcon = styled.div`
     display: flex;
     align-items: center;
     color: gray;
-    font-size: 15px;
-    padding:  2px;
-`
-export const MySns = styled.div`
-    display: flex;
-    align-items: center;
-    color: gray;
-    font-size: 15px;
-    margin-right: 5px;
+    font-size: 16px;
+    padding-bottom: 5px;
 `
 
+
 export const BtnModify = styled.button`
-    width: 90px;
-    height: 30px; 
+    width: 110px;
+    height: 35px; 
     margin-left: auto;
     margin-right: 15px;
     background-color: white;
@@ -87,7 +117,7 @@ export const MyPassword = styled.input`
 
 export const PaymentWrapper = styled.div`
     width: 1000px;
-    height: 550px;
+    height: 600px;
 `
 
 export const MembershipTable = styled.div`
@@ -121,7 +151,7 @@ export const Coupon = styled.div``
 
 export const PaymentTable = styled.div`
     width: 100%;
-    height: 200px;
+    height: 300px;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -132,7 +162,7 @@ export const PaymentTable = styled.div`
 
 export const ServiceTable = styled.div`
     width: 100%;
-    height: 200px;
+    height: 330px;
     
     display: flex;
     flex-direction: column;
@@ -257,21 +287,3 @@ export const PaymentMessage = styled.div`
     margin-top: auto;
     color: rgba(0,0,0,0.9);
 `
-export const Link = styled.a`
-    &:hover {
-        color: white;
-        background-color: black;
-    }
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    
-    width: 130px;
-    height: 33px;
-    color: black;
-    font-size: 14px;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    background-color: white;
-    margin: 0 10px;
-` 

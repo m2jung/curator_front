@@ -1,19 +1,23 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
+import { faUser } from "@fortawesome/free-solid-svg-icons"
 import LayoutSideNav from '../../../layout/side-nav/side-nav.presenter'
 import Instagram from '../../../../../../public/icons/instagram.svg'
 import * as C from './user.info.styles'
 import Link from "next/link"
 import { useState, useEffect } from "react"
+import axios from "axios"
 
 export default function UserInfoView(props) {
 
+    const [grade, setGrade] = useState();
     const [nickName, setNickName] = useState();
     const [id, setId] = useState();
 
     useEffect(() => {
         setNickName(sessionStorage.getItem('userNickname'))
         setId(sessionStorage.getItem('userId'))
+        setGrade(sessionStorage.getItem('userGrade'))
     }, [])
 
     return (
@@ -24,11 +28,9 @@ export default function UserInfoView(props) {
             <C.InfoTitle>회원정보</C.InfoTitle>
             <C.Profile>
                 <C.MyProfile>
-                <C.MyName>{nickName}</C.MyName>
-                <C.MyEmail><FontAwesomeIcon icon={faEnvelope}/> {id}</C.MyEmail>                 
-                <C.MySns><Instagram fill='gray' width={19} height={19}/>&nbsp;M2jung2</C.MySns>
+                    <C.MyIcon><FontAwesomeIcon icon={faUser}/>&nbsp;{nickName}</C.MyIcon>
+                    <C.MyIcon><FontAwesomeIcon icon={faEnvelope}/>&nbsp;{id}</C.MyIcon>                 
                 </C.MyProfile>    
-                <C.BtnModify>수정하기</C.BtnModify>
             </C.Profile>
                 <C.InfoTitle>비밀번호 설정</C.InfoTitle>
             <C.Profile>
@@ -44,7 +46,7 @@ export default function UserInfoView(props) {
                 <C.MembershipTable>
                 <C.MembershipInfo>혜택정보</C.MembershipInfo>
                 <C.MembershipLevel>
-                    <C.Level>{nickName}님은 [일반회원] 입니다. </C.Level>
+                    <C.Level>{nickName}님은 [ Lv.{grade} 일반회원 ] 입니다. </C.Level>
                     <C.DottedLine></C.DottedLine>
                     <C.Coupon>적립금 0원&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 예치금 0원</C.Coupon>
                     </C.MembershipLevel>
@@ -59,10 +61,9 @@ export default function UserInfoView(props) {
                         <C.ProductInfo>
                             <C.ProductTitle> 텔레토비 </C.ProductTitle>
                             <C.ProductContent>작가 김세동</C.ProductContent>
-                            <C.ProductPrice>200,000,000 원</C.ProductPrice>
+                            <C.ProductPrice>20,000,000 원</C.ProductPrice>
                         </C.ProductInfo>
                     </C.MyPayColumn1>
-
                     <C.MyPayColumn2>
                         <C.ProductBtn>배송조회</C.ProductBtn>
                         <C.ProductBtn>교환,반품 신청</C.ProductBtn>
@@ -72,22 +73,32 @@ export default function UserInfoView(props) {
 
                 <C.PaymentTable>
                     <C.PaymentColumn>
-                        <C.PaymentMessage>장바구니가 비어있습니다.</C.PaymentMessage>
+                    <C.Table>
+                        <thead>
+                            <C.Tr>
+                            <C.Th></C.Th>
+                            </C.Tr>
+                        </thead>
+                        <tbody>
+                            <C.Tr>
+                            <C.Td></C.Td>
+                            </C.Tr>
+
+                        </tbody>
+                    </C.Table>
                     </C.PaymentColumn>
-                    <C.PaymentColumn>
+                    {/* <C.PaymentColumn>
                         <C.Link href="#">전체상품 주문</C.Link>
                         <C.Link href="#">선택상품 주문</C.Link>
-                    </C.PaymentColumn>
+                    </C.PaymentColumn> */}
                 </C.PaymentTable>
                 </C.PaymentWrapper>
             </C.Profile>
-
-
             <C.InfoTitle>즐겨찾기</C.InfoTitle>
             <C.Profile>
             <C.ServiceTable>
                 <C.PaymentColumn>
-                    <C.PaymentMessage>즐겨찾기 작품이 없습니다.</C.PaymentMessage>    
+                    <C.PaymentMessage>즐겨찾는 작가가 없습니다.</C.PaymentMessage>    
                 </C.PaymentColumn>
                 <C.PaymentColumn>
                     <C.Link href='/menu/genre'>작품 둘러보기</C.Link>
@@ -106,7 +117,7 @@ export default function UserInfoView(props) {
                     <C.Link href='menu/service.center/board/new'>1:1 문의하기</C.Link>
                 </C.PaymentColumn>
             </C.ServiceTable>
-            </C.Profile>
+            </C.Profile >
             </C.InfoWrapper>
         </C.Wrapper>
         </>
