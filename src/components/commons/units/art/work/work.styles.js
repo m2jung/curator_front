@@ -19,7 +19,7 @@ export const WorkWrapper = styled.div`
     padding: 40px;  
     border-top : 2px solid rgba(0,0,0,0.1);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 `
 
 export const WorkSection = styled.div`
@@ -42,13 +42,12 @@ export const WorkImage = styled.div`
 
 export const WorkInfo = styled.div`
     width: 400px;
-    height: 600px;
+    height: 580px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     font-size: 18px;
     padding: 30px;
-    
 `
 
 export const WorkColumn = styled.div`
@@ -74,7 +73,6 @@ export const WorkNo = styled.div`
     background-color: #364D79;
 `
 export const WorkSummary = styled.div`
-    width: 100%;
     color: rgba(0,0,0,0.8);
     font-size: 18px;    
     padding: 25px 10px;
@@ -98,6 +96,7 @@ export const WorkMemo = styled.div`
 
 export const WorkPrice = styled.div`
     height: 75px;
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -124,6 +123,7 @@ export const WorkDate = styled.div`
 
 export const WorkBtn = styled.div`
     width: 100%;
+    margin-top: 40px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -137,13 +137,15 @@ export const PriceBtn = styled.input `
 
 export const Btn = styled.button`
     &:hover{
-        color: white;
-        background-color: black;
+        color: black;
+        background-color: white;
     }
     width: 170px;
     height: 47px;
     font-size: 17px;
-    background-color: white;
+    
+    color: white;
+    background-color: black;
     
 `
 export const WorkContent = styled.div`

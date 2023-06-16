@@ -26,15 +26,15 @@ export default function WorkView(props) {
                 <C.WorkType>작가 : 유미정</C.WorkType>
               </C.WorkMemo>       
               </C.Div>              
-
             </C.WorkColumn>
+
             <C.WorkPrice>
               <C.Price>금액 130,000,000 ₩</C.Price>
               <C.WorkDate>등록일자 2023.06.05</C.WorkDate>
             </C.WorkPrice>    
               <C.WorkBtn>
-              <C.Btn>장바구니 <FontAwesomeIcon icon={faCartShopping} /></C.Btn>
-              <C.Btn>구매하기</C.Btn>
+                <C.Btn>장바구니 <FontAwesomeIcon icon={faCartShopping} /></C.Btn>
+                <C.Btn>구매하기</C.Btn>
              </C.WorkBtn>
             </C.WorkInfo> 
 
