@@ -1,4 +1,7 @@
 import * as C from './sign.up.styles'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons"
+import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons"
 import Link from 'next/link'
 import React, { useState, useCallback, useEffect } from 'react'
 import axios from 'axios'
@@ -11,6 +14,8 @@ import path from 'path'
 
 export default function SignUpView(props) {
   const back = process.env.NEXT_PUBLIC_URI
+  const [icon, setIcon] = useState(false); 
+  const [iconF, setIconF] = useState(false); 
 
   // 사용 객체 선언
   const [cookies, setCookie, removeCookie] = useCookies('emailCheckToken');
@@ -88,7 +93,8 @@ export default function SignUpView(props) {
 
   //email
   const onClickEmailCheck = (e) => {
-    
+    setIcon(false);
+    setIconF(false);
     const currEmail = e.target.value;
     // setEmailMsg("이메일을 중복 확인해주세요") 
     console.log(email + domain)
@@ -103,8 +109,10 @@ export default function SignUpView(props) {
           console.log(res.data)
           if (res.data == 1) {
             setEmailMsg("사용중인 이메일 주소입니다.")
+            setIconF(true);
           } else if (res.data == 0){
             setEmailMsg("사용 가능한 이메일 주소입니다.")
+            setIcon(true);
             setEmailCheck("check");
             axios.get(`${back}registerCode?insertEmail=${insertEmail}`)
               .then(function(res) {
@@ -284,11 +292,12 @@ const onChangeTel3 = useCallback((e) => {
                 <option value={"gmail.com"}>gmail.com</option>
               </C.Domain>
               <C.Button onClick={onClickEmailCheck}>중복확인</C.Button>
-              <C.EmailCheck>
+              <C.EmailCheck><C.IconF>{iconF? <FontAwesomeIcon icon={faCircleExclamation}/>:<></>}</C.IconF><C.Icon>{icon? <FontAwesomeIcon icon={faCircleCheck}/>:<></>}</C.Icon>
               {emailMsg}
               {
                 curr_cookie.get('checkTime') ?
                 <><C.EmailToken type='text' placeholder="인증번호 입력" onChange={onChangeToken} ></C.EmailToken><C.BtnToken type='button' onClick={onClickTokenCheck}>인증완료</C.BtnToken></>   
+                
                 : <p></p>
               } 
               </C.EmailCheck>
