@@ -30,16 +30,16 @@ export default function ArtistView(props) {
   }, [])
   
   
-  //   const bookmark = async() => {
-  //     const book = {
-  //       memberSeq: sessionStorage.getItem('userSeq')
-  //       artistSeq: 
-  //     }
-  //     axios.post('http://localhost:8080/artistBookmarkNum', )
-  //   }
-  // }, [])
+    const bookmark = async() => {
+      const book = {
+        memberSeq: sessionStorage.getItem('userSeq')
+        artistSeq: 
+      }
+      axios.post('http://localhost:8080/artistBookmarkNum', )
+    }
+  }, [])
   
-    // const onClickIcon = () => {}
+    const onClickIcon = () => {}
       
     console.log(mapping);
 
