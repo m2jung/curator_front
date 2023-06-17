@@ -67,7 +67,6 @@ console.log(serviceArray)
           <C.ServiceSubTitle>Service Center</C.ServiceSubTitle>
         </C.ServiceBanner>
 
-        <C.ServiceBtn>
         {/* 구현예정..? */}
         <C.Select>
             <option value={true}>전체</option>
@@ -77,19 +76,16 @@ console.log(serviceArray)
             <option>상품/배송</option>
             <option>기타</option>
         </C.Select>
-          <C.Btn>
-            <C.Link href="#">자주 묻는 질문</C.Link>
-            <C.Link href="/menu/service.center/new">1:1 문의하기</C.Link>
-          </C.Btn>
+        <C.ServiceBtn>
+          <C.Btn><C.LinkBtn href="#">자주 묻는 질문</C.LinkBtn></C.Btn>
+          <C.Btn><C.LinkBtn href="/menu/service.center/new">1:1 문의하기</C.LinkBtn></C.Btn>
         </C.ServiceBtn>
-          {/* Icon 클릭시 밑으로 상세 문의 내용 창이 주르륵 내려옴  */}
-          {/* tabel,tr,td..사용으로 콘솔에 에러창 뜸 수정하기 */}
         <C.ServiceTable>
           <C.Table>
             <tbody>
             {serviceList?.map((el, i) => (
             <C.Tr>
-              <C.Div>경매</C.Div><C.Title><Link href={`http://localhost:3000/menu/service.center/${el.helpSeq}`}>{el.helpTitle}</Link></C.Title><C.Icon><FontAwesomeIcon icon={faCaretDown} size="lg"/></C.Icon>
+              <C.Div>경매</C.Div><C.Link href={`http://localhost:3000/menu/service.center/${el.helpSeq}`}><C.Title>{el.helpTitle}</C.Title><C.Icon><FontAwesomeIcon icon={faCaretDown} size="lg"/></C.Icon></C.Link>
             </C.Tr>
             ))}
             </tbody>

@@ -1,8 +1,19 @@
 import * as C from './artist.admin.styles'
 import LayoutSideNavAdmin from '../../../../layout/side-nav-admin/side-nav-admin.presenter'
-
+import { useState, useEffect } from 'react';
+import axios from 'axios'
 
 export default function AdminArtistView(props) {
+
+    const [artistList, setArtistList] = useState();
+    const back = process.env.NEXT_PUBLIC_URI
+
+    useEffect(() => {
+        axios.get(`${back}artistAllList`)
+        .then((res) => {
+            setArtistList(res.data);
+        })
+    },[])
 
     return (
         <>
@@ -17,12 +28,11 @@ export default function AdminArtistView(props) {
                 </C.Tr>
                 </thead>
                 <tbody>
-                <C.Tr>
-                    <C.Td><C.CheckBox type="checkbox"/></C.Td><C.Td>유미정</C.Td><C.Td>M2jung</C.Td><C.Td>1000</C.Td>
+                {artistList?.map((el,i) => (
+                <C.Tr key={i}>
+                    <C.Td><C.CheckBox type="checkbox"/></C.Td><C.Td>{el.artistName}</C.Td><C.Td>{el.artistSns}</C.Td><C.Td>{el.artistHit}</C.Td>
                 </C.Tr>
-                <C.Tr>
-                    <C.Td><C.CheckBox type="checkbox"/></C.Td><C.Td>이주호</C.Td><C.Td>orot</C.Td><C.Td>700</C.Td>
-                </C.Tr>
+                ))}
                 </tbody>
             </C.ArtistTable>
             <C.ArtistBtn>

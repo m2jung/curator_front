@@ -77,7 +77,7 @@ export const Message = styled.div`
 
 // 게시판 
 export const CommissionTable = styled.div`
-    width: 1200px;
+    width: 1150px;
     height: 310px;
     margin-top: 20px;
     border-radius: 20px;
@@ -85,19 +85,12 @@ export const CommissionTable = styled.div`
     padding: 35px;
 `
 export const Table = styled.table`
-    width: 1200px;
-    height: 230px;
+    width: 1150px;
+    height: 230px;   
 `
-
 export const Tr = styled.tr`
     text-align: center;
     border: 1px solid rgba(0,0,0,0.1);
-
-    /* &:nth-child(2) {
-        color: brown;
-        font-weight: 600;
-    } */
-    
 `
 export const Th = styled.th `
     height: 36px;
@@ -121,20 +114,27 @@ export const Date = styled.td `
     border-bottom: 1px solid rgba(0,0,0,0.1);
     width: 120px;
 `
-export const CommissionBtn = styled.div`
-    
-`
-export const Link= styled.a`
+export const CommissionBtn = styled.div``
+
+export const Btn = styled.button `
     width: 140px;
-    height: 37px;
+    height: 40px;
+    font-size: 15px;
     margin: 50px 0 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    
     background-color: black;
     text-align: center;
     text-decoration: none;
     color: white; 
+
+    &:hover {
+        color: black;
+        background-color: white;
+    }
+`
+export const Link= styled.a`
+    text-decoration: none;
 `
 

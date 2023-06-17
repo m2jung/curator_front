@@ -17,7 +17,7 @@ export const ArtistBanner = styled.div`
     border-top: 2px solid rgba(0,0,0,0.1);
     border-bottom: 2px solid rgba(0,0,0,0.1);
     padding: 20px;
-    margin: auto;
+    margin: auto auto 50px;
 `
 export const ArtistTitle = styled.div`
     font-family: serif;
@@ -237,31 +237,4 @@ export const WorkTitle = styled.div`
     justify-content: center;
     align-items: flex-end;
 `
-// export const ProfileBtn = styled.button`
-//     width: 125px;
-//     height: 40px;
-//     margin-left: 550px;
-//     font-size: 15px;
-//     font-weight: 600;
-//     color: rgba(0,0,0,0.8);
-//     border: none;
-//     border-radius: 10px;
-//     background-color: #FF7932;
-//     color: white;
-//     cursor: pointer;
-// `
-// export const WorkBtn = styled.button`
-//     width: 125px;
-//     height: 140px;
-//     font-size: 15px;
-//     font-weight: 600;
-//     color: rgba(0,0,0,0.8);
-//     margin: auto 50px 5px  auto; 
-//     border: none;
-//     border-radius: 10px;
-//     background-color: #FF7932;
-//     color: white;
-    
-//     cursor: pointer;
-// `
 
