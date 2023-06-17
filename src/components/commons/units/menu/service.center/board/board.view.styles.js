@@ -89,7 +89,7 @@ export const Select = styled.select`
 
 export const BoardForm = styled.form`
     width: 900px;
-    height: 400px;
+    height: 680px;
     display: flex;
     flex-direction: column;
     align-items: center;

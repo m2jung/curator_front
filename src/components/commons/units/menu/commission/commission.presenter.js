@@ -66,10 +66,6 @@ export default function CommissionView(props){
           </C.Message>
         </C.CommissionTableBanner>
 
-
-
-    
-
         <C.CommissionTable>
           <C.Table>
             <thead>
@@ -83,12 +79,12 @@ export default function CommissionView(props){
               </C.Tr>
             {commissionList?.map((el, i) => (
               <C.Tr key={el.commSeq}>
-                <C.No>{el.commSeq}</C.No><C.Title><Link href={`http://localhost:3000/menu/commission/${el.commSeq}`}>{el.commTitle}</Link></C.Title><C.Writer>{el.commName}</C.Writer><C.Date>{el.commDate}</C.Date>
+                <C.No>{el.commSeq}</C.No><C.Title><C.Link href={`http://localhost:3000/menu/commission/${el.commSeq}`}>{el.commTitle}</C.Link></C.Title><C.Writer>{el.commName}</C.Writer><C.Date>{el.commDate}</C.Date>
               </C.Tr>    
               ))} 
               </tbody>
             </C.Table>
-          <C.Link onClick={onClickNew}>게시글 작성하기</C.Link>
+          <C.Link onClick={onClickNew}><C.Btn>게시글 작성하기</C.Btn></C.Link>
         </C.CommissionTable>
       <LayoutPageNumber/>
       </C.Wrapper>

@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 // 메뉴 - 고객센터 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 1100px;
+    height: 1200px;
     margin: auto;
     padding: 30px;   
 `
@@ -38,66 +38,78 @@ export const ServiceSubTitle = styled.div`
 `
 
 export const ServiceBtn = styled.div`
-    width: 1200px;
-    height: 50px;
+    width: 270px;
+    height: 60px;
     display: flex;
-    justify-content: space-between;
+    margin-left: auto;
     align-items: center;
-    margin: 20px  auto;
+    justify-content: space-between;
 `
-export const Btn = styled.div`
-      display: flex;
-`
-export const Link = styled.a`
+export const Btn = styled.button`
+    background-color: black;
+    color: white;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 35px;
+    `
+    
+export const LinkBtn = styled.a `
+    display: flex;
+    font-size: 18px;    
     justify-content: center;
     align-items: center;
-    margin-right: 20px;
-    
-    width: 130px;
-    height: 40px;
-
     text-decoration: none;
-    font-size: 16px;    
     color: white;
-    background-color: black;
+`
+
+export const Link = styled.a`
+    text-decoration: none;
 `
 
 export const Select = styled.select`
     width: 150px;
     height: 30px;
-    margin: 15px;
+    margin: 15px 5px 0;
     font-size: 15px;
-
 `
-export const ServiceTable = styled.table`
-    width: 1200px;
-    height: 520px;
-    display: flex;
-    font-size: 18px;
-    color: rgba(0,0,0,0.9);
-    margin-top: 10px;
-`
-export const Table = styled.table`
+export const ServiceTable = styled.div`
+    width: 1130px;
+    height: 580px;
+    margin-top: 20px;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
-    padding: 35px;
+    padding: 40px;
+`
+export const Table = styled.table`
+    height: 450px;   
 `
 export const Tr = styled.tr `
-    height: 30px;
+    border: 1px solid rgba(0,0,0,0.1);
+    height: 40px;
 `
 export const Div = styled.td `
-    font-size: 16px;
-    font-weight: bold;
-    width: 130px;
+    width: 75px;
     color:  #FF7932;
+    border: 2px solid #FF8832;
+    font-size: 17px;
+    font-weight: 700;
+    border-radius: 13px;
+    text-align: center;
 `
 export const Title = styled.td `
     font-weight: 500;
-    width: 1200px;
+    font-size: 19px;
+    width: 1000px;
+    height: 30px;
+    padding-left: 10px;
+    line-height: 40px;
 `
+
 export const Icon = styled.td`
     cursor: pointer;
     text-align: end;
     color: #364D79;
+    font-size: 20px;
 `

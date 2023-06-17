@@ -23,14 +23,19 @@ export const Link = styled.a`
 export const Table = styled.table`
     width: 770px;
     height: 180px;
-    border: 1px solid blue;
     margin: auto;
+    text-align: center;
 `
 export const Tr = styled.tr``
-export const Th = styled.th``
+export const Th = styled.th`
+    padding: 10px;
+`
 export const Td = styled.td``
 
-
+//Button 
+export const Btn = styled.div`
+border: 1px solid blue;
+`
 
 //회원정보 전체 Wrapper
 export const Wrapper = styled.div`
@@ -281,7 +286,6 @@ export const Menu = styled.div`
         color: black;
     }   
 `
-
 export const PaymentMessage = styled.div`
     font-size: 15px;
     margin-top: auto;
