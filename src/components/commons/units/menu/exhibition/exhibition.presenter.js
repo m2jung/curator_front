@@ -53,7 +53,7 @@ export default function ExhibitionView(props) {
             </C.ExhibitionTitle> 
               <C.ExhibitionColumn>
               {list?.map((el, i) => (
-               <C.Column key={el.postSeq}>
+               <C.Column key={i}>
                 <C.ColumnImage src={el.postImageName}/>
                 <C.ColumnInfo>
                  <C.ColumnTitle>{el.postTitle}</C.ColumnTitle>

@@ -83,7 +83,7 @@ export const GenreColumn = styled.a`
     text-decoration: none;
     color: black;
 `
-export const ColumnImage = styled.div`
+export const ColumnImage = styled.img`
     &:hover {
         opacity: 0.7;
         transition: 0.2s ease-in-out; 
@@ -100,14 +100,13 @@ export const ColumnImage = styled.div`
 
 
 export const ColumnInfo = styled.div`
-    &:hover {
+    /* &:hover {
         z-index: 1;
         opacity: 1;
         transition: 0.2s ease-in-out;
-    }
+    } */
     width: 100%;
     height: 100%;
-    opacity: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;

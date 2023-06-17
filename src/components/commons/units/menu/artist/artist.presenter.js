@@ -67,8 +67,6 @@ export default function ArtistView(props) {
     })
   }
 
-  
-
       
     console.log(mapping);
 
