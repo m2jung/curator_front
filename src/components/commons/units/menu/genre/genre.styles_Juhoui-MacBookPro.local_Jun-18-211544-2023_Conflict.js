@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: auto;
+    height: 1500px;
     margin: auto;
     padding: 40px;   
 `
@@ -70,15 +70,12 @@ export const Genre = styled.button`
 
 // =================
 export const GenreWrapper = styled.div`
-    width: 1200px;
-    height: auto;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     margin-top: 30px;
 `
 
-export const GenreColumn = styled.div`
+export const GenreColumn = styled.a`
     width: 270px;
     height: 390px;
     box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
@@ -88,7 +85,7 @@ export const GenreColumn = styled.div`
 `
 export const ColumnImage = styled.img`
     &:hover {
-        opacity: 0.2;
+        opacity: 0.7;
         transition: 0.2s ease-in-out; 
     }
     width: 100%;
@@ -103,11 +100,11 @@ export const ColumnImage = styled.img`
 
 
 export const ColumnInfo = styled.div`
-    &:hover {
+    /* &:hover {
         z-index: 1;
         opacity: 1;
         transition: 0.2s ease-in-out;
-    }
+    } */
     width: 100%;
     height: 100%;
     display: flex;
