@@ -1,35 +1,58 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import * as C from './work.styles'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 export default function WorkView(props) {
- 
+
+  const back = process.env.NEXT_PUBLIC_URI
+  const router = useRouter();
+  const [content, setContent] = useState();
+  const [artist, setArtist] = useState();
+  const [postSeq, setPostSeq] = useState(router.query.art);
+  console.log(router.query.art)
+
+  useEffect( async () => {
+    const back = process.env.NEXT_PUBLIC_URI
+    await axios.get(`${back}postView?postSeq=${postSeq}`)
+    .then((res) => {
+      setContent(res.data);
+      axios.get(`${back}artistInform?artistSeq=${res.data.artistSeq}`)
+      .then((res) => {
+        setArtist(res.data); 
+      })
+    })
+    
+  }, [])
+
   return (
     <>  
       <C.Wrapper>
         <C.WorkWrapper>
           <C.WorkSection>
-            <C.WorkImage/>
+            <C.WorkImage src={content?.postImageName}/>
           </C.WorkSection>
           <C.WorkSection>  
             <C.WorkInfo>
               <C.WorkNo>No.1234</C.WorkNo>
               <C.WorkColumn>
-              <C.WorkTitle>속초 바다 (2023)</C.WorkTitle>  
-              <C.WorkSummary>혼자 속초 바다를 보러 갔다가 영감을 얻어서 그린 그림이다.</C.WorkSummary>
+              <C.WorkTitle>{content?.postTitle}</C.WorkTitle>  
+              <C.WorkSummary>{content?.postSummary}</C.WorkSummary>
               <C.Div>
               <C.WorkMemo>
                 <C.WorkSize>크기 : 90.8 X 112.8cm</C.WorkSize>
                 <C.WorkType>종류 : Acrylic</C.WorkType>
               </C.WorkMemo>
               <C.WorkMemo>
-                <C.WorkType>작가 : 유미정</C.WorkType>
+                <C.WorkType>작가 : {artist?.artistName}</C.WorkType>
               </C.WorkMemo>       
               </C.Div>              
             </C.WorkColumn>
 
             <C.WorkPrice>
-              <C.Price>금액 130,000,000 ₩</C.Price>
+              <C.Price>금액 {content?.postPrice} ₩</C.Price>
               <C.WorkDate>등록일자 2023.06.05</C.WorkDate>
             </C.WorkPrice>    
               <C.WorkBtn>
@@ -53,8 +76,8 @@ export default function WorkView(props) {
          <C.WorkArticle>
           <C.WorkArticleTitle> 이 작품에 대하여.. </C.WorkArticleTitle>
           <C.Quality>
-            <b>작품명 : </b>속초바다 <br/>
-            <b>작가명 :</b> 유미정 <br/>
+            <b>작품명 : </b>{content?.postTitle} <br/>
+            <b>작가명 : </b> {artist?.artistName} <br/>
             <b>제작연도 :</b> 2023 <br/>
             <b>크기 :</b> 90.8 X 112.8cm <br/>
             <b>종류 :</b> Acrylic <br/>

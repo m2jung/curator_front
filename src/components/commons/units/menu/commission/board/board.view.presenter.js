@@ -5,33 +5,18 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export default function CommissionBoardView(props) {
+export default function CommissionBoardView() {
 
   const router = useRouter();
   const [commissionView, setCommView] = useState();
   const back = process.env.NEXT_PUBLIC_URI
   const [commSeq, setCommSeq]  = useState(router.query.board);
   
-  useEffect(async() => {
+  useEffect(() => {
     const back = process.env.NEXT_PUBLIC_URI
-    await axios.get(`${back}commissionView?commSeq=${commSeq}`)
-    .then((res)=>{
-      const list = {
-        commSeq : res.data.commSeq,
-        commTitle : res.data.commTitle,
-        commDate : getToday(res.data.commData),
-        commContent : res.data.commContent,
-      }
-
-      function getToday(day){
-        var date = new Date(day);
-        var year = date.getFullYear();
-        var month = ("0" + (1 + date.getMonth())).slice(-2);
-        var day = ("0" + date.getDate()).slice(-2);
-    
-        return year + "-" + month + "-" + day;
-      }
-      setCommView(res.data);
+    axios.get(`${back}commissionView?commSeq=${commSeq}`)
+      .then((res)=>{
+        setCommView(res.data);
     })
   },[])
 
@@ -80,7 +65,6 @@ export default function CommissionBoardView(props) {
           </C.BtnWrapper>
         </C.BoardForm>
        </C.BoardFormWrapper>
-
        </C.BoardWrapper>
       </C.Wrapper>
     </>

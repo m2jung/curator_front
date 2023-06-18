@@ -64,11 +64,10 @@ export const WorkSection = styled.div`
     align-items: flex-end;
 `
 
-export const WorkImage = styled.div`
+export const WorkImage = styled.img`
     width: 510px;
     height: 580px;
     align-content: flex-end;
-    background-image: url('/images/art03.jpeg');
     background-position: center;
     background-size: cover;
 `
@@ -175,7 +174,7 @@ export const Btn = styled.button`
     background-color: black;
     
 `
-export const FavoritBtn = styled.div`
+export const FavoriteBtn = styled.div`
     display: flex;
     padding: 15px;
     justify-content: space-between;   

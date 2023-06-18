@@ -26,7 +26,7 @@ export default function CommissionView(props){
         for(let i = 0; i < res.data.length; i++) {
            const response = await axios.get(`${back}getName?seq=${res.data[i].memberSeq}`)
               list = { 
-                commSeq: res.data[i].commSeq,
+                commSeq: Number(res.data[i].commSeq),
                 commName: response.data,
                 commTitle: res.data[i].commTitle,
                 commDate: getToday(res.data[i].commDate),
@@ -48,6 +48,10 @@ export default function CommissionView(props){
     var day = ("0" + date.getDate()).slice(-2);
 
     return year + "-" + month + "-" + day;
+}
+
+const onClickMove = (commSeq) => {
+  router.push(`http://localhost:3000/menu/commission/${commSeq}`)
 }
 
 
@@ -79,7 +83,7 @@ export default function CommissionView(props){
               </C.Tr>
             {commissionList?.map((el, i) => (
               <C.Tr key={el.commSeq}>
-                <C.No>{el.commSeq}</C.No><C.Title><C.Link href={`http://localhost:3000/menu/commission/${el.commSeq}`}>{el.commTitle}</C.Link></C.Title><C.Writer>{el.commName}</C.Writer><C.Date>{el.commDate}</C.Date>
+                <C.No>{el.commSeq}</C.No><C.Title onClick={() => onClickMove((el.commSeq))}>{el.commTitle}</C.Title><C.Writer>{el.commName}</C.Writer><C.Date>{el.commDate}</C.Date>
               </C.Tr>    
               ))} 
               </tbody>
