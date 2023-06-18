@@ -9,22 +9,27 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 
 export default function UserInfoView(props) {
-
     // 회원정보 
     const [grade, setGrade] = useState();
     const [nickName, setNickName] = useState();
     const [id, setId] = useState();
     const [seq, setSeq] = useState();
     const back = process.env.NEXT_PUBLIC_URI
-
+    
     useEffect(() => {
         setNickName(sessionStorage.getItem('userNickname'))
         setId(sessionStorage.getItem('userId'))
         setGrade(sessionStorage.getItem('userGrade'))
         setSeq(sessionStorage.getItem('userSeq'))
     }, [])
-
+    
+    
     // 장바구니 
+    const [img, setImg] = useState('./images/column1.png');
+    const onClickImg = (image) => {
+        setImg(image)
+    }
+
     const [cartList, setCartList] = useState();
     useEffect(() => {
         axios.get(`${back}cartList?memberSeq=${seq}`)
@@ -34,14 +39,15 @@ export default function UserInfoView(props) {
     },[])
 
     // 즐겨찾기 
-    const [artistTop, setArtistTop] = useState();
-    useEffect(() => {
-        axios.get(`${back}artistTop?markSeq=${seq}`)
-        .then((res) => {
-            setCartList(res.data);
-        })
-    },[])
-
+    // const [bookmarkArtistList, setBookmarkArtistList] = useState();
+    // useEffect(() => {
+    //     axios.get(`${back}bookmarkArtistList?memberSeq=${seq}`)
+    //     .then((res) => {
+    //         setCartList(res.data);
+            
+    //     })
+    // },[])    
+    
     // 나의 문의
     const [helpList, setHelpList] = useState();
     useEffect(() => {
@@ -102,24 +108,18 @@ export default function UserInfoView(props) {
                 </C.MyPayTable>
                 <C.PaymentTable>
                     <C.Table>
-                        {/* 장바구니 */}
+                    {/* 장바구니 */}
                     <thead> 
                         <C.Tr>
-                            <C.Th>제목</C.Th><C.Th>내용</C.Th><C.Th>작성날짜</C.Th>
-                        </C.Tr>
+                            <C.Th>이미지</C.Th><C.Th>상품정보</C.Th><C.Th>금액</C.Th>
+                        </C.Tr>                
                     </thead>
                     <tbody>
-                        {artistTop?.map((el,i) => (
-                        <C.Tr key={i}>
-                            <C.Td>{el.artist}</C.Td><C.Td>{el.helpContent}</C.Td><C.Td>{new Date(el.helpDate).toLocaleString()}</C.Td>
-                        </C.Tr>
-                        ))}    
+                        <C.Tr>
+                            <C.Td><C.ProductImage></C.ProductImage></C.Td><C.Td>상품정보ㅏㅏㅏㅏㅏ</C.Td><C.Td>200,000,000</C.Td>
+                        </C.Tr>   
                     </tbody>
                     </C.Table>
-                    {/* <C.PaymentColumn>
-                        <C.Link href="#">전체상품 주문</C.Link>
-                        <C.Link href="#">선택상품 주문</C.Link>
-                    </C.PaymentColumn> */}
                 </C.PaymentTable>
                 </C.PaymentWrapper>
             </C.Profile>
@@ -133,17 +133,13 @@ export default function UserInfoView(props) {
                         </C.Tr>
                     </thead>
                     <tbody>
-                        {artistTop?.map((el,i) => (
-                        <C.Tr key={i}>
-                            <C.Td>{el.artist}</C.Td><C.Td>{el.helpContent}</C.Td><C.Td>{new Date(el.helpDate).toLocaleString()}</C.Td>
+                        <C.Tr>
+                            <C.Td></C.Td><C.Td></C.Td><C.Td></C.Td>
                         </C.Tr>
-                        ))}    
                     </tbody>
                     </C.Table>
             </C.ServiceTable>
             </C.Profile>
-
-
             <C.InfoTitle>나의문의</C.InfoTitle>
             <C.Profile>       
             <C.ServiceTable>
@@ -164,10 +160,6 @@ export default function UserInfoView(props) {
                     </C.Table>
                 </C.PaymentColumn>
             </C.ServiceTable>
-            {/* <C.Btn>
-                <C.Link href='menu/service.center/board/new'>1:1 문의하기</C.Link>
-            </C.Btn> */}
-            
             </C.Profile >
             </C.InfoWrapper>
         </C.Wrapper>

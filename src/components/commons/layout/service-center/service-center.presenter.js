@@ -15,5 +15,4 @@ export default function LayoutServiceCenter(props) {
       </C.ServiceCenter>
     </>
   )
-
 }

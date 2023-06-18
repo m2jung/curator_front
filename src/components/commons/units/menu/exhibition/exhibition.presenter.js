@@ -34,8 +34,7 @@ export default function ExhibitionView(props) {
          <C.ExhibitionBanner>
             <C.BannerTitle>전시회 정보 </C.BannerTitle>
             <C.BannerSubTitle>Exhibition</C.BannerSubTitle>
-         </C.ExhibitionBanner>
-         
+         </C.ExhibitionBanner> 
          <C.ExhibitionWrapper>
             <C.ExhibitionMenu>오늘의 전시회</C.ExhibitionMenu>
             <C.ExhibitionTitle>[ 코리아 IT 아카데미 ]
