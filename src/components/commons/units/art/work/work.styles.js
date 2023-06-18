@@ -31,7 +31,7 @@ export const WorkSection = styled.div`
     align-items: flex-end;
 `
 
-export const WorkImage = styled.div`
+export const WorkImage = styled.img`
     width: 510px;
     height: 580px;
     align-content: flex-end;

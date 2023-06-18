@@ -3,6 +3,8 @@ import axios from 'axios';
 import LayoutPageNumber from '../../../layout/page-number/page-number.presenter'
 import * as C from './genre.styles'
 import { useCallback } from 'react';
+import { isAbsolute, relative } from 'path';
+import { useRouter } from 'next/router';
 
 export default function GenreView(props) {
 
@@ -10,8 +12,9 @@ export default function GenreView(props) {
 
    const [genreList, setGenreList] = useState();
    const [postList, setPostList] = useState();
-   const [mapping, setMapping] = useState();
+   const [mapping, setMapping] = useState([]);
    const [file, setFile] = useState();
+   const router = useRouter();
    var imageArray = [];
    var array;
    var dataArr; 
@@ -38,29 +41,18 @@ export default function GenreView(props) {
       })
    }
  
-   const onClickPost = (genreSeq) => {  
-      axios.get(`${back}genreView?genreSeq=${genreSeq}`)
+   const onClickPost = async (genreSeq) => {  
+      await axios.get(`${back}genreView?genreSeq=${genreSeq}`)
       .then((res) => {
-        let img;
-        let array
-        console.log(res.data)
-        dataArr = res.data
-          for (let i = 0; i < res.data.length; i++) {
-           axios.post(`${back}genrePostImageName`, {"postImageName": res.data[i].postImageName}, { headers: { "Content-type": "application/json; charset=UTF-8" }, responseType: 'blob' })
-            .then((response) => {       
-               setMapping(imageArray)
-            })
-            .catch((error) => {    
-               
-            })
-         }         
+         setMapping(res.data)
       })
    }
 
-   
-   
+   const onClickContent = async (postAuction, postSeq) => {
+      router.push(`/content/${postAuction}/${postSeq}`)
+   }
 
-  return (
+  return ( 
     <>   
         <C.Wrapper>
          <C.GenreBanner>
@@ -83,9 +75,9 @@ export default function GenreView(props) {
             </C.GenreSelect> 
          <C.GenreWrapper> 
          {mapping?.map((el, i) => (
-            <C.GenreColumn key={el.postSeq} href="/art/work">
-               <div>
-                  <C.ColumnImage src={el.postImageName} fill={true} /> 
+            <C.GenreColumn key={el.postSeq} onClick={() => onClickContent(el.postAuction, el.postSeq)}>
+               <div style={{position: 'relative', height: '389px'}}>
+                  <C.ColumnImage src={el.postImageName} style={{position: 'absolute'}} fill={true} />
                      <C.ColumnInfo>
                         <C.ColumnTitle>{el.postTitle}</C.ColumnTitle>
                         <C.ColumnContent>{el.postSummary}</C.ColumnContent>

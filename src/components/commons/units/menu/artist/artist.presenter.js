@@ -15,6 +15,7 @@ export default function ArtistView(props) {
   const [mapping, setMapping] = useState();
   const [name, setName] = useState();
   const [isBookmark, setIsBookmark] = useState();
+  const [color, setColor] = useState();
   let dataArr;
 
   useEffect(() => {
@@ -32,11 +33,13 @@ export default function ArtistView(props) {
       memberSeq: Number(sessionStorage.getItem('userSeq')),
       artistSeq: artistSeq,
     }
+    console.log(book)
     axios.post(`${back}artistBookmarkGet`, book)
       .then((res) => {
         console.log(res.data)
         if(res.data > 0) {
-          document.getElementById(artistName).style.color = '#E44C7E'
+          setColor('#E44C7E')
+          document.getElementById(artistName).style.color = color
         }
       })
   }, [])
@@ -47,27 +50,27 @@ export default function ArtistView(props) {
       artistSeq: artistSeq,
     }
     setIsBookmark(book);
-
-    bookEdit(artistSeq, artistName);
-   
-  }
-
-  const bookEdit = (artistSeq, artistName) => {
     axios.post(`${back}artistBookmarkGet`, isBookmark)
     .then((res) => {
       if(res.data == 0) {
         console.log(isBookmark)
-        const bookMark = axios.post(`${back}artistBookmark`, isBookmark)
-        document.getElementById(artistName).style.color = '#E44C7E'
+        setColor('#E44C7E')
+        axios.post(`${back}artistBookmark`, isBookmark)
+        .then((res) => {
+          document.getElementById(artistName).style.color = color
+        })
       } else  {
         console.log(isBookmark)
+        setColor('gray')
         axios.delete(`${back}bookmarkDelete`, isBookmark)
-        document.getElementById(artistName).style.color = 'gray'
+        .then((res) => {
+          document.getElementById(artistName).style.color = color
+        })
       }
     })
+
   }
 
-      
     console.log(mapping);
 
   return (

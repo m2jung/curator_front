@@ -99,6 +99,9 @@ export const Div = styled.td `
     text-align: center;
 `
 export const Title = styled.td `
+    &:hover {
+        text-decoration: underline;
+    }   
     font-weight: 500;
     font-size: 19px;
     width: 1000px;

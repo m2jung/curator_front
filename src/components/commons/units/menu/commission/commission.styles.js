@@ -104,6 +104,9 @@ export const No = styled.td`
     width: 60px;
 `
 export const Title = styled.td `
+    &:hover {
+        text-decoration: underline;
+    }   
     border-bottom: 1px solid rgba(0,0,0,0.1);
 `
 export const Writer = styled.td`

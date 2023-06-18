@@ -52,6 +52,10 @@ export default function ServiceView(props) {
     return year + "-" + month + "-" + day;
 }
 
+const onClickMove = (helpSeq) => {
+  router.push(`http://localhost:3000/menu/service.center/${helpSeq}`)
+}
+
 console.log(serviceList)
 console.log(serviceArray)
 
@@ -85,7 +89,7 @@ console.log(serviceArray)
             <tbody>
             {serviceList?.map((el, i) => (
             <C.Tr>
-              <C.Div>경매</C.Div><C.Link href={`http://localhost:3000/menu/service.center/${el.helpSeq}`}><C.Title>{el.helpTitle}</C.Title><C.Icon><FontAwesomeIcon icon={faCaretDown} size="lg"/></C.Icon></C.Link>
+              <C.Div>경매</C.Div><C.Title onClick={() => onClickMove(el.helpSeq)}>{el.helpTitle}</C.Title><C.Icon><FontAwesomeIcon icon={faCaretDown} size="lg"/></C.Icon>
             </C.Tr>
             ))}
             </tbody>
