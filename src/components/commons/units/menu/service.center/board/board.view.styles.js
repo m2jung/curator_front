@@ -9,13 +9,10 @@ export const Link = styled.a `
 `
 // table
 export const Table = styled.table``
-
 export const Tr = styled.tr``
-
 export const TrContent = styled.tr`
     height: 390px;
 `
-
 export const Th = styled.th`
     width: 120px;
     height: 35px;

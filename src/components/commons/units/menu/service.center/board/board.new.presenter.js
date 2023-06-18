@@ -91,7 +91,6 @@ export default function ServiceBoardNewView(props) {
           </C.InputWrapper>
           <C.ContentWrapper>
             <C.Label>문의 내용</C.Label>
-
             <CKEditor
                 initData=""
                 onChange={onChangeContent}
@@ -99,7 +98,6 @@ export default function ServiceBoardNewView(props) {
                 } }
             />
           </C.ContentWrapper>
-
           <C.BtnWrapper>
             <C.CancelBtn type='button' onClick={onClickCancel}>취소</C.CancelBtn>
             <C.SubmitBtn type='button' onClick={onClickSubmit}>작성하기</C.SubmitBtn>
