@@ -7,7 +7,6 @@ import axios from 'axios'
 export default function AdminInfoView(props) {
 
     const [memberList, setMemberList] = useState();
-
     const back = process.env.NEXT_PUBLIC_URI_NAS
 
     useEffect(() => {
@@ -16,8 +15,6 @@ export default function AdminInfoView(props) {
             setMemberList(res.data);
         })
     },[])
-
-    
 
     return (
         <>

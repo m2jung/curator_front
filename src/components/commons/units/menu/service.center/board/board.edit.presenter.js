@@ -47,17 +47,12 @@ export default function ServiceBoardEditView(props) {
           <C.ContentWrapper>
             <C.CommissionContent value={helpView?.helpContent}></C.CommissionContent>
           </C.ContentWrapper>
-
           <C.BtnWrapper>
             <C.ModifyBtn>취소</C.ModifyBtn>
             <C.SubmitBtn>수정완료</C.SubmitBtn>
           </C.BtnWrapper>
-
         </C.BoardForm>
        </C.BoardFormWrapper>
-
-
-
        </C.BoardWrapper>
       </C.Wrapper>
     </>

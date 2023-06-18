@@ -18,6 +18,7 @@ export default function ServiceView(props) {
 
   const back = process.env.NEXT_PUBLIC_URI
 
+
   // 작가명 get
   const ServiceList = async () => {
     const res = await axios.get(`${back}helpAllList`)
@@ -36,9 +37,7 @@ export default function ServiceView(props) {
               serviceArray.push(list);
             }
             setServiceList(serviceArray);
-
   }
-
   useEffect(async () => {
     ServiceList();
   }, [])
@@ -55,10 +54,7 @@ export default function ServiceView(props) {
 console.log(serviceList)
 console.log(serviceArray)
 
-
-
   return (
-    
     <>  
       <C.Wrapper>
        <C.ServiceWrapper>
