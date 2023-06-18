@@ -18,7 +18,6 @@ export const Link = styled.a`
     background-color: white;
     margin: 0 10px;
 ` 
-
 //Table 
 export const Table = styled.table`
     width: 770px;
@@ -27,10 +26,11 @@ export const Table = styled.table`
     text-align: center;
 `
 export const Tr = styled.tr``
+export const Td = styled.td``
 export const Th = styled.th`
     padding: 10px;
 `
-export const Td = styled.td``
+export const ProductImage = styled.img``
 
 //Button 
 export const Btn = styled.div`
@@ -291,3 +291,5 @@ export const PaymentMessage = styled.div`
     margin-top: auto;
     color: rgba(0,0,0,0.9);
 `
+
+
