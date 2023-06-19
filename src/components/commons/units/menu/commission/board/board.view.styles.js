@@ -158,6 +158,7 @@ export const ListBtn = styled.button`
     color: white;
     border: none;
     border-radius: 8px;
+    margin: auto;
 `
 export const EditBtn = styled.button`
     width: 105px;

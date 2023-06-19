@@ -14,11 +14,11 @@ export const WorkWrapper= styled.div`
     height: 500px;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
-    padding: 40px;
+    padding: 30px;
 `
 export const AdminTitle = styled.div`
     font-size: 22px;
-    padding: 26px;
+    padding: 30px;
     color: #1355BD;
     font-weight: bold;
 `
@@ -66,15 +66,23 @@ export const Label = styled.label`
     width: 70px;
     font-size: 15px;
     font-weight: 500;
-    margin: 5px 10px 8px 0;
+    margin: 5px 10px 8px 10px;
 `
 export const WorkTitle = styled.input `
     width: 300px;
     height: 23px;
 `
+
+export const WorkArtist = styled.select`
+    width: 180px;
+    height: 25px;
+`
+
 export const WorkFile = styled.input`
     width: 300px;
-    height: 23px;
+    height: 25px;
+    padding: 10px;
+
     
 `
 export const WorkSummary = styled.input`

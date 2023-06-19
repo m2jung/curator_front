@@ -30,7 +30,10 @@ export const Td = styled.td``
 export const Th = styled.th`
     padding: 10px;
 `
-export const ProductImage = styled.img``
+export const ProductImage = styled.img`
+    width:100px;
+    height:100px;
+`
 
 //Button 
 export const Btn = styled.div`
@@ -59,6 +62,7 @@ export const InfoTitle = styled.div`
 `
 export const Profile = styled.div`
     display: flex;
+    align-items: center;
     padding: 25px 40px 45px;
     border-bottom: 1px solid rgba(0,0,0,0.1);
 
@@ -113,7 +117,7 @@ export const Label = styled.div`
 
 export const MyPassword = styled.input`
     width: 200px;
-    height: 15px;
+    height: 25px;
     border: none;
     border-bottom: 1px solid gray;
     margin: 0 40px 0 10px;

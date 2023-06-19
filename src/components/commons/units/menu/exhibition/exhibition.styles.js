@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 2700px;
+    height: 4500px;
     margin: auto;
     padding: 40px;   
 
@@ -85,7 +85,9 @@ export const ExhibitionImage = styled.img`
 `
 
 export const ExhibitionColumn = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
     justify-content: center;
     margin: 40px 0;
     
