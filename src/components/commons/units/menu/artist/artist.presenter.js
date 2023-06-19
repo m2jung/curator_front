@@ -13,20 +13,20 @@ export default function ArtistView(props) {
   var imageArray = [];
   const back = process.env.NEXT_PUBLIC_URI
   const [mapping, setMapping] = useState([]);
+  const [postMapping, setPostMapping] = useState([]);
   const [name, setName] = useState();
   const [isBookmark, setIsBookmark] = useState();
   const [color, setColor] = useState(false);
   const [memberSeq, setMemberSeq] = useState();
   let dataArr;
 
-  useEffect(() => {
+  useEffect(async() => {
     const back = process.env.NEXT_PUBLIC_URI
     setMemberSeq(sessionStorage.getItem('userSeq'));
 
-    axios.get(`${back}artistAllList`) 
-    .then((res) => {
-      setMapping(res.data);
-    })
+    const artist = await axios.get(`${back}artistAllList`) 
+    const artistData = artist?.data || [];
+    setMapping(artist.data);
 
   }, [])
 
@@ -120,23 +120,12 @@ export default function ArtistView(props) {
           {/* ====== 상세보기 클릭시 나오는 이력 ====== */}
           {/* 그림 클릭시 등록된 작품 판매 게시글로 이동 */}
             <C.Work>
-              <C.WorkImage>
-                <C.WorkTitle>Modern Times</C.WorkTitle>
-              </C.WorkImage>
-              <C.WorkImage>
-                <C.WorkTitle>너의 의미</C.WorkTitle>
-              </C.WorkImage>
-              <C.WorkImage>
-                <C.WorkTitle>나의 옛날 이야기</C.WorkTitle>
-              </C.WorkImage>
-              <C.WorkImage>
-                <C.WorkTitle>ZeZe</C.WorkTitle>
-              </C.WorkImage>  
+              <C.WorkImage />
+                <C.WorkTitle></C.WorkTitle>       
             </C.Work>
           </C.ArtistColumn>
         ))}
 
-       
         </C.ArtistWrapper>
         <LayoutPageNumber/>
       </C.Wrapper>

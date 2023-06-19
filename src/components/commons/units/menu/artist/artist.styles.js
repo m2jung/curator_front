@@ -222,7 +222,7 @@ export const Work = styled.div`
     margin: 30px 0;
 `
 
-export const WorkImage = styled.div`
+export const WorkImage = styled.img`
     width: 220px;
     height: 270px;
     box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
