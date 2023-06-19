@@ -5,6 +5,7 @@ import Link from 'next/link'
 import * as C from './artist.styles'
 import { useEffect, useState, useLayoutEffect, useCallback } from 'react'
 import axios from 'axios'
+import LayoutPageNumber from '../../../layout/page-number/page-number.presenter'
 
 export default function ArtistView(props) {
  

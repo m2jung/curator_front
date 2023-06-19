@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 `
 export const WorkWrapper= styled.div`
     width: 100%;
-    height: 500px;
+    height: 580px;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
     padding: 30px;
@@ -47,9 +47,9 @@ export const Btn = styled.button`
 // 게시판
 export const BoardForm = styled.form`
     width: 800px;
-    height: 400px;
+    height: 500px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     align-items: center;
     padding: 20px;
@@ -69,32 +69,42 @@ export const Label = styled.label`
     margin: 5px 10px 8px 10px;
 `
 export const WorkTitle = styled.input `
-    width: 300px;
+    width: 700px;
     height: 23px;
+    border: none;
+    border-bottom:  1px solid rgba(0,0,0,0.5);
 `
-
-export const WorkArtist = styled.select`
-    width: 180px;
-    height: 25px;
-`
-
 export const WorkFile = styled.input`
-    width: 300px;
+    width: 200px;
     height: 25px;
-    padding: 10px;
-
-    
 `
 export const WorkSummary = styled.input`
-    width: 300px;
+    width: 700px;
     height: 23px;
+    border: none;
+    border-bottom:  1px solid rgba(0,0,0,0.5);
+`
+export const WorkPrice = styled.input`
+    width: 150px;
+    height: 20px;
+    text-align: end;
 `
 export const WorkContent = styled.textarea`
     width: 800px;
     height: 100px;
     resize: none;
-`
+    `
 export const WorkAuction = styled.input``
+export const WorkArtist = styled.select`
+    width: 180px;
+    height: 25px;
+    margin-right: 40px;
+`
+export const WorkGenre = styled.select`
+    width: 180px;
+    height: 23px;
+`
+
 export const WorkExhibition = styled.input``
 
 export const ContentWrapper = styled.div`

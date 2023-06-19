@@ -49,8 +49,8 @@ export default function LayoutSideNav(props) {
                   <C.ProfileImage></C.ProfileImage>
                   <C.Icon><FontAwesomeIcon icon={faEdit} /> 프로필 변경</C.Icon>
                   <C.User>
-                    <C.UserName>유미정</C.UserName>
-                    <C.UserEmail>119755@naver.com</C.UserEmail>
+                    <C.UserName>{nickName}</C.UserName>
+                    <C.UserEmail>{id}</C.UserEmail>
                   </C.User>
                   <C.Line/>
               </C.InfoProfile>

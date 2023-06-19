@@ -168,22 +168,15 @@ export default function UserInfoView(props) {
             <C.InfoTitle>나의문의</C.InfoTitle>
             <C.Profile>       
             <C.ServiceTable>
-                <C.PaymentColumn>
-                    <C.Table>
-                    <thead>
-                        <C.Tr>
-                            <C.Th>제목</C.Th><C.Th>내용</C.Th><C.Th>작성날짜</C.Th>
-                        </C.Tr>
-                    </thead>
-                    <tbody>
-                        {helpList?.map((el,i) => (
-                        <C.Tr key={i}>
-                            <C.Td>{el.helpTitle}</C.Td><C.Td>{el.helpContent}</C.Td><C.Td>{new Date(el.helpDate).toLocaleString()}</C.Td>
-                        </C.Tr>
-                        ))}    
-                    </tbody>
-                    </C.Table>
-                </C.PaymentColumn>
+                <thead>
+                </thead>
+                <tbody>
+                    {helpList?.map((el,i) => (
+                    <C.Tr key={i}>
+                       <C.Td>{el.helpContent}</C.Td><C.Td>{new Date(el.helpDate).toLocaleString()}</C.Td>
+                    </C.Tr>
+                    ))}    
+                </tbody>
             </C.ServiceTable>
             </C.Profile >
             </C.InfoWrapper>
