@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 // 메뉴 - 고객센터 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 1200px;
+    height: 1500px;
     margin: auto;
     padding: 30px;   
 `
@@ -74,29 +74,31 @@ export const Select = styled.select`
     margin: 15px 5px 0;
     font-size: 15px;
 `
+
+// 고객센터 테이블 
 export const ServiceTable = styled.div`
     width: 1130px;
-    height: 580px;
+    height: 500px;
     margin-top: 20px;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
     padding: 40px;
 `
-export const Table = styled.table`
-    height: 450px;   
-`
+export const Table = styled.table``
+
 export const Tr = styled.tr `
     border: 1px solid rgba(0,0,0,0.1);
-    height: 40px;
+    height: 22px;
 `
 export const Div = styled.td `
     width: 75px;
     color:  #FF7932;
     border: 2px solid #FF8832;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 700;
     border-radius: 13px;
     text-align: center;
+ 
 `
 export const Title = styled.td `
     &:hover {
@@ -107,12 +109,14 @@ export const Title = styled.td `
     width: 1000px;
     height: 30px;
     padding-left: 10px;
-    line-height: 40px;
+    line-height: 35px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 `
 
 export const Icon = styled.td`
     cursor: pointer;
     text-align: end;
     color: #364D79;
-    font-size: 20px;
+    font-size: 18px;
 `
+
