@@ -91,12 +91,7 @@ export default function ServiceBoardNewView(props) {
           </C.InputWrapper>
           <C.ContentWrapper>
             <C.Label>문의 내용</C.Label>
-            <CKEditor
-                initData=""
-                onChange={onChangeContent}
-                onInstanceReady={ () => {
-                } }
-            />
+            <C.ServiceContent onChange={onChangeContent}></C.ServiceContent>
           </C.ContentWrapper>
           <C.BtnWrapper>
             <C.CancelBtn type='button' onClick={onClickCancel}>취소</C.CancelBtn>

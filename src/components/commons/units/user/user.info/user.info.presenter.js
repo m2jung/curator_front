@@ -25,28 +25,30 @@ export default function UserInfoView(props) {
     
     
     // 장바구니 
-    const [img, setImg] = useState('./images/column1.png');
-    const onClickImg = (image) => {
-        setImg(image)
-    }
+    // const [img, setImg] = useState();
+    // const [cartList, setCartList] = useState();
+    // useEffect(() => {
+    //     axios
+    //     .get(`${back}cartList?cartSeq=${seq}`)
+    //     .then((res) => {setCartList(res.data);
+    //     })
 
-    const [cartList, setCartList] = useState();
-    useEffect(() => {
-        axios.get(`${back}cartList?memberSeq=${seq}`)
-        .then((res) => {
-            setCartList(res.data);
-        })
-    },[])
+    //     console.log(cartList);
+    // },[])
+
+
+    
 
     // 즐겨찾기 
-    // const [bookmarkArtistList, setBookmarkArtistList] = useState();
-    // useEffect(() => {
-    //     axios.get(`${back}bookmarkArtistList?memberSeq=${seq}`)
-    //     .then((res) => {
-    //         setCartList(res.data);
+    const [artistBookmark, setArtistBookmark] = useState();
+    useEffect(() => {
+        axios.get(`${back}artistBookmark`)
+        .then((res) => {
+            setArtistBookmark(res.data);
             
-    //     })
-    // },[])    
+        })
+        console.log(artistBookmark);
+    },[])    
     
     // 나의 문의
     const [helpList, setHelpList] = useState();
@@ -116,8 +118,13 @@ export default function UserInfoView(props) {
                     </thead>
                     <tbody>
                         <C.Tr>
-                            <C.Td><C.ProductImage></C.ProductImage></C.Td><C.Td>상품정보ㅏㅏㅏㅏㅏ</C.Td><C.Td>200,000,000</C.Td>
-                        </C.Tr>   
+                            <C.Td><C.ProductImage/></C.Td><C.Td>상품정보ㅏㅏㅏㅏㅏ</C.Td><C.Td>200,000,000</C.Td>
+                        </C.Tr> 
+                        {/* {cartList?.map((el,i) => (
+                        <C.Tr key={i}>
+                            <C.Td>{el.postImageName}</C.Td><C.Td>{el.postTitle}</C.Td><C.Td>{el.postPrice}</C.Td>
+                        </C.Tr>
+                        ))}       */}
                     </tbody>
                     </C.Table>
                 </C.PaymentTable>
