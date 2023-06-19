@@ -10,8 +10,8 @@ export default function WorkView(props) {
 
   const back = process.env.NEXT_PUBLIC_URI
   const router = useRouter();
-  const [content, setContent] = useState();
-  const [artist, setArtist] = useState();
+  const [content, setContent] = useState('');
+  const [artist, setArtist] = useState('');
   const [postSeq, setPostSeq] = useState(router.query.art);
   const [kakao, setKakao] = useState('');
   console.log(router.query.art)

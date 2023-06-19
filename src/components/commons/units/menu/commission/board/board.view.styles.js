@@ -7,7 +7,9 @@ export const Link = styled.a `
     align-items: center;
 `
 // table
-export const Table = styled.table``
+export const Table = styled.table`
+    height: auto;
+`
 export const Tr = styled.tr``
 export const TrContent = styled.tr`
     height: 390px;
@@ -32,7 +34,7 @@ export const Td = styled.td`
 // 문의한 게시글 보기 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 1150px;
+    height: auto;
     margin: auto;
     padding: 40px;   
 `
@@ -82,15 +84,13 @@ export const Select = styled.select`
     margin: 15px;
 `
 
-
 export const BoardForm = styled.form`
     width: 900px;
-    height: 400px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 `
-
 
 export const BoardFormWrapper = styled.form`
     width: 900px;

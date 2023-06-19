@@ -10,7 +10,7 @@ export default function AdminHelpView(props) {
 
     const [helpList, setHelpList] = useState();
 
-    const back = process.env.NEXT_PUBLIC_URI_NAS
+    const back = process.env.NEXT_PUBLIC_URI
 
     useEffect(() => {
         axios.get(`${back}helpAllList`)

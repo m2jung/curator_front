@@ -1,6 +1,47 @@
+import { useState } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
 import * as C from './comment.styles'
+import { useRouter } from 'next/router';
 
 export default function CommentView(){
+
+    const back = process.env.NEXT_PUBLIC_URI
+    const router = useRouter();
+    const [reply, setReply] = useState([]);
+    const helpSeq = router.query.board;
+    const [comm , setComm] = useState();
+    const [memberSeq, setMemberSeq] = useState();
+
+    
+    useEffect(() => {
+        const back = process.env.NEXT_PUBLIC_URI
+        axios.get(`${back}replyView?helpSeq=${helpSeq}`)
+        .then((res) => {
+            setReply(res.data);
+        })
+        setMemberSeq(sessionStorage.getItem('userSeq'))
+    },[])
+    
+    const onChangeComm = (e) => {
+        const curr = e.target.value;
+        setComm(curr);    
+    }
+
+    const onClickReply = () => {
+        const form = {
+            helpSeq: helpSeq,
+            memberSeq: memberSeq,
+            replyContent: comm,
+        }
+        console.log(form)
+        axios.post(`${back}replyPost`,form)
+        .then((res)=>{
+            alert('답변 입력이 완료되었습니다.')
+            router.push(`/menu/service.center/${helpSeq}`)
+        }) 
+
+    }
 
     return(
         <C.CommentWrapper>
@@ -9,18 +50,16 @@ export default function CommentView(){
             <thead>
             </thead>
             <tbody>
+            {reply?.map((el,i)=>(
             <C.Tr>
-                <C.ThTitle>답변제목들어갈 곳 </C.ThTitle><C.ThDate>답변작성날짜</C.ThDate>
+                <C.ThTitle>{el.replyContent}</C.ThTitle><C.ThDate>{new Date(el.replyDate).toLocaleString()}</C.ThDate>
             </C.Tr>
-            <C.Tr>
-                <C.Td colSpan={2}>답변내용</C.Td>
-            </C.Tr>
+            ))}
             </tbody>
          </C.Table>
          <C.Line/>
-
-         <C.Comment></C.Comment>
-         <C.Submit>확인</C.Submit>
+         <C.Comment onChange={onChangeComm}></C.Comment>
+         <C.Submit onClick={onClickReply}>확인</C.Submit>
         </C.CommentWrapper>
     )
 }

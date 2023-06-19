@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import { faUser } from "@fortawesome/free-solid-svg-icons"
 import LayoutSideNav from '../../../layout/side-nav/side-nav.presenter'
@@ -7,68 +8,11 @@ import * as C from './user.info.styles'
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import axios from "axios"
-
-// export default function UserInfoView(props) {
-    // // 회원정보 
-    // const [grade, setGrade] = useState();
-    // const [nickName, setNickName] = useState();
-    // const [id, setId] = useState();
-    // const back = process.env.NEXT_PUBLIC_URI
-    
-    // const array = []
-    // const cartArray = []
-    // const [data, setData] = useState([]);
-    // const [cartData, setCartData] = useState([]);
-    // const [cartList, setCartList] = useState([]);
-    // const [artistList, setArtistList] = useState([]);
-
-    // useEffect(async() => {
-    //     setNickName(sessionStorage.getItem('userNickname'))
-    //     setId(sessionStorage.getItem('userId'))
-    //     setGrade(sessionStorage.getItem('userGrade'))
-    //     const seq = sessionStorage.getItem('userSeq');
-         
-    //     // 장바구니 
-    //     await axios.get(`${back}cartList?memberSeq=${seq}`)
-    //     .then((res) => {
-    //         setCartData(res?.data)
-    //         for (let i = 0; i < res?.data.length; i++){
-    //                 axios.get(`${back}postView?postSeq=${cartData[i]?.postSeq}`)
-    //                     .then((res) => { 
-    //                         cartArray.push(res?.data)
-    //                     })                     
-    //             }
-    //             setCartList(cartArray);  
-    //     })
-        
-    
-
-    //     // 즐겨찾기 
-    //     await axios.get(`${back}bookmarkArtistList?memberSeq=${seq}`)
-    //     .then((res) => {
-    //         setData(res?.data);
-    //         console.log(data)
-    //         for (let i = 0; i < res?.data.length; i++){
-    //                 axios.get(`${back}artistInform?artistSeq=${data[i]?.artistSeq}`)
-    //                     .then((res) => {  
-    //                         array.push(res?.data)
-    //                     })
-    //             }
-    //             setArtistList(array) 
-            
-    //     })
-    // }, [])
-
-    // // 나의 문의
-    // const [helpList, setHelpList] = useState();
-    // useEffect(() => {
-    //     axios.get(`${back}helpAllList`)
-    //     .then((res) => {
-    //         setHelpList(res.data);
-    //     })
-    // }, [artistList, cartList])
+import { useRouter } from "next/router"
 
 export default function UserInfoView(props) {
+
+    const router = useRouter();
     const [grade, setGrade] = useState();
     const [nickName, setNickName] = useState();
     const [id, setId] = useState();
@@ -129,6 +73,14 @@ export default function UserInfoView(props) {
       fetchHelpList();
     }, []);
 
+
+    const onClickHelp = () => {
+        router.push('/menu/service.center/new')
+    }
+
+    const onClickWork = () => {
+        
+    }
     return (
         <>
         <C.Wrapper>
@@ -174,47 +126,44 @@ export default function UserInfoView(props) {
                     </C.MyPayColumn1>
                     <C.MyPayColumn2>
                         <C.ProductBtn>배송조회</C.ProductBtn>
-                        <C.ProductBtn>교환,반품 신청</C.ProductBtn>
-                        <C.ProductBtn>판매자 문의 </C.ProductBtn>
+                        <C.ProductBtn onClick={onClickHelp}>교환,반품 신청</C.ProductBtn>
+                        <C.ProductBtn onClick={onClickHelp}>판매자 문의 </C.ProductBtn>
                     </C.MyPayColumn2>
                 </C.MyPayTable>
-                <C.PaymentTable>
-                    <C.Table>
-                    {/* 장바구니 */}
+                {/* 장바구니 */}             
+                <C.MyWishTitle/>
+                <C.MyWishTable>
                     <thead> 
                         <C.Tr>
-                            <C.Th>이미지</C.Th><C.Th>상품정보</C.Th><C.Th>금액</C.Th>
+                            <C.ThTitle colSpan={4}>장바구니</C.ThTitle>
+                        </C.Tr>
+                        <C.Tr>
+                            <C.ThImage>상품이미지</C.ThImage><C.ThInfo>상품정보</C.ThInfo><C.ThPrice>금액</C.ThPrice><C.ThSelect rowSpan={2}>선택</C.ThSelect>
                         </C.Tr>                
                     </thead>
                     <tbody>
                         {cartList?.map((el,i) => (
                         <C.Tr key={i}>
-                            <C.Td><img style={{width: 50, height: 50}} src={el.postImageName}></img></C.Td><C.Td>{el.postSummary}</C.Td><C.Td>{el.postPrice}</C.Td>
+                            <C.Td><img style={{width: 75, height: 75}} src={el.postImageName}></img></C.Td><C.TdSummary>{el.postSummary}</C.TdSummary><C.TdPrice>{el.postPrice} 원</C.TdPrice><C.TdBtn>주문하기</C.TdBtn><C.TdBtn>삭제하기</C.TdBtn>
                         </C.Tr>  
                         ))}    
                     </tbody>
-                    </C.Table>
-                </C.PaymentTable>
+                </C.MyWishTable>
                 </C.PaymentWrapper>
             </C.Profile>
             <C.InfoTitle>즐겨찾기</C.InfoTitle>
             <C.Profile>
-            <C.ServiceTable> 
-                <C.Table> 
-                    <thead> 
-                        <C.Tr>
-                            <C.Th style={{width: 100}}>이름</C.Th><C.Th>프로필</C.Th><C.Th>SNS</C.Th>
-                        </C.Tr>
-                    </thead> 
-                    <tbody>
-                        {artistList?.map((el,i) => (
-                        <C.Tr key={i}>
-                            <C.Td>{el.artistName}</C.Td><C.Td>{el.artistProfile}</C.Td><C.Td>{el.artistSns}</C.Td>
-                        </C.Tr>
-                        ))}
-                    </tbody>
-                    </C.Table>
-            </C.ServiceTable>
+            <C.MyArtistTable>                 
+                <thead> 
+                </thead> 
+                <tbody>
+                    {artistList?.map((el,i) => (
+                    <C.Tr key={i}>
+                        <C.TdPlus><FontAwesomeIcon icon={faPlus} color="orange" size="sm"/>&nbsp;{el.artistName}</C.TdPlus><C.Td>{el.artistSns}</C.Td>
+                    </C.Tr>
+                    ))}
+                </tbody>
+            </C.MyArtistTable>
             </C.Profile>
             <C.InfoTitle>나의문의</C.InfoTitle>
             <C.Profile>       

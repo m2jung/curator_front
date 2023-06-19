@@ -1,10 +1,9 @@
 import styled from "@emotion/styled";
 
-
 //관리자 정보 ( 전시회 등록 )
 export const Wrapper = styled.div`
     width: 1300px;
-    height: 650px;
+    height: auto;
     display: flex;
     margin: 30px;
     padding: 20px;
@@ -12,7 +11,7 @@ export const Wrapper = styled.div`
 `
 export const ExhibitionWrapper= styled.div`
     width: 100%;
-    height: 410px;
+    height: auto;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
     padding: 40px;

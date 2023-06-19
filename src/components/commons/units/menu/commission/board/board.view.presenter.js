@@ -64,7 +64,7 @@ export default function CommissionBoardView() {
             {/* <C.EditBtn onClick={onClickEdit}>수정하기</C.EditBtn> */}
           </C.BtnWrapper>
         </C.BoardForm>
-       </C.BoardFormWrapper>
+       </C.BoardFormWrapper>       
        </C.BoardWrapper>
       </C.Wrapper>
     </>

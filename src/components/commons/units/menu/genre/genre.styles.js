@@ -52,18 +52,21 @@ export const Select = styled.select`
 `
 
 export const Genre = styled.button`
-    &:active {
+    &:hover {
         color: white;
-        background-color: black;
+        background-color: #364D79;
     }
-    width: 70px;
-    height: 25px;
+    width: 80px;
+    height: 32px;
+    background-color: white;
+    border: 2px solid #364D79;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 500;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 10px;
-    border: 1px solid black;
-    border-radius: 20px;
     padding: 2px;
     
 `

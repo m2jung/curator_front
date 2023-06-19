@@ -21,7 +21,7 @@ export const Link = styled.a`
 //Table 
 export const Table = styled.table`
     width: 770px;
-    height: 180px;
+    height: auto;
     margin: auto;
     text-align: center;
 `
@@ -43,7 +43,7 @@ border: 1px solid blue;
 //회원정보 전체 Wrapper
 export const Wrapper = styled.div`
     width: 1300px;
-    height: 2200px;
+    height: auto;
     display: flex;
     margin: 30px;
     padding: 20px;
@@ -51,13 +51,14 @@ export const Wrapper = styled.div`
 `
 export const InfoWrapper= styled.div`
     width: 900px;
-    height: 2000px;
+    height: auto;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
     padding: 50px;
 `
 export const InfoTitle = styled.div`
     font-size: 17px;
+    font-weight: 500;
     padding: 20px;
 `
 export const Profile = styled.div`
@@ -126,12 +127,12 @@ export const MyPassword = styled.input`
 
 export const PaymentWrapper = styled.div`
     width: 1000px;
-    height: 600px;
+    height: auto;
 `
 
 export const MembershipTable = styled.div`
     width: 100%;
-    height: 55px;
+    height: auto;
     margin: auto;
     background-color: rgba(97,127,183,0.9);
     color: white;
@@ -148,6 +149,7 @@ export const MembershipInfo = styled.div`
 export const MembershipLevel = styled.div`
     font-size: 14px;
     width: 210px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
 `
@@ -160,7 +162,7 @@ export const Coupon = styled.div``
 
 export const PaymentTable = styled.div`
     width: 100%;
-    height: 300px;
+    height: auto;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -171,7 +173,7 @@ export const PaymentTable = styled.div`
 
 export const ServiceTable = styled.div`
     width: 100%;
-    height: 330px;
+    height: auto;
     
     display: flex;
     flex-direction: column;
@@ -181,7 +183,7 @@ export const ServiceTable = styled.div`
 `
 export const PaymentColumn = styled.div`
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;   
@@ -190,7 +192,7 @@ export const PaymentColumn = styled.div`
 // 나의 구매내역  
 export const MyPayTable = styled.div`
     width: 100%;
-    height: 200px;
+    height: auto;
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
@@ -199,20 +201,23 @@ export const MyPayTable = styled.div`
 `
 export const MyPayColumn1 = styled.div`
     width: 630px;
-    height: 200px;
+    height: auto;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 `
 export const MyPayColumn2 = styled.div`
     width: 190px;
-    height: 200px;
+    height: auto;
     border-left: 1px solid rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 `
+
+
+
 export const ProductProfile = styled.div`
     width: 120px;
     height: 150px;
@@ -275,8 +280,6 @@ export const ProductBtn = styled.button`
 `
 
 
-
-
 export const Menu = styled.div`
     width: 100%;
     height: 45px;
@@ -295,5 +298,89 @@ export const PaymentMessage = styled.div`
     margin-top: auto;
     color: rgba(0,0,0,0.9);
 `
+
+
+
+// 장바구니 테이블 -----------------------------
+export const MyWishTitle = styled.div`
+    padding: 20px;
+    border-bottom: 2px dotted rgba(0,0,0,0.2);
+`
+export const MyWishTable = styled.table`
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    text-align: center;   
+    padding: 5px; 
+`
+export const ThTitle = styled.th`
+    height: 40px;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+    border-radius: 5px;
+`
+export const ThImage = styled.th`
+    color: rgba(0,0,0,0.9);
+    width: 130px;
+    height: 50px;
+`
+export const ThInfo = styled.th`
+    color: rgba(0,0,0,0.9);`
+
+export const ThPrice = styled.th`
+    color: rgba(0,0,0,0.9);
+    width: 130px;
+`
+export const ThSelect = styled.th`
+    color: rgba(0,0,0,0.9);
+    width: 110px;
+
+`
+export const TdSummary = styled.td`
+    font-size: 14px;
+`
+export const TdPrice = styled.td`
+    font-size: 14px;
+`
+export const TdBtn = styled.button`
+    cursor: pointer;
+    width: 80px;
+    height: 25px;
+    background-color: #364D79;
+    color: white;
+    margin: 5px;
+    border-radius: 2px;
+    border: none;
+    
+    &:last-of-type{
+        background-color: white;
+        border: 1px solid #364D79;
+        color: black;
+    }
+`
+
+// 즐겨찾기 작가 
+export const MyArtistTable = styled.table`
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+`
+export const TdPlus = styled.td`
+    width: 60px;
+    padding: 3px;
+    border: 2px solid orange;
+    border-radius: 5px;
+`
+export const TdProfile = styled.td`
+    font-size: 13px;
+`
+
+
+
+
 
 

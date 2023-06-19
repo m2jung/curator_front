@@ -22,9 +22,7 @@ export default function ServiceBoardView(props) {
     })
   },[])
 
-  const onClickEdit = () => {
-    router.push(`/menu/service.center/${helpSeq}/edit`);
-  }
+
   const onClickList = () => {
     router.push('/menu/service.center');
   }
@@ -67,7 +65,6 @@ export default function ServiceBoardView(props) {
           </C.InputWrapper> 
           <C.BtnWrapper>
             <C.ListBtn onClick={onClickList}>목록보기</C.ListBtn>
-            {/* <C.EditBtn onClick={onClickEdit}>수정하기</C.EditBtn> */}
           </C.BtnWrapper>
         </C.BoardForm>
        </C.BoardFormWrapper>

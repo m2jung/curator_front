@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 //관리자 정보 (회원관리)
 export const Wrapper = styled.div`
     width: 1300px;
-    height: 750px;
+    height: auto;
     display: flex;
     margin: 30px;
     padding: 20px;
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 `
 export const ArtistWrapper= styled.div`
     width: 100%;
-    height: 620px;
+    height: auto;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
     padding: 40px;
@@ -24,8 +24,8 @@ export const ArtistTitle = styled.div`
 `
 
 export const ArtistBtn = styled.div`
-    width: 190px;
-    height: 30px;
+    width: 200px;
+    height: 32px;
     display: flex;
     justify-content: space-between;
     margin: 10px 50px 0  auto ;
@@ -48,8 +48,8 @@ export const Btn = styled.button`
 
 // 회원관리 테이블 
 export const ArtistTable = styled.table`
-    width: 820px;
-    height: 50px;
+    width: 830px;
+    height: auto;
     margin: auto;
     box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     border-radius: 10px;
