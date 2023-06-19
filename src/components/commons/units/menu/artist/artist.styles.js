@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 2300px;
+    height: auto;
     margin: auto;
     padding: 40px;   
 `
@@ -31,7 +31,7 @@ export const ArtistSubTitle = styled.div`
 `
 export const ArtistWrapper = styled.div`
     width: 1200px;
-    height: 800px;
+    height: auto;
 `
 // 작가 검색 
 export const ArtistSearch = styled.div`

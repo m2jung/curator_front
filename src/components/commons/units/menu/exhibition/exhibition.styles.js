@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 4500px;
+    height: auto;
     margin: auto;
     padding: 40px;   
 
@@ -26,11 +26,19 @@ export const BannerTitle = styled.div`
     font-family: serif;
     font-size: 35px;
     margin: 20px 0;
+
 `
 export const BannerSubTitle = styled.div`
     font-family: serif;
     font-size: 40px;
     margin-bottom: 30px;
+`
+export const ExhibitionInfo = styled.p `
+    text-shadow: none;
+    color: black;
+    font-size: 20px;
+    padding: 20px;
+    margin: 20px;
 `
 
 export const ExhibitionWrapper = styled.div`
@@ -39,7 +47,7 @@ export const ExhibitionWrapper = styled.div`
     margin: 50px auto 120px;
 `
 export const ExhibitionMenu = styled.div`
-    font-size: 27px;
+    font-size: 30px;
     font-weight: bold;
     padding: 7px;
     color: #1355BD;
@@ -61,8 +69,13 @@ export const ExhibitionSubTitle = styled.div`
 `
 
 export const ExhibitionDate = styled.div`
-    color: #FFDF00;
+    border-left: 8px solid #7117FF;
+    width: 270px;
+    text-align: center;
+    color: #7117FF;
+
     font-size: 28px;
+    font-weight: 600;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     margin-bottom: 10px;
 `
@@ -87,7 +100,6 @@ export const ExhibitionImage = styled.img`
 export const ExhibitionColumn = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
     justify-content: center;
     flex-wrap: wrap;
     margin: 40px 0;
@@ -144,8 +156,3 @@ export const PageNumber = styled.div`
     margin: auto;
     padding: 3px;
 `
-
-export const Page = styled.div`
-    
-`
-

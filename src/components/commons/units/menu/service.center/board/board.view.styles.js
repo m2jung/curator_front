@@ -29,17 +29,16 @@ export const Td = styled.td`
     padding-left: 5px;
 `
 
-
 // 문의한 게시글 보기 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 1500px;
+    height: auto;
     margin: auto;
     padding: 40px;   
 `
 export const BoardWrapper = styled.div`
     width: 1200px;
-    height: 1100px;
+    height: auto;
 `
 
 export const BoardBanner = styled.div`

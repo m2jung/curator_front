@@ -3,9 +3,11 @@ import * as C from './exhibition.styles'
 import axios from 'axios'
 import Image from 'next/image';
 import React, {useCallback, useState, useEffect} from 'react';
+import Router, { useRouter } from 'next/router';
 
 export default function ExhibitionView(props) {
 
+  const router = useRouter();
   const back = process.env.NEXT_PUBLIC_URI
   const [mapping, setMapping] = useState();
   const [list, setList] = useState();
@@ -26,7 +28,9 @@ export default function ExhibitionView(props) {
 
   }, []) 
 
-    console.log(mapping)
+  const onClickImage = (postAuction,postSeq) => {
+    router.push(`/content/${postAuction}/${postSeq}`);
+  }
 
   return (
     <>  
@@ -40,7 +44,7 @@ export default function ExhibitionView(props) {
             <C.ExhibitionTitle>[ 코리아 IT 아카데미 ]
                 <C.ExhibitionSubTitle>{mapping?.exhibitionName} </C.ExhibitionSubTitle>
                 <C.ExhibitionDate>{mapping?.exhibitionDate}</C.ExhibitionDate>
-                <p>{mapping?.exhibitionExplain}</p>
+                <C.ExhibitionInfo>{mapping?.exhibitionExplain}</C.ExhibitionInfo>
                 <C.ExhibitionImage src={mapping?.exhibitionBanner} />
             </C.ExhibitionTitle>            
          </C.ExhibitionWrapper>
@@ -52,7 +56,7 @@ export default function ExhibitionView(props) {
             </C.ExhibitionTitle> 
               <C.ExhibitionColumn>
               {list?.map((el, i) => (
-               <C.Column key={i}>
+               <C.Column onClick={()=>onClickImage(el.postAuction,el.postSeq)} key={i}>
                 <C.ColumnImage src={el.postImageName}/>
                 <C.ColumnInfo>
                  <C.ColumnTitle>{el.postTitle}</C.ColumnTitle>

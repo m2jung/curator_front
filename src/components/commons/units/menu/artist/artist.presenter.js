@@ -5,8 +5,6 @@ import Link from 'next/link'
 import * as C from './artist.styles'
 import { useEffect, useState, useLayoutEffect, useCallback } from 'react'
 import axios from 'axios'
-import { data } from 'jquery'
-
 
 export default function ArtistView(props) {
  
@@ -139,8 +137,7 @@ export default function ArtistView(props) {
 
        
         </C.ArtistWrapper>
-
-
+        <LayoutPageNumber/>
       </C.Wrapper>
     </>
   )
