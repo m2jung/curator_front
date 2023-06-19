@@ -87,6 +87,7 @@ export const ExhibitionImage = styled.img`
 export const ExhibitionColumn = styled.div`
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     margin: 40px 0;
     
 `

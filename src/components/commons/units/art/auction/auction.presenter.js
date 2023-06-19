@@ -13,6 +13,8 @@ export default function AuctionView(props) {
   const [content, setContent] = useState();
   const [artist, setArtist] = useState();
   const [postSeq, setPostSeq] = useState(router.query.work);
+  const [auction, setAuction] = useState();
+  const [price, setPrice] = useState('');
   console.log(router.query.work)
 
   useEffect( async () => {
@@ -25,11 +27,36 @@ export default function AuctionView(props) {
         setArtist(res.data); 
       })
     })
+
+    await axios.get(`${back}auctionView`)
+    .then((res) => {
+      setAuction(res.data)
+      console.log(auction)
+    })
     
   }, [])
 
+  const onChangePrice = (e) => {
+    const currPrice = e.target.value;
+    setPrice(currPrice);
+  }
+
   const onClickBid = () => {
-    
+    if(price > content.postPrice || price > auction.aucPrice){
+      const form = {
+        memberSeq: sessionStorage.getItem('userSeq'),
+        artistSeq: content.artistSeq,
+        postSeq: content.postSeq,
+        aucNickname: sessionStorage.getItem('userNickname'),
+        aucPrice: price,
+      }
+      axios.post(`${back}auctionBid`, form)
+      .then((res) => {
+        if(res.data === 1) {
+          alert('입찰에 성공하였습니다.')
+        } else alert('잘못된 금액입니다.')
+      })
+    } else alert('잘못된 금액입니다.')
   }
 
   return (
@@ -78,8 +105,8 @@ export default function AuctionView(props) {
                 <C.WorkDate>등록일자 2023.06.05</C.WorkDate>
               </C.FavoriteBtn>
               <C.WorkBtn>
-                <C.PriceBtn placeholder='입찰가를 입력하세요.'/>
-                <C.Btn onClick={onClickBid}>입찰하기</C.Btn>
+                <C.PriceBtn onChange={onChangePrice} placeholder='입찰가를 입력하세요.'/>
+                <C.Btn type='button' onClick={onClickBid}>입찰하기</C.Btn>
              </C.WorkBtn>
             </C.WorkInfo>  
           </C.WorkSection>
