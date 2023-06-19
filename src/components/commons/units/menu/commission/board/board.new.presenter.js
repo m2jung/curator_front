@@ -1,23 +1,21 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft} from '@fortawesome/free-solid-svg-icons'
-import { Link } from '@material-ui/core'
+import Link from 'next/link'
 import * as C from './board.new.styles'
-import { CKEditor } from 'ckeditor4-react'
-import React, {useCallback, useState, useEffect} from 'react';
-import { useRouter } from 'next/router';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios'
+import { useRouter } from 'next/router';
 
 
 export default function CommissionBoardNewView(props) {
 
+  const [artistList, setArtistList] = useState([]);
+  const [commContent, setCommContent] = useState("");
+  const [artistSeq, setArtistSeq] = useState("");
   
   const router = useRouter();
-
-  const [artistList, setArtistList] = useState();
-  const [commContent, setCommContent] = useState();
-  const [artistSeq, setArtistSeq] = useState();
-
   const back = process.env.NEXT_PUBLIC_URI
+
 
   // 작가명 get
   useEffect(() => {
@@ -27,34 +25,34 @@ export default function CommissionBoardNewView(props) {
       })
   }, [])
 
-  const onChangeContent = useCallback((e) =>{
-    const currContent = e.target.value;
+  const onChangeContent = (event) => {
+    const currContent = event.target.value;
     setCommContent(currContent);
-  }, [])
+    console.log(commContent);
+  }
 
   // onSelect
-  const onSelectArtist = (e) => {
-    const currArtist = e.target.value;
+  const onSelectArtist = (event) => {
+    const currArtist = event.target.value;
     setArtistSeq(currArtist);
     console.log(artistSeq)
   }
 
   // 취소
   const onClickCancel = () => {
-    router.push('http://localhost:3000/menu/commission')
+    router.push('/menu/commission')
   }
 
-  // 전송
-  const onClickSubmit = async() => {
+  // 전송 
+  //게시물 등록시 메뉴로 안넘어가는 문제 
+  const onClickSubmit = () => {
     const commData = {
-      memberSeq: sessionStorage.getItem('userSeq'),
+      memberSeq: sessionStorage.getItem('userSeq'), 
       commTitle: '작품 의뢰 합니다.',
       commContent: commContent,
       artistSeq: artistSeq,
     }
-
-    //게시물 등록시 메뉴로 안넘어감 
-    await axios.post(`${back}commissionWrite`, commData)
+    axios.post(`${back}commissionWrite`, commData)
       .then((res) => {
         console.log(res.data)
         if(res.data == 1) {
@@ -62,7 +60,7 @@ export default function CommissionBoardNewView(props) {
           router.push('/menu/commission')
         } else alert('게시물 등록에 실패하였습니다.')
       })
-      console.log(commData);
+
   }
 
   

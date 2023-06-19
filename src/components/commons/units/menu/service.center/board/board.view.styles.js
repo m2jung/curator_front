@@ -33,7 +33,7 @@ export const Td = styled.td`
 // 문의한 게시글 보기 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 1150px;
+    height: 1500px;
     margin: auto;
     padding: 40px;   
 `

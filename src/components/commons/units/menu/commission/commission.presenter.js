@@ -1,10 +1,9 @@
-import Router from 'next/router';
 import Link from 'next/link';
 import LayoutPageNumber from '../../../layout/page-number/page-number.presenter'
 import axios from 'axios'
-import React, {useCallback, useState, useEffect, useLayoutEffect} from 'react';
-import { useRouter } from 'next/router';
+import React, {useState, useEffect} from 'react';
 import * as C from './commission.styles' 
+import { useRouter } from 'next/router';
 
 export default function CommissionView(props){
 
@@ -14,14 +13,15 @@ export default function CommissionView(props){
   let commArray = []
   let firData = []
 
-  const onClickNew = () => {
-    router.push('http://localhost:3000/menu/commission/new');
-  }
+  // const onClickNew = () => {
+  //   router.push('/menu/commission/new');
+  // }
 
   // 작가명 get
   const CommissionList = async () => {
     const res = await axios.get(`${back}commAllList`)
         let list;
+        console.log(res.data);
         firData = res.data;
         for(let i = 0; i < res.data.length; i++) {
            const response = await axios.get(`${back}getName?seq=${res.data[i].memberSeq}`)
@@ -51,7 +51,7 @@ export default function CommissionView(props){
 }
 
 const onClickMove = (commSeq) => {
-  router.push(`http://localhost:3000/menu/commission/${commSeq}`)
+  router.push(`/menu/commission/${commSeq}`)
 }
 
 
@@ -88,7 +88,7 @@ const onClickMove = (commSeq) => {
               ))} 
               </tbody>
             </C.Table>
-          <C.Link onClick={onClickNew}><C.Btn>게시글 작성하기</C.Btn></C.Link>
+          <C.Link href='/menu/commission/new'><C.Btn>게시글 작성하기</C.Btn></C.Link>
         </C.CommissionTable>
       <LayoutPageNumber/>
       </C.Wrapper>

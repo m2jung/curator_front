@@ -5,6 +5,7 @@ import * as C from './board.view.styles'
 import Router, { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import CommentView from '../../../admin/comment/comment.presenter'
 
 export default function ServiceBoardView(props) {
 
@@ -71,6 +72,7 @@ export default function ServiceBoardView(props) {
         </C.BoardForm>
        </C.BoardFormWrapper>
 
+        <CommentView/>
        </C.BoardWrapper>
       </C.Wrapper>
     </>

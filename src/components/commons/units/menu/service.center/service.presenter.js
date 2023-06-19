@@ -32,6 +32,7 @@ export default function ServiceView(props) {
                 helpTitle: res.data[i].helpTitle,
                 helpName: response.data,
                 helpContent: res.data[i].helpTitle,
+                helpCate: res.data[i].helpCate,
                 helpDate: getToday(res.data[i].helpDate),
               }
               serviceArray.push(list);
@@ -85,14 +86,13 @@ console.log(serviceArray)
             <tbody>
             {serviceList?.map((el, i) => (
             <C.Tr>
-              <C.Div>경매</C.Div><C.Title onClick={() => onClickMove(el.helpSeq)}>{el.helpTitle}</C.Title><C.Icon><FontAwesomeIcon icon={faCaretDown} size="lg"/></C.Icon>
+              <C.Div>{el.helpCate}</C.Div><C.Title onClick={() => onClickMove(el.helpSeq)}>{el.helpTitle}</C.Title><C.Icon><FontAwesomeIcon icon={faCaretDown} size="lg"/></C.Icon>
             </C.Tr>
             ))}
             </tbody>
           </C.Table>
         </C.ServiceTable>
         <LayoutPageNumber/>
-
        </C.ServiceWrapper>
       </C.Wrapper>
     </>

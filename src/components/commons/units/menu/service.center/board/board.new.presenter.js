@@ -3,7 +3,7 @@ import { faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import * as C from './board.new.styles'
 import { CKEditor } from 'ckeditor4-react'
-import { useState } from 'react'
+import React, {useCallback, useState, useEffect} from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
@@ -12,25 +12,27 @@ export default function ServiceBoardNewView(props) {
   const [cat, setCat] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  
 
   const router = useRouter();
-
   const back = process.env.NEXT_PUBLIC_URI
 
   const onChangeCat = (event) => {
-    setCat(event.target.value)
+    const select = event?.target.value;
+    setCat(select)
     console.log(cat);
   }
 
   const onChangeTitle = (event) => {
-    setTitle(event.target.value)
+    const serTitle = event.target.value;
+    setTitle(serTitle)
     console.log(title)
   }
 
-  const onChangeContent = (e) => {
-    console.log(e)
-    setContent(e.target.value)
-    console.log(content)
+  const onChangeContent = (event) => {
+    const serContent = event.target.value
+    setContent(serContent);
+    console.log(content);
   }
 
     // 취소
@@ -39,23 +41,24 @@ export default function ServiceBoardNewView(props) {
     }
   
     // 전송
-    const onClickSubmit = () => {
+    const onClickSubmit = async() => {
       const serviceData = {
         memberSeq: sessionStorage.getItem('userSeq'),
+        helpCate: cat,
         helpTitle: title,
         helpContent: content,
       }
   
-      axios.post(`${back}helpWrite`, serviceData)
+      await axios.post(`${back}helpWrite`, serviceData)
         .then((res) => {
+          console.log(res.data)
           if(res.data == 1) {
             alert('게시글 등록이 완료되었습니다.')
-            router.push('http://localhost:3000/menu/service.center')
+            router.push('/menu/service.center')
           } else alert('게시물 등록에 실패하였습니다.')
         })
   
     }
-
   return (
     <>  
       <C.Wrapper>
@@ -76,8 +79,8 @@ export default function ServiceBoardNewView(props) {
 
           <C.InputWrapper>
             <C.Label>문의 유형</C.Label>
-            <C.HelpDiv>
-              <option onChange={onChangeCat} selected={true}>전체</option>
+            <C.HelpDiv onChange={onChangeCat}>
+              <option selected={true}>전체</option>
               <option value={'결제/구매'}>결제/구매</option>
               <option value={'판매/등록'}>판매/등록</option>
               <option value={'경매'}>경매</option>
