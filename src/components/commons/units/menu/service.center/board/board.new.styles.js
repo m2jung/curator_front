@@ -160,6 +160,13 @@ export const ContentWrapper = styled.div`
     display: flex;
     flex-direction: column;
 `
+export const ServiceContent = styled.textarea`
+    resize: none;
+    height: 300px;
+    background-color: #F4F4F4;
+    border: none;
+    margin-bottom: 15px;
+`
 
 export const HelpContent = styled.textarea`
     resize: none;

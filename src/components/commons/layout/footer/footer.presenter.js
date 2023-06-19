@@ -16,7 +16,7 @@ export default function LayoutFooter(props){
                 <C.Icon></C.Icon>
                 <C.Icon></C.Icon>
             </C.CompanySns>
-            <C.Copyright>Copyright &copy; 2023 ArtWeb</C.Copyright>
+            <C.Copyright>Copyright &copy; 2023 KoreaIT CodeFactory Family</C.Copyright>
          </C.CompanyInfo>  
         </C.FooterWrapper>
     )

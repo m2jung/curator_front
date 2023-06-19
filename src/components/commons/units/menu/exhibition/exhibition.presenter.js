@@ -63,10 +63,8 @@ export default function ExhibitionView(props) {
             ))}
               </C.ExhibitionColumn>              
           </C.ExhibitionWrapper>
-
-
-          <LayoutPageNumber/>
         </C.Wrapper>
+          <LayoutPageNumber/>
     </>
   )
 

@@ -19,7 +19,8 @@ export default function AdminWorkView(props) {
     const [content, setContent] = useState('');
     const [auction, setAuction] = useState('');
     const [exhibition, setExhibition] = useState('');
-
+    const [artistList, setArtistList] = useState([]);
+    const [artistSeq, setArtistSeq] = useState();
 
     //input
     const onChangeTitle = (e)=>{
@@ -90,6 +91,24 @@ export default function AdminWorkView(props) {
         router.push('/')
     }
 
+    //작가 선택 불러오기
+    useEffect(() => {
+        axios.get(`${back}artistAllList`)
+          .then((res) => {
+            setArtistList(res.data);
+          })
+      }, [])
+
+    // onSelect
+    const onSelectArtist = (e) => {
+    const currArtist = e.target.value;
+    setArtistSeq(currArtist);
+    console.log(artistSeq)
+  }
+
+
+
+
     return (
         <>
         <C.Wrapper>
@@ -100,7 +119,13 @@ export default function AdminWorkView(props) {
                 <C.InputWrapper>
                     <C.Label>작품 제목</C.Label>
                     <C.WorkTitle type="text" onChange={onChangeTitle}/> &nbsp;&nbsp;&nbsp;
-                    <C.WorkFile type="file" onChange={handleChange}/>
+                    <C.Label>작가 선택</C.Label>
+                    <C.WorkArtist onChange={onSelectArtist} >
+                        <option value={true}>전체</option> 
+                        {artistList?.map((el, i) => (
+                        <option key={i} value={artistList[i].artistSeq}>{artistList[i].artistName}</option>
+                    ))}
+                    </C.WorkArtist>
                 </C.InputWrapper>
                 <C.InputWrapper>
                     <C.Label>작품 요약</C.Label>
@@ -117,6 +142,9 @@ export default function AdminWorkView(props) {
                     <C.Label>전시회 유무</C.Label>
                     <label>Y</label><C.WorkExhibition type="radio" name='exhibition' value={1} onChange={onChangeExhibition}/> &nbsp;&nbsp;
                     <label>N</label><C.WorkExhibition type="radio" name='exhibition' value={2} onChange={onChangeExhibition}/> 
+                </C.InputWrapper>
+                <C.InputWrapper>
+                    <C.WorkFile type="file" onChange={handleChange}/>
                 </C.InputWrapper>
                 <C.InputWrapper>
                     <C.Label>상세설명</C.Label>
