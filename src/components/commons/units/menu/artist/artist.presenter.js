@@ -12,10 +12,11 @@ export default function ArtistView(props) {
   const [option , setOption] = useState(160); //초기값 false
   var imageArray = [];
   const back = process.env.NEXT_PUBLIC_URI
-  const [mapping, setMapping] = useState();
+  const [mapping, setMapping] = useState([]);
   const [name, setName] = useState();
   const [isBookmark, setIsBookmark] = useState();
   const [color, setColor] = useState();
+  const [memberSeq, setMemberSeq] = useState();
   let dataArr;
 
   useEffect(() => {
@@ -26,45 +27,46 @@ export default function ArtistView(props) {
       setMapping(res.data);
     })
 
+    setMemberSeq(Number(sessionStorage.getItem('userSeq')));
+
   }, [])
   
   const onLoadBookmark = useCallback((artistSeq, artistName) => {
     const book = {
-      memberSeq: Number(sessionStorage.getItem('userSeq')),
+      memberSeq: memberSeq,
       artistSeq: artistSeq,
     }
     console.log(book)
     axios.post(`${back}artistBookmarkGet`, book)
       .then((res) => {
         console.log(res.data)
-        if(res.data > 0) {
-          setColor('#E44C7E')
-          document.getElementById(artistName).style.color = color
+        if(res?.data > 0) {
+        
+          document.getElementById(artistName).style.color = '#E44C7E'
         }
       })
   }, [])
 
   const onClickBook = (artistSeq, artistName) => {
     const book = {
-      memberSeq: Number(sessionStorage.getItem('userSeq')),
+      memberSeq: memberSeq,
       artistSeq: artistSeq,
     }
     setIsBookmark(book);
-    axios.post(`${back}artistBookmarkGet`, isBookmark)
+    axios.post(`${back}artistBookmarkGet`, book)
     .then((res) => {
-      if(res.data == 0) {
+      if(res?.data == 0) {
         console.log(isBookmark)
-        setColor('#E44C7E')
+        
         axios.post(`${back}artistBookmark`, isBookmark)
         .then((res) => {
-          document.getElementById(artistName).style.color = color
+          document.getElementById(artistName).style.color = '#E44C7E'
         })
       } else  {
         console.log(isBookmark)
-        setColor('gray')
         axios.delete(`${back}bookmarkDelete`, isBookmark)
         .then((res) => {
-          document.getElementById(artistName).style.color = color
+          document.getElementById(artistName).style.color = 'gray'
         })
       }
     })
