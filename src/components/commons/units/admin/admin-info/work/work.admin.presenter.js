@@ -21,6 +21,7 @@ export default function AdminWorkView(props) {
     const [exhibition, setExhibition] = useState('');
     const [artistList, setArtistList] = useState([]);
     const [artistSeq, setArtistSeq] = useState();
+    const [genreList, setGenreList] = useState([]);
 
     //input
     const onChangeTitle = (e)=>{
@@ -50,6 +51,7 @@ export default function AdminWorkView(props) {
         const currExhibition = e.target.value;
         setExhibition(currExhibition);
     }
+
 
     
     //파일
@@ -99,12 +101,24 @@ export default function AdminWorkView(props) {
           })
       }, [])
 
+    //장르 선택 불러오기 
+    useEffect(() => {
+    axios.get(`${back}genreList`)
+        .then((res) => {
+        setGenreList(res.data);
+        })
+    },[])
     // onSelect
     const onSelectArtist = (e) => {
-    const currArtist = e.target.value;
-    setArtistSeq(currArtist);
-    console.log(artistSeq)
+        const currArtist = e.target.value;
+        setArtistSeq(currArtist);
+        console.log(artistSeq)
   }
+
+    const onSelectGenre = (e) => {
+        const currGenre = e.target.value;
+        setArtistSeq(currGenre);
+    }
 
 
 
@@ -119,19 +133,14 @@ export default function AdminWorkView(props) {
                 <C.InputWrapper>
                     <C.Label>작품 제목</C.Label>
                     <C.WorkTitle type="text" onChange={onChangeTitle}/> &nbsp;&nbsp;&nbsp;
-                    <C.Label>작가 선택</C.Label>
-                    <C.WorkArtist onChange={onSelectArtist} >
-                        <option value={true}>전체</option> 
-                        {artistList?.map((el, i) => (
-                        <option key={i} value={artistList[i].artistSeq}>{artistList[i].artistName}</option>
-                    ))}
-                    </C.WorkArtist>
                 </C.InputWrapper>
                 <C.InputWrapper>
                     <C.Label>작품 요약</C.Label>
                     <C.WorkSummary type="text" onChange={onChangeSummary}/> &nbsp;&nbsp;&nbsp;&nbsp;
+                </C.InputWrapper>
+                <C.InputWrapper>
                     <C.Label>작품 가격</C.Label>
-                    <C.WorkSummary type="text" onChange={onChangePrice}/>
+                    <C.WorkPrice type="text" placeholder='0원' onChange={onChangePrice}/>
                 </C.InputWrapper>
                 <C.InputWrapper>
                     <C.Label>경매</C.Label>
@@ -144,6 +153,23 @@ export default function AdminWorkView(props) {
                     <label>N</label><C.WorkExhibition type="radio" name='exhibition' value={2} onChange={onChangeExhibition}/> 
                 </C.InputWrapper>
                 <C.InputWrapper>
+                    <C.Label>작가 선택</C.Label>
+                    <C.WorkArtist onChange={onSelectArtist} >
+                        <option value={true}>전체</option> 
+                        {artistList?.map((el, i) => (
+                        <option key={i} value={artistList[i].artistSeq}>{artistList[i].artistName}</option>
+                    ))}
+                    </C.WorkArtist>
+                    <C.Label>장르 선택</C.Label>
+                    <C.WorkGenre onChange={onSelectGenre}>
+                    <option value={true}>전체</option> 
+                        {genreList?.map((el, i) => (
+                        <option key={i} value={genreList[i].genreSeq}>{genreList[i].genreName}</option>
+                    ))}
+                    </C.WorkGenre>
+                </C.InputWrapper>
+                <C.InputWrapper>
+                    <C.Label>이미지</C.Label>
                     <C.WorkFile type="file" onChange={handleChange}/>
                 </C.InputWrapper>
                 <C.InputWrapper>

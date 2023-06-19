@@ -171,16 +171,6 @@ export const PaymentTable = styled.div`
     box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
 `
 
-export const ServiceTable = styled.div`
-    width: 100%;
-    height: auto;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
-`
 export const PaymentColumn = styled.div`
     width: 100%;
     height: auto;
@@ -279,7 +269,6 @@ export const ProductBtn = styled.button`
     }
 `
 
-
 export const Menu = styled.div`
     width: 100%;
     height: 45px;
@@ -316,9 +305,10 @@ export const MyWishTable = styled.table`
 `
 export const ThTitle = styled.th`
     height: 40px;
-    background-color: rgba(0,0,0,0.3);
+    background-color: #728DBE;
     color: white;
     border-radius: 5px;
+    font-weight: 400;
 `
 export const ThImage = styled.th`
     color: rgba(0,0,0,0.9);
@@ -360,7 +350,7 @@ export const TdBtn = styled.button`
     }
 `
 
-// 즐겨찾기 작가 
+// 즐겨찾기 작가 테이블 -------------------------
 export const MyArtistTable = styled.table`
     width: 100%;
     height: auto;
@@ -370,7 +360,7 @@ export const MyArtistTable = styled.table`
     text-align: center;
 `
 export const TdPlus = styled.td`
-    width: 60px;
+    width: 80px;
     padding: 3px;
     border: 2px solid orange;
     border-radius: 5px;
@@ -379,6 +369,16 @@ export const TdProfile = styled.td`
     font-size: 13px;
 `
 
+// 나의문의 테이블 ------------------------
+export const ServiceTable = styled.table`
+    width: 100%;
+    height: auto;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+
+    /* &:TdHelpContent, TdHelpTitle {
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+    } */
+`
 
 
 

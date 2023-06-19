@@ -47,7 +47,7 @@ export const ProfileImage = styled.div`
     border-radius: 60px;
     background-color: gray;
     margin-top: 30px;
-    background-image: url('/images/imageiu.jpg');
+    background-image: url('/images/userImage.png');
     background-position: center;
     background-size: cover;
 `

@@ -315,9 +315,9 @@ const onChangeTel3 = useCallback((e) => {
               <C.Tel value="010" maxLength={3} onChange={onChangeTel1} required/> - <C.Tel maxLength={4} onChange={onChangeTel2} required /> - <C.Tel maxLength={4} onChange={onChangeTel3} required/>
             </C.SectionRow>
             <C.Label>* 비밀번호 </C.Label>
-            <C.Password type="password" maxLength="10" placeholder="비밀번호 10자 이내로 입력" onChange={onChangePassword} required></C.Password>
+            <C.Password type="password" maxLength="10" placeholder="영문, 숫자, 특수기호 조합으로 8자리 이상 입력" onChange={onChangePassword} required></C.Password>
             <C.Label>* 비밀번호 확인</C.Label>
-            <C.RePassword type="password" maxLength="10" placeholder="비밀번호 10자 이내로 입력" onChange={onChangePasswordCheck} required></C.RePassword>
+            <C.RePassword type="password" maxLength="10" placeholder="영문, 숫자, 특수기호 조합으로 8자리 이상 입력" onChange={onChangePasswordCheck} required></C.RePassword>
             <div className="address_search" >
                 <C.Label>* 주소</C.Label>
                 <C.Addr className="user_enroll_text" type="text" required={true} name="address" onChange={handleInput} value={address.address}></C.Addr>
