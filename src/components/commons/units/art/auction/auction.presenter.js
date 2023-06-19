@@ -19,6 +19,7 @@ export default function AuctionView(props) {
   const [postSeq, setPostSeq] = useState(router.query.work);
   const [auction, setAuction] = useState([]);
   const [price, setPrice] = useState('');
+  const [bid, setBid] = useState();
   console.log(router.query.work)
 
   useEffect( async () => {
@@ -26,22 +27,26 @@ export default function AuctionView(props) {
     await axios.get(`${back}postView?postSeq=${postSeq}`)
     .then((res) => {
       setContent(res.data);
+      setBid(res.data.postPrice)
       axios.get(`${back}artistInform?artistSeq=${res.data.artistSeq}`)
       .then((res) => {
         setArtist(res?.data); 
       })
     })
 
-    await axios.get(`${back}auctionView`)
+    await axios.get(`${back}auctionView?postSeq=${postSeq}`)
     .then((res) => {
       setAuction(res?.data)
+      if(res?.data[0]){
+        setBid(res.data[0].aucPrice)
+      }
       console.log(auction)
     })
 
     setUserSeq(sessionStorage.getItem('userSeq'))
     setUserNickName(sessionStorage.getItem('userNickname'))
     
-  }, [auction])
+  }, [])
 
   const onChangePrice = (e) => {
     const currPrice = e.target.value;
@@ -49,7 +54,7 @@ export default function AuctionView(props) {
   }
 
   const onClickBid = () => {
-    if(price > content.postPrice && price > auction[0].aucPrice){
+    if(price > bid){
       const form = {
         memberSeq: userSeq,
         artistSeq: content?.artistSeq,
@@ -61,6 +66,7 @@ export default function AuctionView(props) {
       .then((res) => {
         if(res.data === 1) {
           alert('입찰에 성공하였습니다.')
+          router.push(`/content/${content.postAuction}/${postSeq}`);
         } else alert('잘못된 금액입니다.')
       })
     } else alert('잘못된 금액입니다.')

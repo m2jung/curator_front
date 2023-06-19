@@ -5,6 +5,7 @@ import Link from 'next/link'
 import * as C from './artist.styles'
 import { useEffect, useState, useLayoutEffect, useCallback } from 'react'
 import axios from 'axios'
+import { data } from 'jquery'
 
 
 export default function ArtistView(props) {
@@ -15,65 +16,55 @@ export default function ArtistView(props) {
   const [mapping, setMapping] = useState([]);
   const [name, setName] = useState();
   const [isBookmark, setIsBookmark] = useState();
-  const [color, setColor] = useState();
+  const [color, setColor] = useState(false);
   const [memberSeq, setMemberSeq] = useState();
   let dataArr;
 
   useEffect(() => {
     const back = process.env.NEXT_PUBLIC_URI
+    setMemberSeq(sessionStorage.getItem('userSeq'));
 
     axios.get(`${back}artistAllList`) 
     .then((res) => {
       setMapping(res.data);
     })
 
-    setMemberSeq(Number(sessionStorage.getItem('userSeq')));
-
-  }, [])
-  
-  const onLoadBookmark = useCallback((artistSeq, artistName) => {
-    const book = {
-      memberSeq: memberSeq,
-      artistSeq: artistSeq,
-    }
-    console.log(book)
-    axios.post(`${back}artistBookmarkGet`, book)
-      .then((res) => {
-        console.log(res.data)
-        if(res?.data > 0) {
-        
-          document.getElementById(artistName).style.color = '#E44C7E'
-        }
-      })
   }, [])
 
-  const onClickBook = (artistSeq, artistName) => {
-    const book = {
-      memberSeq: memberSeq,
-      artistSeq: artistSeq,
+  const onLoadBookmark = async (artistSeq, artistName) => {
+    const form = {
+      artistSeq,
+      memberSeq: memberSeq
     }
-    setIsBookmark(book);
-    axios.post(`${back}artistBookmarkGet`, book)
-    .then((res) => {
-      if(res?.data == 0) {
-        console.log(isBookmark)
-        
-        axios.post(`${back}artistBookmark`, isBookmark)
-        .then((res) => {
-          document.getElementById(artistName).style.color = '#E44C7E'
-        })
-      } else  {
-        console.log(isBookmark)
-        axios.delete(`${back}bookmarkDelete`, isBookmark)
-        .then((res) => {
-          document.getElementById(artistName).style.color = 'gray'
-        })
-      }
-    })
-
+    console.log(form)
+    const load = axios.post(`${back}artistBookmarkGet`, form)
+    const loadArray = await Promise.resolve(load);
+    console.log(loadArray)
+    if(loadArray.data > 0) {
+      document.getElementById(artistName).style.color = `#E44C7E`;
+    } else {
+      document.getElementById(artistName).style.color = `gray`;
+    }
   }
 
-    console.log(mapping);
+  const onClickBook = async (artistSeq, artistName) => {
+    const form = {
+      artistSeq,
+      memberSeq: Number(memberSeq)
+    }
+    const load = axios.post(`${back}artistBookmarkGet`, form)
+    const loadArray = await Promise.resolve(load);
+    console.log(loadArray)
+    if(loadArray.data > 0) {
+      console.log(form)
+      axios.post(`${back}bookmarkDelete`, form)
+      document.getElementById(artistName).style.color = `gray`;
+    } else {
+      console.log(form)
+      axios.post(`${back}artistBookmark`, form)
+      document.getElementById(artistName).style.color = `#E44C7E`;
+    }
+  }
 
   return (
     <>  
@@ -93,7 +84,9 @@ export default function ArtistView(props) {
               {/* <C.Email>119755@naver.com</C.Email> */}
               <C.Sns onClick={`${el.artistSns}`}><C.Image/></C.Sns>
               {/* icon color: #E44C7E; */}
-              <C.Heart><FontAwesomeIcon id={el.artistName} onClick={() => onClickBook(el.artistSeq, el.artistName)} icon={faHeart} style={{color: "gray"}} /></C.Heart>
+              <C.Heart>
+                <FontAwesomeIcon id={el.artistName} onClick={() => onClickBook(el.artistSeq, el.artistName)} icon={faHeart} style={{color: "#E44C7E"}} />
+              </C.Heart>
             </C.Profile> 
             <C.ProfileInfo>
               <C.Following>Following <span>2844</span></C.Following>
