@@ -25,7 +25,7 @@ export default function AdminInfoView(props) {
             <C.MemberTable>
                 <thead>
                 <C.Tr>
-                    <C.Th>회원번호</C.Th><C.Th>이메일</C.Th><C.Th>닉네임</C.Th><C.Th>이름</C.Th><C.Th>번호</C.Th><C.Th>주소</C.Th><C.Th>회원등급</C.Th><C.Th>가입일자</C.Th>
+                    <C.Th>번호</C.Th><C.Th>이메일</C.Th><C.Th>닉네임</C.Th><C.Th>이름</C.Th><C.Th>연락처</C.Th><C.Th>주소</C.Th><C.Th>등급</C.Th><C.Th>가입일자</C.Th>
                 </C.Tr>
                 </thead>
                 <tbody>
@@ -41,6 +41,7 @@ export default function AdminInfoView(props) {
             </C.MemberBtn>
             </C.MemberWrapper>
         </C.Wrapper>
+        
         </>
     )
 }

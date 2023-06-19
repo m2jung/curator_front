@@ -78,7 +78,7 @@ export const Message = styled.div`
 // 게시판 
 export const CommissionTable = styled.div`
     width: 1150px;
-    height: 310px;
+    height: auto;
     margin-top: 20px;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);

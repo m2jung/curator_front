@@ -6,8 +6,8 @@ export const FooterWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    
+    margin: 120px auto 0;
+
     background-color: rgba(0,0,0,0.04);
 `
 

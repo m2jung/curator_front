@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 //관리자 정보 (회원관리)
 export const Wrapper = styled.div`
     width: 1300px;
-    height: 850px;
+    height: auto;
     display: flex;
     margin: 30px;
     padding: 20px;
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 `
 export const HelpWrapper= styled.div`
     width: 100%;
-    height: 700px;
+    height: auto;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
     padding: 40px;
@@ -36,7 +36,8 @@ export const Btn = styled.button`
     }
 
     width: 90px;
-    height: 100%;
+    padding: 7px;
+    margin: 5px;
     font-size: 14px;
     border-radius: 5px;
     border: 1px solid black;
@@ -44,11 +45,10 @@ export const Btn = styled.button`
     color: white;
 `
 
-
 // 회원관리 테이블 
 export const HelpTable = styled.table`
     width: 910px;
-    height: 50px;
+    height: auto;
     margin: auto;
     box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     border-radius: 10px;

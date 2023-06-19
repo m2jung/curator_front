@@ -3,14 +3,14 @@ import styled from "@emotion/styled";
 // 메뉴 - 고객센터 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: 1500px;
+    height: 1000px;
     margin: auto;
     padding: 30px;   
 `
 
 export const ServiceWrapper = styled.div`
     width: 1200px;
-    height: 1100px;
+    height: auto;
 `
 
 export const ServiceBanner = styled.div`
@@ -56,10 +56,7 @@ export const Btn = styled.button`
     `
     
 export const LinkBtn = styled.a `
-    display: flex;
-    font-size: 18px;    
-    justify-content: center;
-    align-items: center;
+    font-size: 16px;    
     text-decoration: none;
     color: white;
 `
@@ -78,7 +75,7 @@ export const Select = styled.select`
 // 고객센터 테이블 
 export const ServiceTable = styled.div`
     width: 1130px;
-    height: 500px;
+    height: auto;
     margin-top: 20px;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
