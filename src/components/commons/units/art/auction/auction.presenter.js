@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { faMedal } from '@fortawesome/free-solid-svg-icons'
 import * as C from './auction.styles'
 import TimerPage from '../../timer'
 import axios from 'axios'
@@ -90,7 +91,7 @@ export default function AuctionView(props) {
                 <C.WorkType>종류 : Acrylic</C.WorkType>
               </C.WorkMemo>
               <C.WorkPrice>
-                <C.Price>추정가 : {content?.postPrice} ₩</C.Price>
+                <C.Price>경매시작 금액 : {content?.postPrice} 원 </C.Price>
               </C.WorkPrice>
             </C.WorkColumn>
             <C.WorkColumn>
@@ -102,13 +103,13 @@ export default function AuctionView(props) {
                 </thead>
                 <tbody>
                   <C.Tr>
-                    <C.Number1>1</C.Number1><C.Td>{auction[0]?.aucNickName}</C.Td><C.Td>{auction[0]?.aucPrice}</C.Td>
+                    <C.Number1><FontAwesomeIcon icon={faMedal} />1</C.Number1><C.Td>{auction[0]?.aucNickName}</C.Td><C.Td>{auction[0]?.aucPrice}</C.Td>
                   </C.Tr>
                   <C.Tr>
-                    <C.Td>2</C.Td><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction[1]?.aucNickName}</C.Td><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction[1]?.aucPrice}</C.Td>
+                    <C.Number2><FontAwesomeIcon icon={faMedal} />2</C.Number2><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction[1]?.aucNickName}</C.Td><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction[1]?.aucPrice}</C.Td>
                   </C.Tr>
                   <C.Tr>
-                    <C.Td>3</C.Td><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction[2]?.aucNickName}</C.Td><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction[2]?.aucPrice}</C.Td>
+                    <C.Number3><FontAwesomeIcon icon={faMedal} />3</C.Number3><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction[2]?.aucNickName}</C.Td><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction[2]?.aucPrice}</C.Td>
                   </C.Tr>
                 </tbody>
               </C.Table>

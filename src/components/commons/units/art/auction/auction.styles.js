@@ -10,27 +10,30 @@ export const Table = styled.table `
     text-align: center;
     font-size: 16px;
 `
-export const Tr = styled.tr`
-    &:nth-child(2){
-        color: silver;
-        font-weight: 700;
-    }
-    &:nth-child(3){
-        color: brown;
-        font-weight: 700;
-    }
-`
-export const Number1 = styled.td`
-    font-weight: 700;
-    color: orange;
-`
+export const Tr = styled.tr``
+
 export const ThNumber = styled.th`
     width: 30px;
     padding: 15px 23px;   
 `
 export const Th = styled.th``
-export const Number2 = styled.td``
-export const Number3 = styled.td``
+
+export const Number1 = styled.td`
+    font-weight: 700;
+    color: orange;
+`
+export const Number2 = styled.td`
+    color: silver;
+    font-weight: 700;
+`
+export const Number3 = styled.td`
+    color: brown;
+    font-weight: 700;
+`
+
+
+
+
 export const Td = styled.td``
 export const NickName = styled.td``
 

@@ -14,7 +14,7 @@ export default function AdminArtistView(props) {
             setArtistList(res.data);
         })
     },[])
-
+    
     return (
         <>
         <C.Wrapper>
