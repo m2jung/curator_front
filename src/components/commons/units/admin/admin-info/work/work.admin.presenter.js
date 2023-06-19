@@ -15,7 +15,7 @@ export default function AdminWorkView(props) {
     const [file, setFile] = useState(null);
     const [title, setTitle] = useState('');
     const [summary, setSummary] = useState('');
-    const [price, setPrice] = useState();
+    const [price, setPrice] = useState('');
     const [content, setContent] = useState('');
     const [auction, setAuction] = useState('');
     const [exhibition, setExhibition] = useState('');
@@ -33,21 +33,21 @@ export default function AdminWorkView(props) {
         setSummary(currSummary);
     }
     const onChangePrice = (e) => {
-        const currPrice = e.value;
+        const currPrice = e.target.value;
         setPrice(currPrice);
     }
     const onChangeContent = (e) => {
-        const currContent = e.value;
+        const currContent = e.target.value;
         setContent(currContent);
     }
     const onChangeAuction = (e) => {
         console.log(e)
-        const currAuction = e.value;
+        const currAuction = e.target.value;
         setAuction(currAuction);
     }
 
     const onChangeExhibition = (e) => {
-        const currExhibition = e.value;
+        const currExhibition = e.target.value;
         setExhibition(currExhibition);
     }
 
@@ -80,17 +80,11 @@ export default function AdminWorkView(props) {
         };
         const uploaderString = JSON.stringify(uploader);
         await formData.append('postDTO', new Blob([uploaderString], {type: 'application/json'}));
-        const res = await axios.post(
-            `${back}artistPostWrite`,
-            formData,
-            {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            }
-            )
-            
-        if (res.status === 201) console.log(res.data);
+        console.log(formData)
+        await axios.post(`${back}artistPostWrite`, formData, {headers: {'Content-Type': 'multipart/form-data'}})   
+            .then((res) => {
+                router.push(`/admin/admin-info/`)
+            })
     }, [file]);
 
     const onClickCancel = () => {
@@ -142,10 +136,12 @@ export default function AdminWorkView(props) {
                 <C.InputWrapper>
                     <C.Label>경매</C.Label>
                     <label>Y</label><C.WorkAuction type="radio" name='auction' value={1} onChange={onChangeAuction}/> &nbsp;&nbsp;
-                    <label>N</label><C.WorkAuction type="radio" name='auction' value={2} onChange={onChangeAuction} checked/> 
+                    <label>N</label><C.WorkAuction type="radio" name='auction' value={2} onChange={onChangeAuction}/> 
+                </C.InputWrapper>
+                <C.InputWrapper>
                     <C.Label>전시회 유무</C.Label>
                     <label>Y</label><C.WorkExhibition type="radio" name='exhibition' value={1} onChange={onChangeExhibition}/> &nbsp;&nbsp;
-                    <label>N</label><C.WorkExhibition type="radio" name='exhibition' value={2} onChange={onChangeExhibition} checked/> 
+                    <label>N</label><C.WorkExhibition type="radio" name='exhibition' value={2} onChange={onChangeExhibition}/> 
                 </C.InputWrapper>
                 <C.InputWrapper>
                     <C.WorkFile type="file" onChange={handleChange}/>

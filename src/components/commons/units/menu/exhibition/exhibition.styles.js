@@ -89,6 +89,7 @@ export const ExhibitionColumn = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     justify-content: center;
+    flex-wrap: wrap;
     margin: 40px 0;
     
 `

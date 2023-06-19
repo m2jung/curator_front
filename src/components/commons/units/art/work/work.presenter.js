@@ -4,6 +4,7 @@ import * as C from './work.styles'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import ModalBasic from '../../modal'
 
 export default function WorkView(props) {
 
@@ -12,6 +13,7 @@ export default function WorkView(props) {
   const [content, setContent] = useState();
   const [artist, setArtist] = useState();
   const [postSeq, setPostSeq] = useState(router.query.art);
+  const [kakao, setKakao] = useState('');
   console.log(router.query.art)
 
   useEffect( async () => {
@@ -26,6 +28,43 @@ export default function WorkView(props) {
     })
     
   }, [])
+
+  const onClickCart = () => {
+    const map = {
+      memberSeq: sessionStorage.getItem('userSeq'),
+      postSeq: postSeq
+    }
+    axios.post(`${back}postCart`, map)
+      .then((res) => {
+        if(res.data = 1) {
+          alert('장바구니에 추가되었습니다.')
+        } else alert('장바구니 추가에 실패하였습니다.')
+
+      })
+  }
+
+  const onClickBuy = () => {
+      const memberSeq = sessionStorage.getItem('userSeq')
+      const artistSeq = content.artistSeq
+      const postTitle = content.postTitle
+      const postPrice = content.postPrice
+      const postSeq = content.postSeq
+   
+    axios.get(`${back}readyKakaoRequest?memberSeq=${memberSeq}&artistSeq=${artistSeq}&postTitle=${postTitle}&postPrice=${postPrice}&postSeq=${postSeq}`)
+    .then((res) => {
+      console.log(res.data)
+      setKakao(res.data)
+      showModal()
+    })
+  }
+
+  // 모달창 노출 여부 state
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // 모달창 노출
+  const showModal = () => {
+      setModalOpen(true);
+  };
 
   return (
     <>  
@@ -56,13 +95,13 @@ export default function WorkView(props) {
               <C.WorkDate>등록일자 2023.06.05</C.WorkDate>
             </C.WorkPrice>    
               <C.WorkBtn>
-                <C.Btn>장바구니 <FontAwesomeIcon icon={faCartShopping} /></C.Btn>
-                <C.Btn>구매하기</C.Btn>
+                <C.Btn type='button' onClick={onClickCart}>장바구니 <FontAwesomeIcon icon={faCartShopping} /></C.Btn>
+                <C.Btn type='button' onClick={onClickBuy}>구매하기</C.Btn>
              </C.WorkBtn>
             </C.WorkInfo> 
-
           </C.WorkSection>
         </C.WorkWrapper>
+        {modalOpen && <ModalBasic setModalOpen={setModalOpen} kakao={kakao} />}
 
         <C.Line/>
         {/* 품질 인증  */}
