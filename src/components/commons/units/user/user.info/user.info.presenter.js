@@ -8,63 +8,126 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 import axios from "axios"
 
+// export default function UserInfoView(props) {
+    // // 회원정보 
+    // const [grade, setGrade] = useState();
+    // const [nickName, setNickName] = useState();
+    // const [id, setId] = useState();
+    // const back = process.env.NEXT_PUBLIC_URI
+    
+    // const array = []
+    // const cartArray = []
+    // const [data, setData] = useState([]);
+    // const [cartData, setCartData] = useState([]);
+    // const [cartList, setCartList] = useState([]);
+    // const [artistList, setArtistList] = useState([]);
+
+    // useEffect(async() => {
+    //     setNickName(sessionStorage.getItem('userNickname'))
+    //     setId(sessionStorage.getItem('userId'))
+    //     setGrade(sessionStorage.getItem('userGrade'))
+    //     const seq = sessionStorage.getItem('userSeq');
+         
+    //     // 장바구니 
+    //     await axios.get(`${back}cartList?memberSeq=${seq}`)
+    //     .then((res) => {
+    //         setCartData(res?.data)
+    //         for (let i = 0; i < res?.data.length; i++){
+    //                 axios.get(`${back}postView?postSeq=${cartData[i]?.postSeq}`)
+    //                     .then((res) => { 
+    //                         cartArray.push(res?.data)
+    //                     })                     
+    //             }
+    //             setCartList(cartArray);  
+    //     })
+        
+    
+
+    //     // 즐겨찾기 
+    //     await axios.get(`${back}bookmarkArtistList?memberSeq=${seq}`)
+    //     .then((res) => {
+    //         setData(res?.data);
+    //         console.log(data)
+    //         for (let i = 0; i < res?.data.length; i++){
+    //                 axios.get(`${back}artistInform?artistSeq=${data[i]?.artistSeq}`)
+    //                     .then((res) => {  
+    //                         array.push(res?.data)
+    //                     })
+    //             }
+    //             setArtistList(array) 
+            
+    //     })
+    // }, [])
+
+    // // 나의 문의
+    // const [helpList, setHelpList] = useState();
+    // useEffect(() => {
+    //     axios.get(`${back}helpAllList`)
+    //     .then((res) => {
+    //         setHelpList(res.data);
+    //     })
+    // }, [artistList, cartList])
+
 export default function UserInfoView(props) {
-    // 회원정보 
     const [grade, setGrade] = useState();
     const [nickName, setNickName] = useState();
     const [id, setId] = useState();
-    const back = process.env.NEXT_PUBLIC_URI
-    
+    const back = process.env.NEXT_PUBLIC_URI;
+  
+    const [data, setData] = useState([]);
     const [cartList, setCartList] = useState([]);
     const [artistList, setArtistList] = useState([]);
-    const array = []
-    const cartArray = []
-    const [data, setData] = useState([]);
-    const [cartData, setCartData] = useState([]);
-
-    useEffect(async() => {
-        setNickName(sessionStorage.getItem('userNickname'))
-        setId(sessionStorage.getItem('userId'))
-        setGrade(sessionStorage.getItem('userGrade'))
-        const seq = sessionStorage.getItem('userSeq');
-         
-        // 장바구니 
-        await axios.get(`${back}cartList?memberSeq=${seq}`)
-        .then((res) => {
-            setCartData(res.data)
-            cartData?.map((el, i) => {
-                axios.get(`${back}postView?postSeq=${el.postSeq}`)
-                    .then((res) => {
-                        cartArray.push(res.data)
-                    })
-                })
-            })
-            setCartList(cartArray); 
-    
-
-        // 즐겨찾기 
-        await axios.get(`${back}bookmarkArtistList?memberSeq=${seq}`)
-        .then((res) => {
-            setData(res?.data);
-            console.log(data)
-            data?.map((el, i) => {
-                axios.get(`${back}artistInform?artistSeq=${el.artistSeq}`)
-                    .then((res) => { 
-                        array.push(res.data)
-                    })      
-            })      
-        })
-        setArtistList(array)
-    },[])
-
-    // 나의 문의
-    const [helpList, setHelpList] = useState();
+    const [helpList, setHelpList] = useState([]);
+  
     useEffect(() => {
-        axios.get(`${back}helpAllList`)
-        .then((res) => {
-            setHelpList(res.data);
-        })
-    }, [artistList, cartList])
+      setNickName(sessionStorage.getItem('userNickname'))
+      setId(sessionStorage.getItem('userId'))
+      setGrade(sessionStorage.getItem('userGrade'))
+      const seq = sessionStorage.getItem('userSeq');
+  
+      const fetchCartData = async () => {
+        try {
+          const response = await axios.get(`${back}cartList?memberSeq=${seq}`);
+          const cartData = response?.data || [];
+  
+          const promises = cartData.map((item) =>
+            axios.get(`${back}postView?postSeq=${item?.postSeq}`)
+          );
+          const cartArray = await Promise.all(promises);
+          setCartList(cartArray.map((res) => res?.data));
+        } catch (error) {
+          console.error('Error fetching cart data:', error);
+        }
+      };
+  
+      const fetchArtistList = async () => {
+        try {
+          const response = await axios.get(`${back}bookmarkArtistList?memberSeq=${seq}`);
+          const bookmarkData = response?.data || [];
+  
+          const promises = bookmarkData.map((item) =>
+            axios.get(`${back}artistInform?artistSeq=${item?.artistSeq}`)
+          );
+          const artistArray = await Promise.all(promises);
+          setArtistList(artistArray.map((res) => res?.data));
+        } catch (error) {
+          console.error('Error fetching artist list:', error);
+        }
+      };
+  
+      const fetchHelpList = async () => {
+        try {
+          const response = await axios.get(`${back}helpAllList`);
+          setHelpList(response.data);
+        } catch (error) {
+          console.error('Error fetching help list:', error);
+        }
+      };
+  
+      fetchCartData();
+      fetchArtistList();
+      fetchHelpList();
+    }, []);
 
     return (
         <>

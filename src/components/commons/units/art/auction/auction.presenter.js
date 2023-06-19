@@ -10,10 +10,14 @@ export default function AuctionView(props) {
 
   const back = process.env.NEXT_PUBLIC_URI
   const router = useRouter();
+
+  const [userSeq, setUserSeq] = useState();
+  const [userNickName, setUserNickName] = useState();
+
   const [content, setContent] = useState();
   const [artist, setArtist] = useState();
   const [postSeq, setPostSeq] = useState(router.query.work);
-  const [auction, setAuction] = useState();
+  const [auction, setAuction] = useState([]);
   const [price, setPrice] = useState('');
   console.log(router.query.work)
 
@@ -24,17 +28,20 @@ export default function AuctionView(props) {
       setContent(res.data);
       axios.get(`${back}artistInform?artistSeq=${res.data.artistSeq}`)
       .then((res) => {
-        setArtist(res.data); 
+        setArtist(res?.data); 
       })
     })
 
     await axios.get(`${back}auctionView`)
     .then((res) => {
-      setAuction(res.data)
+      setAuction(res?.data)
       console.log(auction)
     })
+
+    setUserSeq(sessionStorage.getItem('userSeq'))
+    setUserNickName(sessionStorage.getItem('userNickname'))
     
-  }, [])
+  }, [auction])
 
   const onChangePrice = (e) => {
     const currPrice = e.target.value;
@@ -42,12 +49,12 @@ export default function AuctionView(props) {
   }
 
   const onClickBid = () => {
-    if(price > content.postPrice || price > auction.aucPrice){
+    if(price > content.postPrice && price > auction[0].aucPrice){
       const form = {
-        memberSeq: sessionStorage.getItem('userSeq'),
-        artistSeq: content.artistSeq,
-        postSeq: content.postSeq,
-        aucNickname: sessionStorage.getItem('userNickname'),
+        memberSeq: userSeq,
+        artistSeq: content?.artistSeq,
+        postSeq: content?.postSeq,
+        aucNickname: userNickName,
         aucPrice: price,
       }
       axios.post(`${back}auctionBid`, form)
@@ -89,13 +96,13 @@ export default function AuctionView(props) {
                 </thead>
                 <tbody>
                   <C.Tr>
-                    <C.Number1>1</C.Number1><C.Td></C.Td><C.Td></C.Td>
+                    <C.Number1>1</C.Number1><C.Td>{auction[0]?.aucNickName}</C.Td><C.Td>{auction[0]?.aucPrice}</C.Td>
                   </C.Tr>
                   <C.Tr>
-                    <C.Td>2</C.Td><C.Td></C.Td><C.Td></C.Td>
+                    <C.Td>2</C.Td><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction[1]?.aucNickName}</C.Td><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction[1]?.aucPrice}</C.Td>
                   </C.Tr>
                   <C.Tr>
-                    <C.Td>3</C.Td><C.Td></C.Td><C.Td></C.Td>
+                    <C.Td>3</C.Td><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction[2]?.aucNickName}</C.Td><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction[2]?.aucPrice}</C.Td>
                   </C.Tr>
                 </tbody>
               </C.Table>
