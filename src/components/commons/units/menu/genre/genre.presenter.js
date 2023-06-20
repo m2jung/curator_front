@@ -10,8 +10,8 @@ export default function GenreView(props) {
 
    const back = process.env.NEXT_PUBLIC_URI
 
-   const [genreList, setGenreList] = useState();
-   const [postList, setPostList] = useState();
+   const [genreList, setGenreList] = useState([]);
+   const [postList, setPostList] = useState([]);
    const [mapping, setMapping] = useState([]);
    const [file, setFile] = useState();
    const router = useRouter();

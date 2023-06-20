@@ -7,7 +7,7 @@ import axios from 'axios'
 export default function AdminInfoView(props) {
 
     const [memberList, setMemberList] = useState();
-    const back = process.env.NEXT_PUBLIC_URI_NAS
+    const back = process.env.NEXT_PUBLIC_URI
 
     // 회원 불러오기 
     useEffect(() => {
