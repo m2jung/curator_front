@@ -75,6 +75,7 @@ export default function AuctionView(props) {
 
       if(bidData.data === 1) {
         alert('입찰에 성공하였습니다.')
+        document.getElementById('bid').value = '';
         bidLoad();
       } else alert('잘못된 금액입니다.')
 
@@ -138,7 +139,7 @@ export default function AuctionView(props) {
                 <C.WorkDate>등록일자 2023.06.05</C.WorkDate>
               </C.FavoriteBtn>
               <C.WorkBtn>
-                <C.PriceBtn onChange={onChangePrice} placeholder='입찰가를 입력하세요.'/>
+                <C.PriceBtn id='bid' onChange={onChangePrice} placeholder='입찰가를 입력하세요.'/>
                 <C.Btn type='button' onClick={onClickBid}>입찰하기</C.Btn>
              </C.WorkBtn>
             </C.WorkInfo>  

@@ -12,6 +12,7 @@ export default function CommentView(){
     const helpSeq = router.query.board;
     const [comm , setComm] = useState();
     const [memberSeq, setMemberSeq] = useState();
+    const [grade, setGrade] = useState(false);
 
     
     useEffect(() => {
@@ -21,6 +22,11 @@ export default function CommentView(){
             setReply(res.data);
         })
         setMemberSeq(sessionStorage.getItem('userSeq'))
+        
+        if(sessionStorage.getItem('userGrade') == 2) {
+            setGrade(true);
+        }
+
     },[])
     
     const onChangeComm = (e) => {
@@ -38,9 +44,11 @@ export default function CommentView(){
         axios.post(`${back}replyPost`,form)
         .then((res)=>{
             alert('답변 입력이 완료되었습니다.')
+
             axios.get(`${back}replyView?helpSeq=${helpSeq}`)
                 .then((res) => {
                  setReply(res.data);
+                 document.getElementById('comment').value = '';
         })
         }) 
 
@@ -48,7 +56,7 @@ export default function CommentView(){
 
     return(
         <C.CommentWrapper>
-         <C.CommentTitle>답변 달기</C.CommentTitle>
+         <C.CommentTitle>답변</C.CommentTitle>
          <C.Table>
             <thead>
             </thead>
@@ -60,9 +68,11 @@ export default function CommentView(){
             ))}
             </tbody>
          </C.Table>
-         <C.Line/>
-         <C.Comment onChange={onChangeComm}></C.Comment>
-         <C.Submit onClick={onClickReply}>확인</C.Submit>
+         {
+             grade?
+         <><C.Line/><C.Comment id='comment' onChange={onChangeComm}></C.Comment><C.Submit onClick={onClickReply}>확인</C.Submit></>
+         :<></>
+         }
         </C.CommentWrapper>
     )
 }

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 /* 모달창을 화면 중앙. 최상단에 노출 */
-export const container = styled.iframe`
+export const container = styled.div`
  /* 모달창 크기 */
   width: 500px;
   height: 900px;
@@ -29,3 +29,8 @@ export const close = styled.button`
   right: 10px;
   top: 10px;
   `
+
+export const iframe = styled.iframe`
+  width: 500px;
+  height: 900px;
+`
