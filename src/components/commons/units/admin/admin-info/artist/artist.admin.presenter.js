@@ -37,12 +37,10 @@ export default function AdminArtistView(props) {
         setDeleteArtist(curr);
     }
 
-
-    //작가 추가하기
+    //작가 추가하기********
     const onClickModal = () => {
         showModal()
     }
-
 
     // 모달창 노출 여부 state
     const [modalOpen, setModalOpen] = useState(false);

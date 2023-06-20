@@ -52,8 +52,6 @@ export default function AdminWorkView(props) {
         const currExhibition = e.target.value;
         setExhibition(currExhibition);
     }
-
-
     
     //파일
     const handleChange = useCallback((e) => { 

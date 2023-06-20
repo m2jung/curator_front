@@ -65,5 +65,7 @@ export const Td = styled.td`
     padding: 10px;
     border-bottom: 1px solid rgba(0,0,0,0.2);
 `
-
+export const Check = styled.input`
+    margin-top: 13px;
+`
 
