@@ -28,4 +28,4 @@ export const close = styled.button`
   position: absolute;
   right: 10px;
   top: 10px;
-`
+  `

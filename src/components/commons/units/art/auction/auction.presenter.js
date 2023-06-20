@@ -18,34 +18,41 @@ export default function AuctionView(props) {
   const [content, setContent] = useState();
   const [artist, setArtist] = useState();
   const [postSeq, setPostSeq] = useState(router.query.work);
-  const [auction, setAuction] = useState([]);
+  const [auction, setAuction] = useState();
   const [price, setPrice] = useState('');
   const [bid, setBid] = useState();
   console.log(router.query.work)
 
-  useEffect( async () => {
-    const back = process.env.NEXT_PUBLIC_URI
-    await axios.get(`${back}postView?postSeq=${postSeq}`)
-    .then((res) => {
-      setContent(res.data);
-      setBid(res.data.postPrice)
-      axios.get(`${back}artistInform?artistSeq=${res.data.artistSeq}`)
+  useEffect( async() => {
+    try {
+      const back = process.env.NEXT_PUBLIC_URI
+      await axios.get(`${back}postView?postSeq=${postSeq}`)
       .then((res) => {
-        setArtist(res?.data); 
+        setContent(res.data);
+        setBid(res.data.postPrice)
+        axios.get(`${back}artistInform?artistSeq=${res.data.artistSeq}`)
+        .then((res) => {
+          setArtist(res?.data); 
+        })
       })
-    })
+    
+  
+      const bidAuction = await axios.get(`${back}auctionView?postSeq=${postSeq}`)
+      const bidAuctionData = await Promise.resolve(bidAuction);
+        setAuction(bidAuctionData);
+        console.log(auction)
+        if(bidAuctionData?.data[0]){
+          setBid(bidAuctionData.data[0].aucPrice)
+        }
+        console.log(auction)
+      
+  
+      setUserSeq(sessionStorage.getItem('userSeq'))
+      setUserNickName(sessionStorage.getItem('userNickname'))
 
-    await axios.get(`${back}auctionView?postSeq=${postSeq}`)
-    .then((res) => {
-      setAuction(res?.data)
-      if(res?.data[0]){
-        setBid(res.data[0].aucPrice)
-      }
-      console.log(auction)
-    })
-
-    setUserSeq(sessionStorage.getItem('userSeq'))
-    setUserNickName(sessionStorage.getItem('userNickname'))
+    } catch (error) {
+      console.error('Error fetching cart data:', error);
+    }
     
   }, [])
 
@@ -54,7 +61,7 @@ export default function AuctionView(props) {
     setPrice(currPrice);
   }
 
-  const onClickBid = () => {
+  const onClickBid = async() => {
     if(price > bid){
       const form = {
         memberSeq: userSeq,
@@ -63,16 +70,28 @@ export default function AuctionView(props) {
         aucNickname: userNickName,
         aucPrice: price,
       }
-      axios.post(`${back}auctionBid`, form)
-      .then((res) => {
-        if(res.data === 1) {
-          alert('입찰에 성공하였습니다.')
-          router.push(`/content/${content.postAuction}/${postSeq}`);
-        } else alert('잘못된 금액입니다.')
-      })
+      const bid = axios.post(`${back}auctionBid`, form)
+      const bidData = await Promise.resolve(bid);
+
+      if(bidData.data === 1) {
+        alert('입찰에 성공하였습니다.')
+        bidLoad();
+      } else alert('잘못된 금액입니다.')
+
     } else alert('잘못된 금액입니다.')
   }
 
+  const bidLoad = async() => {
+    const bidAuction = axios.get(`${back}auctionView?postSeq=${postSeq}`)
+    const bidAuctionData = await Promise.resolve(bidAuction);
+      setAuction(bidAuctionData);
+      console.log(auction)
+      if(bidAuctionData?.data[0]){
+        setBid(bidAuctionData.data[0].aucPrice)
+      }
+  }
+
+  
   return (
     <>  
       <C.Wrapper>
@@ -103,13 +122,13 @@ export default function AuctionView(props) {
                 </thead>
                 <tbody>
                   <C.Tr>
-                    <C.Number1><FontAwesomeIcon icon={faMedal} />1</C.Number1><C.Td>{auction[0]?.aucNickName}</C.Td><C.Td>{auction[0]?.aucPrice}</C.Td>
+                    <C.Number1><FontAwesomeIcon icon={faMedal} />1</C.Number1><C.Td>{auction?.data[0]?.aucNickName}</C.Td><C.Td>{auction?.data[0]?.aucPrice}</C.Td>
                   </C.Tr>
                   <C.Tr>
-                    <C.Number2><FontAwesomeIcon icon={faMedal} />2</C.Number2><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction[1]?.aucNickName}</C.Td><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction[1]?.aucPrice}</C.Td>
+                    <C.Number2><FontAwesomeIcon icon={faMedal} />2</C.Number2><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction?.data[1]?.aucNickName}</C.Td><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction?.data[1]?.aucPrice}</C.Td>
                   </C.Tr>
                   <C.Tr>
-                    <C.Number3><FontAwesomeIcon icon={faMedal} />3</C.Number3><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction[2]?.aucNickName}</C.Td><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction[2]?.aucPrice}</C.Td>
+                    <C.Number3><FontAwesomeIcon icon={faMedal} />3</C.Number3><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction?.data[2]?.aucNickName}</C.Td><C.Td style={{color: 'black', fontWeight: 'normal'}}>{auction?.data[2]?.aucPrice}</C.Td>
                   </C.Tr>
                 </tbody>
               </C.Table>

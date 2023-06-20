@@ -9,6 +9,7 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { useRouter } from "next/router"
+import ModalBasic from "../../modal"
 
 export default function UserInfoView(props) {
 
@@ -16,18 +17,21 @@ export default function UserInfoView(props) {
     const [grade, setGrade] = useState();
     const [nickName, setNickName] = useState();
     const [id, setId] = useState();
+    const [memberSeq, setMemberSeq] = useState();
     const back = process.env.NEXT_PUBLIC_URI;
   
     const [data, setData] = useState([]);
     const [cartList, setCartList] = useState([]);
     const [artistList, setArtistList] = useState([]);
     const [helpList, setHelpList] = useState([]);
+    const [kakao, setKakao] = useState('');
   
     useEffect(() => {
       setNickName(sessionStorage.getItem('userNickname'))
       setId(sessionStorage.getItem('userId'))
       setGrade(sessionStorage.getItem('userGrade'))
       const seq = sessionStorage.getItem('userSeq');
+      setMemberSeq(seq);
   
       const fetchCartData = async () => {
         try {
@@ -81,6 +85,55 @@ export default function UserInfoView(props) {
     const onClickWork = () => {
         
     }
+
+    const onClickBuy = (memberSeq, artistSeq, postTitle, postPrice, postSeq) => {
+      
+      axios.get(`${back}readyKakaoRequest?memberSeq=${memberSeq}&artistSeq=${artistSeq}&postTitle=${postTitle}&postPrice=${postPrice}&postSeq=${postSeq}`, {headers: {'Access-Control-Allow-Origin':'*'}})
+      .then((res) => {
+        console.log(res.data)
+        setKakao(res.data)
+        showModal()
+      })
+    }
+
+     // 모달창 노출 여부 state
+    const [modalOpen, setModalOpen] = useState(false);
+
+    // 모달창 노출
+    const showModal = () => {
+        setModalOpen(true);
+    };
+
+    const onClickDel = (memberSeq, postSeq) => {
+        const form = {
+            memberSeq,
+            postSeq,
+        }
+        axios.post(`${back}cartDelete`, form)
+            .then((res) => {
+                if(res.data == 1) {
+                    alert("삭제되었습니다.")
+                    fetchCartData();
+                }
+            })
+    }
+
+    const fetchCartData = async () => {
+        try {
+          const response = await axios.get(`${back}cartList?memberSeq=${memberSeq}`);
+          const cartData = response?.data || [];
+  
+          const promises = cartData.map((item) =>
+            axios.get(`${back}postView?postSeq=${item?.postSeq}`)
+          );
+          const cartArray = await Promise.all(promises);
+          setCartList(cartArray.map((res) => res?.data));
+        } catch (error) {
+          console.error('Error fetching cart data:', error);
+        }
+      };
+
+
     return (
         <>
         <C.Wrapper>
@@ -144,9 +197,10 @@ export default function UserInfoView(props) {
                     <tbody>
                         {cartList?.map((el,i) => (
                         <C.Tr key={i}>
-                            <C.Td><img style={{width: 75, height: 75}} src={el.postImageName}></img></C.Td><C.TdSummary>{el.postSummary}</C.TdSummary><C.TdPrice>{el.postPrice} 원</C.TdPrice><C.TdBtn>주문하기</C.TdBtn><C.TdBtn>삭제하기</C.TdBtn>
+                            <C.Td><img style={{width: 75, height: 75}} src={el.postImageName}></img></C.Td><C.TdSummary>{el.postSummary}</C.TdSummary><C.TdPrice>{el.postEndPrice} 원</C.TdPrice><C.TdBtn onClick={() => onClickBuy(memberSeq, el.artistSeq, el.postTitle, el.postPrice, el.postSeq)}>주문하기</C.TdBtn><C.TdBtn onClick={() => onClickDel(memberSeq, el.postSeq)}>삭제하기</C.TdBtn>
                         </C.Tr>  
                         ))}    
+                        {modalOpen && <ModalBasic setModalOpen={setModalOpen} kakao={kakao} />}
                     </tbody>
                 </C.MyWishTable>
                 </C.PaymentWrapper>

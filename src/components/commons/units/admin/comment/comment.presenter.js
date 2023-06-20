@@ -38,7 +38,10 @@ export default function CommentView(){
         axios.post(`${back}replyPost`,form)
         .then((res)=>{
             alert('답변 입력이 완료되었습니다.')
-            router.push(`/menu/service.center/${helpSeq}`)
+            axios.get(`${back}replyView?helpSeq=${helpSeq}`)
+                .then((res) => {
+                 setReply(res.data);
+        })
         }) 
 
     }
