@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 /* 모달창을 화면 중앙. 최상단에 노출 */
 export const container = styled.div`
  /* 모달창 크기 */
-  width: 900px;
+  width: 580px;
   height: 560px;
 
   /* 최상단 위치 */
@@ -33,7 +33,7 @@ export const close = styled.button`
 
 //모달창 테이블
 export const ModalWrapper = styled.div`
-    width: 900px;
+    width: 500px;
     height: 600px;
     box-sizing: border-box;
     padding: 60px;
@@ -45,24 +45,25 @@ export const ModalWrapper = styled.div`
     
 `
 export const Label = styled.label`
-    width: 750px;
-    font-size: 18px;
+    width: 400px;
+    font-size: 16px;
+    color: rgba(0,0,0,0.8);
 `
 export const Input = styled.input`
-    width: 750px;
+    width: 400px;
     height: 30px;
     border-radius: 15px;
     border: 2px solid rgba(0,0,0,0.4);
 `
 export const InputFile = styled.input`
-    width: 750px;
+    width: 400px;
     height: 25px;
 `
 
 export const InputNumber = styled.input`
-    width: 160px;
+    width: 150px;
     height: 25px;
-    margin: 0 auto 0 20px;
+    margin: 0 auto 0 15px;
 `
 
 export const Btn = styled.button`

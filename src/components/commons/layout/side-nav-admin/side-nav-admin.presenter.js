@@ -37,9 +37,9 @@ export default function LayoutSideNavAdmin() {
                   <C.List onClick={onClickMember}>회원관리</C.List>
                   <C.List onClick={onClickArtist}>작가관리</C.List>
                   <C.List onClick={onClickHelp}>문의내역</C.List>
+                  <C.List onClick={onClickCommission}>작품의뢰내역</C.List>
                   <C.List onClick={onClickWork}>작품등록</C.List>
                   <C.List onClick={onClickExhibition}>전시회등록</C.List>
-                  <C.List onClick={onClickCommission}>의뢰내역확인</C.List>
               </C.InfoList>
           </C.InfoMenu> 
         </C.Wrapper>

@@ -76,10 +76,10 @@ export const Domain = styled.select`
 `
 export const Button = styled.button `
     width: 73px;
-    height: 25px;
+    height: 27px;
     font-size: 14px;
     margin-left: 6px;
-    border: 2px solid rgba(0,0,0,0.5);
+    border: 2px solid  #364D79;
     background-color: white;
 `
 export const EmailCheck = styled.div`
@@ -99,7 +99,7 @@ export const EmailToken = styled.input`
 `
 export const BtnToken = styled.button`
     width: 73px;
-    height: 25px;
+    height: 27px;
     font-size: 14px;
     border: 1px solid black;
     border-radius: 5px;
@@ -155,7 +155,7 @@ export const AddrBtn = styled.button`
     height: 28px;
     font-size: 14px;
     margin-left: 6px;
-    border: 2px solid rgba(0,0,0,0.5);
+    border: 2px solid #364D79;
     background-color: white;
 `
 
