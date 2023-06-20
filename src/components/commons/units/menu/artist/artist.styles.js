@@ -72,7 +72,7 @@ export const ArtistColumn = styled.div`
     transition: 0.5s ease-out ; 
 
     &:hover {
-         height: 700px;
+         height: 360px;
     }
 `
 

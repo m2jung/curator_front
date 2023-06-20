@@ -47,10 +47,11 @@ export default function WorkView(props) {
       const memberSeq = sessionStorage.getItem('userSeq')
       const artistSeq = content.artistSeq
       const postTitle = content.postTitle
-      const postPrice = content.postPrice
+      const postPrice = content.postEndPrice
       const postSeq = content.postSeq
    
-    axios.get(`${back}readyKakaoRequest?memberSeq=${memberSeq}&artistSeq=${artistSeq}&postTitle=${postTitle}&postPrice=${postPrice}&postSeq=${postSeq}`)
+    
+    axios.get(`${back}readyKakaoRequest?memberSeq=${memberSeq}&artistSeq=${artistSeq}&postTitle=${postTitle}&postPrice=${postPrice}&postSeq=${postSeq}`, {headers: {'Access-Control-Allow-Origin':'*'}})
     .then((res) => {
       console.log(res.data)
       setKakao(res.data)

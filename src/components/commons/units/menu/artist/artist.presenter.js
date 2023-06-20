@@ -119,10 +119,10 @@ export default function ArtistView(props) {
            </C.ProfileSection>
           {/* ====== 상세보기 클릭시 나오는 이력 ====== */}
           {/* 그림 클릭시 등록된 작품 판매 게시글로 이동 */}
-            <C.Work>
+            {/* <C.Work>
               <C.WorkImage />
                 <C.WorkTitle></C.WorkTitle>       
-            </C.Work>
+            </C.Work> */}
           </C.ArtistColumn>
         ))}
 

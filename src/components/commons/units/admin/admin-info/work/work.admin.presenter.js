@@ -22,7 +22,7 @@ export default function AdminWorkView(props) {
     const [artistList, setArtistList] = useState([]);
     const [artistSeq, setArtistSeq] = useState();
     const [genreList, setGenreList] = useState([]);
-    const [genreSeq, setGenreSeq] = useState('');
+    const [genreSeq, setGenreSeq] = useState();
 
     //input
     const onChangeTitle = (e)=>{
@@ -41,6 +41,7 @@ export default function AdminWorkView(props) {
     const onChangeContent = (e) => {
         const currContent = e.target.value;
         setContent(currContent);
+        console.log(content)
     }
     const onChangeAuction = (e) => {
         console.log(e)
@@ -80,13 +81,16 @@ export default function AdminWorkView(props) {
             postPrice: price,
             postAuction: auction,
             postExhibition: exhibition, 
+            postEndPrice: price,
         };
         const uploaderString = JSON.stringify(uploader);
         await formData.append('postDTO', new Blob([uploaderString], {type: 'application/json'}));
         console.log(formData)
         await axios.post(`${back}artistPostWrite`, formData, {headers: {'Content-Type': 'multipart/form-data'}})   
             .then((res) => {
-                router.push(`/admin/admin-info/`)
+                if(res.data == 1) {
+                    router.push(`/admin/admin-info/`)
+                } else alert('등록에 실패하였습니다.')
             })
     }, [file]);
 
@@ -109,6 +113,7 @@ export default function AdminWorkView(props) {
         setGenreList(res.data);
         })
     },[])
+    
     // onSelect
     const onSelectArtist = (e) => {
         const currArtist = e.target.value;
