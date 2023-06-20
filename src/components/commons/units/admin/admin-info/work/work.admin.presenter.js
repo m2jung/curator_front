@@ -22,6 +22,7 @@ export default function AdminWorkView(props) {
     const [artistList, setArtistList] = useState([]);
     const [artistSeq, setArtistSeq] = useState();
     const [genreList, setGenreList] = useState([]);
+    const [genreSeq, setGenreSeq] = useState('');
 
     //input
     const onChangeTitle = (e)=>{
@@ -70,8 +71,8 @@ export default function AdminWorkView(props) {
         const formData = new FormData();
         await formData.append('artistPostFile', file);
         const uploader = {     
-            genreSeq: 1,
-            artistSeq: 3,
+            genreSeq: genreSeq,
+            artistSeq: artistSeq,
             exhibitionSeq: 1,
             postTitle: title,
             postSummary: summary,
@@ -112,12 +113,11 @@ export default function AdminWorkView(props) {
     const onSelectArtist = (e) => {
         const currArtist = e.target.value;
         setArtistSeq(currArtist);
-        console.log(artistSeq)
   }
 
     const onSelectGenre = (e) => {
         const currGenre = e.target.value;
-        setArtistSeq(currGenre);
+        setGenreSeq(currGenre);
     }
 
 

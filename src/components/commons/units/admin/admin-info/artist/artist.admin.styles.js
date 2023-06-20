@@ -64,7 +64,6 @@ export const Th = styled.th`
 export const Tr = styled.tr``
 export const Td = styled.td`
     padding: 10px;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
 `
 
 export const CheckBox = styled.input``
