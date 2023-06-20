@@ -16,7 +16,8 @@ export default function SignUpView(props) {
   const back = process.env.NEXT_PUBLIC_URI
   const [icon, setIcon] = useState(false); 
   const [iconF, setIconF] = useState(false); 
-
+  const [iconName, setIconName] = useState(false);
+  const [iconNick, setIconNick] = useState(false);
   // 사용 객체 선언
   const [cookies, setCookie, removeCookie] = useCookies('emailCheckToken');
   const [openPostcode, setOpenPostcode] = React.useState(false);
@@ -51,7 +52,19 @@ export default function SignUpView(props) {
   const [phoneMsg, setPhoneMsg] = useState("");
   const [addrMsg, setAddrMsg] = useState("");  
 
-
+  
+  const msgStyle1 = {
+    fontSize: '13px',
+    fontWeight: '600',
+    color: 'rgba(0,0,0,0.8)',
+    marginLeft: '55px',
+  }
+  const msgStyle2 = {
+    fontSize: '13px',
+    color: 'rgba(0,0,0,0.8)',
+    fontWeight: '600',
+    marginLeft: '140px',
+  }
   
   useEffect(() => {
     removeCookie('checkTime', {path:'/'})
@@ -144,6 +157,7 @@ const onClickTokenCheck = useCallback((e) => {
           path: '/', 
           maxAge: 1800
         })
+        setIcon(false);
         removeCookie('checkTime', {path:'/'})
         setEmailMsg("")
       } else alert('올바르지 않은 인증번호입니다.')
@@ -171,9 +185,13 @@ const onChangeName = useCallback((e) => {
   const currName = e.target.value;
   setName(currName);
   
+
  if (!validateName(currName)) {
-    setNameMsg("이름을 입력하세요")} 
-else { setNameMsg("") }
+    setNameMsg("")} 
+else { 
+  setNameMsg("")
+  setIconName(false) 
+}
   })
 
 //nick
@@ -182,8 +200,11 @@ const onChangeNickname = useCallback((e) => {
   setNick(currNick);
   
  if (!validateNick(currNick)) {
-    setNickMsg("닉네임을 입력하세요")} 
-else { setNickMsg("") }
+    setNickMsg("")} 
+else { 
+  setNickMsg("") 
+  setIconNick(false)
+}
   })
 
 //password
@@ -265,6 +286,10 @@ const onChangeTel3 = useCallback((e) => {
               } else {
               removeCookie('emailCheckToken', {path: "/"})
               removeCookie('checkToken', {path: "/"})
+              setNameMsg('이름을 입력하세요.') 
+              setIconName(true)
+              setNickMsg('닉네임을 입력하세요.')
+              setIconNick(true)
               alert("회원가입에 실패하였습니다.")
             }
           })
@@ -303,13 +328,16 @@ const onChangeTel3 = useCallback((e) => {
               } 
               </C.EmailCheck>
             </C.SectionColumn>
-            <C.SectionRow>
+            <C.SectionRow style={{height:'40px' , margin:'0px'}}>
               <C.Label>* 이름</C.Label>
-              <C.Name type="text" onChange={onChangeName} required/> 
+              <C.Name type="text" onChange={onChangeName} /><br/> 
               <C.Label>* 닉네임</C.Label>
-              <C.NicName type="text" onChange={onChangeNickname} required/>
+              <C.NicName type="text" onChange={onChangeNickname} />
             </C.SectionRow>
-            {nameMsg}{nickMsg}
+            <C.ErrorMsg>
+              <div style={msgStyle1}>{iconName? <C.IconF><FontAwesomeIcon icon={faCircleExclamation}/></C.IconF>:<></>}{nameMsg}</div>
+              <div style={msgStyle2}>{iconNick? <C.IconF><FontAwesomeIcon icon={faCircleExclamation}/></C.IconF>:<></>}{nickMsg}</div>
+            </C.ErrorMsg>
             <C.SectionRow>
               <C.Label>* 전화번호</C.Label>
               <C.Tel value="010" maxLength={3} onChange={onChangeTel1} required/> - <C.Tel maxLength={4} onChange={onChangeTel2} required /> - <C.Tel maxLength={4} onChange={onChangeTel3} required/>

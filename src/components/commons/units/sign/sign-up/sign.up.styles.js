@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 
+
+
 export const Icon = styled.div`
     color: green;
     margin-right: 5px;
@@ -48,6 +50,10 @@ export const SectionRow = styled.div`
     flex-direction: row;
     justify-content: space-between;
     margin: 15px 0 5px;
+`
+
+export const ErrorMsg = styled.div`
+    display: flex;
 `
 
 export const Label = styled.div`
@@ -105,14 +111,12 @@ export const BtnToken = styled.button`
 export const Name = styled.input`
     width: 150px;
     height: 30px;
-    margin-bottom: 10px;
     border: none;
     border-bottom: 1px solid gray;
 `
 export const NicName = styled.input`
     width: 150px;
     height: 30px;       
-    margin-bottom: 30px;
     border: none;
     border-bottom: 1px solid gray;
 `

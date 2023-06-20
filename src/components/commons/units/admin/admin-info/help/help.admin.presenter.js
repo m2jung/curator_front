@@ -29,13 +29,13 @@ export default function AdminHelpView(props) {
             <C.HelpTable>
                 <thead>
                 <C.Tr>
-                    <C.Th>문의제목</C.Th><C.Th>문의내용</C.Th><C.Th>작성날짜</C.Th><C.Th></C.Th>
+                    <C.Th>선택</C.Th><C.Th>문의제목</C.Th><C.Th>문의내용</C.Th><C.Th>작성날짜</C.Th><C.Th></C.Th>
                 </C.Tr>
                 </thead>
                 <tbody>
                 {helpList?.map((el,i) => (
                 <C.Tr key={i}>
-                    <C.Td>{el.helpTitle}</C.Td><C.Td>{el.helpContent}</C.Td><C.Td>{new Date(el.helpDate).toLocaleString()}</C.Td><C.Td><Link href={`/menu/service.center/${el.helpSeq}`}><FontAwesomeIcon icon={faCommentDots} size='xl'/></Link></C.Td>
+                    <C.Check type="radio" name='help'/><C.Td>{el.helpTitle}</C.Td><C.Td>{el.helpContent}</C.Td><C.Td>{new Date(el.helpDate).toLocaleString()}</C.Td><C.Td><Link href={`/menu/service.center/${el.helpSeq}`}><FontAwesomeIcon icon={faCommentDots} size='xl'/></Link></C.Td>
                 </C.Tr>
                 ))}    
                 </tbody>
