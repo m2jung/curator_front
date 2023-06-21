@@ -92,7 +92,7 @@ export default function WorkView(props) {
             </C.WorkColumn>
 
             <C.WorkPrice>
-              <C.Price>금액 {content?.postPrice} ₩</C.Price>
+              <C.Price>금액 {content?.postPrice} 원</C.Price>
               <C.WorkDate>등록일자 2023.06.05</C.WorkDate>
             </C.WorkPrice>    
               <C.WorkBtn>

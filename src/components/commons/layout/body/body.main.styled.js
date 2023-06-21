@@ -10,10 +10,11 @@ export const BodyWrapper = styled.div`
     margin-top : 30px;   
 `
 export const BodyTitle = styled.h1`
-    margin: 150px  auto 0  10px;
-    font-size: 40px;
-    border-bottom: 2px solid rgba(0,0,0,0.6);
-    padding: 5px 10px;
+    margin: 140px  auto 0  30px;
+    font-size: 42px;
+    font-family: serif;
+    padding: 5px 0 10px 40px;
+    text-shadow: 3px 3px 1px rgba(0,0,0,0.1);
 `
 export const LeftWrapper = styled.div`
     width: 550px;
