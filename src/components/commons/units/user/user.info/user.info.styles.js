@@ -288,8 +288,6 @@ export const PaymentMessage = styled.div`
     color: rgba(0,0,0,0.9);
 `
 
-
-
 // 장바구니 테이블 -----------------------------
 export const MyWishTitle = styled.div`
     padding: 20px;
@@ -304,26 +302,32 @@ export const MyWishTable = styled.table`
     padding: 5px; 
 `
 export const ThTitle = styled.th`
-    height: 40px;
-    background-color: #728DBE;
+    height: 33px;
+    background-color: #829AC7;
     color: white;
     border-radius: 5px;
-    font-weight: 400;
+    font-weight: 500;
 `
 export const ThImage = styled.th`
     color: rgba(0,0,0,0.9);
     width: 130px;
     height: 50px;
+    font-weight: 600;
 `
 export const ThInfo = styled.th`
-    color: rgba(0,0,0,0.9);`
+    color: rgba(0,0,0,0.9);
+    font-weight: 600;    
+`
+
 
 export const ThPrice = styled.th`
     color: rgba(0,0,0,0.9);
     width: 130px;
+    font-weight: 600;
 `
 export const ThSelect = styled.th`
     color: rgba(0,0,0,0.9);
+    font-weight: 600;
     width: 110px;
 
 `
@@ -374,12 +378,17 @@ export const ServiceTable = styled.table`
     width: 100%;
     height: auto;
     box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
-
-    /* &:TdHelpContent, TdHelpTitle {
-        border-bottom: 1px solid rgba(0,0,0,0.2);
-    } */
+    text-align: center;
+    padding: 5px;
 `
 
+export const TdHelpContent = styled.td`
+    width: 610px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+`
+export const TdHelpDate = styled.td`
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+`
 
 
 

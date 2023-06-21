@@ -14,12 +14,10 @@ function ModalBasic(props) {
     console.log(document.getElementById('frame'))
 
     return (
-        <C.container>
-            <C.iframe id='frame' src={props.kakao}></C.iframe>
-            <C.close onClick={closeModal}>
-                X
-            </C.close>
-        </C.container>
+        <>
+         <C.iframe id='frame' style={{scrolling:'no'}} src={props.kakao}></C.iframe>
+        </>
+        
     );
 }
 export default ModalBasic;

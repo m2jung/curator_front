@@ -6,13 +6,14 @@ export const HeaderWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top : 30px;   
+    margin-top : 10px;   
 `
 export const HeadTitle = styled.h1`
-    margin: 70px  auto 0  10px;
-    font-size: 40px;
-    border-bottom: 2px solid rgba(0,0,0,0.6);
-    padding: 5px 10px;
+    margin: 60px  auto 0  10px;
+    font-size: 42px;
+    font-family: serif;
+    padding: 5px 0 10px 40px;
+    text-shadow: 3px 3px 1px rgba(0,0,0,0.1);
 `
 export const LeftWrapper = styled.div`
     width: 1040px;
@@ -20,8 +21,8 @@ export const LeftWrapper = styled.div`
     background-image: url('/images/pop02.png');
     background-position: center;
     background-size: cover;
-
 `
+
 export const RightWrapper = styled.div`
     width: 490px;
     height: 500px;

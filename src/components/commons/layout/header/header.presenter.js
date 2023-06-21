@@ -1,8 +1,10 @@
 import * as C from './header.styles' 
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
 import { useCookies } from 'react-cookie'
+import { faPalette } from '@fortawesome/free-solid-svg-icons'
 
 export default function LayoutHeader(props){
 
@@ -24,8 +26,8 @@ export default function LayoutHeader(props){
 
     return (
         <C.HeaderWrapper>
-        <Link href="/"><C.MainTitle></C.MainTitle></Link>
-        <C.SubTitle>Artist Garden</C.SubTitle>
+        <Link href="/"><C.MainTitle><FontAwesomeIcon icon={faPalette} /></C.MainTitle></Link>
+        <C.SubTitle>Artist<br/>&nbsp;&nbsp;WebSite</C.SubTitle>
         <C.MyProfile>
           {
             loginStatue ?
@@ -33,7 +35,7 @@ export default function LayoutHeader(props){
             : <><Link href="/sign/sign-in"><C.SignInMenu>로그인</C.SignInMenu></Link><Link href="/sign/sign-up"><C.SignupMenu>회원가입</C.SignupMenu></Link></>
             
           
-          
+      
           }
         </C.MyProfile>
         <C.Navigator>

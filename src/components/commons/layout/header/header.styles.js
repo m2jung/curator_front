@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 
 export const HeaderWrapper = styled.div`
     width: 1400px;
-    height: 300px;
+    height: auto;
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -17,29 +17,27 @@ export const HeaderContent = styled.div`
 `
 
 export const MainTitle = styled.div`
-    width: 20px;
-    height: 60px;
-    margin: 30px auto;
-    border-style: outset;
-    background-image: url('/images/pop06.png');
-    background-position: center;
-    background-size: cover;
+    margin: 50px auto 5px;
+    font-size: 60px;
     display: flex;
     justify-content:center;
     align-items:center;
-    padding: 20px;
+    padding: 30px 0 10px;
+    color: darkorange;
 `
 export const SubTitle = styled.div`
-    font-size: 40px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-shadow: 3px 3px 1px lightgray;
+    font-size: 30px;
+    font-weight: 800;
     margin: auto;
 `
 export const MyProfile = styled.div`
     width: 1400px;
+    height: 30px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    font-size: 15px;
+    margin: 60px 0 10px;
 `
 export const SignInMenu = styled.a`
     &:hover{
@@ -75,13 +73,15 @@ export const Navigator = styled.div`
     border: 1px white solid;
     display: flex;
     justify-content: center;
-    margin: 15px;
+    
+    border-top: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 `
 export const Menu = styled.div`
     &:hover{
         font-weight: bold;
     } 
-    font-size: 19px;
-    margin: 20px 25px;
+    font-size: 20px;
+    margin: 15px 65px;
 `
 

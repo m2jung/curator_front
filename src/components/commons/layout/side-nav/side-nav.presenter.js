@@ -28,14 +28,14 @@ export default function LayoutSideNav(props) {
 
   const onClickScrollMark = () => {
     window.scrollTo({
-         top: 1200,
+         top: 1000,
          behavior: 'smooth',
     });
   }
 
   const onClickScrollService = () => {
     window.scrollTo({
-        top: 1600,
+        top: 1400,
         behavior: 'smooth',
     });
   }
