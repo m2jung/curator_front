@@ -223,11 +223,14 @@ export default function UserInfoView(props) {
             <C.Profile>       
             <C.ServiceTable>
                 <thead>
+                <C.Tr>
+                    <C.ThTitle colSpan={2}>나의 문의내역</C.ThTitle>
+                </C.Tr>
                 </thead>
                 <tbody>
                     {helpList?.map((el,i) => (
                     <C.Tr key={i}>
-                       <C.Td>{el.helpContent}</C.Td><C.Td>{new Date(el.helpDate).toLocaleString()}</C.Td>
+                       <C.TdHelpContent>{el.helpContent}</C.TdHelpContent><C.TdHelpDate>{new Date(el.helpDate).toLocaleString()}</C.TdHelpDate>
                     </C.Tr>
                     ))}    
                 </tbody>

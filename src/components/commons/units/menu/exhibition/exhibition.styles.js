@@ -13,7 +13,6 @@ export const ExhibitionBanner = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-top: 2px solid rgba(0,0,0,0.1);
     border-bottom: 2px solid rgba(0,0,0,0.1);
     padding: 20px;
     margin: auto;
