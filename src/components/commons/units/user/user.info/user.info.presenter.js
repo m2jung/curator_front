@@ -24,6 +24,7 @@ export default function UserInfoView(props) {
     const [cartList, setCartList] = useState([]);
     const [artistList, setArtistList] = useState([]);
     const [helpList, setHelpList] = useState([]);
+    const [purList, setPurList] = useState([]);
     const [kakao, setKakao] = useState('');
   
     useEffect(() => {
@@ -43,6 +44,18 @@ export default function UserInfoView(props) {
           );
           const cartArray = await Promise.all(promises);
           setCartList(cartArray.map((res) => res?.data));
+        } catch (error) {
+          console.error('Error fetching cart data:', error);
+        }
+      };
+
+      const fetchPurchase = async () => {
+        try {
+          const response = await axios.get(`${back}purchaseProduct?memberSeq=${seq}`);
+          const purData = response?.data || [];
+  
+          const purArray = await Promise.all(purData);
+          setPurList(purArray);
         } catch (error) {
           console.error('Error fetching cart data:', error);
         }
@@ -72,6 +85,7 @@ export default function UserInfoView(props) {
         }
       };
   
+      fetchPurchase();
       fetchCartData();
       fetchArtistList();
       fetchHelpList();
@@ -133,6 +147,15 @@ export default function UserInfoView(props) {
         }
       };
 
+      const onLoadImg = async (postSeq, purName) => {
+        const image = axios.get(`${back}postView?postSeq=${item?.postSeq}`)
+        const imagePro = await Promise.resolve(image);
+        document.getElementById(purName).src = imagePro;
+      }
+
+     const onClickMove = (purSeq) => {
+        
+     }
 
     return (
         <>
@@ -165,24 +188,28 @@ export default function UserInfoView(props) {
                     <C.Coupon>적립금 0원&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 예치금 0원</C.Coupon>
                     </C.MembershipLevel>
                 </C.MembershipTable>
-                <C.MyPayTable>
+              {purList?.map((el, i) => (
+                <>
+                <C.MyPayTable key={i}>
                     <C.MyPayColumn1>
                         <C.ProductProfile>
-                         <C.ProductDelivery>배송전</C.ProductDelivery>
-                         <C.Image/>
+                         <C.ProductDelivery></C.ProductDelivery>
+                         <C.Image src={''}/>
                         </C.ProductProfile>
                         <C.ProductInfo>
-                            <C.ProductTitle> 텔레토비 </C.ProductTitle>
-                            <C.ProductContent>작가 김세동</C.ProductContent>
-                            <C.ProductPrice>20,000,000 원</C.ProductPrice>
+                            <C.ProductTitle>{el.purName}</C.ProductTitle>
+                            <C.ProductContent>{el.purAddr}</C.ProductContent>
+                            <C.ProductPrice>{el.purDate}</C.ProductPrice>
                         </C.ProductInfo>
                     </C.MyPayColumn1>
                     <C.MyPayColumn2>
-                        <C.ProductBtn>배송조회</C.ProductBtn>
+                        <C.ProductBtn onClick={() => onClickMove(el.purSeq)}>배송조회</C.ProductBtn>
                         <C.ProductBtn onClick={onClickHelp}>교환,반품 신청</C.ProductBtn>
                         <C.ProductBtn onClick={onClickHelp}>판매자 문의 </C.ProductBtn>
                     </C.MyPayColumn2>
                 </C.MyPayTable>
+                </>
+                ))}
                 {/* 장바구니 */}             
                 <C.MyWishTitle/>
                 <C.MyWishTable>

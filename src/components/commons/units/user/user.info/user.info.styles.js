@@ -224,10 +224,9 @@ export const ProductDelivery = styled.div`
     color: #364D79;
     text-align: center;
 `
-export const Image = styled.div`
+export const Image = styled.img`
     width: 110px;
     height: 120px;
-    background-image: url('/images/pop01.jpg');
     background-size: cover;
 `
 
