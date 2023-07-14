@@ -10,7 +10,6 @@
 <h3 align="center">담당역할</h3>
 <p align="center"> page와 src,container와 presenter로 Component 폴더 구조 분리 <br> emotion/styled 를 사용한 view 전체 구현 <br> axios를 사용한 백엔드 restAPI 요청,응답 (관리자,회원정보)  </p>
 <br>
----
 <br>
 <h3 align="center">웹 사이트 전체 메인 화면</h3>
 <p align="center">- transition style로 carousel 기능 <br> - grid 로 인기 작품들을  state로 onClick시 선택 이미지 띄우기 </p>
