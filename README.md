@@ -1,6 +1,8 @@
+<br>
 <h2 align="center"> 🎨 온라인 미술품 큐레이터 🖌️ </h2>
+<br>
 <p> <h4 align="center"> 신인,노년 미술 작가들이 대중들에게 자신을 소개할 수 있는 <br> 온라인 미술품 판매 전시회 소개 웹 사이트 </h4> </p>
-
+<br>
 <h3 align="center"> 프로젝트 기간 </h3>
 <p align="center"> 2023.05.36 ~ 06.21 </p>
 <br>
